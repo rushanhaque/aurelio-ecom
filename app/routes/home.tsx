@@ -6,6 +6,7 @@ import { LightStudy } from "../components/light-study";
 import { AtelierExperiments } from "../components/atelier-experiments";
 import { homeContent } from "../lib/home-content";
 import { database } from "../../server/db";
+import { frontendPreview } from "../../server/preview-mode";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { Picture, ProductCard, TextLink } from "../components/ui";
 import { useStore } from "../lib/store";
@@ -65,6 +66,7 @@ function Orbit({ className = "" }: { className?: string }) {
   );
 }
 export async function loader() {
+  if (frontendPreview()) return { homeCopy: homeContent };
   const { db } = await database();
   const saved = await db.collection("content").findOne({ slug: "home" });
   return { homeCopy: (saved?.published || homeContent) as typeof homeContent };

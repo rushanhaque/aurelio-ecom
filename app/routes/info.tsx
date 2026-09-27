@@ -4,10 +4,12 @@ import { PageIntro } from "../components/ui";
 import NotFound from "./not-found";
 import { pages } from "../lib/help-content";
 import { database } from "../../server/db";
+import { frontendPreview } from "../../server/preview-mode";
 
 export async function loader({ params }: { params: { page?: string } }) {
   if (!pages[params.page || ""])
     throw new Response("Not found", { status: 404 });
+  if (frontendPreview()) return { page: pages[params.page!] };
   const { db } = await database();
   const saved = await db.collection("content").findOne({ slug: params.page });
   return {

@@ -5,6 +5,7 @@ import helmet from "helmet";
 import { createRequestHandler } from "@react-router/express";
 import { api } from "./server/api.ts";
 import { database } from "./server/db.ts";
+import { frontendPreview } from "./server/preview-mode.ts";
 import { discovery } from "./server/discovery.ts";
 import { randomBytes, randomUUID } from "node:crypto";
 const development = process.env.NODE_ENV !== "production";
@@ -50,7 +51,9 @@ app.use("/api", (req, res, next) => {
   res.setHeader("Cache-Control", "no-store");
   next();
 });
-app.use(api);
+if (frontendPreview()) {
+  app.use("/api", (_req, res) => res.status(503).json({ error: "Online services are not connected in this client preview." }));
+} else app.use(api);
 app.use(discovery);
 app.use(
   "/uploads",
@@ -90,7 +93,7 @@ if (development) {
   );
 }
 const port = Number(process.env.PORT || 3000);
-await database();
+if (!frontendPreview()) await database();
 const server = app.listen(port, process.env.HOST || "127.0.0.1", () =>
   console.log(`Aurelio is available at http://localhost:${port}`),
 );

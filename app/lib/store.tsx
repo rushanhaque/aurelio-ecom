@@ -149,6 +149,9 @@ export async function request<T = any>(
   path: string,
   options: RequestInit = {},
 ) {
+  if (typeof document !== "undefined" && document.documentElement.dataset.frontendPreview === "true") {
+    throw new Error("This is a design preview. Online submissions will open when the store launches. Please contact Aurelio directly.");
+  }
   const res = await fetch(path, {
     ...options,
     headers: { "Content-Type": "application/json", ...options.headers },

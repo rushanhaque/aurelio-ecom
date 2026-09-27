@@ -2,6 +2,7 @@ import { MongoClient, type Db } from "mongodb";
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
 import type { Product } from "../app/lib/catalog.ts";
+import { frontendPreview } from "./preview-mode.ts";
 declare global {
   var aurelioDatabase: Promise<{ db: Db; client: MongoClient }> | undefined;
 }
@@ -76,6 +77,7 @@ async function connect() {
   return { db, client };
 }
 export async function getProducts() {
+  if (frontendPreview()) return [] as Product[];
   const { db } = await database();
   return (await db
     .collection("products")

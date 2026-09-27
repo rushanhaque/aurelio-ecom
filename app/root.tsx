@@ -19,6 +19,7 @@ import {
 } from "react-router";
 import type { ReactNode } from "react";
 import { getProducts } from "../server/db";
+import { frontendPreview } from "../server/preview-mode";
 import { StoreProvider } from "./lib/store";
 import {
   Header,
@@ -44,8 +45,9 @@ export const meta = () => [
 export async function loader({ context }: { context: { cspNonce?: unknown } }) {
   return {
     products: await getProducts(),
+    frontendPreview: frontendPreview(),
     nonce: typeof context.cspNonce === "string" ? context.cspNonce : undefined,
-    siteUrl: new URL(process.env.SITE_URL || "http://localhost:3000").origin,
+    siteUrl: new URL(process.env.SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")).origin,
   };
 }
 export function Layout({ children }: { children: ReactNode }) {
@@ -68,11 +70,12 @@ export function Layout({ children }: { children: ReactNode }) {
       ? `Explore Aurelio’s ${collection.name.toLowerCase()} collection. Metal and wood, made by hand in Moradabad. Retail objects and bulk enquiries.`
       : brand.story);
   return (
-    <html lang="en">
+    <html lang="en" data-frontend-preview={data?.frontendPreview ? "true" : undefined}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        {data?.frontendPreview && <meta name="robots" content="noindex,nofollow" />}
         <Links nonce={data?.nonce} />
         <meta name="description" content={description} />
         {product && data && (
@@ -138,7 +141,9 @@ export function Layout({ children }: { children: ReactNode }) {
   );
 }
 export default function App() {
-  const { products } = useLoaderData<typeof loader>();
+  const { products, frontendPreview: preview } = useLoaderData<typeof loader>();
+  const location = useLocation();
+  const unavailable = preview && /^\/(admin|cms|account|checkout|orders|quotes|track-order)(\/|$)/.test(location.pathname);
   return (
     <StoreProvider products={products}>
       <a href="#main" className="skip-link">
@@ -146,7 +151,7 @@ export default function App() {
       </a>
       <Header />
       <main id="main">
-        <Outlet />
+        {unavailable ? <section className="container section"><p className="eyebrow">AURELIO / CLIENT PREVIEW</p><h1>This chapter is still taking shape.</h1><p>Accounts, ordering and the studio portal will open when the store launches.</p><Link className="button" to="/">Explore Aurelio ↗</Link></section> : <Outlet />}
       </main>
       <Footer />
       <GlobalPanels />
