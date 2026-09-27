@@ -1,0 +1,118 @@
+{
+  "Candle1": {
+    "width": 1200,
+    "height": 1281
+  },
+  "Candle1Hover": {
+    "width": 1200,
+    "height": 1280
+  },
+  "Candle2": {
+    "width": 1023,
+    "height": 1537
+  },
+  "Candle2Hover": {
+    "width": 1023,
+    "height": 1537
+  },
+  "Console": {
+    "width": 1123,
+    "height": 1401
+  },
+  "ConsoleHover": {
+    "width": 1122,
+    "height": 1402
+  },
+  "FlowerPot1": {
+    "width": 1024,
+    "height": 1536
+  },
+  "FlowerPot1Hover": {
+    "width": 1024,
+    "height": 1536
+  },
+  "FlowerPot2": {
+    "width": 896,
+    "height": 1200
+  },
+  "FlowerPot2Hover": {
+    "width": 896,
+    "height": 1200
+  },
+  "JewelryStand1": {
+    "width": 1024,
+    "height": 1024
+  },
+  "JewelryStand2": {
+    "width": 1024,
+    "height": 1024
+  },
+  "Lamp": {
+    "width": 1082,
+    "height": 1443
+  },
+  "LampHover": {
+    "width": 1075,
+    "height": 1433
+  },
+  "Lamptwo": {
+    "width": 1023,
+    "height": 1537
+  },
+  "LamptwoHover": {
+    "width": 1024,
+    "height": 1535
+  },
+  "Lantern1": {
+    "width": 1023,
+    "height": 1537
+  },
+  "Lantern1Hover": {
+    "width": 1023,
+    "height": 1537
+  },
+  "Light1": {
+    "width": 1023,
+    "height": 1537
+  },
+  "Light1Hover": {
+    "width": 1023,
+    "height": 1537
+  },
+  "Tray1": {
+    "width": 1023,
+    "height": 1537
+  },
+  "Tray2": {
+    "width": 1023,
+    "height": 1537
+  },
+  "WallClock1": {
+    "width": 941,
+    "height": 1412
+  },
+  "WallClock2": {
+    "width": 941,
+    "height": 1412
+  },
+  "assemblyinspection": {
+    "width": 1122,
+    "height": 1402
+  },
+  "castingandforging": {
+    "width": 1400,
+    "height": 1875
+  },
+  "designanddrafting": {
+    "width": 1400,
+    "height": 1875
+  },
+  "handraising": {
+    "width": 1400,
+    "height": 2352
+  },
+  "patinaandfinishing": {
+    "width": 1400,
+    "height": 2508
+  }
+}

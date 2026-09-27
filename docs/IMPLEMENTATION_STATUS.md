@@ -1,0 +1,70 @@
+# Aurelio — implementation audit
+
+Audit date: 27 September 2026. Source: `AURELIO_IMPLEMENTATION_PLAN.md`, checked against the actual code and local tests. This document supersedes older README statements about missing local features. **The complete production plan is not finished. The site is a functional local storefront and studio, not yet a live payment store.**
+
+No products have been added to the storefront. Product fixtures exist only in disposable QA databases. Original Aurelio brand assets/content are documented in `BRAND_CONTENT.md`; the reference project remains untouched.
+
+## Plan coverage
+
+| Plan area | Current implementation | Status / remaining work |
+| --- | --- | --- |
+| 1–6: brief, visual identity, source content, architecture of pages | Aurelio/AF International identity, the specified colours, self-hosted type, seven original collections, nine materials, original archive/workshop imagery | Implemented. Product photography/content must come from the owner. Some decorative artwork is generated and must not be treated as inventory documentation. |
+| 7, 10–12: home, storytelling and motion | Cinematic hero, three-act making story, archive/selected works, workshop stages, collection explorer, light interaction, scroll reveals, pointer/touch alternatives, reduced-motion handling, scoped lazy-loaded GSAP | Implemented. Current-session browser automation was unavailable, so the newly added utility screens still need fresh desktop/mobile visual and keyboard checks. |
+| 8, 13: shop/search/category/collection | Shop query, material/finish/stock/price filtering, price/featured sorting, removable filter chips, 12-item pagination; collection stories and empty states | Implemented for the present catalog architecture. Search uses the loaded published catalog; fuzzy relevance and a server-side large-catalog search index are not implemented. |
+| 8, 13: product details | Own uploaded cover + eight gallery images, zoom, SKU, material, dimensions, finish, stock, explicit currency prices, lead time, wishlist, quantity, bulk enquiry, related objects | Implemented. Each SKU is a separate record; shared style codes link finish/size variants. This is simpler than the plan’s separate parent/variant data model. Structured Product data has no fake reviews or purchasable Offer in preview mode. |
+| 8, 13: bag/wishlist | Persistent local bag/wishlist/currency, current catalog lookup, remove/undo, bulk enquiry from bag | Implemented. Account-synced carts/wishlists and guest-cart merge are not implemented. |
+| 13: account | Registration, sign-in/out, secure session cookie, profile, ten saved addresses, default address, address selection at checkout, paginated own orders, password change | Implemented and integration-tested. Address coverage currently matches the five preview countries. |
+| 13: account verification/recovery | Expiring purpose-bound one-time links, resend rate limits, atomic password reset, all-session revocation, used/expired link states, private local email inbox | Locally implemented/tested. **No email is sent.** Connect and verify a transactional provider before public use. Local inbox is deliberately disabled outside development/local preview. |
+| 8, 13, 18: checkout/orders | Guest/account preview checkout, server-calculated integer prices, atomic stock decrement, idempotent order creation, private guest key, immutable order details | Preview implemented and race-tested. **Live gateway/payment states, reservations/expiry, signed webhooks, refunds and reconciliation are not implemented.** Preview stock decrement is not a payment reservation system. |
+| 9, 13: bulk | Source manufacturing story/process, validated briefs, retained cart selections with server-side names/SKUs, duplicate-submit handling, saved reference, assignment/notes/follow-up date/status | Implemented. File attachments and automatic follow-up delivery are not implemented. |
+| 9, 20: quotes | Staff-priced versioned proposals, currency/freight/tax/terms, private secret link, expiration/supersession checks, customer request creates one unpaid draft even under concurrent retries | Implemented/tested. Drafts are not paid orders, stock reservations or shipping instructions. Automatic email/PDF delivery and actual payment collection remain unconnected. |
+| 13: after-sales | Order-owner/guest-key authorization, question/return/damage/cancellation request, duplicate protection, studio status/internal notes/customer-visible response | Implemented/tested. Eligibility automation, evidence attachments, RMA labels, inspection and monetary refunds remain unimplemented. |
+| 13: brand/help/legal | About/craft/materials/care/contact/FAQ/shipping/returns/privacy/terms/accessibility, real business contacts, journal articles, secure tracking entry, 404/error screens | Pages exist. Legal, shipping and returns text honestly explains preview limitations; final trading policies and required business disclosures need approval before sales. |
+| 13, 22: cookies/newsletter | Essential-storage explanation, public email preferences/unsubscribe, stored explicit subscription consent; no advertising/analytics trackers | Implemented. Marketing delivery/double opt-in and suppression synchronization with a future provider are not connected. |
+| 14–17: MERN/SSR/data/API | React Router SSR, Express, MongoDB replica transactions/indexes, TypeScript, Zod, published-only catalog, ownership checks | Implemented. Native MongoDB driver is used rather than Mongoose. Root currently ships the published catalog to the browser; large-catalog API pagination is future work. |
+| 19: international | Four explicit price currencies; five preview checkout countries; Moradabad/export enquiry content | Partial. Actual countries, payment eligibility, packed dimensions, carrier rates/serviceability, taxes/duty terms and compliant invoices must be configured and integrated. No foreign-exchange or landed-cost guarantees are made. |
+| 20: studio catalog/inventory | Manual create/edit/remove, draft/publish/archive, own-image upload/re-encode, gallery, linked SKU variants, low-stock labels, stock-change reason, stale-stock conflict check, audit records | Implemented. No catalog is seeded. CSV import, media quarantine/CDN pipeline, distinct warehouses and a manufacturing-capacity model are not implemented. |
+| 20: studio content | Plain-text block editor for FAQ, shipping, returns, privacy, terms and accessibility; preview; private draft; explicit publish; versions; loading a prior version; stale-edit protection | Implemented/tested. The homepage, collection choreography, material library and journal remain code-managed. The plan’s general editorial block builder is not implemented. |
+| 20, 22: staff permissions | Secret bearer token held only in memory, CSRF origin checks, API rate limits, limited audit trail | Suitable for local owner-operated preview. **Staff identities, role separation, MFA, audited refund permissions and comprehensive operational reporting are not implemented.** |
+| 21: performance | SSR, route splitting, responsive editorial WebP, deferred motion, self-hosted fonts, compression/static cache, bundle-report script | Foundations implemented. No current real-device or field CWV claim. New uploads currently use a single optimized image size. CDN, RUM, load testing and full budget sign-off remain. |
+| 22–23: security/discovery | Nonce-based script CSP, no inline event handlers, security headers, no-store API responses, request IDs, redacted error logging, canonical/social metadata, sitemap, robots, noindex preview guard, Product schema | Implemented and HTTP-checked. Hosting proxy rules, managed secret storage, security review and launch indexing approval remain. |
+| 24: analytics | No third-party analytics or ad tracking is installed | Not implemented; choose measurement/consent requirements and provider before adding it. |
+| 25: deployment/reliability | CI workflow, production configuration checker, non-root Docker recipe, health endpoint, EJSON snapshot/restore tooling | Code added. Backup drill passed on disposable databases. Docker image/remote CI/real host have not been deployed or verified. No PITR/RPO/RTO guarantee. Production workers, monitoring/alerts, recovery ownership and asset backups remain. |
+| 26: verification | Unit/domain checks, isolated MongoDB API/security/race tests, route/API smoke checks, disposable restore drill | Passing local checks listed below. Payment/carrier tests cannot pass without those integrations. Current browser-tool inventory has no connected surfaces; visual, accessibility and real-device performance sign-off remains open. |
+| 27–31: rollout/decisions/research | Original researched plan retained; this audit and operating guide added | Launch acceptance is not yet met. Earlier effort estimates describe a larger production programme, not a claim that every integration now exists. |
+
+## Verification commands
+
+- `npm run typecheck`
+- `npm test` — 12 domain checks, including unpublished-product rejection and minor-unit currency display.
+- `npm run test:integration` — stock race, order idempotency, payload mismatch and private order access.
+- `npm run test:operations` — profile validation; link purpose/expiry/one-time use; concurrent reset; revoked sessions; after-sales authorization/privacy; draft visibility; unsubscribe; private quote/version/concurrent acceptance; content draft/publish/version conflicts.
+- `npm run test:backup` — restores ObjectIds, Dates and stock values into a new disposable DB; refuses existing targets; source unchanged.
+- `npm run build`, `npm run test:smoke`, `npm run report:bundles`.
+- `npm audit` — zero known vulnerabilities after updating Sharp to 0.35.4. This is dependency-audit evidence, not a full security certification. [Maintainer’s patched release](https://github.com/lovell/sharp/releases/tag/v0.35.4).
+
+Integration tests require the local preview/MongoDB to be running. They never populate the real product catalog. Smoke tests create and remove only their own tagged disposable account/form records.
+
+Final local verification for this pass: typecheck and production build passed; 12 domain tests and 90 smoke assertions passed; account/quote/content, checkout-race and backup-restore integration suites passed. Sharp 0.35.4 decoded/resized/re-encoded an in-memory PNG to WebP successfully. All 17 initial homepage asset links returned success. The real catalog count remained **0**. The restore drill encountered one transient Windows child-process crash during an earlier run; the subsequent isolated drill and final rerun passed.
+
+Bundle report across **all** routes: JavaScript 201.3 KiB Brotli, CSS 19.8 KiB Brotli; all WOFF2 files total 109.5 KiB. These totals are not a measured initial-page transfer. The all-font total exceeds the plan’s proposed 100 KiB critical-font target and needs a device/network trace before acceptance. No Lighthouse, mobile FPS, LCP/INP/CLS or audited accessibility result is claimed for this pass. The production checker correctly reports missing external MongoDB and an HTTPS origin; the additional manual integration gates remain open.
+
+## Required before taking money
+
+1. Confirm approved payment provider and international launch countries. Do not paste secrets into chat; configure them privately in the deployment environment.
+2. Implement and test the provider’s checkout/webhooks/refunds/reconciliation and proper inventory reservations. Current checkout must stay labelled unpaid preview.
+3. Supply carrier/serviceability/rates, packaged product measurements, tax/invoice decisions and duty terms. Replace illustrative checkout amounts with server-verified quotes.
+4. Connect a verified sending domain/provider; remove local-inbox mode on public hosts; test verification/reset/order/enquiry delivery and bounce/failure handling.
+5. Add production staff authentication/MFA/roles, hosting-specific proxy/security configuration, monitoring and durable integration workers.
+6. Approve business/legal/privacy/returns/shipping content and operational owners; add genuine products and photography manually.
+7. Finish the explicitly outstanding engineering above where required for the agreed launch, then test desktop/mobile/browser/accessibility/performance and production recovery.
+
+These are real remaining work items, **not** boxes that can be checked by supplying API keys alone. Nothing has been deployed, no live email has been sent, and no payment has been taken.
+
+## Visual and CMS refinement � 27 September 2026
+
+Added a responsive material atelier using the nine canonical Aurelio materials: accessible swatch tabs, keyboard selection, form/surface image switching, a pointer-following light treatment, image wipes, progressive scroll reveals and a commission seal. Only the active material image is mounted; motion respects reduced-motion preferences. Added subtle product-image glints and refined studio spacing and mobile grids. No products were added.
+
+Fixed the hero image stacking context that hid the photography, reset quantity/gallery state when navigating to a different product, and reset the CMS publication checkbox between edited pages. `/cms` opens the content workspace; the homepage atelier copy now supports drafts, explicit publication, conflict detection and version history through the existing protected API.
+
+Verification: production build and typecheck passed; 12 domain tests, the account/quote/content integration suite (including homepage draft/publication), and 92 smoke assertions passed. Browser inspection covered desktop 1440px, mobile 390px and narrow 320px, material switching, surface toggle and keyboard navigation. No browser errors were captured during these checks. CMS entry was inspected on mobile; authenticated publishing was tested through the API in a disposable database. This is not an exhaustive device, accessibility or performance certification. Chrome DevTools trace tools were unavailable; no Core Web Vitals claim is made. The production integration gates above remain open.

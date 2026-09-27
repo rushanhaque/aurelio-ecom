@@ -1,0 +1,123 @@
+.account-settings {
+  margin-top: clamp(64px, 9vw, 120px);
+  border-top: 1px solid var(--line, #ccd2ce);
+  padding-top: 48px;
+}
+.settings-grid,
+.address-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin: 32px 0;
+}
+.address-card {
+  padding: 28px;
+  border: 1px solid #cbd1cc;
+  border-radius: 4px;
+}
+.address-card p {
+  margin: 16px 0;
+}
+.address-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+.address-editor {
+  max-width: 800px;
+  margin: 32px 0;
+}
+.support-form {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #cbd1cc;
+}
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+.filter-chips button {
+  padding: 8px 14px;
+  border: 1px solid #cbd1cc;
+  border-radius: 30px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 0;
+}
+.admin-toolbar .auth-tabs {
+  flex-wrap: wrap;
+}
+.admin-toolbar, .shop-toolbar, .shop-toolbar > div { flex-wrap:wrap; }
+.shop-toolbar > div { min-width:0; gap:16px; }
+.price-filter { display:flex; align-items:center; gap:8px; }
+.price-filter input { width:88px; padding:10px; border:1px solid #cbd1cc; background:transparent; }
+.workflow-form {
+  width: 100%;
+  max-width: 640px;
+  display: grid;
+  gap: 16px;
+}
+.admin-records article {
+  flex-wrap: wrap;
+}
+.gallery-thumbs {
+  flex-wrap: wrap;
+}
+.quote-editor {
+  width: 100%;
+  max-width: 700px;
+  padding: 24px 0;
+}
+.content-editor { max-width:850px; }
+.content-editor > .field { margin:24px 0; }
+.content-preview { padding:24px; border:1px solid #cbd1cc; }
+.content-preview summary { cursor:pointer; }
+.content-preview section { margin:24px 0; }
+.quote-editor summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 16px 0;
+}
+.quote-line {
+  border: 1px solid #cbd1cc;
+  padding: 20px;
+  min-width: 0;
+}
+.quote-summary-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid #cbd1cc;
+  margin-bottom: 24px;
+  overflow-wrap: anywhere;
+}
+.address-card,
+.workflow-form {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .settings-grid,
+  .address-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .account-settings .section-heading {
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .account-settings {
+    padding-top: 32px;
+  }
+  .address-card {
+    padding: 20px;
+  }
+}
