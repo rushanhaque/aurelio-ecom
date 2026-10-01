@@ -262,14 +262,7 @@ body:has([role="dialog"]) .journey-dock {
   opacity: 0;
   pointer-events: none;
 }
-.hero-editorial h1 > span {
-  overflow: clip;
-  padding-bottom: 0.1em;
-  margin-bottom: -0.1em;
-}
-.hero-editorial h1 .hero-line-inner {
-  display: block;
-}
+
 .archive-frame {
   transform-style: preserve-3d;
   transform-origin: center;

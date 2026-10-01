@@ -10,7 +10,7 @@ const bundle = bundles.find(name => name.startsWith("nodejs_"));
 assert.ok(bundle, "Build with VERCEL=1 before running this test.");
 const build = await import(`../build/server/${bundle}/index.js`);
 const handler = createRequestHandler(build, "production");
-for (const [path, expected] of [["/", "Beyond"], ["/shop", "collection"], ["/shipping", "shipping"], ["/materials", "Brass"], ["/cms", "This chapter is still taking shape"], ["/account", "This chapter is still taking shape"], ["/checkout", "This chapter is still taking shape"]]) {
+for (const [path, expected] of [["/", "Visit the shop"], ["/shop", "collection"], ["/shipping", "shipping"], ["/materials", "Brass"], ["/cms", "This chapter is still taking shape"], ["/account", "This chapter is still taking shape"], ["/checkout", "This chapter is still taking shape"]]) {
   const response = await handler(new Request(`https://preview.example${path}`));
   const html = await response.text();
   assert.equal(response.status, 200, `${path} renders without MongoDB`);

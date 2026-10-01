@@ -1,16 +1,17 @@
 export const homeContent = {
   eyebrow: "THE MATERIAL ATELIER",
   title: "A different kind of presence.",
-  intro:
-    "Nine materials. Nine ways to catch the light, hold a form and bring a little character into a room.",
+  intro: "Nine materials, each with its own character.",
   sections: [
-    [
-      "Look closer.",
-      "Explore the surface. Notice the marks, the grain and the way the light moves.",
-    ],
-    [
-      "Make it yours.",
-      "Start with a material. Bring us your proportions, your finish and your idea.",
-    ],
+    ["Look closer.", "Explore the surface and the grain."],
+    ["Make it yours.", "Start with a material. Bring us your idea."],
   ] as [string, string][],
+};
+
+/* The landing film. Drop the files into public/videos — the poster holds the
+   frame until the film is ready, and stays put if it never arrives. */
+export const heroMedia = {
+  webm: "/videos/hero.webm",
+  mp4: "/videos/hero.mp4",
+  poster: "/images/hero-1440.webp",
 };

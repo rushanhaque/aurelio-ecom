@@ -28,8 +28,8 @@ export default function Quote() {
   }, [id]);
   return (
     <>
-      <PageIntro eyebrow="MADE AROUND YOUR VISION" title="Your quotation">
-        <p>Your private Aurelio quotation.</p>
+      <PageIntro title="Your quotation">
+        <p>Your private quotation.</p>
       </PageIntro>
       <section className="container account-section">
         <p role="alert" className="form-error">
@@ -83,15 +83,12 @@ export default function Quote() {
                   <h3>Your response is saved.</h3>
                   <p>Draft reference: {quote.draftId}</p>
                   <p>
-                    The studio will confirm the next steps. No payment has been
-                    collected and no stock is reserved.
+                    We’ll confirm next steps. No payment is taken and no stock
+                    is reserved.
                   </p>
                 </div>
               ) : !quote.current || quote.expired ? (
-                <p>
-                  This quote has expired or been replaced. Contact the studio
-                  for an updated proposal.
-                </p>
+                <p>This quote has expired. Contact us for a new one.</p>
               ) : (
                 <form
                   onSubmit={async (e) => {
@@ -121,10 +118,7 @@ export default function Quote() {
                     proposal and would like the studio to proceed with an order
                     draft.
                   </label>
-                  <p>
-                    This records your request. The studio must confirm the order
-                    and arrange payment separately.
-                  </p>
+                  <p>We’ll confirm the order and arrange payment separately.</p>
                   <button className="button" disabled={busy}>
                     {busy ? "Saving…" : "Request order draft"}
                   </button>

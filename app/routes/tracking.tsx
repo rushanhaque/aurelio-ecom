@@ -28,24 +28,21 @@ export default function Tracking() {
   }
   return (
     <>
-      <PageIntro eyebrow="FROM OUR WORLD TO YOURS" title="Track your order">
-        <p>
-          Use your order reference and secure access key,
-          <br /> or sign in to your account to view your orders.
-        </p>
+      <PageIntro title="Track your order">
+        <p>Enter your reference and access key, or sign in.</p>
       </PageIntro>
       <form className="editorial-form narrow-form container" onSubmit={submit}>
         <Field label="Order reference" name="reference" placeholder="AUR-…" />
         <Field label="Secure access key" name="token" />
         <p className="muted">
-          Your key appears on the confirmation page. Treat it like a password.
-          Preview orders have no physical shipment or carrier tracking.
+          Your key is on the confirmation page. Keep it private. Preview orders
+          aren’t shipped.
         </p>
         <p className="form-error" role="alert">
           {error}
         </p>
         <button className="button" disabled={busy}>
-          {busy ? "Finding your order…" : "View order"}
+          {busy ? "Finding…" : "View order"}
           <ArrowUpRight size={18} />
         </button>
       </form>

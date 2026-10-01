@@ -31,7 +31,7 @@ export default function Info() {
   if (!p) return <NotFound />;
   return (
     <>
-      <PageIntro eyebrow={p.eyebrow} title={p.title}>
+      <PageIntro title={p.title}>
         <p>{p.intro}</p>
       </PageIntro>
       <section className="info-layout container">
@@ -65,7 +65,7 @@ export default function Info() {
             ),
           )}
           <Link className="text-link" to="/contact">
-            Still wondering? Get in touch
+            Questions? Get in touch
             <ArrowUpRight size={16} />
           </Link>
         </div>

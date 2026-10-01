@@ -1,5 +1,5 @@
 import { useEffect, useState, type CSSProperties } from "react";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 import { collections } from "../lib/brand-content";
 import "../storytelling.css";
@@ -27,7 +27,6 @@ export function MakingStory() {
       </h2>
       <div className="making-stage">
         <div className="making-topline">
-          <span>SEVEN WORLDS OF METAL &amp; WOOD.</span>
           <span>THE COLLECTIONS</span>
         </div>
         <svg
@@ -41,11 +40,7 @@ export function MakingStory() {
         <div className="making-panels">
           {collections.map((c, i) => (
             <article className="making-panel" key={c.slug}>
-              <span className="making-watermark" aria-hidden="true">
-                {numerals[i]}
-              </span>
               <div className="making-copy">
-                <span className="making-label">{c.index} / COLLECTION</span>
                 <h3>
                   <span className="making-line">
                     <span>{c.name}</span>
@@ -82,17 +77,11 @@ export function MakingStory() {
                   decoding="async"
                   alt={alts[c.slug] || `The Aurelio ${c.name} collection`}
                 />
-                <span className="making-image-corner" aria-hidden="true">
-                  AURELIO / {c.index}
-                </span>
               </Link>
             </article>
           ))}
         </div>
         <div className="making-bottom">
-          <span>
-            KEEP SCROLLING <ArrowDown size={12} />
-          </span>
           <div className="making-track" aria-hidden="true">
             <i />
           </div>

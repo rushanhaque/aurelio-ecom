@@ -11,27 +11,18 @@ export default function Preferences() {
   const [busy, setBusy] = useState(false);
   return (
     <>
-      <PageIntro eyebrow="YOUR CHOICES" title="Preferences">
-        <p>Your privacy and communication preferences.</p>
+      <PageIntro title="Preferences">
+        <p>Privacy and email choices.</p>
       </PageIntro>
       <section className="container account-section settings-grid">
         <div>
           <h2>Essential storage only.</h2>
           <p>
-            This storefront uses a secure session cookie to keep you signed in
-            and browser storage for your bag, wishlist and chosen currency.
-            Secure guest order keys remain in your browser session.
+            A session cookie keeps you signed in. Browser storage remembers your
+            bag, wishlist and currency.
           </p>
-          <p>
-            No advertising pixels, optional analytics cookies or third-party
-            marketing trackers are installed. There are no optional tracking
-            preferences to enable.
-          </p>
-          <p>
-            Signing out removes the session cookie. Clearing Aurelio’s site data
-            in your browser removes saved shopping preferences and order keys on
-            this device.
-          </p>
+          <p>No advertising or analytics trackers are used.</p>
+          <p>Clearing site data removes your saved bag and order keys.</p>
         </div>
         <form
           className="editorial-form"
@@ -56,11 +47,8 @@ export default function Preferences() {
             }
           }}
         >
-          <h2>A quieter inbox.</h2>
-          <p>
-            Unsubscribe from Aurelio notes. This does not change essential
-            communications about an order or enquiry.
-          </p>
+          <h2>Email</h2>
+          <p>Unsubscribe from our notes. Order emails are unaffected.</p>
           <Field
             name="email"
             type="email"

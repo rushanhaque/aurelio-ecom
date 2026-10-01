@@ -37,7 +37,6 @@ function Chapter({
     >
       <div className="container">
         <header className="experiment-heading" data-reveal>
-          <span className="eyebrow">FINISHES WE OFFER / 0{index + 1}</span>
           <h2 id={`experiment-title-${index}`}>
             {experiments[index][1]}
             <em>.</em>
@@ -195,10 +194,7 @@ export function MakersLens() {
     });
   }
   return (
-    <Chapter
-      index={1}
-      intro="Every hammer mark is placed by hand, so no two hammered pieces catch the light the same way."
-    >
+    <Chapter index={1} intro="Every mark is placed by hand.">
       <div className="experiment-split">
         <div className="experiment-canvas lens-canvas">
           <svg
@@ -251,15 +247,9 @@ export function MakersLens() {
               strokeWidth="4"
             />
           </svg>
-          <span className="experiment-stamp">BRASS / 2.4× CLOSER</span>
         </div>
         <div className="experiment-copy">
-          <span className="eyebrow">HAND-HAMMERED</span>
-          <h3>Hammered, up close.</h3>
-          <p>
-            Move the lens across a hammered brass surface, or choose a detail
-            below. Each facet breaks the light differently. That is the finish.
-          </p>
+          <p>Move the lens across the brass, or pick a detail.</p>
           <div className="lens-details">
             {[
               [160, 150, "01", "The high points"],
@@ -277,7 +267,7 @@ export function MakersLens() {
             ))}
           </div>
           <Link className="text-link" to="/about">
-            Meet the making ↗
+            Meet the makers ↗
           </Link>
         </div>
       </div>
@@ -292,36 +282,32 @@ const lampParts = [
     x: 68,
     y: 24,
     name: "The shade",
-    finish: "Pleated linen, to soften and spread the light.",
+    finish: "Pleated linen, soft light.",
   },
   {
     x: 50,
     y: 38,
     name: "The light source",
-    finish: "A warm lamp, wired and balanced by hand.",
+    finish: "Wired and balanced by hand.",
   },
   {
     x: 55,
     y: 60,
     name: "The stem",
-    finish: "Cast brass, fluted and antiqued to bring out the carving.",
+    finish: "Cast brass, antiqued.",
   },
   {
     x: 62,
     y: 85,
     name: "The base",
-    finish: "A weighted brass foot, burnished bright at its edges.",
+    finish: "Weighted brass, burnished.",
   },
 ];
 export function ObjectAnatomy() {
   const [glow, setGlow] = useState(0),
     [part, setPart] = useState<number | null>(null);
   return (
-    <Chapter
-      index={2}
-      dark
-      intro="A single piece can carry more than one finish, each chosen for the part it plays."
-    >
+    <Chapter index={2} dark intro="One piece, more than one finish.">
       <div className="experiment-split">
         <div
           className="experiment-canvas anatomy-canvas"
@@ -365,11 +351,8 @@ export function ObjectAnatomy() {
               </button>
             ))}
           </div>
-          <span className="experiment-stamp">SOLÈNE / TABLE LAMP</span>
         </div>
         <div className="experiment-copy">
-          <span className="eyebrow">MIXED FINISHES</span>
-          <h3>One piece, many finishes.</h3>
           <ol className="anatomy-list">
             {lampParts.map((p, i) => (
               <li
@@ -384,10 +367,6 @@ export function ObjectAnatomy() {
             ))}
           </ol>
           <Range label="Light the lamp" value={glow} onChange={setGlow} />
-          <p className="experiment-caption">
-            The Solène table lamp from the atelier archive. Finishes can be
-            specified part by part on bespoke orders.
-          </p>
         </div>
       </div>
     </Chapter>
@@ -402,37 +381,31 @@ const rooms = [
     image: "brand/lightings",
     alt: "Brass lamps and sconces in a calm, sunlit living space",
     finish: "Antique brass",
-    caption: "A small pause in the everyday.",
-    detail:
-      "Low light and soft surfaces want a finish that glows rather than shines. Antique brass reads warm, quiet and settled.",
+    caption: "A quiet home.",
+    detail: "Antique brass glows rather than shines.",
   },
   {
     name: "A boutique hotel",
     image: "brand/furniture",
     alt: "A hotel lounge with brass-framed seating and a hammered brass table",
     finish: "Polished brass",
-    caption: "A welcome with character.",
-    detail:
-      "Public spaces are seen from across the room. Polished brass catches the eye and holds up to daily handling.",
+    caption: "A warm welcome.",
+    detail: "Polished brass catches the eye and wears well.",
   },
   {
     name: "A gathered table",
     image: "brand/kitchenware",
     alt: "Brass and copper serveware set on a table outdoors",
     finish: "Hammered brass & copper",
-    caption: "For moments worth gathering.",
-    detail:
-      "Serveware is handled, passed and washed. A hammered surface hides the marks of use and only grows richer with it.",
+    caption: "A gathered table.",
+    detail: "Hammered metal hides the marks of use.",
   },
 ];
 export function ThreeLives() {
   const [scene, setScene] = useState(0);
   const room = rooms[scene];
   return (
-    <Chapter
-      index={3}
-      intro="Antique brass, polished brass or hammered copper. The right finish depends on the room it will live in."
-    >
+    <Chapter index={3} intro="The right finish depends on the room.">
       <div className="room-stage experiment-canvas">
         {/* All three stay mounted so switching is an instant crossfade. */}
         {rooms.map((r, i) => (
@@ -448,9 +421,6 @@ export function ThreeLives() {
             />
           </div>
         ))}
-        <span className="experiment-stamp">
-          FINISH / {room.finish.toUpperCase()}
-        </span>
       </div>
       <div className="room-selector">
         {rooms.map((r, i) => (
@@ -470,7 +440,7 @@ export function ThreeLives() {
         <h3 key={scene}>{room.caption}</h3>
         <p>
           {room.detail}
-          <small>Recommended finish: {room.finish}.</small>
+          <small>{room.finish}</small>
         </p>
       </div>
     </Chapter>
@@ -483,11 +453,11 @@ export function YourLine() {
     [height, setHeight] = useState(165),
     [finish, setFinish] = useState("Brass"),
     [solid, setSolid] = useState(false);
-  const brief = `Bespoke vessel concept from the Aurelio form study: body ${width}/110, opening ${neck}/60, height ${height}/210; preferred material ${finish}. These are visual proportions, not dimensions or an order. Please discuss feasibility, final dimensions, finish, quantity and pricing with me.`;
+  const brief = `Bespoke vessel concept: body ${width}/110, opening ${neck}/60, height ${height}/210, in ${finish}. Proportions only. Please advise on dimensions, finish, quantity and price.`;
   return (
     <Chapter
       index={4}
-      intro="Sketch a form and choose a metal. We match the finish to your brief and send samples before production."
+      intro="Sketch a form. Pick a metal. We send samples first."
     >
       <div className="experiment-split">
         <div
@@ -528,9 +498,6 @@ export function YourLine() {
               <Vessel width={width} neck={neck} height={height} wire={!solid} />
             </g>
           </svg>
-          <span className="experiment-stamp">
-            YOUR PROPORTIONS / OUR CONVERSATION
-          </span>
           <button
             className="line-view"
             aria-pressed={solid}
@@ -540,8 +507,6 @@ export function YourLine() {
           </button>
         </div>
         <div className="experiment-copy">
-          <span className="eyebrow">BESPOKE FORM &amp; FINISH</span>
-          <h3>Draw a form. Choose a metal.</h3>
           <Range
             label="Body proportion"
             min={55}
@@ -581,13 +546,8 @@ export function YourLine() {
             className="experiment-cta"
             to={`/bulk-orders?product=Bespoke+vessel&brief=${encodeURIComponent(brief)}`}
           >
-            Bring this idea to Aurelio <span>↗</span>
+            Send this idea <span>↗</span>
           </Link>
-          <p className="experiment-caption">
-            A proportion sketch, not a production drawing. Your choices travel
-            with the enquiry; dimensions and feasibility are agreed with the
-            atelier.
-          </p>
         </div>
       </div>
     </Chapter>
@@ -602,7 +562,6 @@ export function AtelierExperiments() {
         className="experiment-directory container"
         aria-label="The finishes we offer"
       >
-        <span className="eyebrow">FINISHES WE OFFER</span>
         <h2>
           Finished by hand,
           <br />

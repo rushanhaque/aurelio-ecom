@@ -3,6 +3,7 @@ import { mkdir } from "node:fs/promises";
 import path from "node:path";
 import type { Product } from "../app/lib/catalog.ts";
 import { frontendPreview } from "./preview-mode.ts";
+import { sampleProducts } from "./sample-products.ts";
 declare global {
   var aurelioDatabase: Promise<{ db: Db; client: MongoClient }> | undefined;
 }
@@ -77,13 +78,17 @@ async function connect() {
   return { db, client };
 }
 export async function getProducts() {
-  if (frontendPreview()) return [] as Product[];
+  if (frontendPreview()) return sampleProducts;
   const { db } = await database();
-  return (await db
+  const products = (await db
     .collection("products")
     .find(
       { status: { $nin: ["draft", "archived"] } },
       { projection: { _id: 0, stockReason: 0 } },
     )
     .toArray()) as unknown as Product[];
+  // Placeholder listings fill an empty shop while developing; never in production.
+  if (!products.length && process.env.NODE_ENV !== "production")
+    return sampleProducts;
+  return products;
 }

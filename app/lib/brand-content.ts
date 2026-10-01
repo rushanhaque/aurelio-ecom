@@ -14,9 +14,9 @@ export const collections = [
     index: "01",
     cover: "brand/urns",
     tagline: "Vessels that keep.",
-    summary: "Raised and cast urns for the mantel, the hall and the garden.",
+    summary: "Raised and cast urns.",
     description:
-      "The oldest form we make. Raised in copper or cast in bronze and weighted to stand for a century, our urns are vessels built to hold meaning as readily as anything else — for the mantel, the entrance hall, or the garden.",
+      "The oldest form we make. Raised in copper or cast in bronze, built to last a century.",
   },
   {
     slug: "lighting",
@@ -24,9 +24,9 @@ export const collections = [
     index: "02",
     cover: "brand/lightings",
     tagline: "Light, raised in metal.",
-    summary: "Pendants, sconces and chandeliers in spun brass and blown glass.",
+    summary: "Lamps and pendants in brass and glass.",
     description:
-      "Light is our first material. Each fixture is spun, raised or cast by hand, then wired and balanced so it hangs as quietly as it glows — objects that hold a room long after the bulb is dimmed.",
+      "Spun, raised or cast by hand. Wired and balanced to hang quietly.",
   },
   {
     slug: "furniture",
@@ -34,9 +34,8 @@ export const collections = [
     index: "03",
     cover: "brand/furniture",
     tagline: "Structure with a pulse.",
-    summary: "Consoles, tables and seating raised on hand-forged metal frames.",
-    description:
-      "Furniture that earns its weight. Forged frames, honest joinery and surfaces that wear in rather than out — pieces drawn to outlast the rooms they are made for.",
+    summary: "Tables and seating on forged metal frames.",
+    description: "Forged frames and honest joinery. Built to outlast the room.",
   },
   {
     slug: "kitchenware",
@@ -44,9 +43,8 @@ export const collections = [
     index: "04",
     cover: "brand/kitchenware",
     tagline: "For the daily ritual.",
-    summary: "Cookware, flatware and serveware, cast and polished by hand.",
-    description:
-      "The objects you reach for every day deserve the most care. Cast, hammered and hand-polished, our kitchenware is made to be used hard and handed down.",
+    summary: "Cookware and serveware, polished by hand.",
+    description: "Cast, hammered and hand-polished. Made to be used hard.",
   },
   {
     slug: "decor",
@@ -54,9 +52,9 @@ export const collections = [
     index: "05",
     cover: "brand/decor",
     tagline: "Quiet sculpture.",
-    summary: "Vessels, mirrors and sculptural objects for the considered home.",
+    summary: "Vessels and sculptural objects.",
     description:
-      "Decorative work where the material does the talking — patinated reliefs, cast vessels and mirrors framed in blackened steel. Sculpture you live alongside.",
+      "Cast vessels and patinated reliefs. Sculpture for living with.",
   },
   {
     slug: "accessories",
@@ -64,19 +62,18 @@ export const collections = [
     index: "06",
     cover: "brand/accessories",
     tagline: "The smaller heirlooms.",
-    summary: "Hardware, fittings and the smaller heirlooms of daily life.",
-    description:
-      "The details a house is judged by. Levers, latches and desk objects machined and finished to the same standard as a chandelier — because they are touched far more often.",
+    summary: "Globes, hardware and desk objects.",
+    description: "Small objects, finished to the same standard as the large.",
   },
   {
     slug: "bespoke",
     name: "Bespoke",
     index: "07",
     cover: "brand/bespoke",
-    tagline: "Drawn entirely to your brief.",
-    summary: "Commissions drawn, forged and finished entirely to your brief.",
+    tagline: "Drawn to your brief.",
+    summary: "Made entirely to your brief.",
     description:
-      "Our truest work. A single object or an entire interior, developed with you from sketch to installation. Most of what we are proudest of began as a conversation.",
+      "One object or a whole interior, developed with you from sketch to delivery.",
   },
 ];
 export const materials = [
@@ -86,9 +83,8 @@ export const materials = [
     index: "01",
     ratio: "16/15",
     trait: "Warm · luminous · living",
-    blurb:
-      "Our signature metal. Spun, cast and machined, brass moves from yellow to deep gold as it ages — a finish that improves with every year of handling.",
-    note: "Lacquered for stability or left living to patina.",
+    blurb: "Our signature metal. It deepens from yellow to gold with age.",
+    note: "Lacquered, or left to patina.",
     image: "brand/brass",
     texture: "brand/brass-texture",
   },
@@ -99,8 +95,8 @@ export const materials = [
     ratio: "16/15",
     trait: "Soft · conductive · alive",
     blurb:
-      "Raised and hammered by hand, copper takes a patina like no other metal — verdigris greens, fire-blues and rose-golds coaxed from the surface, never painted on.",
-    note: "Tinned for cookware; patinated for relief work.",
+      "Hammered by hand. It takes a rich patina, from verdigris to rose-gold.",
+    note: "Tinned for cookware, patinated for relief work.",
     image: "brand/copper",
     texture: "brand/copper-texture",
   },
@@ -110,9 +106,8 @@ export const materials = [
     index: "03",
     ratio: "16/15",
     trait: "Structural · honest · dark",
-    blurb:
-      "Where strength is the point. Forged and blackened, our steel carries weight without bulk — the backbone of the furniture and the architectural commissions.",
-    note: "Hand-blackened and waxed to a living finish.",
+    blurb: "Forged and blackened. Strong without bulk.",
+    note: "Hand-blackened and waxed.",
     image: "brand/steel",
     texture: "brand/steel-texture",
   },
@@ -122,9 +117,8 @@ export const materials = [
     index: "04",
     ratio: "16/15",
     trait: "Dense · ancient · permanent",
-    blurb:
-      "Sand-cast and substantial. Bronze brings weight, depth and a slowly developing patina to the objects we make.",
-    note: "Hand-polished or left to develop a natural patina.",
+    blurb: "Sand-cast and substantial. Its patina develops slowly.",
+    note: "Hand-polished, or left natural.",
     image: "brand/bronze",
     texture: "brand/bronze-texture",
   },
@@ -134,9 +128,8 @@ export const materials = [
     index: "05",
     ratio: "16/15",
     trait: "Molten · breath · light",
-    blurb:
-      "Mouth-blown glass, married to metal in the atelier. Opal, clear and smoked — the diffuser that turns a fixture into light.",
-    note: "Each element is unique to the breath that made it.",
+    blurb: "Mouth-blown and paired with metal. Opal, clear or smoked.",
+    note: "Each piece is unique.",
     image: "brand/glass",
     texture: "brand/glass-texture",
   },
@@ -146,9 +139,8 @@ export const materials = [
     index: "06",
     ratio: "16/15",
     trait: "Grained · warm · counterweight",
-    blurb:
-      "The warm counterweight to metal. European oak and American walnut, single-board where we can, oiled to a finish that wears in rather than out.",
-    note: "Seasoned timber, with care and finish selected for the intended piece.",
+    blurb: "The warm counterpoint to metal. Oiled to wear in, not out.",
+    note: "Seasoned timber, finished to suit the piece.",
     image: "brand/wood",
     texture: "brand/wood-texture",
   },
@@ -158,9 +150,8 @@ export const materials = [
     index: "07",
     ratio: "16/15",
     trait: "Light · satin · modern",
-    blurb:
-      "The lightest metal on the bench. Spun and brushed to a cool satin sheen, aluminium carries bold form without weight — chosen where a piece must feel effortless in the hand.",
-    note: "Anodised or hand-brushed to a soft satin finish.",
+    blurb: "The lightest metal we use. Spun and brushed to a cool satin.",
+    note: "Anodised or hand-brushed.",
     image: "brand/aluminium",
     texture: "brand/aluminium-texture",
   },
@@ -170,9 +161,8 @@ export const materials = [
     index: "08",
     ratio: "16/15",
     trait: "Fired · pure · enduring",
-    blurb:
-      "Slip-cast and high-fired, porcelain brings a glove-smooth white to the table — set against brass and copper where warmth meets restraint.",
-    note: "Hand-glazed; kiln-fired in small batches.",
+    blurb: "Slip-cast and high-fired. Smooth white, set against metal.",
+    note: "Hand-glazed, fired in small batches.",
     image: "brand/porcelain",
     texture: "brand/porcelain-texture",
   },
@@ -182,9 +172,8 @@ export const materials = [
     index: "09",
     ratio: "16/15",
     trait: "Earthy · textured · handformed",
-    blurb:
-      "Wheel-thrown and hand-built in small batches, our ceramic work pairs the rough honesty of raw clay with precisely applied glazes — each piece bearing the fingerprints of its maker.",
-    note: "Earthenware and stoneware; food-safe glazes available.",
+    blurb: "Wheel-thrown in small batches. Raw clay, precise glazes.",
+    note: "Food-safe glazes available.",
     image: "brand/ceramic",
     texture: "brand/ceramic-texture",
   },

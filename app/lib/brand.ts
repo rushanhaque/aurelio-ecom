@@ -4,9 +4,9 @@ export const brand = {
   founded: "2008",
   city: "Moradabad",
   story:
-    "Aurelio is the atelier line of AF International — a family workshop founded in 2008, crafting furniture, lighting, urns and objets in metal and wood for homes and trade the world over.",
+    "Aurelio is the atelier line of AF International, a family workshop founded in 2008.",
   history:
-    "AF International began in 2008 in Moradabad — India’s brass city — as a small family workshop. What started as a handful of makers has grown into an atelier shipping handcrafted metal and wooden pieces across the world, while holding to the rule it began with: every piece is made by hand, and made to be handed down.",
+    "We began in Moradabad, India's brass city, as a handful of makers. Every piece is still made by hand, to be handed down.",
   address: [
     "AF International",
     "Katghar Pachpera (near New Children Home Academy School)",

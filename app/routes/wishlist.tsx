@@ -6,15 +6,12 @@ export default function Wishlist() {
   const saved = products.filter((p) => wishlist.includes(p.id));
   return (
     <>
-      <PageIntro eyebrow="A FEW THINGS YOU LOVE" title="Saved items">
-        <p>
-          Your personal collection of possibilities.
-          <br /> Saved on this device, ready when you are.
-        </p>
+      <PageIntro title="Saved items">
+        <p>Saved on this device.</p>
       </PageIntro>
       <section className="container section-start">
         {!ready ? (
-          <Settling label="Finding what you saved…" />
+          <Settling label="Loading…" />
         ) : saved.length ? (
           <div className="product-grid">
             {saved.map((p, i) => (
@@ -22,8 +19,8 @@ export default function Wishlist() {
             ))}
           </div>
         ) : (
-          <EmptyState title="Something will catch your eye.">
-            Tap the heart on an object to keep it here for another day.
+          <EmptyState title="Nothing saved yet.">
+            Tap the heart on a piece to save it.
           </EmptyState>
         )}
       </section>

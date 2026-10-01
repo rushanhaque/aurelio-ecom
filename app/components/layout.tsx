@@ -126,9 +126,9 @@ export function Header() {
   return (
     <>
       <div className="announcement">
-        <span>Made by hand in Moradabad. Since 2008.</span>
+        <span>Made by hand in Moradabad.</span>
         <Link to="/about">
-          Discover the Aurelio philosophy <ArrowUpRight size={12} />
+          Our story <ArrowUpRight size={12} />
         </Link>
       </div>
       <header className="site-header">
@@ -224,7 +224,7 @@ export function Footer() {
           consent: true,
         }),
       });
-      setStatus("You’re on the list. Thank you for being here.");
+      setStatus("You’re subscribed.");
     } catch (e) {
       setStatus((e as Error).message);
     } finally {
@@ -235,15 +235,12 @@ export function Footer() {
     <footer className="site-footer">
       <div className="footer-top container">
         <div className="footer-invitation">
-          <p className="eyebrow">A NOTE FROM THE ATELIER</p>
           <h2>
             Good things.
             <br />
-            <em>Every now and then.</em>
+            <em>Now and then.</em>
           </h2>
-          <p>
-            New objects, stories from the workshop, and a little inspiration.
-          </p>
+          <p>New objects and workshop stories.</p>
           <form className="newsletter-form" onSubmit={subscribe}>
             <label className="sr-only" htmlFor="newsletter-email">
               Your email address
@@ -260,8 +257,8 @@ export function Footer() {
             </button>
           </form>
           <small>
-            By subscribing, you agree to receive Aurelio notes.{" "}
-            <Link to="/privacy">Privacy policy</Link>.
+            You agree to receive our notes.{" "}
+            <Link to="/privacy">Privacy policy</Link>
           </small>
           <p className="form-status" role="status">
             {status}
@@ -278,7 +275,7 @@ export function Footer() {
             <Link to="/journal">Journal</Link>
           </div>
           <div>
-            <h3>HERE TO HELP</h3>
+            <h3>HELP</h3>
             <Link to="/contact">Contact us</Link>
             <Link to="/shipping">Shipping & delivery</Link>
             <Link to="/returns">Returns & refunds</Link>
@@ -290,7 +287,7 @@ export function Footer() {
       </div>
       <div className="footer-business container">
         <div>
-          <h3>THE MORADABAD ATELIER</h3>
+          <h3>VISIT</h3>
           <address>
             {brand.address.map((line) => (
               <p key={line}>{line}</p>
@@ -324,9 +321,7 @@ export function Footer() {
           </Link>
         </div>
       </div>
-      <div className="footer-brand container">
-        AURELIO<span>Metal & wood. Moradabad, India.</span>
-      </div>
+      <div className="footer-brand container">AURELIO</div>
       <div className="footer-bottom container">
         <span>© {new Date().getFullYear()} Aurelio by AF International.</span>
         <button
@@ -341,14 +336,12 @@ export function Footer() {
             document.getElementById("main")?.focus({ preventScroll: true });
           }}
         >
-          Back to the top <ArrowUpRight size={13} />
+          Back to top <ArrowUpRight size={13} />
         </button>
-        <span className="preview-note">
-          Design preview · Editorial imagery · Payments not connected
-        </span>
+        <span className="preview-note">Design preview</span>
         <div>
           <Link to="/privacy">Privacy</Link>
-          <Link to="/preferences">Cookie & email preferences</Link>
+          <Link to="/preferences">Preferences</Link>
           <Link to="/terms">Terms</Link>
           <Link to="/accessibility">Accessibility</Link>
         </div>
@@ -412,9 +405,9 @@ export function GlobalPanels() {
             <div className="panel-heading">
               <Dialog.Title>
                 {panel === "cart"
-                  ? "Your collection"
+                  ? "Your bag"
                   : panel === "search"
-                    ? "Find your next object."
+                    ? "Search"
                     : "AURELIO"}
               </Dialog.Title>
               <Dialog.Close className="icon-button" aria-label="Close panel">
@@ -430,7 +423,6 @@ export function GlobalPanels() {
             </Dialog.Description>
             {panel === "menu" ? (
               <div className="mobile-navigation">
-                <span className="eyebrow">A WORLD OF CONSIDERED OBJECTS</span>
                 {[
                   ["/shop", "Shop"],
                   ["/collections", "Collections"],
@@ -478,7 +470,7 @@ export function GlobalPanels() {
                     enterKeyHint="search"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Vases, brass, a little inspiration…"
+                    placeholder="Search vases, brass…"
                     aria-label="Search the collection"
                   />
                   <kbd className="search-hint" aria-hidden="true">
@@ -531,9 +523,8 @@ export function GlobalPanels() {
                   (products.length && query.trim() ? (
                     <div className="search-empty">
                       <p>
-                        Nothing matches “{query.trim()}” yet. Try a material
-                        such as brass or copper, or tell us what you have in
-                        mind — much of what we make is made to order.
+                        Nothing matches “{query.trim()}”. Try “brass”, or ask us
+                        — much is made to order.
                       </p>
                       <Link
                         className="text-link"
@@ -544,13 +535,8 @@ export function GlobalPanels() {
                       </Link>
                     </div>
                   ) : (
-                    <p>
-                      No objects to show yet. The collection is being prepared.
-                    </p>
+                    <p>The collection is on its way.</p>
                   ))}
-                <p className="search-shortcut" aria-hidden="true">
-                  Press <kbd>/</kbd> anywhere to search.
-                </p>
               </div>
             ) : cart.length ? (
               <>
@@ -592,10 +578,7 @@ export function GlobalPanels() {
                       {money(cartTotal(cart, products, currency), currency)}
                     </strong>
                   </div>
-                  <p>
-                    Delivery estimates are shown at checkout. Payments are not
-                    connected yet.
-                  </p>
+                  <p>Delivery is shown at checkout.</p>
                   <Link to="/checkout" className="button">
                     Continue to checkout
                     <ArrowUpRight size={18} />
@@ -607,8 +590,8 @@ export function GlobalPanels() {
                 </div>
               </>
             ) : (
-              <EmptyState title="A little room for something special.">
-                Your bag is waiting to be filled with objects you love.
+              <EmptyState title="Your bag is empty.">
+                Add something you love.
               </EmptyState>
             )}
           </Dialog.Content>

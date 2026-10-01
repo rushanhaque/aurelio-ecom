@@ -97,27 +97,27 @@ const stages = [
   {
     title: "Design & Drafting",
     image: "designanddrafting",
-    body: "Every commission begins on paper — proportion, weight and line resolved before a single sheet of metal is cut.",
+    body: "Every piece begins on paper.",
   },
   {
     title: "Casting & Forging",
     image: "castingandforging",
-    body: "Molten brass and bronze are poured and forged, the raw body of each piece taking shape in fire.",
+    body: "Molten metal is poured and forged.",
   },
   {
     title: "Hand-Raising",
     image: "handraising",
-    body: "Our smiths raise, hammer and spin the metal by hand — thousands of strikes giving the form its tension and grace.",
+    body: "Smiths raise and hammer the metal by hand.",
   },
   {
     title: "Patina & Finishing",
     image: "patinaandfinishing",
-    body: "Surfaces are chased, brushed and patinated; colour and texture bring the character of the metal into focus.",
+    body: "Surfaces are brushed and patinated.",
   },
   {
     title: "Assembly & Inspection",
     image: "assemblyinspection",
-    body: "The final details come together. Every joint, every surface, every proportion is considered before a piece leaves the atelier.",
+    body: "Every joint and surface is checked.",
   },
 ];
 function OriginalImage({
@@ -168,9 +168,6 @@ function ArchiveWork({
           className="archive-off"
           alt={`${work.name} ${work.type} from the Aurelio atelier archive`}
         />
-        <span className="archive-number" aria-hidden="true">
-          AU / {String(index + 1).padStart(2, "0")}
-        </span>
       </div>
       <figcaption>
         <span>
@@ -225,10 +222,6 @@ export function SelectedWorks() {
       aria-labelledby="archive-heading"
     >
       <div className="container">
-        <div className="original-section-spine">
-          <span>SELECTED WORKS</span>
-          <span>THE ATELIER ARCHIVE / I—XII</span>
-        </div>
         <header className="archive-heading">
           <h2 id="archive-heading">
             Pieces with
@@ -236,12 +229,9 @@ export function SelectedWorks() {
             <em>a past tense.</em>
           </h2>
           <div>
-            <p>
-              A handful of signatures from the atelier — each raised, forged or
-              cast, and finished to be lived with rather than looked at.
-            </p>
+            <p>Raised, forged or cast. Finished to be lived with.</p>
             <Link to="/shop" className="text-link">
-              Explore the current collection <ArrowUpRight size={17} />
+              Explore the collection <ArrowUpRight size={17} />
             </Link>
           </div>
         </header>
@@ -256,12 +246,10 @@ export function SelectedWorks() {
           ))}
         </div>
         <div className="archive-foot">
-          <span>AN EXPLORATION OF FORM, FINISH & FEELING.</span>
           <p>
-            Selected works from the archive. For a piece in your own
-            proportions,{" "}
+            Want one made to your size?{" "}
             <Link to="/bulk-orders">
-              begin a commission <ArrowUpRight size={14} />
+              Begin a commission <ArrowUpRight size={14} />
             </Link>
           </p>
         </div>
@@ -276,19 +264,12 @@ export function AurelioStandard() {
         II
       </span>
       <div className="container">
-        <div className="original-section-spine">
-          <span>THE AURELIO STANDARD</span>
-          <span>OUR POINT OF VIEW</span>
-        </div>
         <h2 id="standard-heading">
-          We make objects
+          Objects that refuse
           <br />
-          that refuse to be disposable —<br />
-          <em>
-            metal raised slowly,
-            <br />
-            to outlive us.
-          </em>
+          to be disposable.
+          <br />
+          <em>Made slowly, to last.</em>
         </h2>
         <div className="standard-foot">
           <p>{brand.story}</p>
@@ -339,10 +320,6 @@ export function OriginalAtelier() {
       aria-labelledby="original-atelier-heading"
     >
       <div className="container">
-        <div className="original-section-spine">
-          <span>THE ATELIER</span>
-          <span>FIVE STAGES. ONE STANDARD.</span>
-        </div>
         <div className="workshop-heading">
           <h2 id="original-atelier-heading">
             Where we <em>excel.</em>
@@ -392,9 +369,6 @@ export function OriginalAtelier() {
               <h3>{stage.title}</h3>
               <span className="workshop-rule" />
               <p>{stage.body}</p>
-              <span className="workshop-stage">
-                STAGE 0{i + 1} <span>/ 05</span>
-              </span>
             </div>
             <div className="workshop-image">
               <OriginalImage
@@ -407,7 +381,6 @@ export function OriginalAtelier() {
         ))}
       </ol>
       <div className="container workshop-bottom">
-        <span>FROM THE FIRST LINE TO THE FINAL DETAIL</span>
         <Link to="/about" className="text-link">
           Discover our craft <ArrowUpRight size={17} />
         </Link>

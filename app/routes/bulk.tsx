@@ -1,5 +1,5 @@
 import { brand, commissionStages } from "../lib/brand";
-import { collections, materials } from "../lib/brand-content";
+import { collections } from "../lib/brand-content";
 import { useState } from "react";
 import { useSearchParams } from "react-router";
 import {
@@ -82,15 +82,8 @@ export default function Bulk() {
   }
   return (
     <>
-      <PageIntro
-        eyebrow="TRADE · HOSPITALITY · GIFTING · BESPOKE"
-        title="Bulk enquiries"
-      >
-        <p>
-          Private commissions, trade accounts and worldwide export.
-          <br /> A single object or an entire interior, developed with you from
-          sketch to installation.
-        </p>
+      <PageIntro title="Bulk enquiries">
+        <p>Trade, hospitality, gifting and bespoke work.</p>
       </PageIntro>
       <div className="bulk-hero container">
         <Picture
@@ -99,36 +92,19 @@ export default function Bulk() {
           eager
         />
         <div>
-          <span className="eyebrow">LET’S MAKE SOMETHING MEANINGFUL</span>
           <h2>
-            Small details.
-            <br /> <em>Grand possibilities.</em>
+            Let’s make
+            <br /> <em>something together.</em>
           </h2>
         </div>
       </div>
       <section className="section container">
         <div className="use-cases">
           {[
-            [
-              Building2,
-              "Hospitality & interiors",
-              "Objects that belong in spaces with a story.",
-            ],
-            [
-              Gift,
-              "Corporate & occasion gifting",
-              "A considered gesture, made memorable.",
-            ],
-            [
-              Store,
-              "Retail & wholesale",
-              "A collection that feels right for your world.",
-            ],
-            [
-              PenTool,
-              "Bespoke projects",
-              "An idea, a conversation, a possibility.",
-            ],
+            [Building2, "Hospitality & interiors", "For spaces with a story."],
+            [Gift, "Corporate & occasion gifting", "Gifts worth keeping."],
+            [Store, "Retail & wholesale", "A range for your store."],
+            [PenTool, "Bespoke projects", "Made to your idea."],
           ].map(([Icon, title, copy]: any) => (
             <div key={title}>
               <Icon size={26} />
@@ -148,21 +124,14 @@ export default function Bulk() {
                   {line.product.name} · {line.product.finish} × {line.quantity}
                 </p>
               ))}
-              <p>
-                Your shopping bag stays saved. Tell us your bulk quantities in
-                the brief.
-              </p>
+              <p>Your bag stays saved. Add quantities in the brief.</p>
             </div>
           )}
-          <p className="eyebrow">THE START OF SOMETHING</p>
           <h2>
-            Tell us what
-            <br /> you’re <em>imagining.</em>
+            Tell us
+            <br /> your <em>idea.</em>
           </h2>
-          <p>
-            Share a little about your project. Quantities, finishes, timelines —
-            even an early idea is a good place to start.
-          </p>
+          <p>Quantities, finishes, timing. An early idea is fine.</p>
           <ol className="process-list">
             {commissionStages.map((stage, i) => (
               <li key={stage}>
@@ -193,7 +162,7 @@ export default function Bulk() {
               <MessageCircle size={18} />
               <span>
                 Prefer to talk?
-                <small>Message the trade desk on WhatsApp</small>
+                <small>WhatsApp the trade desk</small>
               </span>
               <ArrowUpRight size={16} />
             </a>
@@ -204,23 +173,22 @@ export default function Bulk() {
               <BookOpen size={18} />
               <span>
                 Request the catalogue
-                <small>Collections, finishes and materials</small>
+                <small>Collections and finishes</small>
               </span>
               <ArrowUpRight size={16} />
             </Link>
           </div>
           <p className="muted">
-            Minimum quantities, sample availability and lead times are confirmed
-            individually. Submitting an enquiry is not a purchase.
+            Minimums, samples and lead times are confirmed per order. An enquiry
+            is not a purchase.
           </p>
         </div>
         {reference ? (
-          <Success title="A beautiful beginning.">
-            <p>Your enquiry is saved for the Aurelio team.</p>
+          <Success title="Thank you.">
+            <p>We’ve saved your enquiry.</p>
             <p className="reference">{reference}</p>
             <p>
-              Keep this reference for your records. Email notifications are not
-              enabled in this preview.
+              Keep this reference. Email notifications are off in this preview.
             </p>
           </Success>
         ) : (
@@ -273,9 +241,6 @@ export default function Bulk() {
             </div>
             <label className="field">
               <span>Your project</span>
-              <small>
-                Our materials: {materials.map((m) => m.name).join(", ")}.
-              </small>
               <textarea
                 name="message"
                 defaultValue={(params.get("brief") || "").slice(0, 4000)}
@@ -283,7 +248,7 @@ export default function Bulk() {
                 maxLength={4000}
                 required
                 rows={5}
-                placeholder="Tell us about your brief, preferred materials, dimensions, finish, budget and timeline."
+                placeholder="Materials, size, finish, timeline."
               />
             </label>
             <input
@@ -294,14 +259,14 @@ export default function Bulk() {
               aria-hidden="true"
             />
             <label className="checkbox-label">
-              <input type="checkbox" required />I agree that Aurelio may contact
-              me about this enquiry.
+              <input type="checkbox" required />I agree to be contacted about
+              this enquiry.
             </label>
             <p className="form-error" role="alert">
               {error}
             </p>
             <button className="button" disabled={busy}>
-              {busy ? "Sending your brief…" : "Send your enquiry"}
+              {busy ? "Sending…" : "Send enquiry"}
               <ArrowUpRight size={18} />
             </button>
           </form>
@@ -311,10 +276,9 @@ export default function Bulk() {
         <section className="section container trade-faq">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">BEFORE YOU WRITE</p>
               <h2>
-                Good questions,
-                <br /> <em>answered.</em>
+                Common
+                <br /> <em>questions.</em>
               </h2>
             </div>
             <Link className="text-link" to="/faq">

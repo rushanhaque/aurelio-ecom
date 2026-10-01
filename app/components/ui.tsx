@@ -35,6 +35,21 @@ export function Picture({
         decoding="async"
       />
     );
+  // Catalogue photographs ship at two sizes only.
+  if (name.startsWith("catalogue/"))
+    return (
+      <img
+        className={className}
+        src={`/images/${name}-960.webp`}
+        srcSet={`/images/${name}-480.webp 480w, /images/${name}-960.webp 960w`}
+        sizes={sizes}
+        alt={alt}
+        width={960}
+        height={960}
+        loading={eager ? "eager" : "lazy"}
+        decoding="async"
+      />
+    );
   return (
     <img
       className={className}
@@ -90,9 +105,6 @@ export function ProductCard({
             sizes="(max-width: 600px) 48vw, (max-width: 1000px) 45vw, 24vw"
           />
         </Link>
-        <span className="object-number">
-          OBJECT {String(index + 1).padStart(2, "0")}
-        </span>
         <button
           className={`icon-button save-button ${wishlist.includes(product.id) ? "saved" : ""}`}
           onClick={() => toggleWish(product.id)}
@@ -162,20 +174,15 @@ export function Quantity({
   );
 }
 export function PageIntro({
-  eyebrow,
   title,
   children,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   children?: ReactNode;
 }) {
   return (
     <header className="page-intro container">
-      <p className="eyebrow">
-        <span className="tiny-star">✳</span>
-        {eyebrow}
-      </p>
       <h1>{title}</h1>
       {children && <div className="intro-copy">{children}</div>}
     </header>
@@ -307,7 +314,6 @@ export function PieceCard({ piece }: { piece: PieceSummary }) {
             decoding="async"
           />
         </Link>
-        <span className="object-number">PIECE {piece.index}</span>
         <Link
           className="quick-add"
           to={`/bulk-orders?product=${encodeURIComponent(`${piece.name} ${piece.suffix}`)}`}

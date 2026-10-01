@@ -3,33 +3,29 @@ import { PageIntro, TextLink } from "../components/ui";
 import { materials } from "../lib/brand-content";
 const care: Record<string, string> = {
   brass:
-    "Dust with a soft, dry cloth. Lacquered brass should be wiped gently and dried immediately. Living, unlacquered brass will deepen in colour. Avoid abrasives and do not polish a lacquered or intentionally patinated surface.",
+    "Dust with a soft, dry cloth. Dry any wipe at once. Unlacquered brass will deepen. Never polish lacquered or patinated surfaces.",
   copper:
-    "Use a dry or barely damp soft cloth and dry promptly. Wash copper cookware by hand only when its individual care instructions permit. Preserve intentional decorative patinas; do not use acidic cleaners or polishing treatments without finish-specific guidance.",
+    "Use a soft, barely damp cloth and dry at once. Hand-wash cookware only if its instructions allow. No acidic cleaners.",
   "patinated-steel":
-    "Dust with a dry cloth and keep moisture exposure brief. Dry immediately after any damp wiping. Blackened and waxed steel needs finish-specific maintenance; contact the atelier before treating rust or renewing its protective finish.",
+    "Dust with a dry cloth. Keep it away from moisture. Ask us before treating rust.",
   bronze:
-    "Dust with a soft brush or microfibre cloth. Preserve the patina rather than polishing it away. Avoid prolonged contact with moisture, and ask the atelier about the right wax or treatment for your particular finish.",
+    "Dust with a soft brush. Keep the patina, don't polish it away. Avoid moisture.",
   "blown-glass":
-    "Use a soft, lint-free cloth and avoid sudden temperature changes. Disconnect electrical fittings and let them cool before handling shades. Follow the fitting’s instructions for removing glass; avoid immersing assembled lighting or placing it in a dishwasher.",
-  wood: "Wipe with a dry or slightly damp cloth and dry immediately. Keep away from direct heat and prolonged direct sunlight. Use coasters and trivets. Ask the atelier which oil or finish is appropriate before refinishing the surface.",
+    "Use a lint-free cloth. Avoid sudden temperature changes. Unplug and cool lighting before cleaning. Never immerse it.",
+  wood: "Wipe with a slightly damp cloth and dry at once. Keep from heat and strong sun. Use coasters. Ask us before refinishing.",
   aluminium:
-    "Wipe gently and dry immediately to avoid water spots. Follow the grain on brushed finishes. Avoid steel wool, sharp abrasives and alkaline cleaners on anodised surfaces; check the finish before using a specialist cleaner.",
+    "Wipe gently and dry at once. Follow the grain. No steel wool or alkaline cleaners.",
   porcelain:
-    "Handle at the base rather than a thin rim or handle. Hand-wash gently where the piece’s instructions permit and avoid sudden temperature changes. Metallic details and hand-applied decoration require particular care; do not assume dishwasher or microwave suitability.",
+    "Hold it by the base. Hand-wash gently. Avoid sudden temperature changes. Not dishwasher or microwave safe.",
   ceramic:
-    "Treat hand-built forms and relief decoration gently. Dry thoroughly before storing and protect furniture with felt pads. Do not assume a decorative piece is food-safe, watertight or microwave-safe; follow the stated use and individual care instructions.",
+    "Handle gently and dry well. Use felt pads. Decorative pieces may not be food-safe or watertight.",
 };
 export const meta = () => [{ title: "Care guide — Aurelio" }];
 export default function Care() {
   return (
     <>
-      <PageIntro eyebrow="AFTER THE ATELIER" title="Care guide">
-        <p>
-          Every material we work has its own logic.
-          <br /> Begin with the material, then follow the guidance for your
-          piece’s particular finish.
-        </p>
+      <PageIntro title="Care guide">
+        <p>Start with the material.</p>
       </PageIntro>
       <nav className="material-index container" aria-label="Care by material">
         {materials.map((m) => (
@@ -41,11 +37,10 @@ export default function Care() {
       <section className="care-library container">
         {materials.map((m) => (
           <article id={m.slug} key={m.slug}>
-            <span className="eyebrow">{m.index} / MATERIAL CARE</span>
             <h2>{m.name}</h2>
             <p>{care[m.slug]}</p>
             <Link className="text-link" to={`/materials#${m.slug}`}>
-              Explore {m.name.toLowerCase()} ↗
+              About {m.name.toLowerCase()} ↗
             </Link>
           </article>
         ))}
@@ -55,7 +50,7 @@ export default function Care() {
           Not sure about
           <br /> <em>your finish?</em>
         </h2>
-        <TextLink to="/contact">Ask the atelier before treating it</TextLink>
+        <TextLink to="/contact">Ask us first</TextLink>
       </section>
     </>
   );

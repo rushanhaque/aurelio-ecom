@@ -29,11 +29,8 @@ export default function Contact() {
   }
   return (
     <>
-      <PageIntro eyebrow="A CONVERSATION STARTS HERE" title="Contact us">
-        <p>
-          Questions about an object, a project, or your order?
-          <br /> We’re here to listen.
-        </p>
+      <PageIntro title="Contact us">
+        <p>Questions about a piece, a project or an order?</p>
       </PageIntro>
       {/* The two desks, as listed on aurelio.in/contact. */}
       <section
@@ -41,8 +38,7 @@ export default function Contact() {
         aria-label="Where to reach us"
       >
         <article data-reveal>
-          <span className="eyebrow">ATELIER & FOUNDRY</span>
-          <h2>The Moradabad Atelier</h2>
+          <h2>The Atelier</h2>
           <address>
             {brand.address.map((line) => (
               <span key={line}>{line}</span>
@@ -76,12 +72,9 @@ export default function Contact() {
           </a>
         </article>
         <article data-reveal>
-          <span className="eyebrow">COMMISSIONS & EXPORT</span>
           <h2>Enquiries Desk</h2>
           <address>
-            <span>Private commissions, trade accounts</span>
-            <span>and worldwide export</span>
-            <span>Handled from the Moradabad atelier</span>
+            <span>Commissions, trade and export</span>
           </address>
           <dl>
             <div>
@@ -98,7 +91,7 @@ export default function Contact() {
             </div>
             <div>
               <dt>Hours</dt>
-              <dd>Replies within two working days</dd>
+              <dd>Replies in two working days</dd>
             </div>
           </dl>
           <a
@@ -117,18 +110,14 @@ export default function Contact() {
             Start a
             <br /> <em>conversation.</em>
           </h2>
-          <p>
-            Private commissions, trade accounts and worldwide export, handled
-            from the Moradabad atelier.
-          </p>
           <p className="brand-contact">
             <a href={brand.instagram} target="_blank" rel="noreferrer">
-              Instagram — @afinternational.in ↗
+              Instagram ↗
             </a>
           </p>
           <div className="contact-links">
             <Link to="/bulk-orders">
-              A bulk or bespoke project
+              A bulk project
               <ArrowUpRight size={19} />
             </Link>
             <Link to="/track-order">
@@ -142,15 +131,12 @@ export default function Contact() {
           </div>
         </aside>
         {reference ? (
-          <Success title="Your note is with us.">
+          <Success title="Message sent.">
             <p>
               Saved to the studio inbox. Reference: <strong>{reference}</strong>
               .
             </p>
-            <p>
-              Email replies will be available once the studio’s email service is
-              connected.
-            </p>
+            <p>Email replies are off in this preview.</p>
           </Success>
         ) : (
           <form className="editorial-form" onSubmit={submit}>

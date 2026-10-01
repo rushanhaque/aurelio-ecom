@@ -61,13 +61,9 @@ export default function Shop() {
   return (
     <>
       <PageIntro
-        eyebrow="HANDCRAFTED IN MORADABAD"
         title={collections.find((c) => c.slug === category)?.name || "Shop"}
       >
-        <p>
-          Urns, lighting, furniture, kitchenware, decor and accessories.
-          <br /> Metal and wood, made by hand for homes and trade.
-        </p>
+        <p>Metal and wood, made by hand.</p>
       </PageIntro>
       <section className="container shop-content">
         <div className="category-tabs" aria-label="Filter by category">
@@ -192,15 +188,11 @@ export default function Shop() {
           </div>
         ) : (
           <div className="empty-state">
-            <h2>
-              {products.length
-                ? "A different direction?"
-                : "Something worth waiting for."}
-            </h2>
+            <h2>{products.length ? "No matches." : "Coming soon."}</h2>
             <p>
               {products.length
-                ? "No objects match these filters. Try a material, a collection name, or clear your selection."
-                : "Our collection is being thoughtfully prepared. Published objects will appear here."}
+                ? "Nothing matches. Try clearing your filters."
+                : "Our collection is on its way."}
             </p>
             <button className="button" onClick={() => setParams({})}>
               Clear filters
@@ -227,9 +219,6 @@ export default function Shop() {
             </button>
           </nav>
         )}
-        <p className="catalog-note">
-          The Aurelio collection. Individually selected, thoughtfully made.
-        </p>
       </section>
     </>
   );

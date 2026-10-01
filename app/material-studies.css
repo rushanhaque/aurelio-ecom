@@ -1,0 +1,318 @@
+/* The atelier studies — instruments that share the light study's frame:
+   crosshairs, a study mark, a serif readout and a control bar along the foot. */
+.material-studies {
+  --study-gold: #b49a70;
+  overflow: clip;
+}
+
+/* ---------- Directory ---------- */
+.studies-directory {
+  padding-block: 110px 100px;
+  border-top: 1px solid #07231925;
+}
+.studies-directory h2 {
+  font: clamp(44px, 5.6vw, 84px) / 1.02 var(--serif);
+  letter-spacing: -0.045em;
+  margin: 24px 0 48px;
+  max-width: 980px;
+}
+.studies-directory h2 em {
+  color: var(--brass-600);
+}
+.studies-directory nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+}
+.studies-directory a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid #07231925;
+  padding: 22px 0;
+  font-size: 13px;
+  text-decoration: none;
+}
+.studies-directory a small {
+  font-size: 9px;
+  color: #776c56;
+  font-variant-numeric: tabular-nums;
+}
+.studies-directory a span {
+  margin-left: auto;
+  transition: transform 0.3s var(--ease-out);
+}
+.studies-directory a:hover span {
+  transform: translate(4px, -4px);
+}
+
+/* ---------- Study layout ---------- */
+.study {
+  scroll-margin-top: 40px;
+  border-top: 1px solid #07231925;
+}
+.study-ink {
+  background: #09251c;
+  color: #f2f2f2;
+  border-top-color: #f2f2f21a;
+}
+.study-ink .chapter-tag {
+  color: #d2c09d;
+}
+.study-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 9%;
+  padding-block: 130px;
+}
+.study-reverse .study-inner {
+  grid-template-columns: 1.2fr 0.8fr;
+}
+.study-reverse .study-intro {
+  order: 2;
+}
+.study-intro h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(50px, 5.2vw, 86px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin: 30px 0;
+}
+.study-intro h2 em {
+  color: var(--brass-500);
+}
+.study-ink .study-intro h2 em {
+  color: #ecdfc5;
+}
+.study-intro > p {
+  font-size: 12px;
+  line-height: 1.9;
+  max-width: 40ch;
+  opacity: 0.8;
+}
+.study-link {
+  margin-top: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- The instrument frame ---------- */
+.instrument {
+  --frame-fg: #f2f2f2;
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 1;
+  overflow: clip;
+  background: #1c241d;
+  color: var(--frame-fg);
+  min-width: 0;
+}
+.instrument-light {
+  --frame-fg: #072319;
+  background: #e9e4d8;
+}
+.instrument .lab-cross {
+  z-index: 3;
+  pointer-events: none;
+  color: color-mix(in srgb, var(--frame-fg) 45%, transparent);
+}
+.instrument-mark {
+  position: absolute;
+  z-index: 3;
+  left: 26px;
+  top: 62px;
+  font-size: 7px;
+  line-height: 1.7;
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.instrument-value {
+  position: absolute;
+  z-index: 3;
+  right: 25px;
+  top: 23px;
+  font-family: var(--serif);
+  font-size: 42px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+.instrument-value small {
+  font-family: var(--sans);
+  font-size: 7px;
+  letter-spacing: 0.1em;
+  opacity: 0.55;
+}
+.instrument-control {
+  position: absolute;
+  z-index: 4;
+  left: 26px;
+  right: 26px;
+  bottom: 21px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 58px;
+  padding: 8px 10px 8px 14px;
+  background: #072319d9;
+  backdrop-filter: blur(6px);
+  border-top: 1px solid #f2f2f22e;
+  color: #f2f2f2;
+}
+.instrument-options {
+  display: flex;
+  gap: 4px;
+}
+.instrument-options button,
+.instrument-action {
+  min-height: 34px;
+  padding: 0 12px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f2f2f2b3;
+  border: 1px solid transparent;
+  transition:
+    color var(--dur-2),
+    border-color var(--dur-2),
+    background var(--dur-2);
+}
+.instrument-options button:hover,
+.instrument-action:hover {
+  color: #fff;
+}
+.instrument-options button[aria-pressed="true"] {
+  color: #072319;
+  background: #d8c39d;
+}
+.instrument-action {
+  border-color: #f2f2f233;
+  white-space: nowrap;
+}
+.instrument-action:hover {
+  border-color: #d8c39d;
+}
+.instrument-readout {
+  margin-left: auto;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f2f2f2b3;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.instrument-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid #f2f2f233;
+  color: #f2f2f2;
+}
+.instrument-icon[aria-pressed="false"] {
+  opacity: 0.55;
+}
+.instrument button:focus-visible,
+.instrument input:focus-visible {
+  outline: 2px solid #f1e5ce;
+  outline-offset: 3px;
+}
+
+/* ---------- 002 · Patina ---------- */
+.patina-bright,
+.patina-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.patina-bright {
+  filter: brightness(1.08) saturate(1.1);
+}
+.patina-canvas {
+  touch-action: none;
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Ccircle cx='22' cy='22' r='20' fill='none' stroke='%23f1e5ce' stroke-width='1.2' stroke-dasharray='3 4'/%3E%3C/svg%3E")
+      22 22,
+    crosshair;
+}
+.patina-instrument .instrument-value,
+.patina-instrument .instrument-mark {
+  text-shadow: 0 1px 10px #0009;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .study-inner,
+  .study-reverse .study-inner {
+    gap: 6%;
+    padding-block: 90px;
+  }
+}
+@media (max-width: 860px) {
+  .study-inner,
+  .study-reverse .study-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-block: 64px;
+  }
+  .study-reverse .study-intro {
+    order: 0;
+  }
+  .studies-directory nav {
+    grid-template-columns: 1fr;
+  }
+  .instrument {
+    aspect-ratio: 0.86;
+  }
+  .instrument-control {
+    flex-wrap: wrap;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    gap: 8px;
+  }
+  .instrument-readout {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media (max-width: 680px) {
+  .studies-directory {
+    padding-block: 64px 56px;
+  }
+  .study-intro h2 {
+    font-size: 52px;
+    margin: 22px 0;
+  }
+  .instrument-mark {
+    font-size: 6px;
+    left: 18px;
+    top: 50px;
+  }
+  .instrument-value {
+    font-size: 32px;
+    right: 18px;
+    top: 18px;
+  }
+  .instrument .lab-cross.top-left {
+    top: 14px;
+    left: 14px;
+  }
+  .instrument .lab-cross.bottom-right {
+    display: none;
+  }
+  .instrument-options button,
+  .instrument-action {
+    padding: 0 9px;
+    font-size: 8px;
+  }
+}

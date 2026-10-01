@@ -14,10 +14,7 @@ export default function Article() {
   return (
     <>
       <title>{article.title} — Aurelio journal</title>
-      <PageIntro
-        eyebrow={`${article.category} / 2 MIN READ`}
-        title={article.title}
-      >
+      <PageIntro title={article.title}>
         <p>{article.excerpt}</p>
       </PageIntro>
       <div className="article-image container">
@@ -27,7 +24,7 @@ export default function Article() {
         {article.paragraphs.map((p) => (
           <p key={p}>{p}</p>
         ))}
-        <TextLink to="/journal">More notes from the atelier</TextLink>
+        <TextLink to="/journal">More notes</TextLink>
       </article>
     </>
   );

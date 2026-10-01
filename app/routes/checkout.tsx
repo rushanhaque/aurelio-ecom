@@ -58,7 +58,7 @@ export default function Checkout() {
   }
   return (
     <>
-      <PageIntro eyebrow="THE FINAL DETAILS" title="Checkout" />
+      <PageIntro title="Checkout" />
       {!ready ? (
         <div className="container section-start">
           <Settling label="Bringing your bag across…" />
@@ -66,7 +66,7 @@ export default function Checkout() {
       ) : !cart.length ? (
         <div className="container section-start">
           <EmptyState title="Your bag comes first.">
-            Add an object before continuing to checkout.
+            Add an item to continue.
           </EmptyState>
         </div>
       ) : (
@@ -77,9 +77,8 @@ export default function Checkout() {
               <div>
                 <strong>Preview checkout</strong>
                 <p>
-                  No payment is collected. This creates an unpaid test order;
-                  nothing will be shipped. Delivery figures are illustrative,
-                  and tax is not calculated.
+                  No payment is taken and nothing ships. Delivery figures are
+                  illustrative and tax isn’t calculated.
                 </p>
               </div>
             </div>
@@ -158,23 +157,21 @@ export default function Checkout() {
             </div>
             <label className="checkbox-label">
               <input type="checkbox" required />I understand this is an unpaid
-              preview order and no products will be shipped.
+              preview order.
             </label>
             <p className="form-error" role="alert">
               {error}
             </p>
             <button className="button" disabled={busy}>
-              {busy ? "Saving your order…" : "Place preview order"}
+              {busy ? "Saving…" : "Place preview order"}
               <ArrowUpRight size={18} />
             </button>
             <p className="muted">
-              By proceeding, you acknowledge the{" "}
-              <Link to="/terms">preview terms</Link> and{" "}
+              See the <Link to="/terms">terms</Link> and{" "}
               <Link to="/privacy">privacy notice</Link>.
             </p>
           </form>
           <aside className="order-summary">
-            <p className="eyebrow">YOUR SELECTION</p>
             {cart.map((l) => {
               const p = products.find((p) => p.id === l.productId)!;
               return (
@@ -209,7 +206,7 @@ export default function Checkout() {
                 )}
               </strong>
             </div>
-            <p>No money is due or collected.</p>
+            <p>No payment is due.</p>
           </aside>
         </section>
       )}

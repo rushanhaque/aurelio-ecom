@@ -130,8 +130,7 @@ export default function Piece() {
             </a>
           </div>
           <p className="sample-note">
-            Material, finish, size and quantity are confirmed with your
-            quotation. Samples can be arranged before production.
+            Details are confirmed in your quotation. Samples available.
           </p>
         </div>
       </section>
@@ -139,11 +138,8 @@ export default function Piece() {
         <section className="section container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">
-                MORE FROM {collection.name.toUpperCase()}
-              </p>
               <h2>
-                From the <em>same bench.</em>
+                More from <em>the bench.</em>
               </h2>
             </div>
             <TextLink to={`/collections/${collection.slug}#pieces`}>

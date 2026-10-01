@@ -13,21 +13,19 @@ export default function NotFound() {
   const { setPanel } = useStore();
   return (
     <div className="empty-state tall not-found">
-      <p className="eyebrow">404 / AN UNEXPECTED TURN</p>
+      <p className="eyebrow">404</p>
       <h1>
-        Not everything
-        <br /> is meant to be <em>found.</em>
+        Page not <em>found.</em>
       </h1>
-      <p>But there are beautiful objects waiting in the collection.</p>
       <div className="not-found-actions">
         <Link className="button" to="/shop">
-          Find your way back ↗
+          Back to the shop ↗
         </Link>
         <button
           className="button button-outline"
           onClick={() => setPanel("search")}
         >
-          Search the atelier
+          Search
           <Search size={17} />
         </button>
       </div>

@@ -116,7 +116,7 @@ export default function Product() {
               <Dialog.Content className="zoom-dialog">
                 <Dialog.Title className="sr-only">{p.name}</Dialog.Title>
                 <Dialog.Description className="sr-only">
-                  A closer look at the object.
+                  A closer look.
                 </Dialog.Description>
                 <Picture name={view || p.image} alt={p.name} sizes="90vw" />
                 <Dialog.Close className="button button-outline">
@@ -148,7 +148,6 @@ export default function Product() {
                 />
               </button>
             ))}
-            <span>AN OBJECT TO LIVE WITH.</span>
           </div>
         </div>
         <div className="product-information">
@@ -239,7 +238,7 @@ export default function Product() {
             className="bulk-product-link"
             to={`/bulk-orders?product=${p.slug}`}
           >
-            Thinking bigger? Enquire for bulk
+            Need more? Enquire in bulk
             <ArrowUpRight size={16} />
           </Link>
           <div className="product-accordions">
@@ -248,10 +247,10 @@ export default function Product() {
                 "Details & dimensions",
                 `${p.dimensions}. Weight: ${p.weight || "Contact us for details"}. Material: ${p.material}. Finish: ${p.finish}. SKU: ${p.sku || p.id.toUpperCase()}.`,
               ],
-              ["A little care goes a long way", p.care],
+              ["Care", p.care],
               [
                 "Delivery & returns",
-                "This is a preview storefront. No real payment is collected and no physical shipment is created. Final shipping services and return terms will be published before live ordering.",
+                "This is a preview. No payment is taken and nothing ships. Final delivery and return terms come before launch.",
               ],
             ].map(([label, body]) => (
               <details key={label}>
@@ -263,20 +262,16 @@ export default function Product() {
               </details>
             ))}
           </div>
-          <p className="sample-note">
-            Please review dimensions, material and care details before ordering.
-          </p>
         </div>
       </section>
       <section className="section container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">BEAUTIFUL COMPANY</p>
             <h2>
-              Better <em>together.</em>
+              Pairs <em>well.</em>
             </h2>
           </div>
-          <TextLink to="/shop">Explore all objects</TextLink>
+          <TextLink to="/shop">All objects</TextLink>
         </div>
         <div className="product-grid related-grid">
           {related.map((x, i) => (
@@ -288,9 +283,8 @@ export default function Product() {
         <section className="section container recently-viewed">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">STILL ON YOUR MIND</p>
               <h2>
-                Recently <em>considered.</em>
+                Recently <em>viewed.</em>
               </h2>
             </div>
           </div>

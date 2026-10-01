@@ -108,7 +108,7 @@ export default function Admin() {
   }
   return (
     <>
-      <PageIntro eyebrow="THE AURELIO STUDIO" title="Behind the collection.">
+      <PageIntro title="Behind the collection.">
         <p>Your objects, enquiries and orders. In one place.</p>
       </PageIntro>
       <section className="admin-section container">

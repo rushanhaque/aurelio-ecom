@@ -55,15 +55,12 @@ export default function Account() {
   return (
     <>
       <PageIntro
-        eyebrow="YOUR AURELIO WORLD"
-        title={
-          user ? `Hello, ${user.name.split(" ")[0]}.` : "A place of your own."
-        }
+        title={user ? `Hello, ${user.name.split(" ")[0]}.` : "Your account."}
       >
         <p>
           {user
-            ? "Your orders, your objects, your little corner of Aurelio."
-            : "Sign in to keep your orders close."}
+            ? "Your orders and saved pieces."
+            : "Sign in to see your orders."}
         </p>
       </PageIntro>
       <section className="container account-section">
@@ -105,7 +102,7 @@ export default function Account() {
               ))
             ) : (
               <div className="quiet-empty">
-                <p>Your order story starts here.</p>
+                <p>No orders yet.</p>
                 <Link to="/shop" className="text-link">
                   Explore the collection
                   <ArrowUpRight size={16} />
@@ -147,13 +144,10 @@ export default function Account() {
             <div className="auth-intro">
               <span className="auth-monogram">au.</span>
               <h2>
-                Objects you love.
-                <br /> <em>A world that’s yours.</em>
+                Your orders,
+                <br /> <em>in one place.</em>
               </h2>
-              <p>
-                Guest checkout is always welcome. An account brings your future
-                orders together.
-              </p>
+              <p>Guest checkout is always welcome.</p>
             </div>
             <form className="editorial-form" onSubmit={submit}>
               <div className="auth-tabs">
@@ -207,8 +201,8 @@ export default function Account() {
                 <ArrowUpRight size={18} />
               </button>
               <p className="muted">
-                Preview accounts only. Recovery links are available through the
-                studio’s local email preview until email delivery is connected.
+                Preview accounts only. Recovery links appear in the local email
+                preview.
               </p>
               <Link className="text-link" to="/account/link">
                 Forgot your password?

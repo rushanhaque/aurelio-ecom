@@ -23,14 +23,11 @@ export default function AccountLink() {
   return (
     <>
       <PageIntro
-        eyebrow="YOUR AURELIO ACCOUNT"
-        title={
-          purpose === "verify" ? "A little reassurance." : "A fresh beginning."
-        }
+        title={purpose === "verify" ? "Verify email." : "Reset access."}
       >
         <p>
           {purpose === "verify"
-            ? "Confirm that this email address belongs to you."
+            ? "Confirm this email is yours."
             : "Recover access to your account."}
         </p>
       </PageIntro>
@@ -91,9 +88,7 @@ export default function AccountLink() {
                   />
                 </label>
               ) : (
-                <p>
-                  Verification links can be used once and expire after one hour.
-                </p>
+                <p>Links work once and expire in one hour.</p>
               )}
               <button className="button" disabled={busy}>
                 {busy
@@ -119,7 +114,7 @@ export default function AccountLink() {
                 setError("");
               }}
             >
-              Request a new recovery link
+              Request a new link
             </button>
           )}
           <Link to="/account" className="text-link">

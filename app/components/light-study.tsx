@@ -18,17 +18,13 @@ export function LightStudy() {
       aria-labelledby="light-study-title"
     >
       <div className="lab-intro">
-        <span className="chapter-tag">FINISHES WE OFFER / 01</span>
         <h2 id="light-study-title">
           Light changes
           <br /> <em>everything.</em>
         </h2>
-        <p>
-          Metal never stands still. It catches a moment,
-          <br /> holds a reflection, becomes something new.
-        </p>
+        <p>Metal never stands still.</p>
         <span className="interaction-note">
-          <MoveHorizontal size={19} /> MOVE THE LIGHT. CHANGE THE MOOD.
+          <MoveHorizontal size={19} /> MOVE THE LIGHT.
         </span>
       </div>
       <div
@@ -51,10 +47,6 @@ export function LightStudy() {
         <div className="lab-cross bottom-right" aria-hidden="true">
           +
         </div>
-        <span className="lab-mark">
-          AURELIO
-          <br /> MATERIAL STUDY 001
-        </span>
         <span className="lab-value" aria-hidden="true">
           {String(light).padStart(2, "0")}
           <small> / LIGHT</small>

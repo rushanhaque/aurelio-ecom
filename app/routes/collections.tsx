@@ -12,11 +12,8 @@ export default function Collections() {
   const { counts } = useLoaderData<typeof loader>();
   return (
     <>
-      <PageIntro eyebrow="SEVEN COLLECTIONS. ONE ATELIER." title="Collections">
-        <p>
-          Furniture, lighting, urns and objets in metal and wood.
-          <br /> Made by hand in Moradabad, for homes and trade the world over.
-        </p>
+      <PageIntro title="Collections">
+        <p>Made by hand in Moradabad.</p>
       </PageIntro>
       <div className="collection-grid container">
         {collections.map((c) => (
@@ -28,10 +25,6 @@ export default function Collections() {
           >
             <div>
               <Picture name={c.cover} alt={c.name} />
-              <span>
-                COLLECTION {c.index}
-                {counts[c.slug] ? ` · ${counts[c.slug]} PIECES` : ""}
-              </span>
             </div>
             <h2>
               {c.name}

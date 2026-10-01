@@ -20,9 +20,7 @@ export default function Cart() {
   } | null>(null);
   return (
     <>
-      <PageIntro eyebrow="A CONSIDERED CHOICE" title="Your bag">
-        <p>Good things, gathered together.</p>
-      </PageIntro>
+      <PageIntro title="Your bag"></PageIntro>
       <section className="container section-start">
         {removed && (
           <div className="filter-chips" role="status">
@@ -39,10 +37,10 @@ export default function Cart() {
           </div>
         )}
         {!ready ? (
-          <Settling label="Bringing your bag across…" />
+          <Settling label="Loading your bag…" />
         ) : !cart.length ? (
-          <EmptyState title="A little space for something special.">
-            Your bag is empty. Explore our collection when it arrives.
+          <EmptyState title="Your bag is empty.">
+            Add something you love.
           </EmptyState>
         ) : (
           <div className="cart-layout">
@@ -82,28 +80,24 @@ export default function Cart() {
               })}
             </div>
             <aside className="order-summary">
-              <p className="eyebrow">THE DETAILS</p>
-              <h2>A lovely selection.</h2>
+              <h2>Summary</h2>
               <div className="summary-row">
                 <span>Subtotal</span>
                 <strong>
                   {money(cartTotal(cart, products, currency), currency)}
                 </strong>
               </div>
-              <p>
-                Delivery is estimated at checkout. Live payments are not
-                connected.
-              </p>
+              <p>Delivery is shown at checkout.</p>
               <Link className="button" to="/checkout">
                 Continue to checkout
                 <ArrowUpRight size={18} />
               </Link>
               <Link className="text-link" to="/shop">
-                Continue exploring
+                Keep shopping
                 <ArrowUpRight size={16} />
               </Link>
               <Link className="text-link" to="/bulk-orders?from=cart">
-                Enquire about this selection in bulk ↗
+                Enquire in bulk ↗
               </Link>
             </aside>
           </div>

@@ -6,8 +6,8 @@ export const meta = () => [{ title: "Journal — Aurelio" }];
 export default function Journal() {
   return (
     <>
-      <PageIntro eyebrow="NOTES FROM THE ATELIER" title="Journal">
-        <p>Materials, moments, and the things we choose to live with.</p>
+      <PageIntro title="Journal">
+        <p>Notes from the atelier.</p>
       </PageIntro>
       <section className="journal-grid container">
         {articles.map((a) => (
@@ -15,7 +15,6 @@ export default function Journal() {
             <div>
               <Picture name={a.image} alt={a.title} />
             </div>
-            <p className="eyebrow">{a.category} · 2 MIN READ</p>
             <h2>
               {a.title}
               <ArrowUpRight size={22} />

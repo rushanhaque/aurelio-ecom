@@ -123,12 +123,8 @@ export function MaterialAtelier({
       aria-labelledby="material-atelier-title"
       style={{ "--tone": tones[selected] } as CSSProperties}
     >
-      <span className="mx-ghost" aria-hidden="true" key={`ghost-${selected}`}>
-        {material.index}
-      </span>
       <div className="container">
         <header className="mx-heading" data-reveal>
-          <p className="eyebrow">{copy.eyebrow}</p>
           <h2 id="material-atelier-title">{copy.title}</h2>
           <p>{copy.intro}</p>
         </header>
@@ -173,12 +169,6 @@ export function MaterialAtelier({
             >
               <span>×{LOUPE}</span>
             </div>
-            <span className="mx-register" aria-hidden="true">
-              MATERIAL {material.index} / 09
-            </span>
-            <span className="mx-hint" aria-hidden="true">
-              Move across the surface
-            </span>
             {/* Touch has no hover, so the loupe gives way to a plain toggle. */}
             <button
               className="mx-touch-toggle"
@@ -283,29 +273,6 @@ export function MaterialAtelier({
               ))}
             </div>
           </div>
-        </div>
-
-        <div className="mx-foot">
-          {copy.sections.map(([heading, body], index) => (
-            <div key={index} data-reveal>
-              <span className="eyebrow">0{index + 1}</span>
-              <h3>{heading}</h3>
-              <p>{body}</p>
-            </div>
-          ))}
-          <Link
-            to="/bulk-orders"
-            className="mx-seal"
-            data-magnetic
-            aria-label="Start your material commission"
-          >
-            <span>
-              YOUR IDEA.
-              <br />
-              OUR ATELIER.
-            </span>
-            <b aria-hidden="true">↗</b>
-          </Link>
         </div>
       </div>
     </section>

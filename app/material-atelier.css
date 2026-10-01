@@ -51,13 +51,10 @@
 /* --- Heading ------------------------------------------------------------ */
 .mx-heading {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 32px;
   align-items: start;
   margin-bottom: clamp(48px, 6vw, 88px);
-}
-.mx-heading .eyebrow {
-  color: var(--brass-300);
 }
 .mx-heading h2 {
   font-size: clamp(44px, 5.4vw, 88px);
@@ -393,7 +390,7 @@
 /* --- Footnotes & seal --------------------------------------------------- */
 .mx-foot {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 1fr auto;
   gap: clamp(28px, 5vw, 80px);
   align-items: end;
   margin-top: clamp(70px, 9vw, 130px);
@@ -462,5 +459,78 @@
   .mx-name span,
   .mx-ghost {
     animation: none;
+  }
+}
+
+/* "A different kind of presence" fits one screen: on desktop the section is a
+   single viewport tall, the specimen is sized by height rather than width, and
+   the two footnotes shrink to a quiet strip beneath it. */
+@media (min-width: 901px) and (min-height: 620px) {
+  .mx-atelier {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 84px 26px;
+    --fit: clamp(320px, calc(100svh - 222px), 820px);
+  }
+  .mx-heading {
+    grid-template-columns: 2.4fr 1fr;
+    margin-bottom: clamp(14px, 2.6vh, 28px);
+  }
+  .mx-heading h2 {
+    font-size: clamp(30px, 5.2vh, 58px);
+    line-height: 1.05;
+  }
+  .mx-heading > p:last-child {
+    padding-top: 4px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .mx-stage {
+    grid-template-columns: auto 1fr;
+    gap: clamp(36px, 6vw, 96px);
+  }
+  .mx-specimen {
+    height: var(--fit);
+    width: var(--fit);
+    max-width: 52vw;
+    aspect-ratio: 1;
+  }
+  .mx-name {
+    margin: clamp(8px, 1.6vh, 16px) 0 clamp(10px, 2vh, 20px);
+    font-size: clamp(38px, 8vh, 84px);
+  }
+  .mx-description p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .mx-description .mx-note {
+    margin: clamp(8px, 1.6vh, 14px) 0 clamp(10px, 2vh, 18px);
+  }
+  .mx-swatches {
+    margin-top: clamp(16px, 3.4vh, 34px);
+    padding-top: clamp(12px, 2vh, 20px);
+  }
+  .mx-foot {
+    margin-top: clamp(14px, 2.6vh, 28px);
+    padding-top: clamp(12px, 2vh, 20px);
+    align-items: center;
+  }
+  .mx-foot h3 {
+    margin: 4px 0 2px;
+    font-size: clamp(18px, 2.8vh, 26px);
+  }
+  .mx-foot p {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+  .mx-seal {
+    width: clamp(78px, 12vh, 112px);
+    height: clamp(78px, 12vh, 112px);
+    font-size: 7px;
+  }
+  .mx-seal b {
+    bottom: 10px;
   }
 }

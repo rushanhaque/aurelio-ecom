@@ -45,10 +45,7 @@ export default function Collection() {
   const items = products.filter((p) => p.category === c.slug);
   return (
     <>
-      <PageIntro
-        eyebrow={`COLLECTION ${c.index} / ${c.tagline.replace(/\.$/, "").toUpperCase()}`}
-        title={c.name}
-      >
+      <PageIntro title={c.name}>
         <p>{c.summary}</p>
       </PageIntro>
       <section className="collection-story container">
@@ -79,9 +76,6 @@ export default function Collection() {
         <section className="container section piece-section" id="pieces">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">
-                {pieces.length} PIECES · FOR BULK &amp; TRADE ENQUIRY
-              </p>
               <h2>
                 {c.name},<br /> <em>made to order.</em>
               </h2>
@@ -91,8 +85,7 @@ export default function Collection() {
             </TextLink>
           </div>
           <p className="piece-note">
-            Made to order for hospitality, retail and gifting. Quantities,
-            finishes and lead times are quoted individually.
+            Made to order. Quantities and lead times are quoted per piece.
           </p>
           <div className="product-grid piece-grid">
             {pieces.slice(0, shown).map((piece) => (
@@ -108,7 +101,7 @@ export default function Collection() {
                 className="button button-outline"
                 onClick={() => setShown((n) => n + 24)}
               >
-                Show more pieces
+                Show more
               </button>
             </div>
           )}
@@ -127,11 +120,8 @@ export default function Collection() {
             </div>
           ) : (
             <div className="empty-state">
-              <h3>The next chapter is taking shape.</h3>
-              <p>
-                Available pieces will appear here as they are added to the
-                collection.
-              </p>
+              <h3>Coming soon.</h3>
+              <p>Pieces will appear here soon.</p>
               <TextLink
                 to={`/bulk-orders?product=${encodeURIComponent(c.name)}`}
               >
@@ -142,10 +132,9 @@ export default function Collection() {
         </section>
       )}
       <section className="editorial-cta container">
-        <p className="eyebrow">EXPLORE THE ATELIER</p>
-        <TextLink to="/materials">The materials we work in</TextLink>
+        <TextLink to="/materials">Our materials</TextLink>
         <Link className="text-link" to="/collections">
-          All seven collections ↗
+          All collections ↗
         </Link>
       </section>
     </>

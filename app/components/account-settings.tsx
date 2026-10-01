@@ -48,8 +48,7 @@ export function AccountSettings({
     <div className="account-settings">
       <div className="section-heading">
         <div>
-          <p className="eyebrow">THE PERSONAL DETAILS</p>
-          <h2>Your account, considered.</h2>
+          <h2>Your account</h2>
         </div>
         <Link className="text-link" to="/wishlist">
           Your saved objects ↗
@@ -106,14 +105,13 @@ export function AccountSettings({
             </button>
           )}
           <p className="muted">
-            For email changes or a privacy request, contact the studio. We will
-            verify ownership before changing your details.
+            To change your email or make a privacy request, contact us.
           </p>
           <button className="button button-outline" disabled={busy}>
             Save profile
           </button>
           <Link to="/contact?topic=Privacy%20request" className="text-link">
-            Privacy & account assistance ↗
+            Privacy help ↗
           </Link>
         </form>
         <form
@@ -174,8 +172,7 @@ export function AccountSettings({
         </button>
       </div>
       <p className="muted">
-        Save up to ten addresses. A saved destination does not guarantee
-        delivery serviceability.
+        Save up to ten addresses. A saved address doesn’t guarantee delivery.
       </p>
       <div className="address-grid">
         {addresses.map((a) => (

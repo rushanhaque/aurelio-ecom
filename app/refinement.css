@@ -113,22 +113,7 @@
     display: none;
   }
 }
-.atelier-hero > .hero-scenes {
-  z-index: 0;
-}
-.atelier-hero > .hero-shade {
-  z-index: 1;
-  pointer-events: none;
-}
-.atelier-hero > .hero-light {
-  z-index: 2;
-}
+
 .atelier-hero > .hero-grain {
   z-index: 3;
-}
-.atelier-hero > .hero-topline,
-.atelier-hero > .hero-editorial,
-.atelier-hero > .hero-bottomline,
-.atelier-hero > .orbit-link {
-  z-index: 4;
 }

@@ -9,181 +9,167 @@ export const pages: Record<
 > = {
   shipping: {
     title: "Shipping & delivery",
-    eyebrow: "A CONSIDERED ARRIVAL",
-    intro:
-      "Delivery details will be confirmed before Aurelio opens for live orders.",
+    eyebrow: "DELIVERY",
+    intro: "Delivery details are confirmed before live orders open.",
     sections: [
       [
-        "Where will Aurelio deliver?",
-        "Our intended launch includes India and selected international destinations. The supported countries, shipping partners and delivery times are still being finalized.",
+        "Where we deliver",
+        "India and selected countries. Partners and delivery times are still being finalised.",
       ],
       [
-        "What happens in this preview?",
-        "The checkout creates unpaid preview orders only. Its delivery amounts are illustrative. No parcel is dispatched and no carrier booking is made.",
+        "This preview",
+        "Preview orders are unpaid. Delivery amounts are illustrative, and no shipping takes place.",
       ],
       [
-        "International duties & taxes",
-        "Import charges, tax treatment and delivery terms will be displayed before live checkout is enabled. Do not rely on preview totals as a landed-cost quote.",
+        "Duties & taxes",
+        "Import charges and delivery terms will be shown before live checkout.",
       ],
       [
-        "Bulk & special deliveries",
-        "For larger quantities, fragile consignments or project deliveries, use the bulk enquiry form. Packing, freight and timing will be considered as part of your proposal.",
+        "Bulk deliveries",
+        "For large or fragile orders, send a bulk enquiry. Packing and freight are quoted with your proposal.",
       ],
     ],
   },
   returns: {
     title: "Returns & refunds",
-    eyebrow: "HERE TO HELP",
-    intro: "Clear terms are part of a considered experience.",
+    eyebrow: "RETURNS",
+    intro: "Clear terms, kept simple.",
     sections: [
       [
         "Preview orders",
-        "No money is collected and no goods are shipped in the current preview. There is therefore no payment to refund or physical item to return.",
+        "No money is taken and nothing ships, so there is nothing to refund or return.",
       ],
+      ["Live policy", "Our return terms will be published before live sales."],
       [
-        "Live return policy",
-        "Eligibility, request windows, return costs, damage reporting and custom-order exclusions must be finalized and published before live sales.",
-      ],
-      [
-        "A question about an order?",
-        "Contact the studio with your order reference. Never send card information or passwords through the contact form.",
+        "Order questions",
+        "Contact us with your order reference. Never send card details or passwords.",
       ],
     ],
   },
   care: {
     title: "Care",
-    eyebrow: "A LITTLE CARE. A LONG LIFE",
-    intro: "The right care starts with the material and its finish.",
+    eyebrow: "CARE",
+    intro: "Care starts with the material and its finish.",
     sections: [
       [
         "Start gently",
-        "For routine dusting, use a clean, soft, dry cloth. Avoid rough pads and abrasive cleaners. Check the individual product’s instructions before applying water, polish or any treatment.",
+        "Dust with a soft, dry cloth. Avoid abrasive cleaners. Check each product's instructions first.",
       ],
       [
-        "Brass & surface finishes",
-        "Lacquered, plated, polished and unlacquered surfaces require different care. Do not apply metal polish unless the specific product guidance recommends it.",
+        "Brass & finishes",
+        "Lacquered, plated and raw surfaces need different care. Don't use metal polish unless advised.",
       ],
+      ["Placement", "Keep pieces on stable surfaces, away from moisture."],
       [
-        "A place to belong",
-        "Keep decorative objects on stable surfaces. Use a protective pad where appropriate and avoid prolonged exposure to moisture unless a product is designed for it.",
-      ],
-      [
-        "Intended use matters",
-        "Decorative bowls are not automatically food-safe, and decorative vases are not automatically watertight. Check each object’s stated use. Never leave burning candles unattended.",
+        "Intended use",
+        "Decorative bowls aren't always food-safe, and vases aren't always watertight. Never leave candles unattended.",
       ],
     ],
   },
   faq: {
     title: "FAQ",
-    eyebrow: "A LITTLE CLARITY",
-    intro: "The things you might be wondering.",
+    eyebrow: "FAQ",
+    intro: "Quick answers.",
     sections: [
       [
         "When can I shop?",
-        "The catalog is being prepared. Objects will appear as Aurelio adds them. Live payments and shipping must be connected before real purchases can begin.",
+        "The catalogue is being prepared. Live payments open once shipping is connected.",
       ],
       [
         "Can I place a bulk enquiry?",
-        "Yes. Use the bulk enquiry form for hospitality, retail, gifting or a bespoke project. Your enquiry is saved in the studio dashboard.",
+        "Yes. Use the bulk enquiry form for hospitality, retail, gifting or bespoke work.",
       ],
       [
         "Can I customize a piece?",
-        "Many pieces can be tailored in size, finish and material. Contact the atelier or submit a bespoke brief to discuss the possibilities.",
+        "Many pieces can change in size, finish and material. Send us a brief.",
       ],
       [
         "What are your lead times?",
-        "Lead times depend on the complexity of the commission and the current atelier schedule. An estimate is supplied with your quotation.",
+        "They depend on the piece. An estimate comes with your quotation.",
       ],
       [
         "Is there a minimum order quantity?",
-        "Bulk minimums depend on the object, finish and customization. Share an approximate quantity so the team can review it.",
+        "It depends on the piece and finish. Share a rough quantity and we'll advise.",
       ],
       [
         "How do I care for my piece?",
-        "Each material needs different care, and care guidance comes with every delivery. Living finishes are meant to patinate naturally over time. See the care guide for each material.",
+        "Each material differs. Living finishes patinate over time. See the care guide.",
       ],
       [
-        "Do you offer pieces for bulk and trade orders?",
-        "Yes. Every collection lists pieces that are made to order for hospitality, retail and gifting. Open any piece and request a quotation, or send a bulk enquiry with quantities and finishes.",
+        "Do you offer trade orders?",
+        "Yes. Many pieces are made to order. Request a quotation or send a bulk enquiry.",
       ],
-      [
-        "Can I shop without an account?",
-        "Guest checkout is supported. Accounts bring orders placed while signed in together in one place.",
-      ],
+      ["Can I shop without an account?", "Yes. Guest checkout is available."],
       [
         "Do you ship internationally?",
-        "Aurelio arranges worldwide export from Moradabad. Shipping quotations depend on the piece and destination. Online checkout delivery, duties and supported destinations will be confirmed before live payments are enabled.",
+        "Yes. We arrange worldwide export from Moradabad. Quotes depend on the piece and destination.",
       ],
       [
-        "Are the photographs actual Aurelio products?",
-        "The site combines imagery from the original Aurelio collections and material library with generated editorial visuals. Selected Works is an archive showcase. Purchasable products and their photography are added separately.",
+        "Are the photographs real products?",
+        "Some images are editorial. Product photography is added separately.",
       ],
     ],
   },
   privacy: {
     title: "Privacy policy",
-    eyebrow: "YOUR PRIVACY MATTERS",
+    eyebrow: "PRIVACY",
     intro:
-      "This notice describes the current development preview. A complete business privacy policy is required before public launch.",
+      "This covers the current preview. A full policy is required before launch.",
     sections: [
       [
-        "What this preview stores",
-        "Forms may store your name, email, enquiry, company and contact details in the application database. Accounts store a password hash and session records. Preview orders store order and delivery details. Avoid submitting sensitive or real customer data while testing.",
+        "What we store",
+        "Forms store your name, email and message. Accounts store a password hash. Avoid submitting real customer data while testing.",
       ],
       [
         "Browser storage",
-        "An essential session cookie keeps you signed in. Local storage remembers your bag, wishlist and selected currency. Session storage can hold a private order access key. No advertising trackers have been added.",
+        "A session cookie keeps you signed in. Local storage remembers your bag, wishlist and currency. No advertising trackers.",
       ],
       [
-        "Email preferences",
-        "The newsletter form records your email and consent. No marketing emails are sent from this preview. An unsubscribe and consent-management workflow must be configured before any mailing starts.",
+        "Email",
+        "The newsletter form records your email and consent. No marketing emails are sent from this preview.",
       ],
       [
-        "Access & deletion requests",
-        "Use the contact form to submit a privacy request. Aurelio is the atelier line of AF International in Moradabad. Contact info@aurelio.in for privacy questions. Retention periods, processors and applicable rights must be finalized before launch.",
+        "Your requests",
+        "For access or deletion, use the contact form or email info@aurelio.in.",
       ],
     ],
   },
   terms: {
     title: "Terms & conditions",
-    eyebrow: "A CLEAR UNDERSTANDING",
-    intro:
-      "Aurelio is currently a development preview, not an operational online store.",
+    eyebrow: "TERMS",
+    intro: "Aurelio is currently a preview, not a live store.",
     sections: [
       [
         "No live purchases",
-        "Preview checkout does not collect payment, create a shipping obligation or guarantee availability. Test order totals and delivery estimates are illustrative.",
+        "Preview checkout takes no payment and promises no availability. Totals and delivery estimates are illustrative.",
       ],
       [
-        "Editorial presentation",
-        "Original Aurelio collection, material and archive imagery is presented alongside generated visual concepts. Editorial images do not establish inventory, product specifications or certification.",
+        "Images",
+        "Some imagery is editorial. It doesn't confirm stock or specifications.",
       ],
       [
         "Bulk enquiries",
-        "Submitting a brief is a request for a conversation. A confirmed commercial proposal and agreed terms are required before any bulk order.",
+        "A brief starts a conversation. A bulk order needs a confirmed proposal and agreed terms.",
       ],
       [
-        "Before public launch",
-        "The governing terms, pricing and tax disclosures, fulfillment commitments, return policy, grievance contact and applicable consumer protections must be confirmed and published.",
+        "Before launch",
+        "Final terms, pricing, tax and return policy will be published.",
       ],
     ],
   },
   accessibility: {
     title: "Accessibility",
-    eyebrow: "BEAUTY, OPEN TO EVERYONE",
-    intro: "A considered experience should be comfortable to use.",
+    eyebrow: "ACCESSIBILITY",
+    intro: "A good site should be easy for everyone to use.",
     sections: [
       [
-        "How this site is designed",
-        "The interface uses semantic page structure, labeled controls, visible keyboard focus, modal focus management and alternatives to hover interaction. Touch controls are sized for smaller screens.",
+        "How it's built",
+        "Semantic structure, labelled controls, visible keyboard focus and touch-friendly sizes.",
       ],
+      ["Motion", "Animations follow your device's reduced-motion setting."],
       [
-        "Motion preferences",
-        "Scroll effects respect the reduced-motion setting on your device. Core content remains available without animation.",
-      ],
-      [
-        "An ongoing practice",
-        "We are testing keyboard navigation, zoom, contrast, screen reader structure and mobile layouts. This is not a claim of audited WCAG compliance. Please use the contact form if something makes the site difficult to use.",
+        "Ongoing work",
+        "We're still testing, and this isn't an audited WCAG claim. Tell us if something is hard to use.",
       ],
     ],
   },

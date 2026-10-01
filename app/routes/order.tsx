@@ -25,14 +25,11 @@ export default function Order() {
   }, [reference]);
   return (
     <>
-      <PageIntro
-        eyebrow="THANK YOU FOR EXPLORING AURELIO"
-        title={order ? "Beautifully chosen." : "Your order."}
-      >
+      <PageIntro title={order ? "Thank you." : "Your order."}>
         <p>
           {order
-            ? "Your unpaid preview order has been saved. Nothing has been charged or shipped."
-            : error || "Gathering the details…"}
+            ? "Your unpaid preview order is saved. Nothing is charged or shipped."
+            : error || "Loading…"}
         </p>
       </PageIntro>
       <section className="container order-page">
@@ -112,9 +109,8 @@ export default function Order() {
                       }}
                     >
                       <p>
-                        A request starts a conversation. It does not approve a
-                        return, cancel an order or issue a refund. Preview
-                        orders have no payment to refund.
+                        A request starts a conversation. It doesn’t approve a
+                        return or refund.
                       </p>
                       <label className="field">
                         <span>How can we help?</span>
@@ -163,17 +159,11 @@ export default function Order() {
                   <span>Preview total</span>
                   <strong>{money(order.total, order.currency)}</strong>
                 </div>
-                <p>
-                  Payment status: unpaid preview.
-                  <br /> No tax has been calculated.
-                </p>
+                <p>Unpaid preview. Tax not calculated.</p>
                 {token && (
                   <details className="order-key">
                     <summary>Your secure access key</summary>
-                    <p>
-                      Save this privately to reopen your order on another
-                      device.
-                    </p>
+                    <p>Save this to reopen your order elsewhere.</p>
                     <code>{token}</code>
                     <button
                       className="text-link"
@@ -198,7 +188,7 @@ export default function Order() {
           </>
         )}
         <Link to="/contact" className="text-link">
-          A question about your order?
+          Order question?
           <ArrowUpRight size={17} />
         </Link>
       </section>

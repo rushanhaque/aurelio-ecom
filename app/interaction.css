@@ -227,12 +227,10 @@ body:has(.atelier-hero) .icon-button:hover {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .orbit-link > svg:first-child,
   .arrival-art .orbit-art,
   .scroll-track i {
     animation: none !important;
   }
-  .hero-scene,
   .form-panel,
   .form-name > span {
     transition: none !important;

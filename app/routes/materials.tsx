@@ -22,7 +22,7 @@ function MaterialCard({
         <Picture name={m.texture} alt="" className="material-texture" />
         <span>
           <Layers size={15} />{" "}
-          {texture ? "See the material" : "Feel the texture"}
+          {texture ? "See the material" : "See the texture"}
         </span>
       </button>
       <div className="material-heading">
@@ -41,12 +41,8 @@ function MaterialCard({
 export default function Materials() {
   return (
     <>
-      <PageIntro eyebrow="THE MATERIAL LIBRARY" title="Materials">
-        <p>
-          Each material speaks differently. We listen to all of them.
-          <br /> From living brass to hand-built ceramic, this is the vocabulary
-          of our atelier.
-        </p>
+      <PageIntro title="Materials">
+        <p>Nine materials, each with its own character.</p>
       </PageIntro>
       <nav className="material-index container" aria-label="Materials">
         {materials.map((m) => (
@@ -61,12 +57,11 @@ export default function Materials() {
         ))}
       </section>
       <section className="editorial-cta container">
-        <p className="eyebrow">AN IDEA IN A PARTICULAR MATERIAL?</p>
         <h2>
-          Let the material
-          <br /> <em>lead the conversation.</em>
+          Start with
+          <br /> <em>a material.</em>
         </h2>
-        <TextLink to="/bulk-orders">Discuss a bespoke piece</TextLink>
+        <TextLink to="/bulk-orders">Discuss a piece</TextLink>
       </section>
     </>
   );

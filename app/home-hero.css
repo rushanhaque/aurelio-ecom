@@ -1,0 +1,384 @@
+/* Landing — the film hero and the two service doors.
+   The footage is the subject: copy sits low and small, the veil only darkens
+   the edges it needs for legibility, and every flourish yields to the video. */
+
+/* ---------- Film hero ---------- */
+/* Nothing but the film, the header and two ways in. The header floats over
+   the footage and turns solid the moment the page is scrolled. */
+.atelier-hero.film-hero {
+  height: 100svh;
+  min-height: 600px;
+  max-height: none;
+  display: grid;
+  place-items: end center;
+  padding: 0 var(--gutter) clamp(44px, 9vh, 96px);
+}
+.film-video {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  transition: transform 2.4s var(--ease-out);
+}
+.film-hero.is-ready .film-video {
+  transform: scale(1);
+}
+.film-veil {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, #03180fb3 0%, #03180f40 26%, transparent 46%),
+    linear-gradient(180deg, #03180fd9 0%, #03180f8c 14%, transparent 30%);
+}
+.film-hero > .hero-grain {
+  z-index: -1;
+  opacity: 0.07;
+}
+
+.film-actions {
+  display: flex;
+  gap: 14px;
+}
+.film-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-width: 250px;
+  min-height: 58px;
+  padding: 0 28px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  overflow: clip;
+  isolation: isolate;
+  transition:
+    color var(--dur-3) var(--ease-out),
+    border-color var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
+  animation: film-rise 1.1s var(--ease-out) both;
+}
+.film-button:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.film-button:nth-child(2) {
+  animation-delay: 0.65s;
+}
+.film-button svg {
+  transition: transform var(--dur-3) var(--ease-out);
+}
+.film-button:hover,
+.film-button:focus-visible {
+  transform: translateY(-3px);
+}
+.film-button:hover svg,
+.film-button:focus-visible svg {
+  transform: rotate(45deg);
+}
+/* The fill rises from the base of each button on approach. */
+.film-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--dur-4) var(--ease-out);
+}
+.film-button:hover::before,
+.film-button:focus-visible::before {
+  transform: scaleY(1);
+}
+.film-button-solid {
+  color: var(--ink);
+  background: #f2efe6;
+  border: 1px solid #f2efe6;
+}
+.film-button-solid::before {
+  background: #d8c39d;
+}
+.film-button-glass {
+  color: #f5f3ec;
+  border: 1px solid #f2f2f259;
+  background: #0723192e;
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+.film-button-glass::before {
+  background: #f2efe6;
+}
+.film-button-glass:hover,
+.film-button-glass:focus-visible {
+  color: var(--ink);
+  border-color: #f2efe6;
+}
+
+@keyframes film-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .atelier-hero.film-hero {
+    padding-inline: 22px;
+    padding-bottom: 96px;
+  }
+  .film-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .film-button {
+    min-width: 0;
+    width: 100%;
+    min-height: 54px;
+  }
+}
+
+/* ---------- Transparent header over the landing film ---------- */
+/* The header leaves the flow and floats on the footage; the existing
+   data-scrolled rules in interaction-v2.css make it opaque again on scroll. */
+body:has(.film-hero) .announcement {
+  display: none;
+}
+/* Just the mark: no tagline under it and no reading-progress line. */
+body:has(.film-hero) .wordmark span,
+body:has(.film-hero) .site-header::after {
+  display: none;
+}
+body:has(.film-hero) .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+body:has(.film-hero):not([data-scrolled="true"]) .site-header {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* ---------- Two doors, in full ---------- */
+.services-split {
+  padding-block: var(--space-section) 0;
+  background: var(--paper);
+}
+.services-head {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: end;
+  gap: 32px;
+  padding-bottom: clamp(40px, 5vw, 72px);
+}
+.services-head h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(44px, 5.4vw, 92px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+.services-head h2 em {
+  display: block;
+  color: var(--brass-600);
+}
+.services-head p {
+  margin: 0;
+  max-width: 34ch;
+  justify-self: end;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--ink);
+}
+.service-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: clamp(560px, 82vh, 860px);
+  padding: clamp(24px, 3vw, 48px);
+  color: #f5f3ec;
+  overflow: clip;
+  isolation: isolate;
+}
+.service-panel > img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  filter: brightness(0.78) saturate(0.85);
+  transition:
+    transform 1.6s var(--ease-out),
+    filter 1s var(--ease-out);
+}
+.service-veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(0deg, #03180ff0 0%, #03180f80 40%, #03180f1a 75%);
+}
+.service-panel:hover > img,
+.service-panel:focus-visible > img {
+  transform: scale(1.1);
+  filter: brightness(0.62) saturate(0.95);
+}
+.service-label {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #ebeadccc;
+}
+.service-label > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #f2f2f240;
+  letter-spacing: 0.08em;
+}
+.service-body {
+  display: grid;
+  gap: 22px;
+  max-width: 520px;
+}
+.service-title {
+  font-family: var(--serif);
+  font-size: clamp(46px, 4.8vw, 84px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+.service-title em {
+  display: block;
+  color: #ecdfc5;
+}
+.service-copy {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #e0ddd1;
+  max-width: 44ch;
+}
+/* Details stay folded until the panel is approached, so the image leads. */
+.service-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.service-points > span {
+  padding: 8px 13px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  border: 1px solid #f2f2f230;
+  border-radius: var(--radius-pill);
+  background: #f2f2f20d;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
+}
+.service-points > span:nth-child(2) {
+  transition-delay: 0.06s;
+}
+.service-points > span:nth-child(3) {
+  transition-delay: 0.12s;
+}
+.service-panel:hover .service-points > span,
+.service-panel:focus-visible .service-points > span {
+  opacity: 1;
+  transform: none;
+}
+.service-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  justify-self: start;
+  min-width: 260px;
+  padding-top: 18px;
+  border-top: 1px solid #f2f2f233;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.service-panel:hover .door-arrow,
+.service-panel:focus-visible .door-arrow {
+  transform: rotate(45deg);
+  background: #f2efe6;
+  color: var(--ink);
+  border-color: #f2efe6;
+}
+
+@media (hover: none) {
+  .service-points > span {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 860px) {
+  .services-head {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .services-head p {
+    justify-self: start;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-panel {
+    min-height: 540px;
+  }
+}
+@media (max-width: 680px) {
+  .service-panel {
+    min-height: 500px;
+    padding: 22px;
+  }
+  .service-cta {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film-video {
+    transform: none;
+  }
+  .service-points > span {
+    opacity: 1;
+    transform: none;
+  }
+}
+body:has(.film-hero):not([data-scrolled="true"]) .site-header a,
+body:has(.film-hero):not([data-scrolled="true"]) .site-header select,
+body:has(.film-hero):not([data-scrolled="true"]) .site-header .icon-button {
+  text-shadow: 0 1px 12px #03180f99;
+}

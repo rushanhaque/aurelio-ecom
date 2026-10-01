@@ -9,23 +9,15 @@ const pillars = [
   [
     "01",
     "Made by hand",
-    "Every piece is cast, forged, raised, turned and finished by hand on the bench in Moradabad. No two leave the workshop quite the same.",
+    "Cast, forged and finished on our bench. No two are the same.",
   ],
-  [
-    "02",
-    "Metal & wood",
-    "We work brass, copper and patinated steel alongside seasoned timber — the materials northern India has shaped for generations.",
-  ],
-  [
-    "03",
-    "Shipped worldwide",
-    "From a single object to a container of furniture, our work leaves the atelier for private homes and trade clients across the world.",
-  ],
+  ["02", "Metal & wood", "Brass, copper and steel, alongside seasoned timber."],
+  ["03", "Shipped worldwide", "From one piece to a full container."],
 ];
 export default function Craft() {
   return (
     <>
-      <PageIntro eyebrow="MADE BY HAND IN MORADABAD" title="About us">
+      <PageIntro title="About us">
         <p>{brand.story}</p>
       </PageIntro>
       <div className="wide-editorial container">
@@ -34,10 +26,8 @@ export default function Craft() {
           alt="Bespoke work from the Aurelio collection"
           eager
         />
-        <span>METAL & WOOD · MORADABAD, INDIA · SINCE 2008</span>
       </div>
       <section className="philosophy section container">
-        <p className="eyebrow">THE STORY OF OUR ATELIER</p>
         <h2>
           A workshop,
           <br /> <em>not a factory.</em>
@@ -57,21 +47,9 @@ export default function Craft() {
       </section>
       <section className="values-section container">
         {[
-          [
-            "2008",
-            "Our beginning",
-            "Founded in Moradabad, India’s brass city.",
-          ],
-          [
-            "By hand",
-            "Our practice",
-            "Cast, forged, raised, turned and finished on the bench.",
-          ],
-          [
-            "Worldwide",
-            "Our reach",
-            "Handcrafted metal and wooden pieces for homes and trade.",
-          ],
+          ["2008", "Our beginning", "Founded in Moradabad."],
+          ["By hand", "Our practice", "Made on the bench."],
+          ["Worldwide", "Our reach", "For homes and trade."],
         ].map(([n, title, text]) => (
           <div key={title} data-reveal>
             <span className="eyebrow">{n}</span>
@@ -82,13 +60,12 @@ export default function Craft() {
       </section>
       <OriginalAtelier />
       <section className="editorial-cta container">
-        <p className="eyebrow">THE VOCABULARY OF THE ATELIER</p>
         <h2>
           Metal. Wood.
           <br /> <em>And everything between.</em>
         </h2>
-        <TextLink to="/materials">Explore our nine materials</TextLink>
-        <TextLink to="/collections">See the collections</TextLink>
+        <TextLink to="/materials">Our materials</TextLink>
+        <TextLink to="/collections">Collections</TextLink>
         <TextLink to="/contact">Contact us</TextLink>
       </section>
     </>
