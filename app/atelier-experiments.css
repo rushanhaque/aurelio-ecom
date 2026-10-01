@@ -262,52 +262,10 @@
 .experiment-dark .text-link {
   color: inherit;
 }
-.patina-canvas {
-  aspect-ratio: 1;
-}
-.patina-canvas img {
-  filter: saturate(0.85);
-}
-.patina-wash {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 65% 50%, #1e4e3bcc, transparent 55%),
-    linear-gradient(130deg, #47462b, #1d372c 50%, #766247);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-.patina-word {
-  position: absolute;
-  bottom: 27px;
-  left: 28px;
-  color: #f2f2f2;
-  font: italic clamp(46px, 5vw, 80px)/1 var(--serif);
-  text-shadow: 0 2px 15px #0005;
-}
-.polish-canvas svg,
 .lens-canvas svg {
   touch-action: none;
   cursor: crosshair;
 }
-.polish-dull {
-  filter: brightness(0.45) saturate(0.2);
-}
-.polish-canvas {
-  background: #182b20;
-}
-.shadow-stage {
-  max-height: 660px;
-}
-.shadow-stage svg {
-  max-height: 660px;
-  touch-action: none;
-  cursor: grab;
-}
-.shadow-stage svg:active {
-  cursor: grabbing;
-}
-.shadow-stage .experiment-stamp,
 .line-canvas .experiment-stamp {
   color: #072319;
   text-shadow: none;
@@ -368,10 +326,6 @@
 .anatomy-canvas {
   background: radial-gradient(ellipse at center, #284636, #102d22);
 }
-.anatomy-canvas text {
-  font: 11px var(--sans);
-  fill: #c7b696;
-}
 .anatomy-list {
   list-style: none;
   counter-reset: parts;
@@ -402,17 +356,6 @@
   opacity: 0.6;
   line-height: 1.7;
 }
-.room-stage svg {
-  max-height: 640px;
-}
-.room-wall {
-  fill: var(--room-wall);
-  transition: fill 0.65s;
-}
-.room-floor {
-  fill: var(--room-floor);
-  transition: fill 0.65s;
-}
 .room-selector {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -442,36 +385,6 @@
 .room-selector b {
   margin-left: auto;
   font-weight: 400;
-}
-.rhythm-canvas {
-  aspect-ratio: 1;
-}
-.rhythm-canvas img {
-  animation: study-image-in 0.55s ease both;
-}
-.rhythm-bars {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  right: 30px;
-  display: flex;
-  gap: 7px;
-  align-items: center;
-  justify-content: center;
-  height: 65px;
-  background: #072319d9;
-  padding: 10px;
-}
-.rhythm-bars i {
-  display: block;
-  width: 3px;
-  height: var(--bar);
-  background: #d8c39d;
-  transform: scaleY(0.25);
-  transition: transform 0.3s;
-}
-.is-playing .rhythm-bars i {
-  animation: study-rhythm 0.42s ease-in-out var(--delay) infinite alternate;
 }
 .sound-button {
   display: flex;
@@ -548,10 +461,6 @@
     display: flex;
     align-items: center;
   }
-  .patina-canvas,
-  .rhythm-canvas {
-    display: block !important;
-  }
   .experiment-copy {
     padding-block: 20px;
   }
@@ -626,10 +535,6 @@
     top: 18px;
     font-size: 7px;
   }
-  .patina-word {
-    left: 18px;
-    bottom: 20px;
-  }
   .experiment-under {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -650,24 +555,11 @@
   .room-selector b {
     display: none;
   }
-  .rhythm-bars {
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    gap: 5px;
-  }
-  .shadow-stage svg {
-    min-height: 260px;
-    object-fit: cover;
-  }
   .line-canvas svg {
     padding-top: 30px;
   }
   .experiment-directory h2 {
     font-size: 46px;
-  }
-  .anatomy-canvas svg {
-    max-height: 480px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -675,7 +567,114 @@
     animation: none !important;
     transition: none !important;
   }
-  .is-playing .rhythm-bars i {
-    transform: scaleY(0.65);
+}
+
+/* Real room photographs, crossfaded. */
+.room-stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #1d1a16;
+}
+.room-photo {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.room-photo.is-active {
+  opacity: 1;
+  transform: none;
+}
+.room-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.room-stage .experiment-stamp {
+  z-index: 2;
+  color: #fff;
+  text-shadow: 0 1px 8px #0008;
+}
+
+/* Mixed finishes: the real lamp, with linked hotspots and a dimmer. */
+.anatomy-photo {
+  position: relative;
+  width: min(100%, 520px);
+  margin-inline: auto;
+  aspect-ratio: 960 / 1442;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.anatomy-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.anatomy-photo .anatomy-lit {
+  opacity: var(--glow, 0);
+  transition: opacity 0.25s linear;
+}
+.anatomy-spot {
+  position: absolute;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  background: #07231999;
+  border: 1px solid #f2f2f2aa;
+  backdrop-filter: blur(4px);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s;
+}
+.anatomy-spot::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1px solid #f2f2f266;
+  animation: anatomy-pulse 2.4s ease-out infinite;
+}
+.anatomy-spot.is-active,
+.anatomy-spot:hover,
+.anatomy-spot:focus-visible {
+  transform: scale(1.25);
+  background: #d2c09d;
+  color: #072319;
+}
+@keyframes anatomy-pulse {
+  from {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+.anatomy-list li {
+  transition:
+    color 0.3s,
+    padding-left 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anatomy-list li.is-active {
+  padding-left: 10px;
+  color: #d2c09d;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anatomy-spot::after {
+    animation: none;
   }
 }

@@ -2,14 +2,17 @@ import { Link } from "react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PageIntro, Picture } from "../components/ui";
 import { collections } from "../lib/brand-content";
-export const meta = () => [{ title: "Seven collections — Aurelio" }];
+import { useLoaderData } from "react-router";
+import { pieceCounts } from "../lib/catalogue.server";
+export function loader() {
+  return { counts: pieceCounts() };
+}
+export const meta = () => [{ title: "Collections — Aurelio" }];
 export default function Collections() {
+  const { counts } = useLoaderData<typeof loader>();
   return (
     <>
-      <PageIntro
-        eyebrow="SEVEN COLLECTIONS. ONE ATELIER."
-        title="The worlds of Aurelio."
-      >
+      <PageIntro eyebrow="SEVEN COLLECTIONS. ONE ATELIER." title="Collections">
         <p>
           Furniture, lighting, urns and objets in metal and wood.
           <br /> Made by hand in Moradabad, for homes and trade the world over.
@@ -25,7 +28,10 @@ export default function Collections() {
           >
             <div>
               <Picture name={c.cover} alt={c.name} />
-              <span>COLLECTION {c.index}</span>
+              <span>
+                COLLECTION {c.index}
+                {counts[c.slug] ? ` · ${counts[c.slug]} PIECES` : ""}
+              </span>
             </div>
             <h2>
               {c.name}

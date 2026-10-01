@@ -3,10 +3,7 @@ import { Link } from "react-router";
 import { ArrowUpRight, Layers } from "lucide-react";
 import { materials } from "../lib/brand-content";
 import { PageIntro, Picture, TextLink } from "../components/ui";
-import "../brand-content.css";
-export const meta = () => [
-  { title: "Materials — Aurelio by AF International" },
-];
+export const meta = () => [{ title: "Materials — Aurelio" }];
 function MaterialCard({
   material: m,
 }: {
@@ -44,10 +41,7 @@ function MaterialCard({
 export default function Materials() {
   return (
     <>
-      <PageIntro
-        eyebrow="THE MATERIAL LIBRARY"
-        title="Nine languages of making."
-      >
+      <PageIntro eyebrow="THE MATERIAL LIBRARY" title="Materials">
         <p>
           Each material speaks differently. We listen to all of them.
           <br /> From living brass to hand-built ceramic, this is the vocabulary

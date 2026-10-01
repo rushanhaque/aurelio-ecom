@@ -28,7 +28,7 @@ export default function Tracking() {
   }
   return (
     <>
-      <PageIntro eyebrow="FROM OUR WORLD TO YOURS" title="Follow your object.">
+      <PageIntro eyebrow="FROM OUR WORLD TO YOURS" title="Track your order">
         <p>
           Use your order reference and secure access key,
           <br /> or sign in to your account to view your orders.

@@ -8,8 +8,8 @@ export const pages: Record<
   }
 > = {
   shipping: {
-    title: "A considered arrival.",
-    eyebrow: "SHIPPING & DELIVERY",
+    title: "Shipping & delivery",
+    eyebrow: "A CONSIDERED ARRIVAL",
     intro:
       "Delivery details will be confirmed before Aurelio opens for live orders.",
     sections: [
@@ -32,8 +32,8 @@ export const pages: Record<
     ],
   },
   returns: {
-    title: "Here to help.",
-    eyebrow: "RETURNS & REFUNDS",
+    title: "Returns & refunds",
+    eyebrow: "HERE TO HELP",
     intro: "Clear terms are part of a considered experience.",
     sections: [
       [
@@ -51,8 +51,8 @@ export const pages: Record<
     ],
   },
   care: {
-    title: "A little care. A long life.",
-    eyebrow: "CARING FOR YOUR OBJECTS",
+    title: "Care",
+    eyebrow: "A LITTLE CARE. A LONG LIFE",
     intro: "The right care starts with the material and its finish.",
     sections: [
       [
@@ -74,8 +74,8 @@ export const pages: Record<
     ],
   },
   faq: {
-    title: "A little clarity.",
-    eyebrow: "FREQUENTLY ASKED",
+    title: "FAQ",
+    eyebrow: "A LITTLE CLARITY",
     intro: "The things you might be wondering.",
     sections: [
       [
@@ -99,6 +99,14 @@ export const pages: Record<
         "Bulk minimums depend on the object, finish and customization. Share an approximate quantity so the team can review it.",
       ],
       [
+        "How do I care for my piece?",
+        "Each material needs different care, and care guidance comes with every delivery. Living finishes are meant to patinate naturally over time. See the care guide for each material.",
+      ],
+      [
+        "Do you offer pieces for bulk and trade orders?",
+        "Yes. Every collection lists pieces that are made to order for hospitality, retail and gifting. Open any piece and request a quotation, or send a bulk enquiry with quantities and finishes.",
+      ],
+      [
         "Can I shop without an account?",
         "Guest checkout is supported. Accounts bring orders placed while signed in together in one place.",
       ],
@@ -113,8 +121,8 @@ export const pages: Record<
     ],
   },
   privacy: {
-    title: "Your privacy matters.",
-    eyebrow: "PREVIEW PRIVACY NOTICE",
+    title: "Privacy policy",
+    eyebrow: "YOUR PRIVACY MATTERS",
     intro:
       "This notice describes the current development preview. A complete business privacy policy is required before public launch.",
     sections: [
@@ -137,8 +145,8 @@ export const pages: Record<
     ],
   },
   terms: {
-    title: "A clear understanding.",
-    eyebrow: "PREVIEW TERMS",
+    title: "Terms & conditions",
+    eyebrow: "A CLEAR UNDERSTANDING",
     intro:
       "Aurelio is currently a development preview, not an operational online store.",
     sections: [
@@ -161,8 +169,8 @@ export const pages: Record<
     ],
   },
   accessibility: {
-    title: "Beauty, open to everyone.",
-    eyebrow: "ACCESSIBILITY",
+    title: "Accessibility",
+    eyebrow: "BEAUTY, OPEN TO EVERYONE",
     intro: "A considered experience should be comfortable to use.",
     sections: [
       [

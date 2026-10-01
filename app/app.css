@@ -1,0 +1,20 @@
+/* The single global stylesheet.
+   Every route loaded these seven layers unconditionally as seven separate
+   render-blocking requests; bundling them here collapses that to one while
+   preserving the cascade order exactly:
+
+     tokens          shared vocabulary, must come first
+     styles          the base system
+     interaction     the original hover layer
+     brand-content   editorial and footer composition
+     operations      account, admin and order surfaces
+     refinement      the material atelier pass
+     interaction-v2  the v2 layer, last so it refines the rest
+*/
+@import "./tokens.css";
+@import "./styles.css";
+@import "./interaction.css";
+@import "./brand-content.css";
+@import "./operations.css";
+@import "./refinement.css";
+@import "./interaction-v2.css";

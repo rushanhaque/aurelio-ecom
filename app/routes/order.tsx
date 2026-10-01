@@ -47,7 +47,7 @@ export default function Order() {
               <div>
                 {order.lines.map((l: any) => (
                   <div className="checkout-line" key={l.productId}>
-                    <Picture name={l.image} alt={l.name} />
+                    <Picture name={l.image} alt={l.name} sizes="120px" />
                     <span>
                       {l.name}
                       <small>

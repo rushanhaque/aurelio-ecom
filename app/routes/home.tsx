@@ -1,8 +1,6 @@
-import { collections } from "../lib/brand-content";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { MaterialAtelier } from "../components/material-atelier";
-import { LightStudy } from "../components/light-study";
 import { AtelierExperiments } from "../components/atelier-experiments";
 import { homeContent } from "../lib/home-content";
 import { database } from "../../server/db";
@@ -16,11 +14,7 @@ import {
   AurelioStandard,
   OriginalAtelier,
 } from "../components/original-sections";
-import {
-  MakingStory,
-  JourneyNavigation,
-  ReadingStatement,
-} from "../components/storytelling";
+import { MakingStory, ReadingStatement } from "../components/storytelling";
 const scenes = [
   { name: "Form", image: "hero", caption: "An exploration in brass" },
   { name: "Touch", image: "craft", caption: "The poetry of the process" },
@@ -30,12 +24,6 @@ const scenes = [
     caption: "A study in sculptural balance",
   },
 ];
-const forms = collections.map((c) => ({
-  name: c.name,
-  image: c.cover,
-  category: c.slug,
-  detail: c.tagline,
-}));
 function Orbit({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -74,8 +62,8 @@ export async function loader() {
 export default function Home() {
   const { homeCopy } = useLoaderData<typeof loader>();
   const { products } = useStore();
-  const [scene, setScene] = useState(0),
-    [form, setForm] = useState(0);
+  const [scene, setScene] = useState(0);
+
   const hero = useRef<HTMLElement>(null);
   const frame = useRef(0);
   useEffect(() => () => cancelAnimationFrame(frame.current), []);
@@ -232,102 +220,9 @@ export default function Home() {
       <MakingStory />
       <OriginalAtelier />
       <SelectedWorks />
-      <LightStudy />
-      <section className="form-explorer container">
-        <div className="explorer-heading">
-          <span className="chapter-tag">04 / FIND YOUR FORM</span>
-          <h2>
-            Seven collections.
-            <br /> <em>One atelier.</em>
-          </h2>
-          <p>
-            Urns, lighting, furniture, kitchenware, decor, accessories and
-            bespoke.
-          </p>
-        </div>
-        <div className="explorer-layout">
-          <div
-            className="form-index"
-            role="tablist"
-            aria-orientation="vertical"
-            aria-label="Explore object forms"
-          >
-            {forms.map((f, i) => (
-              <button
-                role="tab"
-                aria-selected={form === i}
-                aria-controls={`form-panel-${i}`}
-                id={`form-tab-${i}`}
-                key={f.name}
-                onMouseEnter={() => setForm(i)}
-                onFocus={() => setForm(i)}
-                onClick={() => setForm(i)}
-                onKeyDown={(e) => {
-                  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-                    e.preventDefault();
-                    const n =
-                      (i + (e.key === "ArrowDown" ? 1 : forms.length - 1)) %
-                      forms.length;
-                    setForm(n);
-                    document.getElementById(`form-tab-${n}`)?.focus();
-                  }
-                }}
-                className={`form-row ${form === i ? "active" : ""}`}
-              >
-                <span className="form-number">0{i + 1}</span>
-                <span className="form-name">
-                  <span>{f.name}</span>
-                  <span aria-hidden="true">{f.name}</span>
-                </span>
-                <ArrowUpRight size={27} />
-              </button>
-            ))}
-            <p className="index-footnote">
-              SEVEN WORLDS. FOLLOW YOUR CURIOSITY.
-            </p>
-          </div>
-          <div className="form-preview">
-            {forms.map((f, i) => (
-              <div
-                className={`form-panel ${form === i ? "active" : ""}`}
-                role="tabpanel"
-                id={`form-panel-${i}`}
-                aria-labelledby={`form-tab-${i}`}
-                aria-hidden={form !== i}
-                inert={form !== i}
-                key={f.name}
-              >
-                <Link to={`/collections/${f.category}`} data-cursor="EXPLORE">
-                  <Picture
-                    name={f.image}
-                    alt={`Editorial exploration of ${f.name.toLowerCase()}`}
-                  />
-                  <span className="preview-corner">COLLECTION / 0{i + 1}</span>
-                  <span className="preview-ring">
-                    <ArrowUpRight size={28} />
-                  </span>
-                </Link>
-                <div className="preview-caption">
-                  <p>{f.detail}</p>
-                  <Link to={`/collections/${f.category}`} className="text-link">
-                    Explore
-                    <ArrowUpRight size={16} />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
       <MaterialAtelier copy={homeCopy} />
       <AtelierExperiments />
       <AurelioStandard />
-      <div className="type-ribbon" aria-hidden="true">
-        <div>
-          CRAFTED TO BE FELT <span>✳</span> MADE TO BE KEPT <span>✳</span>{" "}
-          CRAFTED TO BE FELT <span>✳</span>
-        </div>
-      </div>
       <section className="collection-premiere container" id="selected">
         <div className="premiere-head">
           <span className="chapter-tag">05 / THE COLLECTION</span>
@@ -343,8 +238,8 @@ export default function Home() {
               .filter((p) => p.featured)
               .concat(products.filter((p) => !p.featured))
               .slice(0, 4)
-              .map((p) => (
-                <ProductCard key={p.id} product={p} />
+              .map((p, i) => (
+                <ProductCard key={p.id} product={p} index={i} />
               ))}
           </div>
         ) : (
@@ -376,8 +271,9 @@ export default function Home() {
       </section>
       <section className="commission-scene" id="your-chapter">
         <Picture
-          name="hero"
-          alt="An editorial interior exploring brass and architectural textures"
+          name="brand/decor"
+          alt="Brass vessels and decor displayed in a boutique interior"
+          sizes="100vw"
         />
         <div className="commission-veil" />
         <div className="commission-content">
@@ -401,7 +297,6 @@ export default function Home() {
           HOSPITALITY / GIFTING / RETAIL / BESPOKE
         </span>
       </section>
-      <JourneyNavigation />
       <div className="atelier-signoff container">
         <span>AURELIO</span>
         <p>

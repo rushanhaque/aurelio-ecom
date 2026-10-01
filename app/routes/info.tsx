@@ -22,9 +22,7 @@ export const meta = ({
   data?: Awaited<ReturnType<typeof loader>>;
 }) => [
   {
-    title: data
-      ? `${data.page.eyebrow.toLowerCase()} — Aurelio`
-      : "Help — Aurelio",
+    title: data ? `${data.page.title} — Aurelio` : "Help — Aurelio",
   },
 ];
 export default function Info() {

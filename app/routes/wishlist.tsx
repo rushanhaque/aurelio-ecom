@@ -1,22 +1,24 @@
-import { PageIntro, ProductCard, EmptyState } from "../components/ui";
+import { PageIntro, ProductCard, EmptyState, Settling } from "../components/ui";
 import { useStore } from "../lib/store";
-export const meta = () => [{ title: "Your saved objects — Aurelio" }];
+export const meta = () => [{ title: "Saved items — Aurelio" }];
 export default function Wishlist() {
-  const { products, wishlist } = useStore();
+  const { products, wishlist, ready } = useStore();
   const saved = products.filter((p) => wishlist.includes(p.id));
   return (
     <>
-      <PageIntro eyebrow="A FEW THINGS YOU LOVE" title="Worth keeping close.">
+      <PageIntro eyebrow="A FEW THINGS YOU LOVE" title="Saved items">
         <p>
           Your personal collection of possibilities.
           <br /> Saved on this device, ready when you are.
         </p>
       </PageIntro>
       <section className="container section-start">
-        {saved.length ? (
+        {!ready ? (
+          <Settling label="Finding what you saved…" />
+        ) : saved.length ? (
           <div className="product-grid">
-            {saved.map((p) => (
-              <ProductCard key={p.id} product={p} />
+            {saved.map((p, i) => (
+              <ProductCard key={p.id} product={p} index={i} />
             ))}
           </div>
         ) : (

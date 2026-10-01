@@ -2,10 +2,44 @@ import { brand, commissionStages } from "../lib/brand";
 import { collections, materials } from "../lib/brand-content";
 import { useState } from "react";
 import { useSearchParams } from "react-router";
-import { ArrowUpRight, Building2, Gift, Store, PenTool } from "lucide-react";
+import {
+  ArrowUpRight,
+  Building2,
+  Gift,
+  Store,
+  PenTool,
+  MessageCircle,
+  BookOpen,
+  Plus,
+} from "lucide-react";
+import { Link } from "react-router";
+import { pages } from "../lib/help-content";
 import { PageIntro, Picture, Field, Success } from "../components/ui";
 import { request, useStore } from "../lib/store";
-export const meta = () => [{ title: "Bulk & bespoke enquiries — Aurelio" }];
+export const meta = () => [
+  { title: "Bulk enquiries — Aurelio" },
+  {
+    name: "description",
+    content:
+      "Trade, hospitality, gifting and bespoke commissions from Aurelio by AF International — handcrafted metal and wood from Moradabad, exported worldwide.",
+  },
+];
+
+/* The questions trade buyers ask first. Answers come from the FAQ page so the
+   two can never drift apart. */
+const tradeQuestions = [
+  "Is there a minimum order quantity?",
+  "What are your lead times?",
+  "Can I customize a piece?",
+  "Do you ship internationally?",
+];
+const tradeAnswers = tradeQuestions
+  .map((q) => pages.faq?.sections.find(([question]) => question === q))
+  .filter((entry): entry is [string, string] => !!entry);
+
+const whatsappBrief = `${brand.whatsapp}?text=${encodeURIComponent(
+  "Hello Aurelio — I'd like to discuss a bulk / trade enquiry.",
+)}`;
 export default function Bulk() {
   const [params] = useSearchParams();
   const { cart, products } = useStore();
@@ -49,8 +83,8 @@ export default function Bulk() {
   return (
     <>
       <PageIntro
-        eyebrow="SOMETHING BEAUTIFUL, ON A BIGGER SCALE"
-        title="Your vision. Our craft."
+        eyebrow="TRADE · HOSPITALITY · GIFTING · BESPOKE"
+        title="Bulk enquiries"
       >
         <p>
           Private commissions, trade accounts and worldwide export.
@@ -60,8 +94,8 @@ export default function Bulk() {
       </PageIntro>
       <div className="bulk-hero container">
         <Picture
-          name="brand/bespoke"
-          alt="Editorial brass objects in an architectural interior"
+          name="brand/decor"
+          alt="Brass vessels and decor displayed in a boutique interior"
           eager
         />
         <div>
@@ -134,6 +168,14 @@ export default function Bulk() {
               <li key={stage}>
                 <span>0{i + 1}</span>
                 {stage}
+                <img
+                  src={`/images/stages/${stage.toLowerCase()}.webp`}
+                  alt=""
+                  width={700}
+                  height={170}
+                  loading="lazy"
+                  decoding="async"
+                />
               </li>
             ))}
           </ol>
@@ -141,6 +183,32 @@ export default function Bulk() {
             <a href={`mailto:${brand.tradeEmail}`}>{brand.tradeEmail}</a>
             <a href={brand.telephone}>{brand.phone}</a>
           </p>
+          <div className="trade-shortcuts">
+            <a
+              className="trade-shortcut"
+              href={whatsappBrief}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MessageCircle size={18} />
+              <span>
+                Prefer to talk?
+                <small>Message the trade desk on WhatsApp</small>
+              </span>
+              <ArrowUpRight size={16} />
+            </a>
+            <Link
+              className="trade-shortcut"
+              to="/contact?topic=Catalogue%20request"
+            >
+              <BookOpen size={18} />
+              <span>
+                Request the catalogue
+                <small>Collections, finishes and materials</small>
+              </span>
+              <ArrowUpRight size={16} />
+            </Link>
+          </div>
           <p className="muted">
             Minimum quantities, sample availability and lead times are confirmed
             individually. Submitting an enquiry is not a purchase.
@@ -176,11 +244,17 @@ export default function Bulk() {
                 name="country"
                 autoComplete="country-name"
               />
-              <Field
-                label="Approximate quantity"
-                name="quantity"
-                type="number"
-              />
+              <label className="field">
+                <span>Approximate quantity</span>
+                <input
+                  name="quantity"
+                  type="number"
+                  inputMode="numeric"
+                  min={1}
+                  step={1}
+                  required
+                />
+              </label>
               <label className="field">
                 <span>
                   Object or collection <small>(optional)</small>
@@ -233,6 +307,34 @@ export default function Bulk() {
           </form>
         )}
       </section>
+      {!!tradeAnswers.length && (
+        <section className="section container trade-faq">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">BEFORE YOU WRITE</p>
+              <h2>
+                Good questions,
+                <br /> <em>answered.</em>
+              </h2>
+            </div>
+            <Link className="text-link" to="/faq">
+              All questions
+              <ArrowUpRight size={17} />
+            </Link>
+          </div>
+          <div className="trade-faq-list">
+            {tradeAnswers.map(([question, answer]) => (
+              <details key={question}>
+                <summary>
+                  {question}
+                  <Plus size={16} />
+                </summary>
+                <p>{answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
     </>
   );
 }

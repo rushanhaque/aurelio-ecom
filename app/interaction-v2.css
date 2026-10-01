@@ -1,0 +1,1082 @@
+/* Aurelio v2 — the interaction layer.
+   Loaded last so it refines what styles.css and interaction.css establish.
+   Effects are driven by --px/--py (cursor position, set once by a delegated
+   listener in atelier-motion) so nothing here needs a per-element script. */
+
+/* --- Header: condenses on scroll, carries a brass reading hairline ------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  transition:
+    height var(--dur-3) var(--ease-atelier),
+    transform var(--dur-3) var(--ease-atelier),
+    box-shadow var(--dur-3),
+    background-color var(--dur-3);
+}
+/* Headroom: the header steps aside while reading down. The reading hairline
+   sits just below the header box, so it stays on screen when the bar is gone. */
+body[data-header="hidden"] .site-header {
+  transform: translateY(-100%);
+  box-shadow: none;
+}
+body[data-header="hidden"] {
+  --header-offset: 0px;
+}
+/* Keyboard users tabbing back into the header always get it back. */
+body[data-header] .site-header:focus-within {
+  transform: none;
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  transform: scaleX(var(--read, 0));
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--brass-600), var(--brass-300));
+  pointer-events: none;
+}
+/* Once you are reading, the header settles into one condensed ink bar on every
+   route — including over the hero, where it started dark already. */
+body[data-scrolled="true"] .site-header {
+  height: 74px;
+  box-shadow: var(--lift-2);
+  background: var(--ink-800);
+  color: var(--paper-200);
+  border-color: var(--paper-a10);
+}
+body[data-scrolled="true"] .header-left nav a::after {
+  background: var(--brass-300);
+}
+body[data-scrolled="true"] .icon-button:hover {
+  background: var(--paper-a10);
+}
+body[data-scrolled="true"] .currency-select option {
+  color: var(--ink-800);
+  background: var(--paper-200);
+}
+body[data-scrolled="true"] .wordmark {
+  font-size: 27px;
+}
+body[data-scrolled="true"] .wordmark span {
+  opacity: 0;
+  margin-top: 2px;
+}
+.wordmark,
+.wordmark span {
+  transition:
+    font-size var(--dur-3) var(--ease-atelier),
+    opacity var(--dur-2),
+    margin-top var(--dur-3) var(--ease-atelier);
+}
+
+/* Wordmark: the letters settle one after another, like type being set. */
+.wordmark:hover {
+  --set: 1;
+}
+.wordmark b {
+  display: inline-block;
+  font-weight: inherit;
+  transition: transform var(--dur-3) var(--ease-atelier);
+  transition-delay: calc(var(--i, 0) * 28ms);
+  transform: translateY(calc(var(--set, 0) * -0.14em));
+}
+
+/* --- Navigation: the label lifts away and its twin rises in brass -------
+   .nav-label is the clipping window; the inner span and its ::after twin are
+   what travel, so the link keeps its own padding and hit area. */
+.nav-label {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.3;
+  vertical-align: bottom;
+}
+.nav-label > span[data-label] {
+  position: relative;
+  display: block;
+  transition: transform var(--dur-3) var(--ease-atelier);
+}
+.nav-label > span[data-label]::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  color: var(--brass-600);
+  white-space: nowrap;
+}
+.header-left nav a:hover .nav-label > span,
+.header-left nav a:focus-visible .nav-label > span,
+.header-left nav a.active .nav-label > span,
+.bulk-nav:hover .nav-label > span,
+.bulk-nav:focus-visible .nav-label > span {
+  transform: translateY(-100%);
+}
+body:has(.atelier-hero) .nav-label > span[data-label]::after,
+body[data-scrolled="true"] .nav-label > span[data-label]::after {
+  color: var(--brass-300);
+}
+
+/* --- Buttons: the fill rises from where the cursor entered -------------- */
+.button {
+  isolation: isolate;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  left: var(--px, 50%);
+  top: var(--py, 50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--ink-600);
+  transform: translate(-50%, -50%);
+  transition:
+    width var(--dur-4) var(--ease-atelier),
+    height var(--dur-4) var(--ease-atelier),
+    opacity var(--dur-2);
+  z-index: -1;
+  opacity: 0;
+}
+.button:hover::before,
+.button:focus-visible::before {
+  width: 240%;
+  height: 700%;
+  opacity: 1;
+}
+.button-outline::before {
+  background: var(--ink-800);
+}
+
+/* --- Product cards: an aperture opens where you look -------------------- */
+.product-card {
+  --aperture: 0;
+}
+.product-image {
+  border-radius: var(--radius-1);
+}
+.product-image > a {
+  position: relative;
+}
+/* A faint patina sits over every object and lifts as you approach it, so
+   looking closer genuinely resolves the piece. Kept light — the object has to
+   read well before anyone hovers it. */
+.product-image > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--px, 50%) var(--py, 50%),
+    #ffffff00 0,
+    #cfcbbe4d 65%
+  );
+  opacity: calc(1 - var(--aperture));
+  mix-blend-mode: multiply;
+  transition: opacity var(--dur-4) var(--ease-atelier);
+}
+/* A single specular highlight tracks the cursor across the metal. */
+.product-image > a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--px, 50%) var(--py, 50%),
+    #ffffff66 0,
+    #ffffff00 38%
+  );
+  opacity: var(--aperture);
+  mix-blend-mode: soft-light;
+  transition: opacity var(--dur-3);
+}
+.product-card:hover,
+.product-card:focus-within {
+  --aperture: 1;
+}
+.product-image img {
+  transition:
+    transform var(--dur-5) var(--ease-atelier),
+    filter var(--dur-4);
+  filter: saturate(calc(0.84 + var(--aperture) * 0.16));
+}
+
+/* The object number strikes out to a rule as the card wakes up. */
+.object-number {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+}
+.object-number::after {
+  content: "";
+  height: 1px;
+  width: calc(var(--aperture) * 34px);
+  background: currentColor;
+  transition: width var(--dur-3) var(--ease-atelier);
+}
+
+/* Quick-add arrives as a wipe rather than a slide, and the label follows.
+   Scoped to hover-capable pointers: on touch the card keeps the compact
+   circular add button that the small-screen rules already define. */
+@media (hover: hover) and (pointer: fine) {
+  .quick-add {
+    transform: none;
+    clip-path: inset(0 100% 0 0);
+    border-radius: var(--radius-1);
+    background: #f2f2f2f2;
+    transition:
+      clip-path var(--dur-3) var(--ease-atelier),
+      background-color var(--dur-2),
+      color var(--dur-2);
+  }
+  .product-card:hover .quick-add,
+  .product-card:focus-within .quick-add {
+    transform: none;
+    clip-path: inset(0 0 0 0);
+  }
+  .quick-add span {
+    display: inline-block;
+    transition: transform var(--dur-3) var(--ease-atelier) 80ms;
+    transform: translateX(calc((1 - var(--aperture)) * -6px));
+  }
+  .quick-add:hover:not(:disabled) {
+    background: var(--ink-800);
+    color: var(--paper-200);
+  }
+}
+
+/* The heart draws itself in before it fills. */
+.save-button {
+  z-index: 3;
+  opacity: calc(0.4 + var(--aperture) * 0.6);
+  transition:
+    opacity var(--dur-2),
+    transform var(--dur-2) var(--ease-atelier);
+}
+.save-button:hover {
+  transform: scale(1.14);
+}
+.save-button.saved {
+  opacity: 1;
+}
+.save-button.saved svg {
+  animation: keepsake var(--dur-4) var(--ease-atelier);
+}
+@keyframes keepsake {
+  0% {
+    transform: scale(1);
+  }
+  38% {
+    transform: scale(0.82) rotate(-7deg);
+  }
+  70% {
+    transform: scale(1.16) rotate(3deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* The name underlines itself like ink drawn along a rule. */
+.product-name {
+  background-image: linear-gradient(var(--ink-800), var(--ink-800));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 1px;
+  transition: background-size var(--dur-3) var(--ease-atelier);
+}
+.product-card:hover .product-name,
+.product-name:focus-visible {
+  background-size: 100% 1px;
+}
+.product-price {
+  transition:
+    transform var(--dur-3) var(--ease-atelier),
+    color var(--dur-3);
+}
+.product-card:hover .product-price {
+  color: var(--brass-600);
+  transform: translateY(-2px);
+}
+
+/* --- Collection cards --------------------------------------------------- */
+.collection-card h2 {
+  transition: letter-spacing var(--dur-4) var(--ease-atelier);
+}
+.collection-card:hover h2,
+.collection-card:focus-within h2 {
+  letter-spacing: 0.012em;
+}
+.collection-card img {
+  transition:
+    transform var(--dur-5) var(--ease-atelier),
+    filter var(--dur-4);
+  filter: contrast(1.02) saturate(0.88);
+}
+.collection-card:hover img {
+  filter: contrast(1.05) saturate(1.04);
+}
+
+/* --- Footer: a hairline draws out and walks the label with it ----------- */
+/* Flex, not inline-flex: these lists stack, so the links must stay
+   block-level. */
+.footer-links a,
+.footer-business a {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 0;
+  transform: none;
+  transition:
+    gap var(--dur-3) var(--ease-atelier),
+    color var(--dur-2);
+}
+.footer-links a:hover,
+.footer-business a:hover {
+  text-decoration: none;
+}
+.footer-links a::before,
+.footer-business a::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: var(--brass-600);
+  transition: width var(--dur-3) var(--ease-atelier);
+}
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-business a:hover,
+.footer-business a:focus-visible {
+  transform: none;
+  gap: 9px;
+  color: var(--brass-700);
+}
+.footer-links a:hover::before,
+.footer-links a:focus-visible::before,
+.footer-business a:hover::before,
+.footer-business a:focus-visible::before {
+  width: 15px;
+}
+
+/* --- Fields: the rule fills from the middle out ------------------------- */
+.field input,
+.field textarea,
+.field select {
+  background-image: linear-gradient(var(--brass-500), var(--brass-500));
+  background-position: center bottom;
+  background-size: 0 1px;
+  background-repeat: no-repeat;
+  transition:
+    background-size var(--dur-3) var(--ease-atelier),
+    border-color var(--dur-2);
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  background-size: 100% 1px;
+}
+.field > span {
+  transition: color var(--dur-2);
+}
+.field:focus-within > span {
+  color: var(--brass-700);
+}
+
+/* --- Icon buttons: the ground arrives as a ring -------------------------
+   position: relative lives on the base .icon-button rule in styles.css, so the
+   absolutely placed variants (.save-button, .zoom-button) still win. */
+.icon-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  opacity: 0;
+  transform: scale(0.72);
+  transition:
+    opacity var(--dur-2),
+    transform var(--dur-3) var(--ease-atelier);
+}
+.icon-button:hover::before,
+.icon-button:focus-visible::before {
+  opacity: 0.28;
+  transform: scale(1);
+}
+.bag-button span {
+  transition: transform var(--dur-2) var(--ease-atelier);
+}
+.bag-button:hover span {
+  transform: scale(1.18);
+}
+
+/* --- Category tabs: the rule opens from the centre ---------------------- */
+.category-tabs button,
+.category-tabs a {
+  position: relative;
+  transition: color var(--dur-2);
+}
+.category-tabs button::after,
+.category-tabs a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  height: 1px;
+  background: var(--brass-600);
+  transition:
+    left var(--dur-3) var(--ease-atelier),
+    right var(--dur-3) var(--ease-atelier);
+}
+.category-tabs button:hover::after,
+.category-tabs button:focus-visible::after,
+.category-tabs a:hover::after,
+.category-tabs button.active::after {
+  left: 0;
+  right: 0;
+}
+
+/* --- A focus ring that reads as brass foil, not a browser default ------- */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+
+/* --- Reveal: one shared entrance, driven by IntersectionObserver -------- */
+body[data-motion="on"] [data-reveal] {
+  transition:
+    opacity var(--dur-4) var(--ease-out),
+    transform var(--dur-4) var(--ease-out);
+}
+body[data-motion="on"] [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+  transform: translateY(18px);
+}
+body[data-motion="on"] [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Performance: skip layout and paint the reader cannot see -----------
+   Only the eight sensory studies, which are the expensive part of the home
+   page and reveal with IntersectionObserver rather than ScrollTrigger, so no
+   pinned timeline depends on their measured height. */
+.experiment {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* --- Touch and reduced motion: nothing here should need a hover --------- */
+@media (hover: none) {
+  .product-card {
+    --aperture: 1;
+  }
+  .save-button {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .save-button.saved svg {
+    animation: none;
+  }
+  body[data-motion="on"] [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Navigation progress: the only feedback between click and page ------ */
+.navigation-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: 60;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--brass-600), var(--brass-300));
+  transform-origin: left;
+}
+.navigation-progress.is-loading {
+  animation: progress-crawl 8s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+}
+.navigation-progress.is-done {
+  transform: scaleX(1);
+  animation: progress-settle var(--dur-2) ease-out forwards;
+}
+@keyframes progress-crawl {
+  0% {
+    transform: scaleX(0.04);
+  }
+  40% {
+    transform: scaleX(0.6);
+  }
+  100% {
+    transform: scaleX(0.92);
+  }
+}
+@keyframes progress-settle {
+  to {
+    opacity: 0;
+  }
+}
+
+/* --- View transitions: the catalogue cross-fades instead of cutting ----- */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: vt-out 0.22s var(--ease-atelier) both;
+  }
+  ::view-transition-new(root) {
+    animation: vt-in 0.42s var(--ease-atelier) both;
+  }
+  @keyframes vt-out {
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes vt-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+}
+
+/* --- Settling: the beat between server render and the saved bag --------- */
+.settling-state {
+  display: grid;
+  place-items: center;
+  gap: 16px;
+  padding: clamp(64px, 12vw, 140px) 0;
+  text-align: center;
+}
+.settling-state p {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.settling-mark {
+  font-size: 26px;
+  line-height: 1;
+  color: var(--brass-500);
+  animation: settling-turn 2.4s linear infinite;
+}
+@keyframes settling-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .settling-mark {
+    animation: none;
+  }
+}
+
+/* --- Sticky panels follow the header rather than sliding under it ------- */
+.product-gallery,
+.order-summary {
+  top: calc(var(--header-offset) + 24px);
+  transition: top var(--dur-3) var(--ease-atelier);
+}
+.admin-toolbar {
+  top: calc(var(--header-offset) + 8px);
+  transition: top var(--dur-3) var(--ease-atelier);
+}
+
+/* --- Product photograph: an inspection zoom anchored at the cursor -------
+   The image magnifies about the point you are looking at, as if leaning in.
+   Fine pointers only; touch keeps the full-screen enlarge button. */
+@media (hover: hover) and (pointer: fine) {
+  .main-product-image {
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+  .main-product-image > img {
+    transform-origin: var(--px, 50%) var(--py, 50%);
+    transition:
+      transform var(--dur-4) var(--ease-atelier),
+      transform-origin 0.12s linear;
+  }
+  .main-product-image:hover > img {
+    transform: scale(1.85);
+  }
+  .main-product-image .zoom-button {
+    z-index: 2;
+  }
+}
+.gallery-thumbs button {
+  transition:
+    opacity var(--dur-2),
+    transform var(--dur-3) var(--ease-atelier);
+}
+.gallery-thumbs button:not(.active) {
+  opacity: 0.62;
+}
+.gallery-thumbs button:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+/* Share sits beside the heart and matches it. */
+.detail-share {
+  border: 1px solid var(--line);
+  border-radius: 0;
+  min-width: 48px;
+  height: 52px;
+}
+.detail-share::before,
+.detail-heart::before {
+  border-radius: 0;
+}
+.share-status {
+  min-height: 1em;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--brass-700);
+  margin-top: 8px;
+}
+.share-status:empty {
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .detail-share {
+    min-width: 40px;
+  }
+}
+
+/* --- Search panel --------------------------------------------------------- */
+.search-input {
+  transition: border-color var(--dur-2);
+}
+.search-input:focus-within {
+  border-bottom-color: var(--brass-600);
+}
+.search-input input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+.search-input input:focus-visible {
+  outline: none;
+}
+.search-hint {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-1);
+  padding: 1px 7px;
+}
+.search-collections {
+  margin-bottom: 30px;
+}
+.search-collections .eyebrow {
+  margin-bottom: 12px;
+}
+.search-collections > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.search-collections a {
+  font-size: 11px;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  transition:
+    background-color var(--dur-2),
+    color var(--dur-2),
+    border-color var(--dur-2);
+}
+.search-collections a:hover,
+.search-collections a:focus-visible {
+  background: var(--ink-800);
+  border-color: var(--ink-800);
+  color: var(--paper-200);
+}
+.search-result {
+  transition: padding var(--dur-3) var(--ease-atelier);
+}
+.search-result img {
+  transition: transform var(--dur-3) var(--ease-atelier);
+}
+.search-result svg {
+  transition: transform var(--dur-3) var(--ease-atelier);
+}
+.search-result:hover,
+.search-result:focus-visible {
+  padding-left: 8px;
+}
+.search-result:hover img {
+  transform: scale(0.94);
+}
+.search-result:hover svg,
+.search-result:focus-visible svg {
+  transform: rotate(45deg);
+}
+.search-content mark {
+  background: linear-gradient(transparent 62%, #d2c09d99 62%);
+  color: inherit;
+}
+.search-content > .text-link {
+  margin-top: 22px;
+}
+.search-empty {
+  display: grid;
+  gap: 14px;
+  padding: 12px 0 20px;
+}
+.search-shortcut {
+  margin-top: 36px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.search-shortcut kbd {
+  font-family: var(--sans);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-1);
+  padding: 0 6px;
+  margin-inline: 2px;
+}
+@media (hover: none) {
+  .search-shortcut {
+    display: none;
+  }
+}
+
+/* --- Trade desk shortcuts on the bulk page -------------------------------- */
+.trade-shortcuts {
+  display: grid;
+  gap: 10px;
+  margin-block: 26px 22px;
+  max-width: 420px;
+}
+.trade-shortcut {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-1);
+  font-size: 12px;
+  color: var(--ink-800);
+  transition:
+    background-color var(--dur-3),
+    color var(--dur-3),
+    border-color var(--dur-3);
+}
+.trade-shortcut small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 2px;
+  transition: color var(--dur-3);
+}
+.trade-shortcut svg:last-child {
+  transition: transform var(--dur-3) var(--ease-atelier);
+}
+.trade-shortcut:hover,
+.trade-shortcut:focus-visible {
+  background: var(--ink-800);
+  border-color: var(--ink-800);
+  color: var(--paper-200);
+}
+.trade-shortcut:hover small,
+.trade-shortcut:focus-visible small {
+  color: var(--brass-300);
+}
+.trade-shortcut:hover svg:last-child {
+  transform: rotate(45deg);
+}
+
+/* --- Trade FAQ ------------------------------------------------------------ */
+.trade-faq-list {
+  border-top: 1px solid var(--line);
+  max-width: 980px;
+}
+.trade-faq-list details {
+  border-bottom: 1px solid var(--line);
+}
+.trade-faq-list summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-block: 24px;
+  font-family: var(--serif);
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.2;
+  transition: color var(--dur-2);
+}
+.trade-faq-list summary:hover {
+  color: var(--brass-700);
+}
+.trade-faq-list p {
+  max-width: 640px;
+  padding-bottom: 26px;
+  font-size: 13px;
+}
+
+/* --- Accordions everywhere: the plus turns to a close mark, and the answer
+   eases in rather than snapping open. */
+details > summary svg {
+  transition: transform var(--dur-3) var(--ease-atelier);
+}
+details[open] > summary svg {
+  transform: rotate(45deg);
+}
+details[open] > summary + * {
+  animation: unfold var(--dur-3) var(--ease-out);
+}
+@keyframes unfold {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* --- Back to the top -------------------------------------------------- */
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  transition: color var(--dur-2);
+}
+.back-to-top svg {
+  transform: rotate(-45deg);
+  transition: transform var(--dur-3) var(--ease-atelier);
+}
+.back-to-top:hover {
+  color: var(--ink-800);
+}
+.back-to-top:hover svg {
+  transform: rotate(-45deg) translate(2px, -2px);
+}
+main:focus {
+  outline: none;
+}
+
+/* --- Not found ----------------------------------------------------------- */
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.not-found-worlds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin-top: 40px;
+  font-family: var(--serif);
+  font-size: 20px;
+}
+.not-found-worlds a {
+  background-image: linear-gradient(var(--brass-600), var(--brass-600));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 1px;
+  transition: background-size var(--dur-3) var(--ease-atelier);
+}
+.not-found-worlds a:hover,
+.not-found-worlds a:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* --- Bulk-enquiry pieces (catalogue imported from aurelio.in) ------------- */
+.piece-section .section-heading {
+  margin-bottom: 18px;
+}
+.piece-note {
+  max-width: 560px;
+  margin-bottom: 40px;
+  font-size: 12px;
+}
+.piece-card .product-image {
+  background: #fff;
+}
+.piece-card .product-image img {
+  object-fit: contain;
+  padding: 6%;
+}
+.piece-card .product-name em {
+  color: var(--muted);
+}
+.piece-tag {
+  align-self: start;
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.piece-more {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  margin-top: 56px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.piece-detail .main-product-image {
+  background: #fff;
+}
+.piece-detail .main-product-image > img {
+  object-fit: contain;
+  padding: 7%;
+}
+.piece-detail h1 em {
+  color: var(--muted);
+}
+.piece-availability {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0;
+  font-size: 11px;
+  color: var(--ink-800);
+}
+.piece-availability span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brass-500);
+}
+.piece-specs {
+  display: grid;
+  margin: 30px 0 24px;
+  border-top: 1px solid var(--line);
+}
+.piece-specs > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+.piece-specs dt {
+  color: var(--muted);
+}
+.piece-specs dd {
+  margin: 0;
+}
+.piece-details {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+}
+.piece-details li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.piece-details svg {
+  color: var(--brass-600);
+}
+.piece-actions {
+  display: grid;
+  gap: 10px;
+}
+
+/* --- About us: pillars ------------------------------------------------------ */
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  padding-block: 20px clamp(60px, 8vw, 110px);
+}
+.about-pillars article {
+  padding-top: 26px;
+  border-top: 1px solid var(--ink-a20);
+}
+.about-pillars h3 {
+  margin: 14px 0 12px;
+}
+
+/* --- Contact us: the two desks ------------------------------------------- */
+.contact-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 28px);
+  margin-bottom: clamp(60px, 8vw, 110px);
+}
+.contact-cards article {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: clamp(28px, 3.5vw, 48px);
+  background: var(--paper-300);
+  border-radius: var(--radius-1);
+}
+.contact-cards address {
+  display: grid;
+  font-style: normal;
+  color: var(--muted);
+}
+.contact-cards dl {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.contact-cards dl > div {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+.contact-cards dt {
+  color: var(--muted);
+}
+.contact-cards dd {
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .about-pillars,
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Commission stages with their own imagery (bulk page) ----------------- */
+.process-list li {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+.process-list img {
+  width: 132px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: var(--radius-pill);
+  filter: grayscale(1) contrast(0.9);
+  opacity: 0.55;
+  transition:
+    width var(--dur-4) var(--ease-atelier),
+    filter var(--dur-3),
+    opacity var(--dur-3);
+}
+.process-list li:hover img {
+  width: 190px;
+  filter: none;
+  opacity: 1;
+}
+@media (hover: none) {
+  .process-list img {
+    filter: none;
+    opacity: 0.9;
+  }
+}
+@media (max-width: 420px) {
+  .process-list img {
+    width: 96px;
+  }
+}

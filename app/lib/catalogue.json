@@ -1,0 +1,4402 @@
+[
+ {
+  "slug": "cypress-urn-1",
+  "name": "Cypress",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "01",
+  "material": "Hand-raised copper",
+  "finish": "Verdigris patina",
+  "image": "/images/catalogue/urns/cypress-urn-1",
+  "width": 1200,
+  "height": 1200,
+  "story": "Cypress — a lidded urn made and finished by hand in hand-raised copper. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "reliquary-urn-2",
+  "name": "Reliquary",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "02",
+  "material": "Cast bronze",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/urns/reliquary-urn-2",
+  "width": 1400,
+  "height": 1400,
+  "story": "Reliquary — a lidded urn made and finished by hand in cast bronze. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "sentinel-urn-3",
+  "name": "Sentinel",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "03",
+  "material": "Patinated brass",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/urns/sentinel-urn-3",
+  "width": 960,
+  "height": 960,
+  "story": "Sentinel — a lidded urn made and finished by hand in patinated brass. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "vesta-urn-4",
+  "name": "Vesta",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "04",
+  "material": "Blackened steel & brass",
+  "finish": "Brushed satin",
+  "image": "/images/catalogue/urns/vesta-urn-4",
+  "width": 1200,
+  "height": 1200,
+  "story": "Vesta — a lidded urn made and finished by hand in blackened steel & brass. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "cinera-urn-5",
+  "name": "Cinera",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "05",
+  "material": "Hand-raised copper",
+  "finish": "Verdigris patina",
+  "image": "/images/catalogue/urns/cinera-urn-5",
+  "width": 950,
+  "height": 950,
+  "story": "Cinera — a lidded urn made and finished by hand in hand-raised copper. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "requiem-urn-6",
+  "name": "Requiem",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "06",
+  "material": "Cast bronze",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/urns/requiem-urn-6",
+  "width": 1000,
+  "height": 951,
+  "story": "Requiem — a lidded urn made and finished by hand in cast bronze. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "vigil-urn-7",
+  "name": "Vigil",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "07",
+  "material": "Patinated brass",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/urns/vigil-urn-7",
+  "width": 996,
+  "height": 996,
+  "story": "Vigil — a lidded urn made and finished by hand in patinated brass. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "memoria-urn-8",
+  "name": "Memoria",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "08",
+  "material": "Blackened steel & brass",
+  "finish": "Brushed satin",
+  "image": "/images/catalogue/urns/memoria-urn-8",
+  "width": 1200,
+  "height": 1200,
+  "story": "Memoria — a lidded urn made and finished by hand in blackened steel & brass. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "ossian-urn-9",
+  "name": "Ossian",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "09",
+  "material": "Hand-raised copper",
+  "finish": "Verdigris patina",
+  "image": "/images/catalogue/urns/ossian-urn-9",
+  "width": 1400,
+  "height": 1400,
+  "story": "Ossian — a lidded urn made and finished by hand in hand-raised copper. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "eterna-urn-10",
+  "name": "Eterna",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "10",
+  "material": "Cast bronze",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/urns/eterna-urn-10",
+  "width": 1200,
+  "height": 1200,
+  "story": "Eterna — a lidded urn made and finished by hand in cast bronze. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "cairn-urn-11",
+  "name": "Cairn",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "11",
+  "material": "Patinated brass",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/urns/cairn-urn-11",
+  "width": 1400,
+  "height": 1400,
+  "story": "Cairn — a lidded urn made and finished by hand in patinated brass. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "solace-urn-12",
+  "name": "Solace",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "12",
+  "material": "Blackened steel & brass",
+  "finish": "Brushed satin",
+  "image": "/images/catalogue/urns/solace-urn-12",
+  "width": 1400,
+  "height": 1476,
+  "story": "Solace — a lidded urn made and finished by hand in blackened steel & brass. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "aurora-urn-13",
+  "name": "Aurora",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "13",
+  "material": "Hand-raised copper",
+  "finish": "Verdigris patina",
+  "image": "/images/catalogue/urns/aurora-urn-13",
+  "width": 500,
+  "height": 500,
+  "story": "Aurora — a lidded urn made and finished by hand in hand-raised copper. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "seraph-urn-14",
+  "name": "Seraph",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "14",
+  "material": "Cast bronze",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/urns/seraph-urn-14",
+  "width": 1000,
+  "height": 1038,
+  "story": "Seraph — a lidded urn made and finished by hand in cast bronze. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "verdant-urn-15",
+  "name": "Verdant",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "15",
+  "material": "Patinated brass",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/urns/verdant-urn-15",
+  "width": 1400,
+  "height": 1354,
+  "story": "Verdant — a lidded urn made and finished by hand in patinated brass. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "pellucid-urn-16",
+  "name": "Pellucid",
+  "suffix": "Urn",
+  "type": "Lidded urn",
+  "collection": "urns",
+  "index": "16",
+  "material": "Blackened steel & brass",
+  "finish": "Brushed satin",
+  "image": "/images/catalogue/urns/pellucid-urn-16",
+  "width": 600,
+  "height": 600,
+  "story": "Pellucid — a lidded urn made and finished by hand in blackened steel & brass. A vessel built to hold meaning as much as anything else.",
+  "details": [
+   "Raised and finished by hand",
+   "Threaded lid, sealed interior",
+   "Felt-lined base",
+   "Hand engraving to order"
+  ]
+ },
+ {
+  "slug": "soleil-lamp-1",
+  "name": "Soleil",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "01",
+  "material": "Ceramic & brass",
+  "finish": "Polished brass",
+  "image": "/images/catalogue/lighting/soleil-lamp-1",
+  "width": 1049,
+  "height": 1320,
+  "story": "Soleil — a lamp made and finished by hand in ceramic & brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "halo-lamp-2",
+  "name": "Halo",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "02",
+  "material": "Hand-spun brass",
+  "finish": "Aged brass",
+  "image": "/images/catalogue/lighting/halo-lamp-2",
+  "width": 1149,
+  "height": 1410,
+  "story": "Halo — a lamp made and finished by hand in hand-spun brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "atlas-lamp-3",
+  "name": "Atlas",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "03",
+  "material": "Blown glass & brass",
+  "finish": "Brushed satin",
+  "image": "/images/catalogue/lighting/atlas-lamp-3",
+  "width": 1283,
+  "height": 1471,
+  "story": "Atlas — a lamp made and finished by hand in blown glass & brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "lumen-lamp-4",
+  "name": "Lumen",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "04",
+  "material": "Patinated steel",
+  "finish": "Blackened",
+  "image": "/images/catalogue/lighting/lumen-lamp-4",
+  "width": 1160,
+  "height": 1469,
+  "story": "Lumen — a lamp made and finished by hand in patinated steel. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "aurora-lamp-5",
+  "name": "Aurora",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "05",
+  "material": "Ceramic & brass",
+  "finish": "Polished brass",
+  "image": "/images/catalogue/lighting/aurora-lamp-5",
+  "width": 398,
+  "height": 459,
+  "story": "Aurora — a lamp made and finished by hand in ceramic & brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "eclipse-lamp-6",
+  "name": "Eclipse",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "06",
+  "material": "Hand-spun brass",
+  "finish": "Aged brass",
+  "image": "/images/catalogue/lighting/eclipse-lamp-6",
+  "width": 417,
+  "height": 486,
+  "story": "Eclipse — a lamp made and finished by hand in hand-spun brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "vesper-lamp-7",
+  "name": "Vesper",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "07",
+  "material": "Blown glass & brass",
+  "finish": "Brushed satin",
+  "image": "/images/catalogue/lighting/vesper-lamp-7",
+  "width": 395,
+  "height": 457,
+  "story": "Vesper — a lamp made and finished by hand in blown glass & brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "lantern-lamp-8",
+  "name": "Lantern",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "08",
+  "material": "Patinated steel",
+  "finish": "Blackened",
+  "image": "/images/catalogue/lighting/lantern-lamp-8",
+  "width": 442,
+  "height": 519,
+  "story": "Lantern — a lamp made and finished by hand in patinated steel. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "orbit-lamp-9",
+  "name": "Orbit",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "09",
+  "material": "Ceramic & brass",
+  "finish": "Polished brass",
+  "image": "/images/catalogue/lighting/orbit-lamp-9",
+  "width": 424,
+  "height": 505,
+  "story": "Orbit — a lamp made and finished by hand in ceramic & brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "ember-lamp-10",
+  "name": "Ember",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "10",
+  "material": "Hand-spun brass",
+  "finish": "Aged brass",
+  "image": "/images/catalogue/lighting/ember-lamp-10",
+  "width": 412,
+  "height": 446,
+  "story": "Ember — a lamp made and finished by hand in hand-spun brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "comet-lamp-11",
+  "name": "Comet",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "11",
+  "material": "Blown glass & brass",
+  "finish": "Brushed satin",
+  "image": "/images/catalogue/lighting/comet-lamp-11",
+  "width": 429,
+  "height": 434,
+  "story": "Comet — a lamp made and finished by hand in blown glass & brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "beacon-lamp-12",
+  "name": "Beacon",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "12",
+  "material": "Patinated steel",
+  "finish": "Blackened",
+  "image": "/images/catalogue/lighting/beacon-lamp-12",
+  "width": 1271,
+  "height": 1394,
+  "story": "Beacon — a lamp made and finished by hand in patinated steel. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "nimbus-lamp-13",
+  "name": "Nimbus",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "13",
+  "material": "Ceramic & brass",
+  "finish": "Polished brass",
+  "image": "/images/catalogue/lighting/nimbus-lamp-13",
+  "width": 1327,
+  "height": 1510,
+  "story": "Nimbus — a lamp made and finished by hand in ceramic & brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "corona-lamp-14",
+  "name": "Corona",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "14",
+  "material": "Hand-spun brass",
+  "finish": "Aged brass",
+  "image": "/images/catalogue/lighting/corona-lamp-14",
+  "width": 1257,
+  "height": 1376,
+  "story": "Corona — a lamp made and finished by hand in hand-spun brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "meridian-lamp-15",
+  "name": "Meridian",
+  "suffix": "Lamp",
+  "type": "Lamp",
+  "collection": "lighting",
+  "index": "15",
+  "material": "Blown glass & brass",
+  "finish": "Brushed satin",
+  "image": "/images/catalogue/lighting/meridian-lamp-15",
+  "width": 1332,
+  "height": 1517,
+  "story": "Meridian — a lamp made and finished by hand in blown glass & brass. It holds a room long after the bulb is dimmed.",
+  "details": [
+   "Wired and balanced by hand",
+   "Dimmable fitting",
+   "Made to order",
+   "Fine cloth flex"
+  ]
+ },
+ {
+  "slug": "prana-service-1",
+  "name": "Prana",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "01",
+  "material": "Hammered copper",
+  "finish": "Mirror-polished",
+  "image": "/images/catalogue/kitchenware/prana-service-1",
+  "width": 768,
+  "height": 1376,
+  "story": "Prana — a serveware made and finished by hand in hammered copper. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "trishul-service-2",
+  "name": "Trishul",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "02",
+  "material": "Mirror-polished brass",
+  "finish": "Hammered",
+  "image": "/images/catalogue/kitchenware/trishul-service-2",
+  "width": 768,
+  "height": 1376,
+  "story": "Trishul — a serveware made and finished by hand in mirror-polished brass. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "kashi-service-3",
+  "name": "Kashi",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "03",
+  "material": "Tinned copper",
+  "finish": "Hand-burnished",
+  "image": "/images/catalogue/kitchenware/kashi-service-3",
+  "width": 768,
+  "height": 1376,
+  "story": "Kashi — a serveware made and finished by hand in tinned copper. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "varanasi-service-4",
+  "name": "Varanasi",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "04",
+  "material": "Silver-plated brass",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/kitchenware/varanasi-service-4",
+  "width": 1200,
+  "height": 1600,
+  "story": "Varanasi — a serveware made and finished by hand in silver-plated brass. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "arbor-service-5",
+  "name": "Arbor",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "05",
+  "material": "Hammered copper",
+  "finish": "Mirror-polished",
+  "image": "/images/catalogue/kitchenware/arbor-service-5",
+  "width": 1024,
+  "height": 1024,
+  "story": "Arbor — a serveware made and finished by hand in hammered copper. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "folia-service-6",
+  "name": "Folia",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "06",
+  "material": "Mirror-polished brass",
+  "finish": "Hammered",
+  "image": "/images/catalogue/kitchenware/folia-service-6",
+  "width": 958,
+  "height": 1600,
+  "story": "Folia — a serveware made and finished by hand in mirror-polished brass. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "calla-service-7",
+  "name": "Calla",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "07",
+  "material": "Tinned copper",
+  "finish": "Hand-burnished",
+  "image": "/images/catalogue/kitchenware/calla-service-7",
+  "width": 768,
+  "height": 1376,
+  "story": "Calla — a serveware made and finished by hand in tinned copper. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "imperial-service-8",
+  "name": "Imperial",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "08",
+  "material": "Silver-plated brass",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/kitchenware/imperial-service-8",
+  "width": 768,
+  "height": 1376,
+  "story": "Imperial — a serveware made and finished by hand in silver-plated brass. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "royal-service-9",
+  "name": "Royal",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "09",
+  "material": "Hammered copper",
+  "finish": "Mirror-polished",
+  "image": "/images/catalogue/kitchenware/royal-service-9",
+  "width": 768,
+  "height": 1376,
+  "story": "Royal — a serveware made and finished by hand in hammered copper. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "gilded-service-10",
+  "name": "Gilded",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "10",
+  "material": "Mirror-polished brass",
+  "finish": "Hammered",
+  "image": "/images/catalogue/kitchenware/gilded-service-10",
+  "width": 768,
+  "height": 1376,
+  "story": "Gilded — a serveware made and finished by hand in mirror-polished brass. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "lotus-service-11",
+  "name": "Lotus",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "11",
+  "material": "Tinned copper",
+  "finish": "Hand-burnished",
+  "image": "/images/catalogue/kitchenware/lotus-service-11",
+  "width": 768,
+  "height": 1376,
+  "story": "Lotus — a serveware made and finished by hand in tinned copper. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "rudraksha-service-12",
+  "name": "Rudraksha",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "12",
+  "material": "Silver-plated brass",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/kitchenware/rudraksha-service-12",
+  "width": 768,
+  "height": 1376,
+  "story": "Rudraksha — a serveware made and finished by hand in silver-plated brass. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "ganga-service-13",
+  "name": "Ganga",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "13",
+  "material": "Hammered copper",
+  "finish": "Mirror-polished",
+  "image": "/images/catalogue/kitchenware/ganga-service-13",
+  "width": 896,
+  "height": 1200,
+  "story": "Ganga — a serveware made and finished by hand in hammered copper. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "tulsi-service-14",
+  "name": "Tulsi",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "14",
+  "material": "Mirror-polished brass",
+  "finish": "Hammered",
+  "image": "/images/catalogue/kitchenware/tulsi-service-14",
+  "width": 896,
+  "height": 1200,
+  "story": "Tulsi — a serveware made and finished by hand in mirror-polished brass. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "amrit-service-15",
+  "name": "Amrit",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "15",
+  "material": "Tinned copper",
+  "finish": "Hand-burnished",
+  "image": "/images/catalogue/kitchenware/amrit-service-15",
+  "width": 896,
+  "height": 1200,
+  "story": "Amrit — a serveware made and finished by hand in tinned copper. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "surya-service-16",
+  "name": "Surya",
+  "suffix": "Service",
+  "type": "Serveware",
+  "collection": "kitchenware",
+  "index": "16",
+  "material": "Silver-plated brass",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/kitchenware/surya-service-16",
+  "width": 896,
+  "height": 1200,
+  "story": "Surya — a serveware made and finished by hand in silver-plated brass. Made to be used hard and handed down.",
+  "details": [
+   "Forged, not stamped",
+   "Food-safe finish",
+   "Care guide included",
+   "Re-finishing for life"
+  ]
+ },
+ {
+  "slug": "teardrop-vessel-1",
+  "name": "Teardrop",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "01",
+  "material": "Cast bronze",
+  "finish": "Verdigris patina",
+  "image": "/images/catalogue/decor/teardrop-vessel-1",
+  "width": 921,
+  "height": 865,
+  "story": "Teardrop — a decorative vessel made and finished by hand in cast bronze. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "laguna-vessel-2",
+  "name": "Laguna",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "02",
+  "material": "Patinated copper",
+  "finish": "Brushed",
+  "image": "/images/catalogue/decor/laguna-vessel-2",
+  "width": 1310,
+  "height": 1206,
+  "story": "Laguna — a decorative vessel made and finished by hand in patinated copper. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "sienna-vessel-3",
+  "name": "Sienna",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "03",
+  "material": "Blackened steel",
+  "finish": "Blackened",
+  "image": "/images/catalogue/decor/sienna-vessel-3",
+  "width": 1400,
+  "height": 1525,
+  "story": "Sienna — a decorative vessel made and finished by hand in blackened steel. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "rosa-vessel-4",
+  "name": "Rosa",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "04",
+  "material": "Marble & brass",
+  "finish": "Honed",
+  "image": "/images/catalogue/decor/rosa-vessel-4",
+  "width": 1117,
+  "height": 1010,
+  "story": "Rosa — a decorative vessel made and finished by hand in marble & brass. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "nero-vessel-5",
+  "name": "Nero",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "05",
+  "material": "Cast bronze",
+  "finish": "Verdigris patina",
+  "image": "/images/catalogue/decor/nero-vessel-5",
+  "width": 1400,
+  "height": 1385,
+  "story": "Nero — a decorative vessel made and finished by hand in cast bronze. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "pebble-vessel-6",
+  "name": "Pebble",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "06",
+  "material": "Patinated copper",
+  "finish": "Brushed",
+  "image": "/images/catalogue/decor/pebble-vessel-6",
+  "width": 1358,
+  "height": 1139,
+  "story": "Pebble — a decorative vessel made and finished by hand in patinated copper. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "calla-vessel-7",
+  "name": "Calla",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "07",
+  "material": "Blackened steel",
+  "finish": "Blackened",
+  "image": "/images/catalogue/decor/calla-vessel-7",
+  "width": 435,
+  "height": 371,
+  "story": "Calla — a decorative vessel made and finished by hand in blackened steel. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "flora-vessel-8",
+  "name": "Flora",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "08",
+  "material": "Marble & brass",
+  "finish": "Honed",
+  "image": "/images/catalogue/decor/flora-vessel-8",
+  "width": 1400,
+  "height": 1011,
+  "story": "Flora — a decorative vessel made and finished by hand in marble & brass. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "dune-vessel-9",
+  "name": "Dune",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "09",
+  "material": "Cast bronze",
+  "finish": "Verdigris patina",
+  "image": "/images/catalogue/decor/dune-vessel-9",
+  "width": 487,
+  "height": 371,
+  "story": "Dune — a decorative vessel made and finished by hand in cast bronze. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "onyx-vessel-10",
+  "name": "Onyx",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "10",
+  "material": "Patinated copper",
+  "finish": "Brushed",
+  "image": "/images/catalogue/decor/onyx-vessel-10",
+  "width": 372,
+  "height": 373,
+  "story": "Onyx — a decorative vessel made and finished by hand in patinated copper. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "amber-vessel-11",
+  "name": "Amber",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "11",
+  "material": "Blackened steel",
+  "finish": "Blackened",
+  "image": "/images/catalogue/decor/amber-vessel-11",
+  "width": 1400,
+  "height": 1540,
+  "story": "Amber — a decorative vessel made and finished by hand in blackened steel. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "cascade-vessel-12",
+  "name": "Cascade",
+  "suffix": "Vessel",
+  "type": "Decorative vessel",
+  "collection": "decor",
+  "index": "12",
+  "material": "Marble & brass",
+  "finish": "Honed",
+  "image": "/images/catalogue/decor/cascade-vessel-12",
+  "width": 1368,
+  "height": 1589,
+  "story": "Cascade — a decorative vessel made and finished by hand in marble & brass. Sculpture you live alongside.",
+  "details": [
+   "One of a kind",
+   "Hand-finished surface",
+   "Felt-protected base",
+   "Develops a living patina"
+  ]
+ },
+ {
+  "slug": "meridian-globe-1",
+  "name": "Meridian",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "01",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/meridian-globe-1",
+  "width": 1024,
+  "height": 1024,
+  "story": "Meridian — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "atlas-globe-2",
+  "name": "Atlas",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "02",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/atlas-globe-2",
+  "width": 1024,
+  "height": 1024,
+  "story": "Atlas — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "cartographer-globe-3",
+  "name": "Cartographer",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "03",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/cartographer-globe-3",
+  "width": 1024,
+  "height": 1024,
+  "story": "Cartographer — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "equator-globe-4",
+  "name": "Equator",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "04",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/equator-globe-4",
+  "width": 1024,
+  "height": 1024,
+  "story": "Equator — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "armillary-globe-5",
+  "name": "Armillary",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "05",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/armillary-globe-5",
+  "width": 1024,
+  "height": 1024,
+  "story": "Armillary — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "orbis-globe-6",
+  "name": "Orbis",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "06",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/orbis-globe-6",
+  "width": 1280,
+  "height": 1280,
+  "story": "Orbis — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "voyager-globe-7",
+  "name": "Voyager",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "07",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/voyager-globe-7",
+  "width": 1024,
+  "height": 1024,
+  "story": "Voyager — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "magellan-globe-8",
+  "name": "Magellan",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "08",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/magellan-globe-8",
+  "width": 1256,
+  "height": 1141,
+  "story": "Magellan — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "terra-globe-9",
+  "name": "Terra",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "09",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/terra-globe-9",
+  "width": 1149,
+  "height": 1200,
+  "story": "Terra — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "antipode-globe-10",
+  "name": "Antipode",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "10",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/antipode-globe-10",
+  "width": 1359,
+  "height": 1246,
+  "story": "Antipode — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "zenith-globe-11",
+  "name": "Zenith",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "11",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/zenith-globe-11",
+  "width": 1292,
+  "height": 1376,
+  "story": "Zenith — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "polaris-globe-12",
+  "name": "Polaris",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "12",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/polaris-globe-12",
+  "width": 1279,
+  "height": 1376,
+  "story": "Polaris — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "mercator-globe-13",
+  "name": "Mercator",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "13",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/mercator-globe-13",
+  "width": 768,
+  "height": 1376,
+  "story": "Mercator — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "aether-globe-14",
+  "name": "Aether",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "14",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/aether-globe-14",
+  "width": 1400,
+  "height": 1308,
+  "story": "Aether — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "latitude-globe-15",
+  "name": "Latitude",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "15",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/latitude-globe-15",
+  "width": 1194,
+  "height": 1200,
+  "story": "Latitude — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "compass-globe-16",
+  "name": "Compass",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "16",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/compass-globe-16",
+  "width": 1112,
+  "height": 1109,
+  "story": "Compass — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "sextant-globe-17",
+  "name": "Sextant",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "17",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/sextant-globe-17",
+  "width": 1139,
+  "height": 1200,
+  "story": "Sextant — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "horizon-globe-18",
+  "name": "Horizon",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "18",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/horizon-globe-18",
+  "width": 1024,
+  "height": 1024,
+  "story": "Horizon — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "astrolabe-globe-19",
+  "name": "Astrolabe",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "19",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/astrolabe-globe-19",
+  "width": 1024,
+  "height": 1024,
+  "story": "Astrolabe — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "chronometer-globe-20",
+  "name": "Chronometer",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "20",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/chronometer-globe-20",
+  "width": 1024,
+  "height": 1024,
+  "story": "Chronometer — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "octant-globe-21",
+  "name": "Octant",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "21",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/octant-globe-21",
+  "width": 1024,
+  "height": 1024,
+  "story": "Octant — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "quadrant-globe-22",
+  "name": "Quadrant",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "22",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/quadrant-globe-22",
+  "width": 1200,
+  "height": 896,
+  "story": "Quadrant — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "alidade-globe-23",
+  "name": "Alidade",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "23",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/alidade-globe-23",
+  "width": 896,
+  "height": 1200,
+  "story": "Alidade — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "gnomon-globe-24",
+  "name": "Gnomon",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "24",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/gnomon-globe-24",
+  "width": 1024,
+  "height": 1024,
+  "story": "Gnomon — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "transit-globe-25",
+  "name": "Transit",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "25",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/transit-globe-25",
+  "width": 1024,
+  "height": 1024,
+  "story": "Transit — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "azimuth-globe-26",
+  "name": "Azimuth",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "26",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/azimuth-globe-26",
+  "width": 1200,
+  "height": 1181,
+  "story": "Azimuth — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "declination-globe-27",
+  "name": "Declination",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "27",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/declination-globe-27",
+  "width": 1285,
+  "height": 1214,
+  "story": "Declination — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "ecliptic-globe-28",
+  "name": "Ecliptic",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "28",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/ecliptic-globe-28",
+  "width": 1400,
+  "height": 1180,
+  "story": "Ecliptic — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "solstice-globe-29",
+  "name": "Solstice",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "29",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/solstice-globe-29",
+  "width": 1294,
+  "height": 1316,
+  "story": "Solstice — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "equinox-globe-30",
+  "name": "Equinox",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "30",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/equinox-globe-30",
+  "width": 1302,
+  "height": 1104,
+  "story": "Equinox — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "nadir-globe-31",
+  "name": "Nadir",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "31",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/nadir-globe-31",
+  "width": 1024,
+  "height": 1024,
+  "story": "Nadir — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "apex-globe-32",
+  "name": "Apex",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "32",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/apex-globe-32",
+  "width": 1024,
+  "height": 1024,
+  "story": "Apex — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "vertex-globe-33",
+  "name": "Vertex",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "33",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/vertex-globe-33",
+  "width": 1296,
+  "height": 1194,
+  "story": "Vertex — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "aphelion-globe-34",
+  "name": "Aphelion",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "34",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/aphelion-globe-34",
+  "width": 1024,
+  "height": 1024,
+  "story": "Aphelion — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "perihelion-globe-35",
+  "name": "Perihelion",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "35",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/perihelion-globe-35",
+  "width": 896,
+  "height": 1200,
+  "story": "Perihelion — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "orbit-globe-36",
+  "name": "Orbit",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "36",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/orbit-globe-36",
+  "width": 1024,
+  "height": 1024,
+  "story": "Orbit — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "trajectory-globe-37",
+  "name": "Trajectory",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "37",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/trajectory-globe-37",
+  "width": 896,
+  "height": 1200,
+  "story": "Trajectory — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "beacon-globe-38",
+  "name": "Beacon",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "38",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/beacon-globe-38",
+  "width": 896,
+  "height": 1200,
+  "story": "Beacon — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "lighthouse-globe-39",
+  "name": "Lighthouse",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "39",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/lighthouse-globe-39",
+  "width": 1370,
+  "height": 1207,
+  "story": "Lighthouse — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "pilot-globe-40",
+  "name": "Pilot",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "40",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/pilot-globe-40",
+  "width": 1030,
+  "height": 1052,
+  "story": "Pilot — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "navigator-globe-41",
+  "name": "Navigator",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "41",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/navigator-globe-41",
+  "width": 896,
+  "height": 1200,
+  "story": "Navigator — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "explorer-globe-42",
+  "name": "Explorer",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "42",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/explorer-globe-42",
+  "width": 1200,
+  "height": 1124,
+  "story": "Explorer — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "pathfinder-globe-43",
+  "name": "Pathfinder",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "43",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/pathfinder-globe-43",
+  "width": 1376,
+  "height": 1173,
+  "story": "Pathfinder — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "wayfinder-globe-44",
+  "name": "Wayfinder",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "44",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/wayfinder-globe-44",
+  "width": 896,
+  "height": 1200,
+  "story": "Wayfinder — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "pioneer-globe-45",
+  "name": "Pioneer",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "45",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/pioneer-globe-45",
+  "width": 896,
+  "height": 1200,
+  "story": "Pioneer — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "discoverer-globe-46",
+  "name": "Discoverer",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "46",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/discoverer-globe-46",
+  "width": 1398,
+  "height": 1235,
+  "story": "Discoverer — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "helmsman-globe-47",
+  "name": "Helmsman",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "47",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/helmsman-globe-47",
+  "width": 1200,
+  "height": 896,
+  "story": "Helmsman — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "steersman-globe-48",
+  "name": "Steersman",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "48",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/steersman-globe-48",
+  "width": 1376,
+  "height": 1078,
+  "story": "Steersman — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "mariner-globe-49",
+  "name": "Mariner",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "49",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/mariner-globe-49",
+  "width": 1024,
+  "height": 1024,
+  "story": "Mariner — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "seafarer-globe-50",
+  "name": "Seafarer",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "50",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/seafarer-globe-50",
+  "width": 1200,
+  "height": 896,
+  "story": "Seafarer — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "traveler-globe-51",
+  "name": "Traveler",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "51",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/traveler-globe-51",
+  "width": 1200,
+  "height": 896,
+  "story": "Traveler — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "wanderer-globe-52",
+  "name": "Wanderer",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "52",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/wanderer-globe-52",
+  "width": 1200,
+  "height": 896,
+  "story": "Wanderer — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "pilgrim-globe-53",
+  "name": "Pilgrim",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "53",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/pilgrim-globe-53",
+  "width": 1200,
+  "height": 896,
+  "story": "Pilgrim — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "nomad-globe-54",
+  "name": "Nomad",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "54",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/nomad-globe-54",
+  "width": 1200,
+  "height": 896,
+  "story": "Nomad — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "odyssey-globe-55",
+  "name": "Odyssey",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "55",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/odyssey-globe-55",
+  "width": 1200,
+  "height": 896,
+  "story": "Odyssey — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "journey-globe-56",
+  "name": "Journey",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "56",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/journey-globe-56",
+  "width": 1200,
+  "height": 896,
+  "story": "Journey — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "expedition-globe-57",
+  "name": "Expedition",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "57",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/expedition-globe-57",
+  "width": 1200,
+  "height": 896,
+  "story": "Expedition — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "voyage-globe-58",
+  "name": "Voyage",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "58",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/voyage-globe-58",
+  "width": 1200,
+  "height": 896,
+  "story": "Voyage — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "passage-globe-59",
+  "name": "Passage",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "59",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/passage-globe-59",
+  "width": 1200,
+  "height": 896,
+  "story": "Passage — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "crossing-globe-60",
+  "name": "Crossing",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "60",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/crossing-globe-60",
+  "width": 1200,
+  "height": 896,
+  "story": "Crossing — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "flight-globe-61",
+  "name": "Flight",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "61",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/flight-globe-61",
+  "width": 1200,
+  "height": 896,
+  "story": "Flight — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "ascent-globe-62",
+  "name": "Ascent",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "62",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/ascent-globe-62",
+  "width": 1200,
+  "height": 896,
+  "story": "Ascent — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "descent-globe-63",
+  "name": "Descent",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "63",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/descent-globe-63",
+  "width": 1200,
+  "height": 896,
+  "story": "Descent — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "elevation-globe-64",
+  "name": "Elevation",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "64",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/elevation-globe-64",
+  "width": 1013,
+  "height": 997,
+  "story": "Elevation — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "altitude-globe-65",
+  "name": "Altitude",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "65",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/altitude-globe-65",
+  "width": 958,
+  "height": 836,
+  "story": "Altitude — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "longitude-globe-66",
+  "name": "Longitude",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "66",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/longitude-globe-66",
+  "width": 945,
+  "height": 943,
+  "story": "Longitude — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "bearing-globe-67",
+  "name": "Bearing",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "67",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/bearing-globe-67",
+  "width": 1003,
+  "height": 1038,
+  "story": "Bearing — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "coordinates-globe-68",
+  "name": "Coordinates",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "68",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/coordinates-globe-68",
+  "width": 1073,
+  "height": 982,
+  "story": "Coordinates — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "degrees-globe-69",
+  "name": "Degrees",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "69",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/degrees-globe-69",
+  "width": 1376,
+  "height": 1279,
+  "story": "Degrees — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "deviation-globe-70",
+  "name": "Deviation",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "70",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/deviation-globe-70",
+  "width": 1376,
+  "height": 1257,
+  "story": "Deviation — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "fiducial-globe-71",
+  "name": "Fiducial",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "71",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/fiducial-globe-71",
+  "width": 1376,
+  "height": 1071,
+  "story": "Fiducial — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "gimbal-globe-72",
+  "name": "Gimbal",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "72",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/gimbal-globe-72",
+  "width": 1376,
+  "height": 1224,
+  "story": "Gimbal — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "heliocentric-globe-73",
+  "name": "Heliocentric",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "73",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/heliocentric-globe-73",
+  "width": 896,
+  "height": 1200,
+  "story": "Heliocentric — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "isoline-globe-74",
+  "name": "Isoline",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "74",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/isoline-globe-74",
+  "width": 896,
+  "height": 1200,
+  "story": "Isoline — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "loxodromic-globe-75",
+  "name": "Loxodromic",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "75",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/loxodromic-globe-75",
+  "width": 1024,
+  "height": 1024,
+  "story": "Loxodromic — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "nautical-globe-76",
+  "name": "Nautical",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "76",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/nautical-globe-76",
+  "width": 1024,
+  "height": 1024,
+  "story": "Nautical — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "orientation-globe-77",
+  "name": "Orientation",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "77",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/orientation-globe-77",
+  "width": 1024,
+  "height": 1024,
+  "story": "Orientation — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "parallax-globe-78",
+  "name": "Parallax",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "78",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/parallax-globe-78",
+  "width": 1024,
+  "height": 1024,
+  "story": "Parallax — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "projection-globe-79",
+  "name": "Projection",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "79",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/projection-globe-79",
+  "width": 1024,
+  "height": 1024,
+  "story": "Projection — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "rhumb-globe-80",
+  "name": "Rhumb",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "80",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/rhumb-globe-80",
+  "width": 1024,
+  "height": 1024,
+  "story": "Rhumb — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "spheroid-globe-81",
+  "name": "Spheroid",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "81",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/spheroid-globe-81",
+  "width": 1024,
+  "height": 1024,
+  "story": "Spheroid — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "scale-globe-82",
+  "name": "Scale",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "82",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/scale-globe-82",
+  "width": 1024,
+  "height": 1024,
+  "story": "Scale — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "triangulation-globe-83",
+  "name": "Triangulation",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "83",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/triangulation-globe-83",
+  "width": 1024,
+  "height": 1024,
+  "story": "Triangulation — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "vector-globe-84",
+  "name": "Vector",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "84",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/vector-globe-84",
+  "width": 1024,
+  "height": 1024,
+  "story": "Vector — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "andromeda-globe-85",
+  "name": "Andromeda",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "85",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/andromeda-globe-85",
+  "width": 1024,
+  "height": 1024,
+  "story": "Andromeda — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "aquila-globe-86",
+  "name": "Aquila",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "86",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/aquila-globe-86",
+  "width": 1024,
+  "height": 1024,
+  "story": "Aquila — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "auriga-globe-87",
+  "name": "Auriga",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "87",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/auriga-globe-87",
+  "width": 1024,
+  "height": 1024,
+  "story": "Auriga — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "bootes-globe-88",
+  "name": "Bootes",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "88",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/bootes-globe-88",
+  "width": 1024,
+  "height": 1024,
+  "story": "Bootes — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "cancer-globe-89",
+  "name": "Cancer",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "89",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/cancer-globe-89",
+  "width": 1024,
+  "height": 1024,
+  "story": "Cancer — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "canis-globe-90",
+  "name": "Canis",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "90",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/canis-globe-90",
+  "width": 1024,
+  "height": 1024,
+  "story": "Canis — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "carina-globe-91",
+  "name": "Carina",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "91",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/carina-globe-91",
+  "width": 1024,
+  "height": 1024,
+  "story": "Carina — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "cassiopeia-globe-92",
+  "name": "Cassiopeia",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "92",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/cassiopeia-globe-92",
+  "width": 1024,
+  "height": 1024,
+  "story": "Cassiopeia — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "centaurus-globe-93",
+  "name": "Centaurus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "93",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/centaurus-globe-93",
+  "width": 1024,
+  "height": 1024,
+  "story": "Centaurus — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "cepheus-globe-94",
+  "name": "Cepheus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "94",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/cepheus-globe-94",
+  "width": 1024,
+  "height": 1024,
+  "story": "Cepheus — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "cetus-globe-95",
+  "name": "Cetus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "95",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/cetus-globe-95",
+  "width": 1024,
+  "height": 1024,
+  "story": "Cetus — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "cygnus-globe-96",
+  "name": "Cygnus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "96",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/cygnus-globe-96",
+  "width": 1024,
+  "height": 1024,
+  "story": "Cygnus — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "delphinus-globe-97",
+  "name": "Delphinus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "97",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/delphinus-globe-97",
+  "width": 896,
+  "height": 1200,
+  "story": "Delphinus — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "draco-globe-98",
+  "name": "Draco",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "98",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/draco-globe-98",
+  "width": 1138,
+  "height": 1063,
+  "story": "Draco — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "eridanus-globe-99",
+  "name": "Eridanus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "99",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/eridanus-globe-99",
+  "width": 1143,
+  "height": 1086,
+  "story": "Eridanus — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "gemini-globe-100",
+  "name": "Gemini",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "100",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/gemini-globe-100",
+  "width": 1184,
+  "height": 1258,
+  "story": "Gemini — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "hercules-globe-101",
+  "name": "Hercules",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "101",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/hercules-globe-101",
+  "width": 1139,
+  "height": 1051,
+  "story": "Hercules — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "hydra-globe-102",
+  "name": "Hydra",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "102",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/hydra-globe-102",
+  "width": 841,
+  "height": 1280,
+  "story": "Hydra — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "leo-globe-103",
+  "name": "Leo",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "103",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/leo-globe-103",
+  "width": 1024,
+  "height": 1024,
+  "story": "Leo — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "lyra-globe-104",
+  "name": "Lyra",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "104",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/lyra-globe-104",
+  "width": 1024,
+  "height": 1024,
+  "story": "Lyra — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "monoceros-globe-105",
+  "name": "Monoceros",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "105",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/monoceros-globe-105",
+  "width": 896,
+  "height": 1200,
+  "story": "Monoceros — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "ophiuchus-globe-106",
+  "name": "Ophiuchus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "106",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/ophiuchus-globe-106",
+  "width": 1024,
+  "height": 1024,
+  "story": "Ophiuchus — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "orion-globe-107",
+  "name": "Orion",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "107",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/orion-globe-107",
+  "width": 1200,
+  "height": 896,
+  "story": "Orion — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "pegasus-globe-108",
+  "name": "Pegasus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "108",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/pegasus-globe-108",
+  "width": 896,
+  "height": 1200,
+  "story": "Pegasus — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "perseus-globe-109",
+  "name": "Perseus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "109",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/perseus-globe-109",
+  "width": 896,
+  "height": 1200,
+  "story": "Perseus — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "phoenix-globe-110",
+  "name": "Phoenix",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "110",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/phoenix-globe-110",
+  "width": 896,
+  "height": 1200,
+  "story": "Phoenix — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "pisces-globe-111",
+  "name": "Pisces",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "111",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/pisces-globe-111",
+  "width": 1376,
+  "height": 991,
+  "story": "Pisces — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "puppis-globe-112",
+  "name": "Puppis",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "112",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/puppis-globe-112",
+  "width": 1376,
+  "height": 1210,
+  "story": "Puppis — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "sagittarius-globe-113",
+  "name": "Sagittarius",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "113",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/sagittarius-globe-113",
+  "width": 1024,
+  "height": 1024,
+  "story": "Sagittarius — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "scorpius-globe-114",
+  "name": "Scorpius",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "114",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/scorpius-globe-114",
+  "width": 1024,
+  "height": 1024,
+  "story": "Scorpius — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "taurus-globe-115",
+  "name": "Taurus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "115",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/taurus-globe-115",
+  "width": 1024,
+  "height": 1024,
+  "story": "Taurus — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "ursa-globe-116",
+  "name": "Ursa",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "116",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/ursa-globe-116",
+  "width": 1024,
+  "height": 1024,
+  "story": "Ursa — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "vela-globe-117",
+  "name": "Vela",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "117",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/vela-globe-117",
+  "width": 1024,
+  "height": 1024,
+  "story": "Vela — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "virgo-globe-118",
+  "name": "Virgo",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "118",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/virgo-globe-118",
+  "width": 1024,
+  "height": 1024,
+  "story": "Virgo — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "nova-globe-119",
+  "name": "Nova",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "119",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/nova-globe-119",
+  "width": 1209,
+  "height": 1137,
+  "story": "Nova — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "mundus-globe-120",
+  "name": "Mundus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "120",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/mundus-globe-120",
+  "width": 1024,
+  "height": 1024,
+  "story": "Mundus — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "cosmos-globe-121",
+  "name": "Cosmos",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "121",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/cosmos-globe-121",
+  "width": 896,
+  "height": 1200,
+  "story": "Cosmos — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "sphaera-globe-122",
+  "name": "Sphaera",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "122",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/sphaera-globe-122",
+  "width": 1024,
+  "height": 1024,
+  "story": "Sphaera — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "globus-globe-123",
+  "name": "Globus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "123",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/globus-globe-123",
+  "width": 896,
+  "height": 1200,
+  "story": "Globus — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "aura-globe-124",
+  "name": "Aura",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "124",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/aura-globe-124",
+  "width": 896,
+  "height": 1200,
+  "story": "Aura — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "ventus-globe-125",
+  "name": "Ventus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "125",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/ventus-globe-125",
+  "width": 896,
+  "height": 1200,
+  "story": "Ventus — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "zephyrus-globe-126",
+  "name": "Zephyrus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "126",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/zephyrus-globe-126",
+  "width": 1024,
+  "height": 1024,
+  "story": "Zephyrus — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "austri-globe-127",
+  "name": "Austri",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "127",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/austri-globe-127",
+  "width": 1395,
+  "height": 1080,
+  "story": "Austri — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "eurus-globe-128",
+  "name": "Eurus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "128",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/eurus-globe-128",
+  "width": 1400,
+  "height": 1395,
+  "story": "Eurus — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "aquilo-globe-129",
+  "name": "Aquilo",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "129",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/aquilo-globe-129",
+  "width": 1024,
+  "height": 1024,
+  "story": "Aquilo — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "sol-globe-130",
+  "name": "Sol",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "130",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/sol-globe-130",
+  "width": 1024,
+  "height": 1024,
+  "story": "Sol — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "luna-globe-131",
+  "name": "Luna",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "131",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/luna-globe-131",
+  "width": 1024,
+  "height": 1024,
+  "story": "Luna — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "stella-globe-132",
+  "name": "Stella",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "132",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/stella-globe-132",
+  "width": 896,
+  "height": 1200,
+  "story": "Stella — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "astrum-globe-133",
+  "name": "Astrum",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "133",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/astrum-globe-133",
+  "width": 1024,
+  "height": 1024,
+  "story": "Astrum — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "vesper-globe-134",
+  "name": "Vesper",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "134",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/vesper-globe-134",
+  "width": 1200,
+  "height": 896,
+  "story": "Vesper — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "aurora-globe-135",
+  "name": "Aurora",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "135",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/aurora-globe-135",
+  "width": 1024,
+  "height": 1024,
+  "story": "Aurora — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "crepusculum-globe-136",
+  "name": "Crepusculum",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "136",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/crepusculum-globe-136",
+  "width": 896,
+  "height": 1200,
+  "story": "Crepusculum — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "lux-globe-137",
+  "name": "Lux",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "137",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/lux-globe-137",
+  "width": 668,
+  "height": 1280,
+  "story": "Lux — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "umbra-globe-138",
+  "name": "Umbra",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "138",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/umbra-globe-138",
+  "width": 696,
+  "height": 1280,
+  "story": "Umbra — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "tenebrae-globe-139",
+  "name": "Tenebrae",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "139",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/tenebrae-globe-139",
+  "width": 666,
+  "height": 1280,
+  "story": "Tenebrae — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "ignis-globe-140",
+  "name": "Ignis",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "140",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/ignis-globe-140",
+  "width": 851,
+  "height": 1280,
+  "story": "Ignis — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "aqua-globe-141",
+  "name": "Aqua",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "141",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/aqua-globe-141",
+  "width": 1400,
+  "height": 1546,
+  "story": "Aqua — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "aer-globe-142",
+  "name": "Aer",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "142",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/aer-globe-142",
+  "width": 1400,
+  "height": 1420,
+  "story": "Aer — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "geographia-globe-143",
+  "name": "Geographia",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "143",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/geographia-globe-143",
+  "width": 896,
+  "height": 1200,
+  "story": "Geographia — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "charta-globe-144",
+  "name": "Charta",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "144",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/charta-globe-144",
+  "width": 896,
+  "height": 1200,
+  "story": "Charta — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "iter-globe-145",
+  "name": "Iter",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "145",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/iter-globe-145",
+  "width": 896,
+  "height": 1200,
+  "story": "Iter — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "via-globe-146",
+  "name": "Via",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "146",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/via-globe-146",
+  "width": 896,
+  "height": 1200,
+  "story": "Via — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "pons-globe-147",
+  "name": "Pons",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "147",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/pons-globe-147",
+  "width": 768,
+  "height": 1376,
+  "story": "Pons — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "portus-globe-148",
+  "name": "Portus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "148",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/portus-globe-148",
+  "width": 1024,
+  "height": 1024,
+  "story": "Portus — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "oceanus-globe-149",
+  "name": "Oceanus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "149",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/oceanus-globe-149",
+  "width": 768,
+  "height": 1376,
+  "story": "Oceanus — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "mare-globe-150",
+  "name": "Mare",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "150",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/mare-globe-150",
+  "width": 1024,
+  "height": 1024,
+  "story": "Mare — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "sinus-globe-151",
+  "name": "Sinus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "151",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/sinus-globe-151",
+  "width": 1024,
+  "height": 1024,
+  "story": "Sinus — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "fretum-globe-152",
+  "name": "Fretum",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "152",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/fretum-globe-152",
+  "width": 1024,
+  "height": 1024,
+  "story": "Fretum — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "insula-globe-153",
+  "name": "Insula",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "153",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/insula-globe-153",
+  "width": 1024,
+  "height": 1024,
+  "story": "Insula — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "peninsula-globe-154",
+  "name": "Peninsula",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "154",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/peninsula-globe-154",
+  "width": 1024,
+  "height": 1024,
+  "story": "Peninsula — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "continentis-globe-155",
+  "name": "Continentis",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "155",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/continentis-globe-155",
+  "width": 1024,
+  "height": 1024,
+  "story": "Continentis — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "mons-globe-156",
+  "name": "Mons",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "156",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/mons-globe-156",
+  "width": 896,
+  "height": 1200,
+  "story": "Mons — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "vallis-globe-157",
+  "name": "Vallis",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "157",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/vallis-globe-157",
+  "width": 896,
+  "height": 1200,
+  "story": "Vallis — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "campus-globe-158",
+  "name": "Campus",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "158",
+  "material": "Patinated bronze",
+  "finish": "Antiqued",
+  "image": "/images/catalogue/accessories/campus-globe-158",
+  "width": 1024,
+  "height": 1024,
+  "story": "Campus — a decorative globe made and finished by hand in patinated bronze. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "silva-globe-159",
+  "name": "Silva",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "159",
+  "material": "Lacquered metal",
+  "finish": "Lacquered",
+  "image": "/images/catalogue/accessories/silva-globe-159",
+  "width": 1024,
+  "height": 1024,
+  "story": "Silva — a decorative globe made and finished by hand in lacquered metal. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "desertum-globe-160",
+  "name": "Desertum",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "160",
+  "material": "Brass & stone",
+  "finish": "Patinated",
+  "image": "/images/catalogue/accessories/desertum-globe-160",
+  "width": 1024,
+  "height": 1024,
+  "story": "Desertum — a decorative globe made and finished by hand in brass & stone. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ },
+ {
+  "slug": "aeterna-globe-161",
+  "name": "Aeterna",
+  "suffix": "Globe",
+  "type": "Decorative globe",
+  "collection": "accessories",
+  "index": "161",
+  "material": "Brass & enamel",
+  "finish": "Hand-polished",
+  "image": "/images/catalogue/accessories/aeterna-globe-161",
+  "width": 896,
+  "height": 1200,
+  "story": "Aeterna — a decorative globe made and finished by hand in brass & enamel. The kind of object a desk is judged by.",
+  "details": [
+   "Hand-assembled",
+   "Weighted base",
+   "Develops a hand patina",
+   "Gift-boxed"
+  ]
+ }
+]

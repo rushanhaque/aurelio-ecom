@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { LockKeyhole, ArrowUpRight } from "lucide-react";
-import { PageIntro, EmptyState, Field, Picture } from "../components/ui";
+import {
+  PageIntro,
+  EmptyState,
+  Field,
+  Picture,
+  Settling,
+} from "../components/ui";
 import { useStore, request } from "../lib/store";
 import { money, cartTotal } from "../lib/catalog";
 export const meta = () => [
@@ -19,7 +25,7 @@ export default function Checkout() {
   const savedAddress = customer?.addresses?.find(
     (address: any) => address.id === addressId,
   );
-  const { cart, products, currency, clear } = useStore();
+  const { cart, products, currency, clear, ready } = useStore();
   const navigate = useNavigate();
   const [busy, setBusy] = useState(false),
     [error, setError] = useState("");
@@ -52,8 +58,12 @@ export default function Checkout() {
   }
   return (
     <>
-      <PageIntro eyebrow="THE FINAL DETAILS" title="A considered arrival." />
-      {!cart.length ? (
+      <PageIntro eyebrow="THE FINAL DETAILS" title="Checkout" />
+      {!ready ? (
+        <div className="container section-start">
+          <Settling label="Bringing your bag across…" />
+        </div>
+      ) : !cart.length ? (
         <div className="container section-start">
           <EmptyState title="Your bag comes first.">
             Add an object before continuing to checkout.
@@ -169,7 +179,7 @@ export default function Checkout() {
               const p = products.find((p) => p.id === l.productId)!;
               return (
                 <div className="checkout-line" key={p.id}>
-                  <Picture name={p.image} alt={p.name} />
+                  <Picture name={p.image} alt={p.name} sizes="120px" />
                   <span>
                     {p.name}
                     <small>Quantity {l.quantity}</small>

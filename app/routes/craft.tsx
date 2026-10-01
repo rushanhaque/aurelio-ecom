@@ -1,18 +1,31 @@
 import { PageIntro, Picture, TextLink } from "../components/ui";
 import { OriginalAtelier } from "../components/original-sections";
 import { brand } from "../lib/brand";
-import "../brand-content.css";
 export const meta = () => [
-  { title: "Made by hand in Moradabad — Aurelio by AF International" },
+  { title: "About us — Aurelio by AF International" },
   { name: "description", content: brand.story },
+];
+const pillars = [
+  [
+    "01",
+    "Made by hand",
+    "Every piece is cast, forged, raised, turned and finished by hand on the bench in Moradabad. No two leave the workshop quite the same.",
+  ],
+  [
+    "02",
+    "Metal & wood",
+    "We work brass, copper and patinated steel alongside seasoned timber — the materials northern India has shaped for generations.",
+  ],
+  [
+    "03",
+    "Shipped worldwide",
+    "From a single object to a container of furniture, our work leaves the atelier for private homes and trade clients across the world.",
+  ],
 ];
 export default function Craft() {
   return (
     <>
-      <PageIntro
-        eyebrow="AURELIO BY AF INTERNATIONAL"
-        title="Made by hand in Moradabad."
-      >
+      <PageIntro eyebrow="MADE BY HAND IN MORADABAD" title="About us">
         <p>{brand.story}</p>
       </PageIntro>
       <div className="wide-editorial container">
@@ -26,18 +39,21 @@ export default function Craft() {
       <section className="philosophy section container">
         <p className="eyebrow">THE STORY OF OUR ATELIER</p>
         <h2>
-          A workshop.
-          <br /> <em>A family. A way of making.</em>
+          A workshop,
+          <br /> <em>not a factory.</em>
         </h2>
         <div className="philosophy-copy">
           <p>{brand.history}</p>
-          <p>
-            We work brass, copper and patinated steel alongside seasoned timber
-            — the materials northern India has shaped for generations. From a
-            single object to a container of furniture, our work leaves the
-            atelier for private homes and trade clients across the world.
-          </p>
         </div>
+      </section>
+      <section className="about-pillars container" aria-label="How we work">
+        {pillars.map(([no, name, text]) => (
+          <article key={no} data-reveal>
+            <span className="eyebrow">{no}</span>
+            <h3>{name}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
       </section>
       <section className="values-section container">
         {[
@@ -72,7 +88,8 @@ export default function Craft() {
           <br /> <em>And everything between.</em>
         </h2>
         <TextLink to="/materials">Explore our nine materials</TextLink>
-        <TextLink to="/collections">Discover the collections</TextLink>
+        <TextLink to="/collections">See the collections</TextLink>
+        <TextLink to="/contact">Contact us</TextLink>
       </section>
     </>
   );

@@ -77,8 +77,11 @@ export function ProductCard({
   return (
     <article className="product-card" data-reveal>
       <div className="product-image">
+        {/* viewTransition lets the card image morph into the detail image where
+            the browser supports it, and is a no-op everywhere else. */}
         <Link
           to={`/products/${product.slug}`}
+          viewTransition
           aria-label={`Discover ${product.name}`}
         >
           <Picture
@@ -113,7 +116,11 @@ export function ProductCard({
       </div>
       <div className="product-caption">
         <div>
-          <Link to={`/products/${product.slug}`} className="product-name">
+          <Link
+            to={`/products/${product.slug}`}
+            viewTransition
+            className="product-name"
+          >
             {product.name}
           </Link>
           <p>{product.finish}</p>
@@ -174,6 +181,19 @@ export function PageIntro({
     </header>
   );
 }
+/* The cart and wishlist live in localStorage, which the server cannot see. Until
+   the browser has read it, these pages must not claim the bag is empty. */
+export function Settling({ label }: { label: string }) {
+  return (
+    <div className="settling-state" role="status">
+      <span className="settling-mark" aria-hidden="true">
+        ✳
+      </span>
+      <p>{label}</p>
+    </div>
+  );
+}
+
 export function EmptyState({
   title,
   children,
@@ -254,4 +274,63 @@ export function Field({
 }
 export function Arrow() {
   return <ArrowUpRight size={18} />;
+}
+
+/* A bulk-enquiry piece from the aurelio.in catalogue: no price, no bag, an
+   enquiry. Shaped to match ProductCard so the two can share a grid. */
+export type PieceSummary = {
+  slug: string;
+  name: string;
+  suffix: string;
+  material: string;
+  finish: string;
+  image: string;
+  index: string;
+};
+export function PieceCard({ piece }: { piece: PieceSummary }) {
+  return (
+    <article className="product-card piece-card">
+      <div className="product-image">
+        <Link
+          to={`/pieces/${piece.slug}`}
+          viewTransition
+          aria-label={`${piece.name} ${piece.suffix}`}
+        >
+          <img
+            src={`${piece.image}-480.webp`}
+            srcSet={`${piece.image}-480.webp 480w, ${piece.image}-960.webp 960w`}
+            sizes="(max-width: 600px) 48vw, (max-width: 1000px) 32vw, 24vw"
+            alt={`${piece.name} ${piece.suffix}, ${piece.material.toLowerCase()}`}
+            width={480}
+            height={480}
+            loading="lazy"
+            decoding="async"
+          />
+        </Link>
+        <span className="object-number">PIECE {piece.index}</span>
+        <Link
+          className="quick-add"
+          to={`/bulk-orders?product=${encodeURIComponent(`${piece.name} ${piece.suffix}`)}`}
+        >
+          <ArrowUpRight size={16} />
+          <span>Enquire</span>
+        </Link>
+      </div>
+      <div className="product-caption">
+        <div>
+          <Link
+            to={`/pieces/${piece.slug}`}
+            viewTransition
+            className="product-name"
+          >
+            {piece.name} <em>{piece.suffix}</em>
+          </Link>
+          <p>
+            {piece.material} · {piece.finish}
+          </p>
+        </div>
+        <span className="product-price piece-tag">Bulk</span>
+      </div>
+    </article>
+  );
 }

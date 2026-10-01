@@ -1,12 +1,18 @@
 import { Link } from "react-router";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { PageIntro, EmptyState, Picture, Quantity } from "../components/ui";
+import {
+  PageIntro,
+  EmptyState,
+  Picture,
+  Quantity,
+  Settling,
+} from "../components/ui";
 import { useStore } from "../lib/store";
 import { cartTotal, money } from "../lib/catalog";
 export const meta = () => [{ title: "Your bag — Aurelio" }];
 export default function Cart() {
-  const { cart, products, currency, quantity, remove, add, setPanel } =
+  const { cart, products, currency, quantity, remove, add, setPanel, ready } =
     useStore();
   const [removed, setRemoved] = useState<{
     productId: string;
@@ -14,7 +20,7 @@ export default function Cart() {
   } | null>(null);
   return (
     <>
-      <PageIntro eyebrow="A CONSIDERED CHOICE" title="Your collection.">
+      <PageIntro eyebrow="A CONSIDERED CHOICE" title="Your bag">
         <p>Good things, gathered together.</p>
       </PageIntro>
       <section className="container section-start">
@@ -32,7 +38,9 @@ export default function Cart() {
             </button>
           </div>
         )}
-        {!cart.length ? (
+        {!ready ? (
+          <Settling label="Bringing your bag across…" />
+        ) : !cart.length ? (
           <EmptyState title="A little space for something special.">
             Your bag is empty. Explore our collection when it arrives.
           </EmptyState>
@@ -40,11 +48,12 @@ export default function Cart() {
           <div className="cart-layout">
             <div>
               {cart.map((l) => {
-                const p = products.find((p) => p.id === l.productId)!;
+                const p = products.find((p) => p.id === l.productId);
+                if (!p) return null;
                 return (
                   <div className="cart-line" key={p.id}>
                     <Link to={`/products/${p.slug}`}>
-                      <Picture name={p.image} alt={p.name} />
+                      <Picture name={p.image} alt={p.name} sizes="160px" />
                     </Link>
                     <div>
                       <Link to={`/products/${p.slug}`}>{p.name}</Link>

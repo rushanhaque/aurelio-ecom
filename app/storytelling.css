@@ -54,7 +54,7 @@
   color: #c6b18b;
 }
 .making-copy h3 {
-  font: 400 clamp(66px, 7.7vw, 122px)/0.92 var(--serif);
+  font: 400 clamp(60px, 6.6vw, 112px)/0.92 var(--serif);
   letter-spacing: -0.055em;
   margin: 32px 0;
 }
@@ -161,7 +161,7 @@
   transform-origin: left;
 }
 .making-story.is-choreographed {
-  height: 340svh;
+  height: calc(var(--acts, 3) * 113svh);
 }
 .is-choreographed .making-stage {
   height: 100svh;
@@ -424,4 +424,11 @@ body:has([role="dialog"]) .journey-dock {
   .archive-frame {
     transform: none !important;
   }
+}
+
+.making-copy .making-link {
+  margin-top: 28px;
+}
+.making-image {
+  display: block;
 }

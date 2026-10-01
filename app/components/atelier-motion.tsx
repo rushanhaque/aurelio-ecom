@@ -1,8 +1,115 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router";
+
+/* The ambient layer: reading progress, the condensed header, the shared reveal
+   and the cursor coordinates every v2 hover effect reads from. None of it needs
+   GSAP, so it runs on the first frame and keeps working when motion is reduced
+   or the animation bundle never loads. */
+function useAmbientMotion(pathname: string) {
+  useEffect(() => {
+    const abort = new AbortController();
+    const body = document.body;
+    const header = document.querySelector<HTMLElement>(".site-header");
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0;
+
+    // Everything that still has to appear. An IntersectionObserver looks like
+    // the obvious tool here, but it samples intersections per frame: an anchor
+    // jump, the End key or a fast flick can carry an element from below the
+    // fold to above it between two samples, and it then never reveals at all.
+    // Comparing positions on the scroll frame cannot miss one.
+    let pending = [...document.querySelectorAll<HTMLElement>("[data-reveal]")];
+    const reveal = () => {
+      if (!pending.length) return;
+      const limit = window.innerHeight * 0.94;
+      pending = pending.filter((el) => {
+        if (el.getBoundingClientRect().top >= limit) return true;
+        el.dataset.revealed = "true";
+        return false;
+      });
+    };
+
+    let lastY = window.scrollY;
+    const measure = () => {
+      frame = 0;
+      const scrolled = window.scrollY;
+      const travel = document.documentElement.scrollHeight - window.innerHeight;
+      body.dataset.scrolled = scrolled > 120 ? "true" : "false";
+      // Headroom: step aside while reading down, return on any scroll up. Never
+      // hide while keyboard focus is inside the header.
+      const delta = scrolled - lastY;
+      if (Math.abs(delta) > 6) {
+        const hide =
+          delta > 0 &&
+          scrolled > 520 &&
+          !header?.contains(document.activeElement);
+        body.dataset.header = hide ? "hidden" : "shown";
+        lastY = scrolled;
+      }
+      if (scrolled < 120) body.dataset.header = "shown";
+      header?.style.setProperty(
+        "--read",
+        String(travel > 0 ? Math.min(1, scrolled / travel) : 0),
+      );
+      reveal();
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(measure);
+    };
+    measure();
+    addEventListener("scroll", onScroll, {
+      passive: true,
+      signal: abort.signal,
+    });
+    addEventListener("resize", onScroll, {
+      passive: true,
+      signal: abort.signal,
+    });
+
+    body.dataset.motion = reduce.matches ? "off" : "on";
+
+    // Cursor coordinates, as percentages, on whichever surface is hovered.
+    if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      let pointerFrame = 0;
+      let spot: { el: HTMLElement; x: number; y: number } | null = null;
+      const apply = () => {
+        pointerFrame = 0;
+        if (!spot) return;
+        spot.el.style.setProperty("--px", `${spot.x}%`);
+        spot.el.style.setProperty("--py", `${spot.y}%`);
+      };
+      document.addEventListener(
+        "pointermove",
+        (event) => {
+          const surface = (event.target as Element)?.closest<HTMLElement>(
+            ".product-image > a, .button, .collection-card > div, .main-product-image",
+          );
+          if (!surface) return;
+          const box = surface.getBoundingClientRect();
+          if (!box.width || !box.height) return;
+          spot = {
+            el: surface,
+            x: Math.round(((event.clientX - box.left) / box.width) * 100),
+            y: Math.round(((event.clientY - box.top) / box.height) * 100),
+          };
+          if (!pointerFrame) pointerFrame = requestAnimationFrame(apply);
+        },
+        { passive: true, signal: abort.signal },
+      );
+    }
+
+    return () => {
+      abort.abort();
+      cancelAnimationFrame(frame);
+      pending = [];
+    };
+  }, [pathname]);
+}
+
 export function AtelierMotion() {
   const location = useLocation();
   const cursor = useRef<HTMLDivElement>(null);
+  useAmbientMotion(location.pathname);
   useEffect(() => {
     let disposed = false;
     let context: any;
@@ -83,22 +190,24 @@ export function AtelierMotion() {
             });
             story.to(
               ".making-track i",
-              { scaleX: 1, duration: 3, ease: "none" },
+              { scaleX: 1, duration: panels.length, ease: "none" },
               0,
             );
             const path = root.querySelector<SVGPathElement>(
               ".making-thread path",
-            )!;
-            const length = path.getTotalLength();
-            gsap.set(path, {
-              strokeDasharray: length,
-              strokeDashoffset: length,
-            });
-            story.to(
-              path,
-              { strokeDashoffset: 0, duration: 3, ease: "none" },
-              0,
             );
+            if (path) {
+              const length = path.getTotalLength();
+              gsap.set(path, {
+                strokeDasharray: length,
+                strokeDashoffset: length,
+              });
+              story.to(
+                path,
+                { strokeDashoffset: 0, duration: panels.length, ease: "none" },
+                0,
+              );
+            }
             return () => root.classList.remove("is-choreographed");
           },
         );
@@ -242,6 +351,40 @@ export function AtelierMotion() {
               scrub: 1,
             },
           });
+        // Absorbed from the old RouteEffects pass so GSAP is imported, parsed
+        // and context-managed exactly once per route.
+        media.add("(min-width: 900px) and (pointer: fine)", () => {
+          if (!document.querySelector(".hero-visual img")) return;
+          gsap.to(".hero-visual img", {
+            yPercent: 7,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".hero",
+              start: "top top",
+              end: "bottom top",
+              scrub: 1,
+            },
+          });
+        });
+        // Section rules draw themselves in as each block is reached, which
+        // gives the long reading pages a visible spine.
+        gsap.utils
+          .toArray<HTMLElement>(".section-heading, .page-intro")
+          .forEach((block) => {
+            const rule = block.querySelector(".eyebrow");
+            if (!rule) return;
+            gsap.fromTo(
+              rule,
+              { opacity: 0, x: -12 },
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.7,
+                ease: "power3.out",
+                scrollTrigger: { trigger: block, start: "top 92%", once: true },
+              },
+            );
+          });
         gsap.utils
           .toArray<HTMLElement>(
             ".statement,.lab-intro,.explorer-heading,.premiere-head,.archive-heading,.original-standard h2,.workshop-heading",
@@ -301,7 +444,8 @@ export function AtelierMotion() {
                 { signal: abort.signal },
               );
             });
-          const bubble = cursor.current!;
+          const bubble = cursor.current;
+          if (!bubble) return;
           const setX = gsap.quickTo(bubble, "x", {
               duration: 0.3,
               ease: "power3.out",

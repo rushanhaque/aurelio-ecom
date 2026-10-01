@@ -11,7 +11,7 @@ export default function Preferences() {
   const [busy, setBusy] = useState(false);
   return (
     <>
-      <PageIntro eyebrow="YOUR CHOICES" title="Only what you choose.">
+      <PageIntro eyebrow="YOUR CHOICES" title="Preferences">
         <p>Your privacy and communication preferences.</p>
       </PageIntro>
       <section className="container account-section settings-grid">

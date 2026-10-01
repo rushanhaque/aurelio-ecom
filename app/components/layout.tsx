@@ -1,6 +1,12 @@
 import { brand } from "../lib/brand";
 import { collections } from "../lib/brand-content";
-import { Link, NavLink, useLocation, useNavigate } from "react-router";
+import {
+  Link,
+  NavLink,
+  useLocation,
+  useNavigate,
+  useNavigation,
+} from "react-router";
 import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
@@ -14,19 +20,114 @@ import {
   ChevronDown,
   User,
   Check,
-  Minus,
-  Plus,
 } from "lucide-react";
 import { useStore, request } from "../lib/store";
-import { money, cartTotal, currencies } from "../lib/catalog";
+import { money, cartTotal, currencies, type Product } from "../lib/catalog";
 import { Picture, Quantity, EmptyState } from "./ui";
+
+/* Routes with loaders previously gave no sign that anything was happening
+   between the click and the new page. This is that sign. */
+export function NavigationProgress() {
+  const navigation = useNavigation();
+  const busy = navigation.state !== "idle";
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (busy) {
+      // Only show for navigations slow enough to notice, so instant ones do
+      // not flash a bar.
+      const timer = setTimeout(() => setVisible(true), 140);
+      return () => clearTimeout(timer);
+    }
+    // Let the completed bar finish its run before it disappears.
+    const timer = setTimeout(() => setVisible(false), 260);
+    return () => clearTimeout(timer);
+  }, [busy]);
+  if (!visible && !busy) return null;
+  return (
+    <div
+      className={`navigation-progress ${busy && visible ? "is-loading" : "is-done"}`}
+      role="status"
+      aria-live="polite"
+    >
+      <span className="sr-only">{busy ? "Loading page" : "Page loaded"}</span>
+    </div>
+  );
+}
+
+/* The label is duplicated into a data attribute so the v2 nav hover can lift
+   one copy away and raise its brass twin without a second DOM node. */
+function NavLabel({ children }: { children: string }) {
+  return (
+    <span className="nav-label">
+      <span data-label={children}>{children}</span>
+    </span>
+  );
+}
+
+/* Each letter carries its index so the wordmark can settle in sequence. */
+function Wordmark({ text }: { text: string }) {
+  return (
+    <>
+      {[...text].map((letter, i) => (
+        <b key={i} style={{ "--i": i } as React.CSSProperties}>
+          {letter}
+        </b>
+      ))}
+    </>
+  );
+}
+
+/* Every term must appear somewhere in the object's description, in any order,
+   so "brass bowl" finds "Hammered Bowl · Brass". Name matches rank first. */
+function searchCatalog(query: string, products: Product[]) {
+  const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  if (!terms.length) return { products, collections };
+  const scored = products
+    .map((p) => {
+      const name = p.name.toLowerCase();
+      const haystack =
+        `${p.name} ${p.category} ${p.material} ${p.finish} ${p.sku || ""} ${p.description}`.toLowerCase();
+      if (!terms.every((t) => haystack.includes(t))) return null;
+      const score = terms.reduce(
+        (sum, t) => sum + (name.startsWith(t) ? 3 : name.includes(t) ? 2 : 0),
+        0,
+      );
+      return { p, score };
+    })
+    .filter((entry): entry is { p: Product; score: number } => !!entry)
+    .sort((a, b) => b.score - a.score);
+  return {
+    products: scored.map((entry) => entry.p),
+    collections: collections.filter((c) =>
+      terms.every((t) => `${c.name} ${c.tagline}`.toLowerCase().includes(t)),
+    ),
+  };
+}
+
+const escapeRegExp = (value: string) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+function Highlight({ text, query }: { text: string; query: string }) {
+  const terms = query.trim().split(/\s+/).filter(Boolean);
+  if (!terms.length) return <>{text}</>;
+  const pattern = new RegExp(`(${terms.map(escapeRegExp).join("|")})`, "gi");
+  return (
+    <>
+      {text
+        .split(pattern)
+        .map((part, i) => (i % 2 ? <mark key={i}>{part}</mark> : part))}
+    </>
+  );
+}
+
 export function Header() {
   const { cart, wishlist, currency, setCurrency, setPanel } = useStore();
+  const bagCount = cart.reduce((sum, line) => sum + line.quantity, 0);
   return (
     <>
       <div className="announcement">
         <span>Made by hand in Moradabad. Since 2008.</span>
-        <Link to="/our-craft">
+        <Link to="/about">
           Discover the Aurelio philosophy <ArrowUpRight size={12} />
         </Link>
       </div>
@@ -41,18 +142,28 @@ export function Header() {
           </button>
           <nav aria-label="Main navigation">
             <NavLink to="/shop">
-              Shop <ChevronDown size={11} />
+              <NavLabel>Shop</NavLabel> <ChevronDown size={11} />
             </NavLink>
-            <NavLink to="/collections">Collections</NavLink>
-            <NavLink to="/our-craft">Our craft</NavLink>
+            <NavLink to="/collections">
+              <NavLabel>Collections</NavLabel>
+            </NavLink>
+            <NavLink to="/about">
+              <NavLabel>About us</NavLabel>
+            </NavLink>
+            <NavLink to="/contact">
+              <NavLabel>Contact us</NavLabel>
+            </NavLink>
           </nav>
         </div>
+        {/* The link's aria-label carries the name, so the per-letter spans stay
+            purely decorative and never fragment the accessible name. */}
         <Link className="wordmark" to="/" aria-label="Aurelio home">
-          AURELIO<span>BY AF INTERNATIONAL</span>
+          <Wordmark text="AURELIO" />
+          <span>BY AF INTERNATIONAL</span>
         </Link>
         <div className="header-right">
           <Link className="bulk-nav" to="/bulk-orders">
-            Bulk enquiries <ArrowUpRight size={13} />
+            <NavLabel>Bulk enquiries</NavLabel> <ArrowUpRight size={13} />
           </Link>
           <label className="currency-select">
             <span className="sr-only">Currency</span>
@@ -89,10 +200,10 @@ export function Header() {
           <button
             className="icon-button bag-button"
             onClick={() => setPanel("cart")}
-            aria-label={`Open bag, ${cart.reduce((s, l) => s + l.quantity, 0)} items`}
+            aria-label={`Open bag, ${bagCount} ${bagCount === 1 ? "item" : "items"}`}
           >
             <ShoppingBag size={19} />
-            <span>{cart.reduce((s, l) => s + l.quantity, 0)}</span>
+            <span>{bagCount}</span>
           </button>
         </div>
       </header>
@@ -159,22 +270,21 @@ export function Footer() {
         <div className="footer-links">
           <div>
             <h3>EXPLORE</h3>
-            <Link to="/shop">All objects</Link>
-            <Link to="/collections">The collections</Link>
-            <Link to="/our-craft">Our craft</Link>
-            <Link to="/about">About Aurelio</Link>
-            <Link to="/materials">Materials</Link>
+            <Link to="/shop">Shop</Link>
+            <Link to="/collections">Collections</Link>
             <Link to="/bulk-orders">Bulk enquiries</Link>
-            <Link to="/journal">The journal</Link>
+            <Link to="/materials">Materials</Link>
+            <Link to="/about">About us</Link>
+            <Link to="/journal">Journal</Link>
           </div>
           <div>
             <h3>HERE TO HELP</h3>
             <Link to="/contact">Contact us</Link>
             <Link to="/shipping">Shipping & delivery</Link>
             <Link to="/returns">Returns & refunds</Link>
-            <Link to="/care">Caring for your objects</Link>
+            <Link to="/faq">FAQ</Link>
+            <Link to="/care">Care guide</Link>
             <Link to="/track-order">Track your order</Link>
-            <Link to="/faq">Frequently asked</Link>
           </div>
         </div>
       </div>
@@ -219,6 +329,20 @@ export function Footer() {
       </div>
       <div className="footer-bottom container">
         <span>© {new Date().getFullYear()} Aurelio by AF International.</span>
+        <button
+          className="back-to-top"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+                ? "auto"
+                : "smooth",
+            });
+            document.getElementById("main")?.focus({ preventScroll: true });
+          }}
+        >
+          Back to the top <ArrowUpRight size={13} />
+        </button>
         <span className="preview-note">
           Design preview · Editorial imagery · Payments not connected
         </span>
@@ -247,12 +371,33 @@ export function GlobalPanels() {
   } = useStore();
   const [query, setQuery] = useState("");
   const location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => setPanel(null), [location.pathname, location.search]);
-  const results = products.filter((p) =>
-    `${p.name} ${p.category} ${p.finish} ${p.id}`
-      .toLowerCase()
-      .includes(query.toLowerCase()),
-  );
+  // "/" and Ctrl/Cmd+K open search from anywhere, unless the reader is typing.
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      const typing =
+        target?.isContentEditable ||
+        /^(INPUT|TEXTAREA|SELECT)$/.test(target?.tagName || "");
+      const shortcut =
+        (event.key === "/" && !typing) ||
+        (event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey));
+      if (!shortcut || event.altKey) return;
+      event.preventDefault();
+      setPanel("search");
+    };
+    addEventListener("keydown", onKey);
+    return () => removeEventListener("keydown", onKey);
+  }, [setPanel]);
+  const { products: productResults, collections: collectionResults } =
+    searchCatalog(query, products);
+  const results = productResults.slice(0, 8);
+  function submitSearch(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const q = query.trim();
+    navigate(q ? `/shop?q=${encodeURIComponent(q)}` : "/shop");
+  }
   return (
     <>
       <Dialog.Root
@@ -287,13 +432,14 @@ export function GlobalPanels() {
               <div className="mobile-navigation">
                 <span className="eyebrow">A WORLD OF CONSIDERED OBJECTS</span>
                 {[
-                  ["/shop", "Shop all objects"],
-                  ["/collections", "The collections"],
-                  ["/materials", "Materials"],
-                  ["/about", "About Aurelio"],
-                  ["/our-craft", "Our craft"],
+                  ["/shop", "Shop"],
+                  ["/collections", "Collections"],
                   ["/bulk-orders", "Bulk enquiries"],
-                  ["/journal", "The journal"],
+                  ["/materials", "Materials"],
+                  ["/about", "About us"],
+                  ["/contact", "Contact us"],
+                  ["/faq", "FAQ"],
+                  ["/journal", "Journal"],
                 ].map(([to, label]) => (
                   <Link to={to} key={to}>
                     {label}
@@ -320,18 +466,43 @@ export function GlobalPanels() {
               </div>
             ) : panel === "search" ? (
               <div className="search-content">
-                <div className="search-input">
+                <form
+                  className="search-input"
+                  role="search"
+                  onSubmit={submitSearch}
+                >
                   <Search size={20} />
                   <input
                     autoFocus
+                    type="search"
+                    enterKeyHint="search"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Vases, brass, a little inspiration…"
                     aria-label="Search the collection"
                   />
-                </div>
-                <p className="eyebrow">
-                  {query ? `${results.length} OBJECTS FOUND` : "THE COLLECTION"}
+                  <kbd className="search-hint" aria-hidden="true">
+                    ↵
+                  </kbd>
+                </form>
+                {!!collectionResults.length && (
+                  <div className="search-collections">
+                    <p className="eyebrow">
+                      {query ? "COLLECTIONS" : "BROWSE A WORLD"}
+                    </p>
+                    <div>
+                      {collectionResults.map((c) => (
+                        <Link key={c.slug} to={`/collections/${c.slug}`}>
+                          <Highlight text={c.name} query={query} />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                <p className="eyebrow" aria-live="polite">
+                  {query
+                    ? `${productResults.length} ${productResults.length === 1 ? "OBJECT" : "OBJECTS"} FOUND`
+                    : "THE COLLECTION"}
                 </p>
                 {results.map((p) => (
                   <Link
@@ -339,29 +510,58 @@ export function GlobalPanels() {
                     key={p.id}
                     to={`/products/${p.slug}`}
                   >
-                    <Picture name={p.image} alt={p.name} />
+                    <Picture name={p.image} alt={p.name} sizes="120px" />
                     <span>
-                      {p.name}
+                      <Highlight text={p.name} query={query} />
                       <small>{p.finish}</small>
                     </span>
                     <ArrowUpRight size={18} />
                   </Link>
                 ))}
-                {results.length === 0 && (
-                  <p>
-                    No objects to show yet. The collection is being prepared.
-                  </p>
+                {productResults.length > results.length && (
+                  <Link
+                    className="text-link"
+                    to={`/shop?q=${encodeURIComponent(query.trim())}`}
+                  >
+                    See all {productResults.length} objects
+                    <ArrowRight size={16} />
+                  </Link>
                 )}
+                {productResults.length === 0 &&
+                  (products.length && query.trim() ? (
+                    <div className="search-empty">
+                      <p>
+                        Nothing matches “{query.trim()}” yet. Try a material
+                        such as brass or copper, or tell us what you have in
+                        mind — much of what we make is made to order.
+                      </p>
+                      <Link
+                        className="text-link"
+                        to={`/bulk-orders?brief=${encodeURIComponent(`I am looking for: ${query.trim()}`)}`}
+                      >
+                        Ask the atelier
+                        <ArrowUpRight size={16} />
+                      </Link>
+                    </div>
+                  ) : (
+                    <p>
+                      No objects to show yet. The collection is being prepared.
+                    </p>
+                  ))}
+                <p className="search-shortcut" aria-hidden="true">
+                  Press <kbd>/</kbd> anywhere to search.
+                </p>
               </div>
             ) : cart.length ? (
               <>
                 <div className="cart-lines">
                   {cart.map((line) => {
-                    const p = products.find((p) => p.id === line.productId)!;
+                    const p = products.find((p) => p.id === line.productId);
+                    if (!p) return null;
                     return (
                       <div className="cart-line" key={p.id}>
                         <Link to={`/products/${p.slug}`}>
-                          <Picture name={p.image} alt={p.name} />
+                          <Picture name={p.image} alt={p.name} sizes="120px" />
                         </Link>
                         <div>
                           <Link to={`/products/${p.slug}`}>{p.name}</Link>
@@ -425,53 +625,26 @@ export function GlobalPanels() {
     </>
   );
 }
+/* Route reveals and the hero parallax now live in AtelierMotion, so GSAP is
+   loaded and context-managed once per route instead of twice. This keeps only
+   the work that has to happen on every navigation. */
 export function RouteEffects() {
   const location = useLocation();
+  const first = useRef(true);
   useEffect(() => {
-    let context: any;
-    let disposed = false;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const activate = async () => {
-      const [{ gsap }, { ScrollTrigger }] = await Promise.all([
-        import("gsap"),
-        import("gsap/ScrollTrigger"),
-      ]);
-      if (disposed) return;
-      gsap.registerPlugin(ScrollTrigger);
-      context = gsap.context(() => {
-        document.querySelectorAll("[data-reveal]").forEach((el) => {
-          if (el.getBoundingClientRect().top > window.innerHeight * 0.85)
-            gsap.from(el, {
-              y: 24,
-              opacity: 0,
-              duration: 0.7,
-              ease: "power2.out",
-              scrollTrigger: { trigger: el, start: "top 94%", once: true },
-            });
-        });
-        const hero = document.querySelector(".hero-visual img");
-        if (
-          hero &&
-          window.matchMedia("(min-width: 900px) and (pointer: fine)").matches
-        )
-          gsap.to(hero, {
-            yPercent: 7,
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".hero",
-              start: "top top",
-              end: "bottom top",
-              scrub: 1,
-            },
-          });
-      });
-    };
-    const timer = setTimeout(() => activate().catch(() => {}), 120);
-    return () => {
-      disposed = true;
-      clearTimeout(timer);
-      context?.revert();
-    };
+    // A client-side navigation does not announce itself, so screen reader users
+    // otherwise get no confirmation that the page changed.
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    const announcer = document.getElementById("route-announcer");
+    if (!announcer) return;
+    const heading = document.querySelector("main h1")?.textContent?.trim();
+    const timer = setTimeout(() => {
+      announcer.textContent = `${heading || document.title.split("—")[0].trim()}. Page loaded.`;
+    }, 80);
+    return () => clearTimeout(timer);
   }, [location.pathname]);
   return null;
 }

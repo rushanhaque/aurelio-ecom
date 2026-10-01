@@ -2,6 +2,7 @@ import { Router } from "express";
 import { getProducts } from "./db.ts";
 import { collections } from "../app/lib/brand-content.ts";
 import { articles } from "../app/lib/journal.ts";
+import { allPieces } from "../app/lib/catalogue.server.ts";
 export const discovery = Router();
 const escapeXml = (value: string) =>
   value.replace(
@@ -36,7 +37,6 @@ discovery.get("/sitemap.xml", async (_req, res) => {
     "/collections",
     "/materials",
     "/about",
-    "/our-craft",
     "/care",
     "/bulk-orders",
     "/contact",
@@ -50,6 +50,7 @@ discovery.get("/sitemap.xml", async (_req, res) => {
     ...collections.map((c) => `/collections/${c.slug}`),
     ...articles.map((a) => `/journal/${a.slug}`),
     ...(await getProducts()).map((p) => `/products/${p.slug}`),
+    ...allPieces().map((p) => `/pieces/${p.slug}`),
   ];
   res
     .type("application/xml")

@@ -1,0 +1,89 @@
+/* Aurelio v2 — the token layer.
+   Purely additive: the palette in styles.css stays the source of truth for
+   --paper/--ink/--muted so nothing downstream shifts. Everything here gives the
+   later layers a shared vocabulary for rhythm, motion and material. */
+:root {
+  color-scheme: light;
+
+  /* Tonal ramp, derived from the atelier greens and Moradabad brass. */
+  --ink-900: #041610;
+  --ink-800: #072319;
+  --ink-700: #0d3325;
+  --ink-600: #173e2f;
+  --ink-500: #2c5343;
+  --brass-700: #6d4f1f;
+  --brass-600: #7a5029;
+  --brass-500: #9b773b;
+  --brass-400: #b9944f;
+  --brass-300: #d2c09d;
+  --paper-100: #fbfbfa;
+  --paper-200: #f2f2f2;
+  --paper-300: #e7e5df;
+  --paper-400: #deddd6;
+
+  /* Alpha helpers — hairlines, veils and glints reused across every layer. */
+  --ink-a06: #0723190f;
+  --ink-a12: #0723191f;
+  --ink-a20: #07231933;
+  --ink-a34: #07231957;
+  --ink-a60: #07231999;
+  --paper-a10: #f2f2f21a;
+  --paper-a20: #f2f2f233;
+  --paper-a45: #f2f2f273;
+  --glint: #ffffff2e;
+
+  /* Spacing — a 4px-rooted scale so sections stop hand-rolling clamps. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-section: clamp(72px, 9vw, 152px);
+
+  /* Motion. One signature ease, three speeds, so the site moves as one hand. */
+  --ease-atelier: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --dur-1: 0.18s;
+  --dur-2: 0.32s;
+  --dur-3: 0.55s;
+  --dur-4: 0.85s;
+  --dur-5: 1.2s;
+
+  /* Elevation — low, warm shadows only. Nothing floats in this workshop. */
+  --lift-1: 0 1px 2px #07231910;
+  --lift-2: 0 6px 20px #07231914;
+  --lift-3: 0 18px 48px #0723191f;
+
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-pill: 999px;
+
+  --focus-ring: var(--brass-500);
+  --header-height: 95px;
+  /* Height of the condensed header once reading; 0 while it is hidden. */
+  --header-offset: 74px;
+}
+
+/* One place to stop every transition and animation for people who ask. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-1: 0.01ms;
+    --dur-2: 0.01ms;
+    --dur-3: 0.01ms;
+    --dur-4: 0.01ms;
+    --dur-5: 0.01ms;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

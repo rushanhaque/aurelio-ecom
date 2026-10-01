@@ -28,10 +28,7 @@ export default function Quote() {
   }, [id]);
   return (
     <>
-      <PageIntro
-        eyebrow="MADE AROUND YOUR VISION"
-        title="A considered proposal."
-      >
+      <PageIntro eyebrow="MADE AROUND YOUR VISION" title="Your quotation">
         <p>Your private Aurelio quotation.</p>
       </PageIntro>
       <section className="container account-section">

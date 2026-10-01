@@ -8,7 +8,7 @@
 :root {
   --paper: #f2f2f2;
   --ink: #072319;
-  --muted: #66716b;
+  --muted: #5e6963;
   --line: #07231924;
   --sand: #e7e5df;
   --serif: "Cormorant Garamond", Georgia, serif;
@@ -19,8 +19,13 @@
   box-sizing: border-box;
 }
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: calc(var(--header-height) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 body {
   margin: 0;
@@ -98,7 +103,7 @@ h2 {
   letter-spacing: -0.035em;
 }
 h3 {
-  font-size: 30px;
+  font-size: clamp(24px, 2.2vw, 32px);
   letter-spacing: -0.02em;
 }
 em {
@@ -107,8 +112,17 @@ em {
 p {
   color: var(--muted);
 }
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p,
+li {
+  text-wrap: pretty;
+}
 :focus-visible {
-  outline: 2px solid #9b773b;
+  outline: 2px solid var(--focus-ring, #9b773b);
   outline-offset: 5px;
 }
 input:focus-visible,
@@ -137,7 +151,7 @@ summary {
   padding-bottom: 100px;
 }
 .eyebrow {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.19em;
   line-height: 1.7;
   font-weight: 600;
@@ -216,6 +230,7 @@ summary {
   height: 44px;
   padding: 0;
   border-radius: 50%;
+  position: relative;
   transition: background 0.2s;
 }
 .icon-button:hover {
@@ -890,7 +905,7 @@ summary {
 }
 .footer-links a {
   display: block;
-  font-size: 10px;
+  font-size: 11px;
   color: #4e5d53;
   margin-bottom: 13px;
 }

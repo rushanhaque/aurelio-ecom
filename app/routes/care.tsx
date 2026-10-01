@@ -20,11 +20,11 @@ const care: Record<string, string> = {
   ceramic:
     "Treat hand-built forms and relief decoration gently. Dry thoroughly before storing and protect furniture with felt pads. Do not assume a decorative piece is food-safe, watertight or microwave-safe; follow the stated use and individual care instructions.",
 };
-export const meta = () => [{ title: "Care guides — Aurelio" }];
+export const meta = () => [{ title: "Care guide — Aurelio" }];
 export default function Care() {
   return (
     <>
-      <PageIntro eyebrow="AFTER THE ATELIER" title="How to keep it.">
+      <PageIntro eyebrow="AFTER THE ATELIER" title="Care guide">
         <p>
           Every material we work has its own logic.
           <br /> Begin with the material, then follow the guidance for your

@@ -1,12 +1,31 @@
 import { useLoaderData, Link } from "react-router";
+import { useState } from "react";
+import { piecesIn } from "../lib/catalogue.server";
 import { collections } from "../lib/brand-content";
 import { useStore } from "../lib/store";
-import { PageIntro, Picture, ProductCard, TextLink } from "../components/ui";
-import "../brand-content.css";
+import {
+  PageIntro,
+  Picture,
+  ProductCard,
+  PieceCard,
+  TextLink,
+} from "../components/ui";
 export function loader({ params }: { params: { slug?: string } }) {
   const collection = collections.find((c) => c.slug === params.slug);
   if (!collection) throw new Response("Not found", { status: 404 });
-  return { collection };
+  // Only what the grid shows; the full catalogue stays on the server.
+  const pieces = piecesIn(collection.slug).map(
+    ({ slug, name, suffix, material, finish, image, index }) => ({
+      slug,
+      name,
+      suffix,
+      material,
+      finish,
+      image,
+      index,
+    }),
+  );
+  return { collection, pieces };
 }
 export const meta = ({
   data,
@@ -20,14 +39,15 @@ export const meta = ({
   },
 ];
 export default function Collection() {
-  const { collection: c } = useLoaderData<typeof loader>();
+  const { collection: c, pieces } = useLoaderData<typeof loader>();
   const { products } = useStore();
+  const [shown, setShown] = useState(24);
   const items = products.filter((p) => p.category === c.slug);
   return (
     <>
       <PageIntro
-        eyebrow={`COLLECTION ${c.index} / ${c.name.toUpperCase()}`}
-        title={c.tagline}
+        eyebrow={`COLLECTION ${c.index} / ${c.tagline.replace(/\.$/, "").toUpperCase()}`}
+        title={c.name}
       >
         <p>{c.summary}</p>
       </PageIntro>
@@ -55,15 +75,54 @@ export default function Collection() {
           </TextLink>
         </div>
       </section>
-      {c.slug !== "bespoke" && (
+      {!!pieces.length && (
+        <section className="container section piece-section" id="pieces">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">
+                {pieces.length} PIECES · FOR BULK &amp; TRADE ENQUIRY
+              </p>
+              <h2>
+                {c.name},<br /> <em>made to order.</em>
+              </h2>
+            </div>
+            <TextLink to={`/bulk-orders?product=${encodeURIComponent(c.name)}`}>
+              Enquire about {c.name.toLowerCase()}
+            </TextLink>
+          </div>
+          <p className="piece-note">
+            Made to order for hospitality, retail and gifting. Quantities,
+            finishes and lead times are quoted individually.
+          </p>
+          <div className="product-grid piece-grid">
+            {pieces.slice(0, shown).map((piece) => (
+              <PieceCard piece={piece} key={piece.slug} />
+            ))}
+          </div>
+          {shown < pieces.length && (
+            <div className="piece-more">
+              <span>
+                Showing {shown} of {pieces.length}
+              </span>
+              <button
+                className="button button-outline"
+                onClick={() => setShown((n) => n + 24)}
+              >
+                Show more pieces
+              </button>
+            </div>
+          )}
+        </section>
+      )}
+      {c.slug !== "bespoke" && (!!items.length || !pieces.length) && (
         <section className="container section">
           <h2 className="collection-objects-heading">
-            Objects in this collection.
+            Shop {c.name.toLowerCase()}.
           </h2>
           {items.length ? (
             <div className="product-grid">
-              {items.map((p) => (
-                <ProductCard product={p} key={p.id} />
+              {items.map((p, i) => (
+                <ProductCard product={p} index={i} key={p.id} />
               ))}
             </div>
           ) : (

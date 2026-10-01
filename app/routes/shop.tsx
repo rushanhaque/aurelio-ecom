@@ -5,7 +5,7 @@ import { SlidersHorizontal, Search, X } from "lucide-react";
 import { useStore } from "../lib/store";
 import { categories } from "../lib/catalog";
 import { PageIntro, ProductCard } from "../components/ui";
-export const meta = () => [{ title: "Shop the collection — Aurelio" }];
+export const meta = () => [{ title: "Shop — Aurelio" }];
 export default function Shop() {
   const { products, currency } = useStore();
   const [params, setParams] = useSearchParams();
@@ -17,13 +17,14 @@ export default function Shop() {
     min = params.get("min") || "",
     max = params.get("max") || "",
     sort = params.get("sort") || "featured";
-  function update(key: string, v: string) {
+  function update(key: string, v: string, replace = false) {
     const p = new URLSearchParams(params);
-    p.delete("page");
+    if (key !== "page") p.delete("page");
     if (v) p.set(key, v);
     else p.delete(key);
-    setParams(p, { preventScrollReset: true });
+    setParams(p, { preventScrollReset: true, replace });
   }
+  const terms = q.toLowerCase().trim().split(/\s+/).filter(Boolean);
   const visible = products
     .filter(
       (p) =>
@@ -32,11 +33,18 @@ export default function Shop() {
           p.material.toLowerCase().includes(material.toLowerCase())) &&
         (!finish || p.finish === finish) &&
         (!stock || p.stock > 0) &&
-        (!min || !Number.isFinite(Number(min)) || p.prices[currency] >= Number(min) * 100) &&
-        (!max || !Number.isFinite(Number(max)) || p.prices[currency] <= Number(max) * 100) &&
-        `${p.name} ${p.category} ${p.material} ${p.finish} ${p.sku || ""} ${p.description}`
-          .toLowerCase()
-          .includes(q.toLowerCase()),
+        (!min ||
+          !Number.isFinite(Number(min)) ||
+          p.prices[currency] >= Number(min) * 100) &&
+        (!max ||
+          !Number.isFinite(Number(max)) ||
+          p.prices[currency] <= Number(max) * 100) &&
+        // Every term, in any order — matches the search panel.
+        terms.every((term) =>
+          `${p.name} ${p.category} ${p.material} ${p.finish} ${p.sku || ""} ${p.description}`
+            .toLowerCase()
+            .includes(term),
+        ),
     )
     .sort((a, b) =>
       sort === "low"
@@ -54,10 +62,7 @@ export default function Shop() {
     <>
       <PageIntro
         eyebrow="HANDCRAFTED IN MORADABAD"
-        title={
-          collections.find((c) => c.slug === category)?.name ||
-          "The collection."
-        }
+        title={collections.find((c) => c.slug === category)?.name || "Shop"}
       >
         <p>
           Urns, lighting, furniture, kitchenware, decor and accessories.
@@ -85,7 +90,7 @@ export default function Shop() {
               <input
                 aria-label="Search products"
                 value={q}
-                onChange={(e) => update("q", e.target.value)}
+                onChange={(e) => update("q", e.target.value, true)}
                 placeholder="Find an object"
               />
             </label>
@@ -140,8 +145,28 @@ export default function Shop() {
           </div>
         </div>
         <div className="filter-chips">
-          <label className="price-filter"><span>{currency} from</span><input aria-label="Minimum price" type="number" min="0" step="0.01" value={min} onChange={e=>update("min",e.target.value)} /></label>
-          <label className="price-filter"><span>to</span><input aria-label="Maximum price" type="number" min="0" step="0.01" value={max} onChange={e=>update("max",e.target.value)} /></label>
+          <label className="price-filter">
+            <span>{currency} from</span>
+            <input
+              aria-label="Minimum price"
+              type="number"
+              min="0"
+              step="0.01"
+              value={min}
+              onChange={(e) => update("min", e.target.value, true)}
+            />
+          </label>
+          <label className="price-filter">
+            <span>to</span>
+            <input
+              aria-label="Maximum price"
+              type="number"
+              min="0"
+              step="0.01"
+              value={max}
+              onChange={(e) => update("max", e.target.value, true)}
+            />
+          </label>
           {[...params.entries()]
             .filter(
               ([k, v]) =>
@@ -162,7 +187,7 @@ export default function Shop() {
         {visible.length ? (
           <div className="product-grid shop-grid">
             {visible.slice((page - 1) * 12, page * 12).map((p, i) => (
-              <ProductCard product={p} index={i} key={p.id} />
+              <ProductCard product={p} index={(page - 1) * 12 + i} key={p.id} />
             ))}
           </div>
         ) : (

@@ -9,6 +9,7 @@ import {
   Expand,
   Package,
   Truck,
+  Share2,
 } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useStore } from "../lib/store";
@@ -37,12 +38,53 @@ export default function Product() {
   const { products, currency, add, toggleWish, wishlist } = useStore();
   const p = products.find((p) => p.slug === slug);
   const [qty, setQty] = useState(1),
-    [view, setView] = useState("");
+    [view, setView] = useState(""),
+    [recent, setRecent] = useState<string[]>([]),
+    [shared, setShared] = useState("");
   useEffect(() => {
     setQty(1);
     setView("");
+    setShared("");
   }, [slug]);
+  // Remember the last few objects looked at, on this device only.
+  useEffect(() => {
+    if (!p) return;
+    try {
+      const seen: string[] = JSON.parse(
+        localStorage.getItem("aurelio-recent") || "[]",
+      );
+      setRecent(seen.filter((id) => id !== p.id));
+      localStorage.setItem(
+        "aurelio-recent",
+        JSON.stringify([p.id, ...seen.filter((id) => id !== p.id)].slice(0, 8)),
+      );
+    } catch {}
+  }, [p?.id]);
   if (!p) return <NotFound />;
+  // Same collection first, then the rest, so "Better together" is about the
+  // object rather than whatever happened to be first in the catalogue.
+  const related = [
+    ...products.filter((x) => x.id !== p.id && x.category === p.category),
+    ...products.filter((x) => x.id !== p.id && x.category !== p.category),
+  ].slice(0, 4);
+  const recentlyViewed = recent
+    .map((id) => products.find((x) => x.id === id))
+    .filter((x): x is typeof p => !!x && !related.some((r) => r.id === x.id))
+    .slice(0, 4);
+  async function share() {
+    const url = location.href;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: `${p!.name} — Aurelio`, url });
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      setShared("Link copied");
+    } catch (error) {
+      if ((error as Error).name !== "AbortError")
+        setShared("Copy the address bar to share");
+    }
+  }
   return (
     <>
       <div className="container breadcrumbs">
@@ -55,10 +97,11 @@ export default function Product() {
       <section className="product-detail container">
         <div className="product-gallery">
           <Dialog.Root>
-            <div className="main-product-image">
+            <div className="main-product-image" data-cursor="LOOK">
               <Picture
                 name={view || p.image}
                 alt={`${p.name}, ${p.finish}`}
+                sizes="(max-width: 900px) 100vw, 50vw"
                 eager
               />
               <Dialog.Trigger
@@ -88,7 +131,7 @@ export default function Product() {
               className={!view ? "active" : ""}
               aria-label="View object photograph"
             >
-              <Picture name={p.image} alt="Object view" />
+              <Picture name={p.image} alt="Object view" sizes="120px" />
             </button>
             {(p.gallery || []).map((src, i) => (
               <button
@@ -98,7 +141,11 @@ export default function Product() {
                 aria-label={`View photograph ${i + 2}`}
                 aria-pressed={view === src}
               >
-                <Picture name={src} alt={`${p.name}, photograph ${i + 2}`} />
+                <Picture
+                  name={src}
+                  alt={`${p.name}, photograph ${i + 2}`}
+                  sizes="120px"
+                />
               </button>
             ))}
             <span>AN OBJECT TO LIVE WITH.</span>
@@ -158,6 +205,13 @@ export default function Product() {
               <ArrowUpRight size={18} />
             </button>
             <button
+              className="icon-button detail-share"
+              onClick={share}
+              aria-label={`Share ${p.name}`}
+            >
+              <Share2 size={18} />
+            </button>
+            <button
               className={`icon-button detail-heart ${wishlist.includes(p.id) ? "saved" : ""}`}
               onClick={() => toggleWish(p.id)}
               aria-label={`Save ${p.name}`}
@@ -169,6 +223,9 @@ export default function Product() {
               />
             </button>
           </div>
+          <p className="share-status" role="status">
+            {shared}
+          </p>
           <div className="purchase-notes">
             <p>
               <Package size={17} /> A considered arrival, from object to
@@ -222,14 +279,28 @@ export default function Product() {
           <TextLink to="/shop">Explore all objects</TextLink>
         </div>
         <div className="product-grid related-grid">
-          {products
-            .filter((x) => x.id !== p.id)
-            .slice(0, 4)
-            .map((x, i) => (
-              <ProductCard key={x.id} product={x} index={i} />
-            ))}
+          {related.map((x, i) => (
+            <ProductCard key={x.id} product={x} index={i} />
+          ))}
         </div>
       </section>
+      {!!recentlyViewed.length && (
+        <section className="section container recently-viewed">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">STILL ON YOUR MIND</p>
+              <h2>
+                Recently <em>considered.</em>
+              </h2>
+            </div>
+          </div>
+          <div className="product-grid related-grid">
+            {recentlyViewed.map((x, i) => (
+              <ProductCard key={x.id} product={x} index={i} />
+            ))}
+          </div>
+        </section>
+      )}
       <div className="mobile-buy-bar">
         <span>
           {p.name}

@@ -1,6 +1,6 @@
 import { brand } from "../lib/brand";
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Sun } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 import dimensions from "../lib/original-image-sizes.json";
 import "../original-sections.css";
@@ -155,19 +155,13 @@ function ArchiveWork({
   index: number;
   autoLit: boolean;
 }) {
-  const [manualLit, setLit] = useState<boolean | null>(null);
-  const lit = manualLit ?? autoLit;
+  const lit = autoLit;
   return (
     <figure
       data-work={work.off}
-      className={`archive-work ${lit ? "is-lit" : ""} ${manualLit === false ? "manual-unlit" : ""}`}
+      className={`archive-work ${lit ? "is-lit" : ""}`}
     >
-      <button
-        className="archive-frame"
-        aria-label={`Change the light on ${work.name} ${work.type}`}
-        aria-pressed={lit}
-        onClick={() => setLit(!lit)}
-      >
+      <div className="archive-frame">
         <OriginalImage name={work.on} className="archive-on" />
         <OriginalImage
           name={work.off}
@@ -177,11 +171,7 @@ function ArchiveWork({
         <span className="archive-number" aria-hidden="true">
           AU / {String(index + 1).padStart(2, "0")}
         </span>
-        <span className="archive-light" aria-hidden="true">
-          <Sun size={17} />
-          <span>Change the atmosphere</span>
-        </span>
-      </button>
+      </div>
       <figcaption>
         <span>
           <em>{work.name}</em> {work.type}
@@ -250,9 +240,6 @@ export function SelectedWorks() {
               A handful of signatures from the atelier — each raised, forged or
               cast, and finished to be lived with rather than looked at.
             </p>
-            <span className="archive-instruction">
-              <Sun size={14} /> Hover, focus or tap to bring them to life.
-            </span>
             <Link to="/shop" className="text-link">
               Explore the current collection <ArrowUpRight size={17} />
             </Link>
@@ -421,7 +408,7 @@ export function OriginalAtelier() {
       </ol>
       <div className="container workshop-bottom">
         <span>FROM THE FIRST LINE TO THE FINAL DETAIL</span>
-        <Link to="/our-craft" className="text-link">
+        <Link to="/about" className="text-link">
           Discover our craft <ArrowUpRight size={17} />
         </Link>
       </div>

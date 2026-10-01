@@ -32,7 +32,7 @@ export const articles = [
     slug: "the-path-a-piece-travels",
     title: "The path a piece travels.",
     category: "BESPOKE & COMMISSIONS",
-    image: "brand/furniture",
+    image: "brand/path",
     excerpt: "Enquiry. Design. Sample. Forge. Finish. Delivery.",
     paragraphs: [
       "A single object or an entire interior, developed with you from sketch to installation. Most of what we are proudest of began as a conversation.",

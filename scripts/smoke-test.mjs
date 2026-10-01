@@ -168,7 +168,7 @@ try {
     "/collections/bespoke",
     "/materials",
     "/about",
-    "/our-craft",
+    "/about",
     "/bulk-orders",
     "/contact",
     "/cart",

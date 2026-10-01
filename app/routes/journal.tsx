@@ -2,14 +2,11 @@ import { Link } from "react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PageIntro, Picture } from "../components/ui";
 import { articles } from "../lib/journal";
-export const meta = () => [{ title: "Notes from the atelier — Aurelio" }];
+export const meta = () => [{ title: "Journal — Aurelio" }];
 export default function Journal() {
   return (
     <>
-      <PageIntro
-        eyebrow="NOTES FROM THE ATELIER"
-        title="A slower way of seeing."
-      >
+      <PageIntro eyebrow="NOTES FROM THE ATELIER" title="Journal">
         <p>Materials, moments, and the things we choose to live with.</p>
       </PageIntro>
       <section className="journal-grid container">

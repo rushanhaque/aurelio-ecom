@@ -1,7 +1,5 @@
 import {
-  useEffect,
   useId,
-  useRef,
   useState,
   type CSSProperties,
   type PointerEvent,
@@ -9,17 +7,15 @@ import {
 } from "react";
 import { Link } from "react-router";
 import { Picture } from "./ui";
+import { LightStudy } from "./light-study";
 import "../atelier-experiments.css";
 
 const experiments = [
-  ["patina-study", "Time leaves a signature"],
-  ["polish-study", "The final polish"],
-  ["shadow-theatre", "The shadow theatre"],
-  ["makers-lens", "Under the maker’s lens"],
-  ["object-anatomy", "Anatomy of an object"],
-  ["three-lives", "One object, three lives"],
-  ["atelier-rhythm", "The rhythm of the atelier"],
-  ["your-line", "From your line to our hands"],
+  ["light-study", "Light changes everything"],
+  ["hand-hammered", "Hand-hammered, up close"],
+  ["mixed-finishes", "One piece, many finishes"],
+  ["finish-for-the-room", "A finish for every room"],
+  ["your-finish", "Your form, your finish"],
 ];
 
 function Chapter({
@@ -41,7 +37,7 @@ function Chapter({
     >
       <div className="container">
         <header className="experiment-heading" data-reveal>
-          <span className="eyebrow">THE SENSORY ATELIER / 0{index + 1}</span>
+          <span className="eyebrow">FINISHES WE OFFER / 0{index + 1}</span>
           <h2 id={`experiment-title-${index}`}>
             {experiments[index][1]}
             <em>.</em>
@@ -188,266 +184,6 @@ function Vessel({
   );
 }
 
-export function PatinaStudy() {
-  const [age, setAge] = useState(30),
-    [preserve, setPreserve] = useState(false);
-  const visible = preserve ? 0 : age;
-  return (
-    <Chapter
-      index={0}
-      intro="An object begins in the workshop. Its character keeps unfolding in your hands."
-    >
-      <div className="experiment-split">
-        <div className="patina-canvas experiment-canvas">
-          <Picture
-            name="sculpture"
-            alt="Sculptural brass form in an illustrative patina study"
-          />
-          <div className="patina-wash" style={{ opacity: visible / 125 }} />
-          <span className="experiment-stamp">BRASS / A LIVING SURFACE</span>
-          <span className="patina-word">
-            {visible < 33 ? "Fresh." : visible < 67 ? "Mellow." : "Storied."}
-          </span>
-        </div>
-        <div className="experiment-copy">
-          <span className="eyebrow">BEAUTY, WITH A MEMORY</span>
-          <h3>{preserve ? "Hold the moment." : "Let time leave its mark."}</h3>
-          <p>
-            Explore a visual impression of a changing surface. The way real
-            brass develops depends on its finish, handling and environment.
-          </p>
-          <div className="experiment-options" aria-label="Finish approach">
-            <button aria-pressed={!preserve} onClick={() => setPreserve(false)}>
-              Embrace patina
-            </button>
-            <button aria-pressed={preserve} onClick={() => setPreserve(true)}>
-              Preserve the finish
-            </button>
-          </div>
-          <Range
-            label="Explore the patina"
-            value={age}
-            onChange={(v) => {
-              setAge(v);
-              setPreserve(false);
-            }}
-          />
-          <div className="experiment-scale">
-            <span>NEWLY FINISHED</span>
-            <span>FULL OF CHARACTER</span>
-          </div>
-          <p className="experiment-caption">
-            Colour study, not a prediction of ageing. Protective finishes and
-            care are discussed for each piece.
-          </p>
-          <Link className="text-link" to="/care">
-            Living with your objects ↗
-          </Link>
-        </div>
-      </div>
-    </Chapter>
-  );
-}
-
-export function PolishStudy() {
-  const [marks, setMarks] = useState<{ x: number; y: number }[]>([]),
-    [reveal, setReveal] = useState(0);
-  const mask = useId();
-  function polish(e: PointerEvent<SVGSVGElement>) {
-    const r = e.currentTarget.getBoundingClientRect();
-    const point = {
-      x:
-        Math.round(
-          Math.max(0, Math.min(600, ((e.clientX - r.left) / r.width) * 600)) /
-            24,
-        ) * 24,
-      y:
-        Math.round(
-          Math.max(0, Math.min(450, ((e.clientY - r.top) / r.height) * 450)) /
-            24,
-        ) * 24,
-    };
-    // A finite grid retains earlier strokes without growing on every pointer event.
-    setMarks((old) =>
-      old.some((p) => p.x === point.x && p.y === point.y)
-        ? old
-        : [...old, point],
-    );
-  }
-  return (
-    <Chapter
-      index={1}
-      dark
-      intro="One surface. Two impressions. Follow the gesture of a finishing hand."
-    >
-      <div className="experiment-split experiment-split-reverse">
-        <div className="experiment-copy">
-          <span className="eyebrow">A LITTLE WORK, A LITTLE WONDER</span>
-          <h3>The reveal is in your hands.</h3>
-          <p>
-            Drag across the metal to uncover its glow. Every pass leaves a small
-            trace of your movement.
-          </p>
-          <Range
-            label="Reveal the polished study"
-            value={reveal}
-            onChange={setReveal}
-          />
-          <button
-            className="experiment-reset"
-            onClick={() => {
-              setMarks([]);
-              setReveal(0);
-            }}
-          >
-            Start with a fresh surface ↺
-          </button>
-          <p className="experiment-caption">
-            Interactive finish illustration using Aurelio’s brass texture. Not a
-            before-and-after manufacturing photograph.
-          </p>
-        </div>
-        <div className="experiment-canvas polish-canvas">
-          <svg
-            viewBox="0 0 600 450"
-            role="img"
-            aria-label="Rubbed brass surface. Use the reveal slider as a keyboard alternative."
-            onPointerDown={(e) => {
-              if (e.button !== 0) return;
-              e.currentTarget.setPointerCapture(e.pointerId);
-              polish(e);
-            }}
-            onPointerMove={(e) => {
-              if (e.currentTarget.hasPointerCapture(e.pointerId)) polish(e);
-            }}
-          >
-            <defs>
-              <mask id={mask}>
-                <rect width="600" height="450" fill="black" />
-                <rect width={reveal * 6} height="450" fill="white" />
-                {marks.map((p, i) => (
-                  <circle key={i} cx={p.x} cy={p.y} r="38" fill="white" />
-                ))}
-              </mask>
-            </defs>
-            <image
-              href="/images/brand/brass-texture-800.webp"
-              width="600"
-              height="450"
-              preserveAspectRatio="xMidYMid slice"
-              className="polish-dull"
-            />
-            <image
-              href="/images/brand/brass-texture-800.webp"
-              width="600"
-              height="450"
-              preserveAspectRatio="xMidYMid slice"
-              mask={`url(#${mask})`}
-            />
-          </svg>
-          <span className="experiment-stamp">PRESS. MOVE. REVEAL.</span>
-        </div>
-      </div>
-    </Chapter>
-  );
-}
-
-export function ShadowTheatre() {
-  const [angle, setAngle] = useState(45);
-  const rad = (angle * Math.PI) / 180;
-  function moveSun(e: PointerEvent<SVGSVGElement>) {
-    const r = e.currentTarget.getBoundingClientRect();
-    const scale = Math.min(r.width / 800, r.height / 420);
-    const x = (e.clientX - r.left - (r.width - 800 * scale) / 2) / scale;
-    const y = (e.clientY - r.top - (r.height - 420 * scale) / 2) / scale;
-    setAngle(
-      Math.round(
-        Math.max(
-          10,
-          Math.min(
-            170,
-            (Math.atan2(Math.max(0, 265 - y), x - 400) * 180) / Math.PI,
-          ),
-        ),
-      ),
-    );
-  }
-  return (
-    <Chapter
-      index={2}
-      intro="The object occupies a place. Its shadow changes the space around it."
-    >
-      <div className="shadow-stage experiment-canvas">
-        <svg
-          viewBox="0 0 800 420"
-          role="img"
-          aria-label={`Abstract sculpture with light at ${angle} degrees`}
-          onPointerDown={(e) => {
-            if (e.button !== 0) return;
-            e.currentTarget.setPointerCapture(e.pointerId);
-            moveSun(e);
-          }}
-          onPointerMove={(e) => {
-            if (e.currentTarget.hasPointerCapture(e.pointerId)) moveSun(e);
-          }}
-        >
-          <defs>
-            <linearGradient id="shadow-wall" x2="0" y2="1">
-              <stop stopColor="#e4ded2" />
-              <stop offset="1" stopColor="#bfb6a5" />
-            </linearGradient>
-            <radialGradient id="shadow-soft">
-              <stop stopColor="#263729" stopOpacity=".65" />
-              <stop offset="1" stopColor="#263729" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          <rect width="800" height="420" fill="url(#shadow-wall)" />
-          <path d="M0 290 H800" stroke="#a89e8c" />
-          <path
-            d="M400 60 A250 180 0 0 1 650 240"
-            fill="none"
-            stroke="#756b58"
-            strokeDasharray="2 7"
-            opacity=".4"
-          />
-          <ellipse
-            cx={400 - Math.cos(rad) * 115}
-            cy="320"
-            rx={95 + Math.abs(Math.cos(rad)) * 125}
-            ry="32"
-            fill="url(#shadow-soft)"
-            transform={`rotate(${(angle - 90) / 7} 400 320)`}
-          />
-          <g transform="translate(200 25)">
-            <Vessel />
-          </g>
-          <g
-            transform={`translate(${400 + Math.cos(rad) * 265} ${265 - Math.sin(rad) * 210})`}
-          >
-            <circle r="24" fill="#fff7d6" />
-            <circle r="34" fill="none" stroke="#fff7d6" strokeOpacity=".5" />
-          </g>
-        </svg>
-        <span className="experiment-stamp">A STUDY IN FORM & SHADOW</span>
-      </div>
-      <div className="experiment-under">
-        <p>
-          A small sun. A different perspective.
-          <small>Illustrative light study.</small>
-        </p>
-        <Range
-          label="Move the sun"
-          value={angle}
-          min={10}
-          max={170}
-          unit="°"
-          onChange={setAngle}
-        />
-      </div>
-    </Chapter>
-  );
-}
-
 export function MakersLens() {
   const [point, setPoint] = useState({ x: 300, y: 225 });
   const clip = useId();
@@ -460,15 +196,15 @@ export function MakersLens() {
   }
   return (
     <Chapter
-      index={3}
-      intro="Look a little closer. A surface tells you how it was touched."
+      index={1}
+      intro="Every hammer mark is placed by hand, so no two hammered pieces catch the light the same way."
     >
       <div className="experiment-split">
         <div className="experiment-canvas lens-canvas">
           <svg
             viewBox="0 0 600 450"
             role="img"
-            aria-label="Magnified brass texture. Detail buttons provide fixed inspection positions."
+            aria-label="Magnified hand-hammered brass surface. Detail buttons provide fixed inspection positions."
             onPointerMove={(e) => {
               if (
                 e.pointerType === "mouse" ||
@@ -487,14 +223,14 @@ export function MakersLens() {
               </clipPath>
             </defs>
             <image
-              href="/images/brand/brass-texture-800.webp"
+              href="/images/finishes/hammered-brass-2400.webp"
               width="600"
               height="450"
               preserveAspectRatio="xMidYMid slice"
             />
             <g clipPath={`url(#${clip})`}>
               <image
-                href="/images/brand/brass-texture-800.webp"
+                href="/images/finishes/hammered-brass-2400.webp"
                 width="600"
                 height="450"
                 preserveAspectRatio="xMidYMid slice"
@@ -518,11 +254,11 @@ export function MakersLens() {
           <span className="experiment-stamp">BRASS / 2.4× CLOSER</span>
         </div>
         <div className="experiment-copy">
-          <span className="eyebrow">THE SMALL THINGS ARE THE THING</span>
-          <h3>Character lives in the detail.</h3>
+          <span className="eyebrow">HAND-HAMMERED</span>
+          <h3>Hammered, up close.</h3>
           <p>
-            Move the lens across the surface, or choose a detail below. Notice
-            how the highlights break around each variation.
+            Move the lens across a hammered brass surface, or choose a detail
+            below. Each facet breaks the light differently. That is the finish.
           </p>
           <div className="lens-details">
             {[
@@ -540,7 +276,7 @@ export function MakersLens() {
               </button>
             ))}
           </div>
-          <Link className="text-link" to="/our-craft">
+          <Link className="text-link" to="/about">
             Meet the making ↗
           </Link>
         </div>
@@ -549,162 +285,108 @@ export function MakersLens() {
   );
 }
 
+/* The Solène table lamp from the atelier archive, photographed off and lit.
+   Hotspot positions are fractions of the photograph. */
+const lampParts = [
+  {
+    x: 68,
+    y: 24,
+    name: "The shade",
+    finish: "Pleated linen, to soften and spread the light.",
+  },
+  {
+    x: 50,
+    y: 38,
+    name: "The light source",
+    finish: "A warm lamp, wired and balanced by hand.",
+  },
+  {
+    x: 55,
+    y: 60,
+    name: "The stem",
+    finish: "Cast brass, fluted and antiqued to bring out the carving.",
+  },
+  {
+    x: 62,
+    y: 85,
+    name: "The base",
+    finish: "A weighted brass foot, burnished bright at its edges.",
+  },
+];
 export function ObjectAnatomy() {
-  const [apart, setApart] = useState(0),
-    [follow, setFollow] = useState(true);
-  const stage = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const node = stage.current;
-    if (
-      !node ||
-      !follow ||
-      matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
-      return;
-    let raf = 0,
-      active = false;
-    const update = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const r = node.getBoundingClientRect();
-        setApart(
-          Math.round(
-            Math.max(
-              0,
-              Math.min(1, (innerHeight * 0.8 - r.top) / (innerHeight * 0.6)),
-            ) * 100,
-          ),
-        );
-      });
-    };
-    const observer = new IntersectionObserver(([entry]) => {
-      active = entry.isIntersecting;
-      if (active) {
-        window.addEventListener("scroll", update, { passive: true });
-        update();
-      } else window.removeEventListener("scroll", update);
-    });
-    observer.observe(node);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", update);
-      cancelAnimationFrame(raf);
-    };
-  }, [follow]);
-  const gap = apart / 100;
+  const [glow, setGlow] = useState(0),
+    [part, setPart] = useState<number | null>(null);
   return (
     <Chapter
-      index={4}
+      index={2}
       dark
-      intro="Quiet on the outside. Considered in every part."
+      intro="A single piece can carry more than one finish, each chosen for the part it plays."
     >
       <div className="experiment-split">
-        <div ref={stage} className="experiment-canvas anatomy-canvas">
-          <svg
-            viewBox="0 0 600 500"
-            role="img"
-            aria-label="Illustrative lamp construction, separated into shade, light source, stem and base"
-          >
-            <defs>
-              <linearGradient id="anatomy-metal">
-                <stop stopColor="#7d6039" />
-                <stop offset=".5" stopColor="#ecd2a0" />
-                <stop offset="1" stopColor="#866944" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M300 30 V460"
-              stroke="#d5c19b"
-              opacity=".3"
-              strokeDasharray="3 6"
+        <div
+          className="experiment-canvas anatomy-canvas"
+          style={{ "--glow": glow / 100 } as CSSProperties}
+        >
+          <div className="anatomy-photo">
+            <img
+              src="/images/original/Lamptwo-960.webp"
+              srcSet="/images/original/Lamptwo-480.webp 480w, /images/original/Lamptwo-960.webp 960w"
+              sizes="(max-width: 900px) 80vw, 520px"
+              width={960}
+              height={1442}
+              loading="lazy"
+              decoding="async"
+              alt="The Solène table lamp: a pleated shade on a fluted, antiqued brass stem and base"
             />
-            <g transform={`translate(0 ${-gap * 70})`}>
-              <path
-                d="M240 145 Q300 100 360 145 L395 235 Q300 270 205 235Z"
-                fill="url(#anatomy-metal)"
-              />
-              <ellipse cx="300" cy="235" rx="95" ry="17" fill="#594831" />
-              <path d="M395 183 H445" stroke="#b9a581" />
-              <text x="455" y="188">
-                01
-              </text>
-            </g>
-            <g transform={`translate(0 ${-gap * 10})`}>
-              <ellipse cx="300" cy="247" rx="22" ry="29" fill="#fff1c4" />
-              <path d="M326 245 H410" stroke="#b9a581" />
-              <text x="420" y="250">
-                02
-              </text>
-            </g>
-            <g transform={`translate(0 ${gap * 35})`}>
-              <rect
-                x="294"
-                y="267"
-                width="12"
-                height="95"
-                rx="5"
-                fill="url(#anatomy-metal)"
-              />
-              <path d="M310 310 H445" stroke="#b9a581" />
-              <text x="455" y="315">
-                03
-              </text>
-            </g>
-            <g transform={`translate(0 ${gap * 60})`}>
-              <ellipse
-                cx="300"
-                cy="371"
-                rx="75"
-                ry="15"
-                fill="url(#anatomy-metal)"
-              />
-              <path d="M377 371 H410" stroke="#b9a581" />
-              <text x="420" y="376">
-                04
-              </text>
-            </g>
-          </svg>
-          <span className="experiment-stamp">ANATOMY / A CONCEPTUAL LAMP</span>
+            <img
+              className="anatomy-lit"
+              src="/images/original/LamptwoHover-960.webp"
+              srcSet="/images/original/LamptwoHover-480.webp 480w, /images/original/LamptwoHover-960.webp 960w"
+              sizes="(max-width: 900px) 80vw, 520px"
+              width={960}
+              height={1439}
+              loading="lazy"
+              decoding="async"
+              alt=""
+              aria-hidden="true"
+            />
+            {lampParts.map((p, i) => (
+              <button
+                key={p.name}
+                className={`anatomy-spot ${part === i ? "is-active" : ""}`}
+                style={{ left: `${p.x}%`, top: `${p.y}%` }}
+                onPointerEnter={() => setPart(i)}
+                onPointerLeave={() => setPart(null)}
+                onFocus={() => setPart(i)}
+                onBlur={() => setPart(null)}
+                aria-label={`${p.name}: ${p.finish}`}
+              >
+                <span>0{i + 1}</span>
+              </button>
+            ))}
+          </div>
+          <span className="experiment-stamp">SOLÈNE / TABLE LAMP</span>
         </div>
         <div className="experiment-copy">
-          <span className="eyebrow">NOTHING HERE BY ACCIDENT</span>
-          <h3>A whole, made of details.</h3>
+          <span className="eyebrow">MIXED FINISHES</span>
+          <h3>One piece, many finishes.</h3>
           <ol className="anatomy-list">
-            <li>
-              <b>The shade</b>
-              <span>Where the light finds its direction.</span>
-            </li>
-            <li>
-              <b>The light source</b>
-              <span>The warm centre of the composition.</span>
-            </li>
-            <li>
-              <b>The stem</b>
-              <span>A line that holds the proportions together.</span>
-            </li>
-            <li>
-              <b>The base</b>
-              <span>A quiet foundation for the form.</span>
-            </li>
+            {lampParts.map((p, i) => (
+              <li
+                key={p.name}
+                className={part === i ? "is-active" : ""}
+                onPointerEnter={() => setPart(i)}
+                onPointerLeave={() => setPart(null)}
+              >
+                <b>{p.name}</b>
+                <span>{p.finish}</span>
+              </li>
+            ))}
           </ol>
-          <Range
-            label="Separate the parts"
-            value={apart}
-            onChange={(v) => {
-              setFollow(false);
-              setApart(v);
-            }}
-          />
-          <button
-            className="experiment-reset"
-            aria-pressed={follow}
-            onClick={() => setFollow((v) => !v)}
-          >
-            {follow ? "Scroll choreography on" : "Follow my scroll"} ↕
-          </button>
+          <Range label="Light the lamp" value={glow} onChange={setGlow} />
           <p className="experiment-caption">
-            Design illustration, not the technical specification of a
-            purchasable lamp.
+            The Solène table lamp from the atelier archive. Finishes can be
+            specified part by part on bespoke orders.
           </p>
         </div>
       </div>
@@ -712,27 +394,35 @@ export function ObjectAnatomy() {
   );
 }
 
+/* Real settings from the Aurelio collections, each with the finish that suits
+   it. These replaced drawn SVG rooms. */
 const rooms = [
   {
     name: "A quiet home",
-    wall: "#ddd5c6",
-    floor: "#b4a38c",
+    image: "brand/lightings",
+    alt: "Brass lamps and sconces in a calm, sunlit living space",
+    finish: "Antique brass",
     caption: "A small pause in the everyday.",
-    detail: "A console. A favourite book. Room to breathe.",
+    detail:
+      "Low light and soft surfaces want a finish that glows rather than shines. Antique brass reads warm, quiet and settled.",
   },
   {
     name: "A boutique hotel",
-    wall: "#153b31",
-    floor: "#4d5645",
+    image: "brand/furniture",
+    alt: "A hotel lounge with brass-framed seating and a hammered brass table",
+    finish: "Polished brass",
     caption: "A welcome with character.",
-    detail: "A composed arrival, made a little more memorable.",
+    detail:
+      "Public spaces are seen from across the room. Polished brass catches the eye and holds up to daily handling.",
   },
   {
-    name: "An evening table",
-    wall: "#504237",
-    floor: "#9b7454",
+    name: "A gathered table",
+    image: "brand/kitchenware",
+    alt: "Brass and copper serveware set on a table outdoors",
+    finish: "Hammered brass & copper",
     caption: "For moments worth gathering.",
-    detail: "Warm light. Familiar faces. A considered centrepiece.",
+    detail:
+      "Serveware is handled, passed and washed. A hammered surface hides the marks of use and only grows richer with it.",
   },
 ];
 export function ThreeLives() {
@@ -740,76 +430,26 @@ export function ThreeLives() {
   const room = rooms[scene];
   return (
     <Chapter
-      index={5}
-      intro="Keep the object. Change the setting. Discover what it brings to the room."
+      index={3}
+      intro="Antique brass, polished brass or hammered copper. The right finish depends on the room it will live in."
     >
-      <div
-        className="room-stage experiment-canvas"
-        style={
-          {
-            "--room-wall": room.wall,
-            "--room-floor": room.floor,
-          } as CSSProperties
-        }
-      >
-        <svg
-          viewBox="0 0 800 440"
-          role="img"
-          aria-label={`Illustrative brass vessel in ${room.name.toLowerCase()}`}
-        >
-          <rect className="room-wall" width="800" height="440" />
-          <path d="M0 315 H800 V440 H0Z" className="room-floor" />
-          {scene === 0 && (
-            <g>
-              <path
-                d="M70 30 H265 V275 H70Z M165 30 V275 M70 140 H265"
-                fill="none"
-                stroke="#f1eadb"
-                strokeWidth="6"
-              />
-              <path d="M190 320 H310 V340 H190Z" fill="#e2d8bc" />
-              <path d="M185 307 H303 V320 H185Z" fill="#7a8066" />
-            </g>
-          )}
-          {scene === 1 && (
-            <g fill="none" stroke="#b7a074" strokeOpacity=".45">
-              <path
-                d="M80 315 V125 Q80 35 170 35 Q260 35 260 125 V315 M540 315 V125 Q540 35 630 35 Q720 35 720 125 V315"
-                strokeWidth="2"
-              />
-              <path d="M45 335 H755" />
-            </g>
-          )}
-          {scene === 2 && (
-            <g>
-              <ellipse cx="400" cy="365" rx="290" ry="50" fill="#cfc1a5" />
-              <g stroke="#d5b675" strokeWidth="5">
-                <path d="M165 355 V235 M635 355 V215" />
-              </g>
-              <g fill="#fff1c4">
-                <ellipse cx="165" cy="223" rx="5" ry="12" />
-                <ellipse cx="635" cy="203" rx="5" ry="12" />
-              </g>
-              <g fill="none" stroke="#f1e5c6">
-                <ellipse cx="250" cy="367" rx="46" ry="12" />
-                <ellipse cx="550" cy="367" rx="46" ry="12" />
-              </g>
-            </g>
-          )}
-          <ellipse
-            cx="400"
-            cy="345"
-            rx="100"
-            ry="14"
-            fill="#172b22"
-            opacity=".15"
-          />
-          <g transform="translate(200 55)">
-            <Vessel width={72} height={145} neck={32} />
-          </g>
-        </svg>
+      <div className="room-stage experiment-canvas">
+        {/* All three stay mounted so switching is an instant crossfade. */}
+        {rooms.map((r, i) => (
+          <div
+            key={r.name}
+            className={`room-photo ${scene === i ? "is-active" : ""}`}
+            aria-hidden={scene !== i}
+          >
+            <Picture
+              name={r.image}
+              alt={r.alt}
+              sizes="(max-width: 900px) 92vw, 80vw"
+            />
+          </div>
+        ))}
         <span className="experiment-stamp">
-          SAME FORM. A DIFFERENT FEELING.
+          FINISH / {room.finish.toUpperCase()}
         </span>
       </div>
       <div className="room-selector">
@@ -818,6 +458,7 @@ export function ThreeLives() {
             key={r.name}
             aria-pressed={scene === i}
             onClick={() => setScene(i)}
+            onPointerEnter={(e) => e.pointerType === "mouse" && setScene(i)}
           >
             <span>0{i + 1}</span>
             {r.name}
@@ -829,157 +470,8 @@ export function ThreeLives() {
         <h3 key={scene}>{room.caption}</h3>
         <p>
           {room.detail}
-          <small>Illustrative room compositions.</small>
+          <small>Recommended finish: {room.finish}.</small>
         </p>
-      </div>
-    </Chapter>
-  );
-}
-
-const rhythms = [
-  {
-    name: "Casting",
-    image: "castingandforging",
-    word: "Begin in fire.",
-    text: "Heat opens a possibility. The mould gives it a boundary.",
-    frequency: 110,
-  },
-  {
-    name: "Hammering",
-    image: "handraising",
-    word: "Find a rhythm.",
-    text: "A repeated gesture. A surface that remembers the hand.",
-    frequency: 640,
-  },
-  {
-    name: "Finishing",
-    image: "patinaandfinishing",
-    word: "Leave a signature.",
-    text: "A final pass brings texture, tone and character into focus.",
-    frequency: 220,
-  },
-];
-export function AtelierRhythm() {
-  const [stage, setStage] = useState(0),
-    [playing, setPlaying] = useState(false),
-    [audioError, setAudioError] = useState("");
-  const audio = useRef<AudioContext | null>(null),
-    timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(
-    () => () => {
-      if (timer.current) clearTimeout(timer.current);
-      void audio.current?.close();
-    },
-    [],
-  );
-  function stop() {
-    if (timer.current) clearTimeout(timer.current);
-    void audio.current?.close();
-    audio.current = null;
-    setPlaying(false);
-  }
-  async function play() {
-    stop();
-    setAudioError("");
-    try {
-      const context = new AudioContext();
-      audio.current = context;
-      await context.resume();
-      if (audio.current !== context) return;
-      setPlaying(true);
-      for (let i = 0; i < 6; i++) {
-        const oscillator = context.createOscillator(),
-          gain = context.createGain(),
-          t = context.currentTime + i * 0.32;
-        oscillator.type = stage === 1 ? "triangle" : "sine";
-        oscillator.frequency.setValueAtTime(rhythms[stage].frequency, t);
-        oscillator.frequency.exponentialRampToValueAtTime(
-          rhythms[stage].frequency * 0.55,
-          t + 0.2,
-        );
-        gain.gain.setValueAtTime(0, t);
-        gain.gain.linearRampToValueAtTime(0.06, t + 0.008);
-        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.23);
-        oscillator.connect(gain);
-        gain.connect(context.destination);
-        oscillator.start(t);
-        oscillator.stop(t + 0.25);
-      }
-      timer.current = setTimeout(stop, 2100);
-    } catch {
-      setAudioError(
-        "Sound is unavailable in this browser. You can still explore the stages.",
-      );
-      stop();
-    }
-  }
-  const current = rhythms[stage];
-  return (
-    <Chapter
-      index={6}
-      dark
-      intro="There is a rhythm to making. A sequence of gestures, each with its own tempo."
-    >
-      <div className="experiment-split">
-        <div
-          className={`experiment-canvas rhythm-canvas ${playing ? "is-playing" : ""}`}
-        >
-          <img
-            key={current.image}
-            src={`/images/original/${current.image}-960.webp`}
-            srcSet={`/images/original/${current.image}-480.webp 480w, /images/original/${current.image}-960.webp 960w`}
-            sizes="(max-width:760px) 90vw, 48vw"
-            width="960"
-            height="960"
-            loading="lazy"
-            alt={`${current.name} in the Aurelio workshop`}
-          />
-          <div className="rhythm-bars" aria-hidden="true">
-            {Array.from({ length: 24 }, (_, i) => (
-              <i
-                key={i}
-                style={
-                  {
-                    "--bar": `${12 + ((i * 17) % 44)}px`,
-                    "--delay": `${i * 0.06}s`,
-                  } as CSSProperties
-                }
-              />
-            ))}
-          </div>
-        </div>
-        <div className="experiment-copy">
-          <span className="eyebrow">A WORKSHOP IN THREE MOVEMENTS</span>
-          <h3>{current.word}</h3>
-          <p>{current.text}</p>
-          <div className="experiment-options">
-            {rhythms.map((r, i) => (
-              <button
-                key={r.name}
-                aria-pressed={stage === i}
-                onClick={() => {
-                  stop();
-                  setStage(i);
-                }}
-              >
-                {r.name}
-              </button>
-            ))}
-          </div>
-          <button
-            className="sound-button"
-            aria-pressed={playing}
-            onClick={() => (playing ? stop() : void play())}
-          >
-            {playing ? "Stop sound sketch" : "Play sound sketch"}
-            <span aria-hidden="true">{playing ? "Ⅱ" : "▷"}</span>
-          </button>
-          <p className="experiment-caption">
-            Workshop stills with an optional synthesised sound sketch. No audio
-            plays automatically; these are not workshop recordings.
-          </p>
-          <p role="status">{audioError}</p>
-        </div>
       </div>
     </Chapter>
   );
@@ -994,8 +486,8 @@ export function YourLine() {
   const brief = `Bespoke vessel concept from the Aurelio form study: body ${width}/110, opening ${neck}/60, height ${height}/210; preferred material ${finish}. These are visual proportions, not dimensions or an order. Please discuss feasibility, final dimensions, finish, quantity and pricing with me.`;
   return (
     <Chapter
-      index={7}
-      intro="Every commission starts somewhere. Let yours begin with a line."
+      index={4}
+      intro="Sketch a form and choose a metal. We match the finish to your brief and send samples before production."
     >
       <div className="experiment-split">
         <div
@@ -1048,8 +540,8 @@ export function YourLine() {
           </button>
         </div>
         <div className="experiment-copy">
-          <span className="eyebrow">AN IDEA, TAKING SHAPE</span>
-          <h3>Draw a possibility.</h3>
+          <span className="eyebrow">BESPOKE FORM &amp; FINISH</span>
+          <h3>Draw a form. Choose a metal.</h3>
           <Range
             label="Body proportion"
             min={55}
@@ -1074,7 +566,7 @@ export function YourLine() {
             unit=""
             onChange={setHeight}
           />
-          <div className="experiment-options" aria-label="Preferred material">
+          <div className="experiment-options" aria-label="Preferred metal">
             {["Brass", "Copper", "Bronze"].map((m) => (
               <button
                 key={m}
@@ -1106,17 +598,17 @@ export function AtelierExperiments() {
   return (
     <div className="atelier-experiments">
       <section
-        id="sensory-atelier"
+        id="finishes"
         className="experiment-directory container"
-        aria-label="Explore eight interactive studies"
+        aria-label="The finishes we offer"
       >
-        <span className="eyebrow">TOUCH. EXPLORE. IMAGINE.</span>
+        <span className="eyebrow">FINISHES WE OFFER</span>
         <h2>
-          A little closer
+          Finished by hand,
           <br />
-          <em>to the extraordinary.</em>
+          <em>chosen by you.</em>
         </h2>
-        <nav aria-label="Sensory atelier studies">
+        <nav aria-label="Finishes we offer">
           {experiments.map(([id, name], i) => (
             <a key={id} href={`#${id}`}>
               <small>0{i + 1}</small>
@@ -1126,13 +618,10 @@ export function AtelierExperiments() {
           ))}
         </nav>
       </section>
-      <PatinaStudy />
-      <PolishStudy />
-      <ShadowTheatre />
+      <LightStudy />
       <MakersLens />
       <ObjectAnatomy />
       <ThreeLives />
-      <AtelierRhythm />
       <YourLine />
     </div>
   );
