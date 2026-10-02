@@ -1,22 +1,20 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLoaderData } from "react-router";
-import { MaterialAtelier } from "../components/material-atelier";
-import { AtelierExperiments } from "../components/atelier-experiments";
-import { MaterialStudies } from "../components/material-studies";
-import { heroMedia, homeContent } from "../lib/home-content";
-import { database } from "../../server/db";
-import { frontendPreview } from "../../server/preview-mode";
+import { Link } from "react-router";
+import {
+  LightStudy,
+  MakersLens,
+  Studies,
+} from "../components/atelier-experiments";
+import { heroMedia } from "../lib/home-content";
 import { ArrowUpRight } from "lucide-react";
-import { Picture, ProductCard, TextLink } from "../components/ui";
-import { useStore } from "../lib/store";
+import { Picture } from "../components/ui";
 import "../immersive.css";
 import "../home-hero.css";
 import {
   SelectedWorks,
   AurelioStandard,
-  OriginalAtelier,
 } from "../components/original-sections";
-import { MakingStory, ReadingStatement } from "../components/storytelling";
+import { ReadingStatement } from "../components/storytelling";
 function Orbit({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -174,15 +172,7 @@ function ServicesSplit() {
     </section>
   );
 }
-export async function loader() {
-  if (frontendPreview()) return { homeCopy: homeContent };
-  const { db } = await database();
-  const saved = await db.collection("content").findOne({ slug: "home" });
-  return { homeCopy: (saved?.published || homeContent) as typeof homeContent };
-}
 export default function Home() {
-  const { homeCopy } = useLoaderData<typeof loader>();
-  const { products } = useStore();
   return (
     <div className="immersive-home">
       <VideoHero />
@@ -194,50 +184,12 @@ export default function Home() {
           <p>Made by hand in Moradabad since 2008.</p>
         </div>
       </section>
-      <MakingStory />
-      <OriginalAtelier />
-      <SelectedWorks />
-      <MaterialAtelier copy={homeCopy} />
-      <AtelierExperiments />
-      <MaterialStudies />
+      <SelectedWorks limit={6} />
       <AurelioStandard />
-      <section className="collection-premiere container" id="selected">
-        <div className="premiere-head">
-          <h2>
-            Objects.
-            <br /> <em>With an inner life.</em>
-          </h2>
-          <TextLink to="/shop">Enter the collection</TextLink>
-        </div>
-        {products.length ? (
-          <div className="product-grid">
-            {products
-              .filter((p) => p.featured)
-              .concat(products.filter((p) => !p.featured))
-              .slice(0, 4)
-              .map((p, i) => (
-                <ProductCard key={p.id} product={p} index={i} />
-              ))}
-          </div>
-        ) : (
-          <div className="arrival-composition">
-            <div className="arrival-art" aria-hidden="true">
-              <Orbit />
-              <span>au.</span>
-            </div>
-            <div>
-              <h3>
-                Worth the <em>wait.</em>
-              </h3>
-              <p>Our collection is on its way.</p>
-              <a href="#newsletter-email" className="text-link">
-                Notify me
-                <ArrowUpRight size={17} />
-              </a>
-            </div>
-          </div>
-        )}
-      </section>
+      <Studies>
+        <LightStudy />
+        <MakersLens />
+      </Studies>
       <section className="commission-scene" id="your-chapter">
         <Picture
           name="brand/decor"
@@ -251,11 +203,17 @@ export default function Home() {
             <br /> <em>an impression.</em>
           </h2>
           <div className="commission-bottom">
-            <p>Craft, on your scale.</p>
-            <Link to="/bulk-orders" className="commission-link" data-magnetic>
-              <span>BEGIN A CONVERSATION</span>
-              <ArrowUpRight size={35} />
-            </Link>
+            <p>One piece for your home, or a range for your business.</p>
+            <div className="commission-links">
+              <Link to="/shop" className="commission-link" data-magnetic>
+                <span>VISIT THE SHOP</span>
+                <ArrowUpRight size={28} />
+              </Link>
+              <Link to="/bulk-orders" className="commission-link" data-magnetic>
+                <span>START AN ENQUIRY</span>
+                <ArrowUpRight size={28} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

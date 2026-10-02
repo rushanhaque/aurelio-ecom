@@ -41,8 +41,15 @@ function MaterialCard({
 export default function Materials() {
   return (
     <>
-      <PageIntro title="Materials">
-        <p>Nine materials, each with its own character.</p>
+      <PageIntro
+        title={
+          <>
+            Nine <em>materials.</em>
+          </>
+        }
+        image="brand/copper-texture"
+      >
+        <p>Each with its own character, and its own way of ageing.</p>
       </PageIntro>
       <nav className="material-index container" aria-label="Materials">
         {materials.map((m) => (

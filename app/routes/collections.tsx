@@ -12,7 +12,14 @@ export default function Collections() {
   const { counts } = useLoaderData<typeof loader>();
   return (
     <>
-      <PageIntro title="Collections">
+      <PageIntro
+        title={
+          <>
+            The <em>collections.</em>
+          </>
+        }
+        image="brand/decor"
+      >
         <p>Made by hand in Moradabad.</p>
       </PageIntro>
       <div className="collection-grid container">

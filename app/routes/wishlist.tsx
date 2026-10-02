@@ -1,4 +1,10 @@
-import { PageIntro, ProductCard, EmptyState, Settling } from "../components/ui";
+import {
+  PageIntro,
+  ProductCard,
+  EmptyState,
+  Settling,
+  Suggestions,
+} from "../components/ui";
 import { useStore } from "../lib/store";
 export const meta = () => [{ title: "Saved items — Aurelio" }];
 export default function Wishlist() {
@@ -19,9 +25,12 @@ export default function Wishlist() {
             ))}
           </div>
         ) : (
-          <EmptyState title="Nothing saved yet.">
-            Tap the heart on a piece to save it.
-          </EmptyState>
+          <>
+            <EmptyState title="Nothing saved yet.">
+              Tap the heart on a piece to save it.
+            </EmptyState>
+            <Suggestions />
+          </>
         )}
       </section>
     </>

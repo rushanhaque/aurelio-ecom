@@ -1,11 +1,32 @@
 import { Link } from "react-router";
 import { collections, materials } from "../lib/brand-content";
 import { useSearchParams } from "react-router";
-import { SlidersHorizontal, Search, X } from "lucide-react";
+import {
+  SlidersHorizontal,
+  Search,
+  X,
+  ArrowUpRight,
+  Hammer,
+  Package,
+  Sparkles,
+  PenTool,
+} from "lucide-react";
 import { useStore } from "../lib/store";
-import { categories } from "../lib/catalog";
-import { PageIntro, ProductCard } from "../components/ui";
-export const meta = () => [{ title: "Shop — Aurelio" }];
+import { Picture, ProductCard } from "../components/ui";
+import "../storefront.css";
+import {
+  ObjectAnatomy,
+  Studies,
+  ThreeLives,
+} from "../components/atelier-experiments";
+export const meta = () => [
+  { title: "Shop — Aurelio by AF International" },
+  {
+    name: "description",
+    content:
+      "Handcrafted furniture, lighting and décor in brass, copper and wood, made by hand in Moradabad.",
+  },
+];
 export default function Shop() {
   const { products, currency } = useStore();
   const [params, setParams] = useSearchParams();
@@ -14,8 +35,6 @@ export default function Shop() {
     material = params.get("material") || "",
     finish = params.get("finish") || "",
     stock = params.get("stock") || "",
-    min = params.get("min") || "",
-    max = params.get("max") || "",
     sort = params.get("sort") || "featured";
   function update(key: string, v: string, replace = false) {
     const p = new URLSearchParams(params);
@@ -33,12 +52,6 @@ export default function Shop() {
           p.material.toLowerCase().includes(material.toLowerCase())) &&
         (!finish || p.finish === finish) &&
         (!stock || p.stock > 0) &&
-        (!min ||
-          !Number.isFinite(Number(min)) ||
-          p.prices[currency] >= Number(min) * 100) &&
-        (!max ||
-          !Number.isFinite(Number(max)) ||
-          p.prices[currency] <= Number(max) * 100) &&
         // Every term, in any order — matches the search panel.
         terms.every((term) =>
           `${p.name} ${p.category} ${p.material} ${p.finish} ${p.sku || ""} ${p.description}`
@@ -53,6 +66,7 @@ export default function Shop() {
           ? b.prices[currency] - a.prices[currency]
           : Number(b.featured) - Number(a.featured),
     );
+  const current = collections.find((c) => c.slug === category);
   const pages = Math.max(1, Math.ceil(visible.length / 12));
   const page = Math.min(
     pages,
@@ -60,26 +74,62 @@ export default function Shop() {
   );
   return (
     <>
-      <PageIntro
-        title={collections.find((c) => c.slug === category)?.name || "Shop"}
+      <section className="shop-hero" aria-labelledby="shop-title">
+        <Picture
+          name={current?.cover || "brand/lightings"}
+          alt=""
+          sizes="100vw"
+          eager
+        />
+        <div className="shop-hero-veil" aria-hidden="true" />
+        <div className="shop-hero-body container">
+          <h1 id="shop-title">
+            {current ? (
+              <>
+                {current.name}
+                <br /> <em>{current.tagline}</em>
+              </>
+            ) : (
+              <>
+                The <em>Shop.</em>
+              </>
+            )}
+          </h1>
+          <p>
+            {current?.description ||
+              "Furniture, lighting and décor in metal and wood. Made by hand, one at a time."}
+          </p>
+        </div>
+      </section>
+      <section
+        className="shop-collections container"
+        aria-label="Shop by collection"
       >
-        <p>Metal and wood, made by hand.</p>
-      </PageIntro>
-      <section className="container shop-content">
-        <div className="category-tabs" aria-label="Filter by category">
-          {categories.map((c) => (
+        {collections
+          .filter((c) => c.slug !== "bespoke")
+          .map((c) => (
             <button
-              key={c.id}
-              className={category === c.id ? "active" : ""}
-              onClick={() => update("category", c.id)}
+              key={c.slug}
+              type="button"
+              className={`shop-tile ${category === c.slug ? "active" : ""}`}
+              aria-pressed={category === c.slug}
+              onClick={() => {
+                update("category", category === c.slug ? "" : c.slug);
+                document
+                  .getElementById("catalogue")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
-              {c.name}
+              <Picture name={c.cover} alt="" sizes="200px" />
+              <span>{c.name}</span>
             </button>
           ))}
-          <Link to="/collections/bespoke">Bespoke ↗</Link>
-        </div>
+      </section>
+      <section className="container shop-content" id="catalogue">
         <div className="shop-toolbar">
-          <span className="eyebrow">{visible.length} CONSIDERED OBJECTS</span>
+          <span className="eyebrow">
+            {visible.length} {visible.length === 1 ? "OBJECT" : "OBJECTS"}
+          </span>
           <div>
             <label className="shop-search">
               <Search size={15} />
@@ -141,28 +191,6 @@ export default function Shop() {
           </div>
         </div>
         <div className="filter-chips">
-          <label className="price-filter">
-            <span>{currency} from</span>
-            <input
-              aria-label="Minimum price"
-              type="number"
-              min="0"
-              step="0.01"
-              value={min}
-              onChange={(e) => update("min", e.target.value, true)}
-            />
-          </label>
-          <label className="price-filter">
-            <span>to</span>
-            <input
-              aria-label="Maximum price"
-              type="number"
-              min="0"
-              step="0.01"
-              value={max}
-              onChange={(e) => update("max", e.target.value, true)}
-            />
-          </label>
           {[...params.entries()]
             .filter(
               ([k, v]) =>
@@ -219,6 +247,37 @@ export default function Shop() {
             </button>
           </nav>
         )}
+      </section>
+      <Studies>
+        <ObjectAnatomy />
+        <ThreeLives />
+      </Studies>
+      <section className="shop-promise container" aria-label="Our promise">
+        {[
+          [Hammer, "Made by hand", "Raised, cast and finished in Moradabad."],
+          [Package, "Packed to travel", "Wrapped and crated for the journey."],
+          [Sparkles, "Made to age", "Care notes come with every piece."],
+          [PenTool, "Bespoke on request", "Your size, finish or idea."],
+        ].map(([Icon, title, copy]: any) => (
+          <div key={title}>
+            <Icon size={22} strokeWidth={1.4} />
+            <strong>{title}</strong>
+            <span>{copy}</span>
+          </div>
+        ))}
+      </section>
+      <section className="shop-trade">
+        <Picture name="brand/decor" alt="" sizes="100vw" />
+        <div className="shop-trade-veil" aria-hidden="true" />
+        <div className="shop-trade-body container">
+          <h2>
+            Buying for <em>a business?</em>
+          </h2>
+          <p>Trade pricing, custom finishes and worldwide export.</p>
+          <Link to="/bulk-orders" className="sf-button sf-solid">
+            Explore bulk export <ArrowUpRight size={17} />
+          </Link>
+        </div>
       </section>
     </>
   );

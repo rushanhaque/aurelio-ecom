@@ -1,0 +1,175 @@
+/* Legibility — a floor under the type scale.
+   Much of the site was set at 7–12px: elegant in a mock-up, hard to read on a
+   real screen. Three tiers, each prefixed `html body` so they outrank the
+   per-component sizes (route stylesheets load after this bundle). */
+
+/* ---------- Tier 1 · reading copy ---------- */
+html body :is(
+    .product-description,
+    .philosophy-copy p,
+    .study-intro > p,
+    .mx-heading > p,
+    .mx-note,
+    .form-aside > p,
+    .commission-bottom p,
+    .archive-foot p,
+    .lab-intro p,
+    .opening-foot p,
+    .values-section p,
+    .experiment-heading > p,
+    .experiment-under p,
+    .product-accordions details p,
+    .collection-story p,
+    .about-pillars p,
+    .services-head p,
+    .archive-heading p,
+    .trade-faq-list p,
+    .info-content p,
+    .care-content p,
+    .article-body p
+  ) {
+  font-size: 15px;
+  line-height: 1.7;
+}
+html body :is(.anatomy-list span, .serve-body small, .experiment-under small) {
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+/* ---------- Tier 2 · interface text ---------- */
+html body .nav-label,
+html body .nav-label > span {
+  font-size: 12px;
+}
+html body :is(
+    .text-link,
+    .field > span,
+    .contact-links a,
+    .brand-contact a,
+    .bulk-product-link,
+    .finish-option > span,
+    .line-view,
+    .experiment-cta,
+    .lens-details > button,
+    .room-selector > button,
+    .anatomy-list b,
+    .experiment-options > button,
+    .experiment-range > span,
+    .checkbox-label,
+    .purchase-notes p,
+    .trade-shortcut > span,
+    .muted
+  ) {
+  font-size: 13px;
+}
+html body :is(.button, .sf-button, .film-button) {
+  font-size: 12px;
+}
+html body .product-accordions summary {
+  font-size: 13px;
+}
+html body .product-caption p,
+html body .archive-work figcaption small {
+  font-size: 12px;
+}
+html body .product-price {
+  font-size: 13px;
+}
+html body :is(dl dt, dl dd) {
+  font-size: 13px;
+}
+
+/* ---------- Tier 3 · labels (uppercase, tracked) ---------- */
+html body :is(
+    .announcement > span,
+    .announcement > a,
+    .currency-display,
+    .trade-cta,
+    .bulk-nav,
+    .eyebrow,
+    .quick-add > span,
+    .back-to-top,
+    .service-cta,
+    .commission-link > span,
+    .heritage-stat dt,
+    .mx-swatches > button > span,
+    .material-surface > span,
+    .material-heading > span,
+    .material-trait,
+    .mx-trait,
+    .mx-loupe > span,
+    .brand-material > small,
+    .lens-details > button > span,
+    .instrument-options > button,
+    .instrument-action,
+    .making-topline > span,
+    .making-bottom > a,
+    .detail-price > span,
+    .finish-select > span,
+    .availability,
+    .trade-shortcut small,
+    .field small,
+    .workshop-controls > span,
+    .shop-tile > span
+  ) {
+  font-size: 11px;
+}
+html body :is(
+    .interaction-note,
+    .light-control > span,
+    .lab-value > small,
+    .instrument-value > small
+  ) {
+  font-size: 10.5px;
+}
+
+/* ---------- Footer ---------- */
+html body :is(.footer-links h3, .footer-business h3) {
+  font-size: 11px;
+}
+html body :is(
+    .footer-links a,
+    .footer-business a,
+    .footer-business p,
+    .footer-bottom a,
+    .footer-bottom span,
+    address p
+  ) {
+  font-size: 13px;
+  line-height: 1.7;
+}
+html body .footer-invitation p {
+  font-size: 14px;
+}
+html body :is(.footer-invitation small, .footer-invitation small a) {
+  font-size: 11.5px;
+}
+
+/* Footer link columns follow the site's two halves: shop, export, help. */
+@media (min-width: 901px) {
+  html body .footer-links {
+    grid-template-columns: repeat(3, auto);
+    gap: clamp(40px, 5vw, 75px);
+  }
+}
+
+/* Suggestions under an empty bag or saved list. */
+.suggestions {
+  margin-top: clamp(56px, 7vw, 96px);
+  padding-top: clamp(40px, 5vw, 64px);
+  border-top: 1px solid var(--line, #07251b1f);
+}
+.suggestions-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+.suggestions-head h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 3.4vw, 52px);
+  letter-spacing: -0.03em;
+}

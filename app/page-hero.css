@@ -1,0 +1,113 @@
+/* Page heroes — inner pages open on a full-bleed photograph, like the home
+   film, the shop and the export page. */
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(400px, 58svh, 620px);
+  padding-block: 140px clamp(44px, 6vw, 72px);
+  margin-bottom: clamp(48px, 6vw, 88px);
+  color: #f2efe6;
+  background: #07251b;
+}
+.page-hero > img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: page-hero-settle 1.6s var(--ease-out) both;
+}
+@keyframes page-hero-settle {
+  from {
+    transform: scale(1.06);
+    opacity: 0.4;
+  }
+}
+.page-hero-veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, #07251b80 0%, #07251b1a 35%, #07251bd9 100%),
+    linear-gradient(90deg, #07251ba6 0%, #07251b00 65%);
+}
+.page-hero-body {
+  display: grid;
+  gap: 18px;
+}
+.page-hero h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(52px, 7vw, 112px);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
+.page-hero h1 em {
+  color: #ecdfc5;
+}
+.page-hero-copy {
+  max-width: 46ch;
+  font-size: clamp(14px, 0.6vw + 10px, 17px);
+  line-height: 1.6;
+  color: #f2efe6d9;
+}
+.page-hero-copy p {
+  margin: 0;
+}
+
+/* Plain intros: a little more air and readable copy. */
+.page-intro {
+  padding-top: clamp(56px, 7vw, 96px);
+}
+.intro-copy {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* ---------- Header over any full-bleed hero ----------
+   Dark, fixed and see-through until the visitor scrolls, then solid. */
+body:has(:is(.page-hero, .shop-hero, .trade-hero)) .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #072319;
+  color: #f2f2f2;
+  border-color: #f2f2f21a;
+}
+body:has(:is(.page-hero, .shop-hero, .trade-hero)):not([data-scrolled="true"])
+  .site-header {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+body:has(:is(.page-hero, .shop-hero, .trade-hero)) .announcement,
+body:has(:is(.page-hero, .shop-hero, .trade-hero)) .wordmark span,
+body:has(:is(.page-hero, .shop-hero, .trade-hero)) .site-header::after {
+  display: none;
+}
+body:has(:is(.page-hero, .shop-hero, .trade-hero)) .header-left nav a:after {
+  background: #d2c09d;
+}
+body:has(:is(.page-hero, .shop-hero, .trade-hero)) .currency-select option {
+  color: #072319;
+  background: #f2f2f2;
+}
+body:has(:is(.page-hero, .shop-hero, .trade-hero)) .icon-button:hover {
+  background: #f2f2f216;
+}
+body:has(:is(.page-hero, .shop-hero, .trade-hero)):not([data-scrolled="true"])
+  :is(.site-header a, .site-header .icon-button) {
+  text-shadow: 0 1px 12px #03180f99;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-hero > img {
+    animation: none;
+  }
+}

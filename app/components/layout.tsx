@@ -123,15 +123,28 @@ function Highlight({ text, query }: { text: string; query: string }) {
 export function Header() {
   const { cart, wishlist, currency, setCurrency, setPanel } = useStore();
   const bagCount = cart.reduce((sum, line) => sum + line.quantity, 0);
+  // The export side is its own world: trade navigation, no bag or currency.
+  const trade = useLocation().pathname.startsWith("/bulk-orders");
   return (
     <>
       <div className="announcement">
-        <span>Made by hand in Moradabad.</span>
-        <Link to="/about">
-          Our story <ArrowUpRight size={12} />
-        </Link>
+        {trade ? (
+          <>
+            <span>Made in Moradabad. Shipped to 25+ countries.</span>
+            <Link to="/shop">
+              Visit the shop <ArrowUpRight size={12} />
+            </Link>
+          </>
+        ) : (
+          <>
+            <span>Made by hand in Moradabad.</span>
+            <Link to="/about">
+              Our story <ArrowUpRight size={12} />
+            </Link>
+          </>
+        )}
       </div>
-      <header className="site-header">
+      <header className={`site-header ${trade ? "is-trade" : ""}`}>
         <div className="header-left">
           <button
             className="icon-button mobile-menu"
@@ -141,18 +154,37 @@ export function Header() {
             <Menu size={22} />
           </button>
           <nav aria-label="Main navigation">
-            <NavLink to="/shop">
-              <NavLabel>Shop</NavLabel> <ChevronDown size={11} />
-            </NavLink>
-            <NavLink to="/collections">
-              <NavLabel>Collections</NavLabel>
-            </NavLink>
-            <NavLink to="/about">
-              <NavLabel>About us</NavLabel>
-            </NavLink>
-            <NavLink to="/contact">
-              <NavLabel>Contact us</NavLabel>
-            </NavLink>
+            {trade ? (
+              <>
+                <a href="#collections">
+                  <NavLabel>Collections</NavLabel>
+                </a>
+                <a href="#process">
+                  <NavLabel>How we work</NavLabel>
+                </a>
+                <NavLink to="/about">
+                  <NavLabel>About us</NavLabel>
+                </NavLink>
+                <NavLink to="/contact">
+                  <NavLabel>Contact us</NavLabel>
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink to="/shop">
+                  <NavLabel>Shop</NavLabel> <ChevronDown size={11} />
+                </NavLink>
+                <NavLink to="/collections">
+                  <NavLabel>Collections</NavLabel>
+                </NavLink>
+                <NavLink to="/about">
+                  <NavLabel>About us</NavLabel>
+                </NavLink>
+                <NavLink to="/contact">
+                  <NavLabel>Contact us</NavLabel>
+                </NavLink>
+              </>
+            )}
           </nav>
         </div>
         {/* The link's aria-label carries the name, so the per-letter spans stay
@@ -162,49 +194,66 @@ export function Header() {
           <span>BY AF INTERNATIONAL</span>
         </Link>
         <div className="header-right">
-          <Link className="bulk-nav" to="/bulk-orders">
-            <NavLabel>Bulk enquiries</NavLabel> <ArrowUpRight size={13} />
-          </Link>
-          <label className="currency-select">
-            <span className="sr-only">Currency</span>
-            <select
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value as any)}
-            >
-              {currencies.map((c) => (
-                <option key={c}>{c}</option>
-              ))}
-            </select>
-          </label>
-          <button
-            className="icon-button"
-            onClick={() => setPanel("search")}
-            aria-label="Search objects"
-          >
-            <Search size={19} />
-          </button>
-          <Link
-            className="icon-button desktop-icon"
-            to="/account"
-            aria-label="Your account"
-          >
-            <User size={19} />
-          </Link>
-          <Link
-            className="icon-button desktop-icon"
-            to="/wishlist"
-            aria-label={`Wishlist, ${wishlist.length} saved objects`}
-          >
-            <Heart size={19} />
-          </Link>
-          <button
-            className="icon-button bag-button"
-            onClick={() => setPanel("cart")}
-            aria-label={`Open bag, ${bagCount} ${bagCount === 1 ? "item" : "items"}`}
-          >
-            <ShoppingBag size={19} />
-            <span>{bagCount}</span>
-          </button>
+          {trade ? (
+            <>
+              <Link className="bulk-nav" to="/shop">
+                <NavLabel>Shop</NavLabel> <ArrowUpRight size={13} />
+              </Link>
+              <a className="trade-cta" href="#enquire">
+                Start an enquiry <ArrowUpRight size={14} />
+              </a>
+            </>
+          ) : (
+            <>
+              <Link className="bulk-nav" to="/bulk-orders">
+                <NavLabel>Export & bulk</NavLabel> <ArrowUpRight size={13} />
+              </Link>
+              <div className="currency-select">
+                <span className="sr-only">Currency</span>
+                <select
+                  value={currency}
+                  onChange={(e) => setCurrency(e.target.value as any)}
+                  aria-label="Select currency"
+                >
+                  {currencies.map((c) => (
+                    <option key={c}>{c}</option>
+                  ))}
+                </select>
+                <span className="currency-display" aria-hidden="true">
+                  {currency} <ChevronDown size={10} strokeWidth={2.5} />
+                </span>
+              </div>
+              <button
+                className="icon-button"
+                onClick={() => setPanel("search")}
+                aria-label="Search objects"
+              >
+                <Search size={19} />
+              </button>
+              <Link
+                className="icon-button desktop-icon"
+                to="/account"
+                aria-label="Your account"
+              >
+                <User size={19} />
+              </Link>
+              <Link
+                className="icon-button desktop-icon"
+                to="/wishlist"
+                aria-label={`Wishlist, ${wishlist.length} saved objects`}
+              >
+                <Heart size={19} />
+              </Link>
+              <button
+                className="icon-button bag-button"
+                onClick={() => setPanel("cart")}
+                aria-label={`Open bag, ${bagCount} ${bagCount === 1 ? "item" : "items"}`}
+              >
+                <ShoppingBag size={19} />
+                <span>{bagCount}</span>
+              </button>
+            </>
+          )}
         </div>
       </header>
     </>
@@ -266,13 +315,23 @@ export function Footer() {
         </div>
         <div className="footer-links">
           <div>
-            <h3>EXPLORE</h3>
-            <Link to="/shop">Shop</Link>
+            <h3>SHOP</h3>
+            <Link to="/shop">Shop all</Link>
             <Link to="/collections">Collections</Link>
-            <Link to="/bulk-orders">Bulk enquiries</Link>
             <Link to="/materials">Materials</Link>
-            <Link to="/about">About us</Link>
-            <Link to="/journal">Journal</Link>
+            <Link to="/care">Care guide</Link>
+            <Link to="/wishlist">Saved items</Link>
+            <Link to="/track-order">Track your order</Link>
+          </div>
+          <div>
+            <h3>EXPORT & TRADE</h3>
+            <Link to="/bulk-orders">Export & bulk</Link>
+            <Link to="/bulk-orders#process">How we work</Link>
+            <Link to="/collections/bespoke">Bespoke</Link>
+            <Link to="/contact?topic=Catalogue%20request">
+              Request a catalogue
+            </Link>
+            <Link to="/bulk-orders#enquire">Start an enquiry</Link>
           </div>
           <div>
             <h3>HELP</h3>
@@ -280,8 +339,8 @@ export function Footer() {
             <Link to="/shipping">Shipping & delivery</Link>
             <Link to="/returns">Returns & refunds</Link>
             <Link to="/faq">FAQ</Link>
-            <Link to="/care">Care guide</Link>
-            <Link to="/track-order">Track your order</Link>
+            <Link to="/about">About us</Link>
+            <Link to="/journal">Journal</Link>
           </div>
         </div>
       </div>
@@ -316,9 +375,6 @@ export function Footer() {
           <a href={brand.instagram} target="_blank" rel="noreferrer">
             Instagram ↗
           </a>
-          <Link to="/contact?topic=Catalogue%20request">
-            Request a catalogue
-          </Link>
         </div>
       </div>
       <div className="footer-brand container">AURELIO</div>
@@ -364,8 +420,13 @@ export function GlobalPanels() {
   } = useStore();
   const [query, setQuery] = useState("");
   const location = useLocation();
+  const trade = location.pathname.startsWith("/bulk-orders");
   const navigate = useNavigate();
-  useEffect(() => setPanel(null), [location.pathname, location.search]);
+  // A hash jump on the same page (the trade menu's section links) closes too.
+  useEffect(
+    () => setPanel(null),
+    [location.pathname, location.search, location.hash],
+  );
   // "/" and Ctrl/Cmd+K open search from anywhere, unless the reader is typing.
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -423,38 +484,53 @@ export function GlobalPanels() {
             </Dialog.Description>
             {panel === "menu" ? (
               <div className="mobile-navigation">
-                {[
-                  ["/shop", "Shop"],
-                  ["/collections", "Collections"],
-                  ["/bulk-orders", "Bulk enquiries"],
-                  ["/materials", "Materials"],
-                  ["/about", "About us"],
-                  ["/contact", "Contact us"],
-                  ["/faq", "FAQ"],
-                  ["/journal", "Journal"],
-                ].map(([to, label]) => (
+                {(trade
+                  ? [
+                      ["/bulk-orders#enquire", "Start an enquiry"],
+                      ["/bulk-orders#collections", "Collections"],
+                      ["/bulk-orders#process", "How we work"],
+                      ["/shop", "Visit the shop"],
+                      ["/about", "About us"],
+                      ["/contact", "Contact us"],
+                      ["/faq", "FAQ"],
+                    ]
+                  : [
+                      ["/shop", "Shop"],
+                      ["/collections", "Collections"],
+                      ["/bulk-orders", "Export & bulk"],
+                      ["/materials", "Materials"],
+                      ["/about", "About us"],
+                      ["/contact", "Contact us"],
+                      ["/faq", "FAQ"],
+                      ["/journal", "Journal"],
+                    ]
+                ).map(([to, label]) => (
                   <Link to={to} key={to}>
                     {label}
                     <ArrowUpRight size={22} />
                   </Link>
                 ))}
-                <div className="menu-utilities">
-                  <label className="menu-currency">
-                    Currency{" "}
-                    <select
-                      aria-label="Shopping currency"
-                      value={currency}
-                      onChange={(e) => setCurrency(e.target.value as any)}
-                    >
-                      {currencies.map((c) => (
-                        <option key={c}>{c}</option>
-                      ))}
-                    </select>
-                  </label>
-                  <Link to="/wishlist">Saved objects ({wishlist.length})</Link>
-                  <Link to="/account">My account</Link>
-                  <Link to="/contact">Get in touch</Link>
-                </div>
+                {!trade && (
+                  <div className="menu-utilities">
+                    <label className="menu-currency">
+                      Currency{" "}
+                      <select
+                        aria-label="Shopping currency"
+                        value={currency}
+                        onChange={(e) => setCurrency(e.target.value as any)}
+                      >
+                        {currencies.map((c) => (
+                          <option key={c}>{c}</option>
+                        ))}
+                      </select>
+                    </label>
+                    <Link to="/wishlist">
+                      Saved objects ({wishlist.length})
+                    </Link>
+                    <Link to="/account">My account</Link>
+                    <Link to="/contact">Get in touch</Link>
+                  </div>
+                )}
               </div>
             ) : panel === "search" ? (
               <div className="search-content">

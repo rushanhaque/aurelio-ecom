@@ -194,7 +194,7 @@ export function MakersLens() {
     });
   }
   return (
-    <Chapter index={1} intro="Every mark is placed by hand.">
+    <Chapter index={1} dark intro="Every mark is placed by hand.">
       <div className="experiment-split">
         <div className="experiment-canvas lens-canvas">
           <svg
@@ -544,7 +544,8 @@ export function YourLine() {
           </div>
           <Link
             className="experiment-cta"
-            to={`/bulk-orders?product=Bespoke+vessel&brief=${encodeURIComponent(brief)}`}
+            to={`/bulk-orders?product=Bespoke+vessel&brief=${encodeURIComponent(brief)}#enquire`}
+            preventScrollReset
           >
             Send this idea <span>↗</span>
           </Link>
@@ -554,34 +555,10 @@ export function YourLine() {
   );
 }
 
-export function AtelierExperiments() {
-  return (
-    <div className="atelier-experiments">
-      <section
-        id="finishes"
-        className="experiment-directory container"
-        aria-label="The finishes we offer"
-      >
-        <h2>
-          Finished by hand,
-          <br />
-          <em>chosen by you.</em>
-        </h2>
-        <nav aria-label="Finishes we offer">
-          {experiments.map(([id, name], i) => (
-            <a key={id} href={`#${id}`}>
-              <small>0{i + 1}</small>
-              {name}
-              <span>↗</span>
-            </a>
-          ))}
-        </nav>
-      </section>
-      <LightStudy />
-      <MakersLens />
-      <ObjectAnatomy />
-      <ThreeLives />
-      <YourLine />
-    </div>
-  );
+/* The studies are spread across the site — brand studies on the home page,
+   finish studies in the shop, the bespoke sketch on the export page — and
+   share their palette through this wrapper. */
+export function Studies({ children }: { children: ReactNode }) {
+  return <div className="atelier-experiments">{children}</div>;
 }
+export { LightStudy };

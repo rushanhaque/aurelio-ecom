@@ -9,7 +9,8 @@
      brand-content   editorial and footer composition
      operations      account, admin and order surfaces
      refinement      the material atelier pass
-     interaction-v2  the v2 layer, last so it refines the rest
+     interaction-v2  the v2 layer
+     legibility      the reading-size floor, last so nothing undercuts it
 */
 @import "./tokens.css";
 @import "./styles.css";
@@ -18,3 +19,4 @@
 @import "./operations.css";
 @import "./refinement.css";
 @import "./interaction-v2.css";
+@import "./legibility.css";

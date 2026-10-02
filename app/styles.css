@@ -360,13 +360,36 @@ summary {
   align-items: center;
   margin-right: 9px;
 }
+.currency-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 .currency-select select {
-  font-size: 9px;
-  background: transparent;
-  border: 0;
-  width: 51px;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
   cursor: pointer;
-  padding: 10px 0;
+  width: 100%;
+  font-size: 9px;
+}
+.currency-display {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.currency-select:hover .currency-display,
+.currency-select:focus-within .currency-display {
+  opacity: 1;
 }
 .bag-button {
   gap: 5px;

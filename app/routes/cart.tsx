@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import {
   PageIntro,
   EmptyState,
+  Suggestions,
   Picture,
   Quantity,
   Settling,
@@ -39,9 +40,12 @@ export default function Cart() {
         {!ready ? (
           <Settling label="Loading your bag…" />
         ) : !cart.length ? (
-          <EmptyState title="Your bag is empty.">
-            Add something you love.
-          </EmptyState>
+          <>
+            <EmptyState title="Your bag is empty.">
+              Add something you love.
+            </EmptyState>
+            <Suggestions />
+          </>
         ) : (
           <div className="cart-layout">
             <div>

@@ -24,7 +24,14 @@ export const meta = () => [{ title: "Care guide — Aurelio" }];
 export default function Care() {
   return (
     <>
-      <PageIntro title="Care guide">
+      <PageIntro
+        title={
+          <>
+            Care, <em>made simple.</em>
+          </>
+        }
+        image="brand/brass-texture"
+      >
         <p>Start with the material.</p>
       </PageIntro>
       <nav className="material-index container" aria-label="Care by material">

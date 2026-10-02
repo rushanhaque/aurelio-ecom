@@ -178,7 +178,7 @@ function ArchiveWork({
     </figure>
   );
 }
-export function SelectedWorks() {
+export function SelectedWorks({ limit = works.length }: { limit?: number }) {
   const root = useRef<HTMLElement>(null);
   const [litItems, setLitItems] = useState<Set<string>>(() => new Set());
   useEffect(() => {
@@ -236,7 +236,7 @@ export function SelectedWorks() {
           </div>
         </header>
         <div className="archive-grid">
-          {works.map((work, index) => (
+          {works.slice(0, limit).map((work, index) => (
             <ArchiveWork
               key={work.off}
               work={work}
@@ -260,9 +260,6 @@ export function SelectedWorks() {
 export function AurelioStandard() {
   return (
     <section className="original-standard" aria-labelledby="standard-heading">
-      <span className="standard-numeral" aria-hidden="true">
-        II
-      </span>
       <div className="container">
         <h2 id="standard-heading">
           Objects that refuse
@@ -278,7 +275,6 @@ export function AurelioStandard() {
               <li key={item}>
                 <span>0{i + 1}</span>
                 {item}
-                <i aria-hidden="true">↗</i>
               </li>
             ))}
           </ul>

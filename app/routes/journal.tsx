@@ -6,7 +6,14 @@ export const meta = () => [{ title: "Journal — Aurelio" }];
 export default function Journal() {
   return (
     <>
-      <PageIntro title="Journal">
+      <PageIntro
+        title={
+          <>
+            From the <em>atelier.</em>
+          </>
+        }
+        image="sculpture"
+      >
         <p>Notes from the atelier.</p>
       </PageIntro>
       <section className="journal-grid container">

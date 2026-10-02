@@ -1,0 +1,503 @@
+/* Storefront & trade — the shop and the export side each open with their own
+   full-bleed hero, so each reads as a complete site of its own. */
+
+/* ---------- Shared buttons ---------- */
+.sf-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 26px;
+  border-radius: var(--radius-pill, 999px);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    border-color 0.25s,
+    transform 0.35s var(--ease-out);
+}
+.sf-button svg {
+  transition: transform 0.35s var(--ease-out);
+}
+.sf-button:hover svg {
+  transform: rotate(45deg);
+}
+.sf-solid {
+  background: #f2efe6;
+  color: #07251b;
+}
+.sf-solid:hover {
+  background: #d8c39d;
+}
+.sf-glass {
+  color: #f2efe6;
+  border-color: #f2efe666;
+  background: #f2efe612;
+  backdrop-filter: blur(10px);
+}
+.sf-glass:hover {
+  border-color: #f2efe6;
+  background: #f2efe626;
+}
+
+/* ---------- Shop hero ---------- */
+.shop-hero,
+.trade-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  display: flex;
+  align-items: flex-end;
+  color: #f2efe6;
+  background: #07251b;
+}
+.shop-hero {
+  min-height: clamp(420px, 62svh, 640px);
+  padding-block: 140px 56px;
+}
+.shop-hero > img,
+.trade-hero > img,
+.shop-trade > img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: sf-settle 1.6s var(--ease-out) both;
+}
+@keyframes sf-settle {
+  from {
+    transform: scale(1.06);
+    opacity: 0.4;
+  }
+}
+.shop-hero-veil,
+.trade-hero-veil,
+.shop-trade-veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, #07251b80 0%, #07251b1a 35%, #07251bd9 100%),
+    linear-gradient(90deg, #07251ba6 0%, #07251b00 65%);
+}
+.shop-hero-body,
+.trade-hero-body {
+  display: grid;
+  gap: 20px;
+}
+.shop-hero h1,
+.trade-hero h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(52px, 7.4vw, 120px);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
+.shop-hero h1 em,
+.trade-hero h1 em,
+.shop-trade h2 em {
+  color: #ecdfc5;
+}
+.shop-hero p,
+.trade-hero p {
+  margin: 0;
+  max-width: 44ch;
+  font-size: clamp(14px, 0.6vw + 10px, 17px);
+  line-height: 1.6;
+  color: #f2efe6d9;
+}
+
+/* ---------- Shop by collection ---------- */
+.shop-collections {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(10px, 1.4vw, 20px);
+  margin-top: clamp(32px, 5vw, 64px);
+}
+.shop-tile {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.shop-tile img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  outline: 1px solid transparent;
+  outline-offset: 5px;
+  transition:
+    outline-color 0.25s,
+    transform 0.5s var(--ease-out),
+    filter 0.3s;
+  filter: saturate(0.85);
+}
+.shop-tile:hover img {
+  transform: scale(1.04);
+  filter: none;
+}
+.shop-tile.active img {
+  outline-color: currentColor;
+  filter: none;
+}
+.shop-tile span {
+  position: relative;
+}
+.shop-tile.active span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: currentColor;
+}
+.shop-content {
+  scroll-margin-top: 90px;
+}
+
+/* ---------- Promise strip ---------- */
+.shop-promise {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-block: clamp(64px, 9vw, 120px) 0;
+  border-block: 1px solid var(--line, #07251b1f);
+}
+.shop-promise > div {
+  display: grid;
+  gap: 8px;
+  padding: clamp(24px, 3vw, 40px) clamp(16px, 2vw, 32px);
+}
+.shop-promise > div + div {
+  border-left: 1px solid var(--line, #07251b1f);
+}
+.shop-promise > div:first-child {
+  padding-left: 0;
+}
+.shop-promise svg {
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+.shop-promise strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 1.6vw, 26px);
+}
+.shop-promise span {
+  font-size: 13px;
+  line-height: 1.55;
+  opacity: 0.7;
+}
+
+/* ---------- Trade cross-sell ---------- */
+.shop-trade {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  margin-top: clamp(64px, 9vw, 120px);
+  padding-block: clamp(90px, 14vw, 180px);
+  color: #f2efe6;
+  background: #07251b;
+}
+.shop-trade-body {
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+}
+.shop-trade h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(40px, 5.4vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+.shop-trade p {
+  margin: 0 0 10px;
+  color: #f2efe6cc;
+}
+
+/* ---------- Trade hero ---------- */
+.trade-hero {
+  min-height: 100svh;
+  padding-block: 150px clamp(56px, 9vh, 100px);
+}
+.trade-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+.trade-kicker {
+  margin: 0 0 clamp(28px, 4vw, 52px);
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(38px, 4.6vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+#collections {
+  scroll-margin-top: 80px;
+}
+
+/* ---------- Export process ---------- */
+.trade-process {
+  padding-block: clamp(72px, 10vw, 140px) clamp(24px, 4vw, 48px);
+  scroll-margin-top: 80px;
+}
+.trade-process ol {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(12px, 1.4vw, 20px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+.trade-process li {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+.trade-process img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  margin-bottom: 10px;
+  filter: saturate(0.8);
+  transition:
+    filter 0.3s,
+    transform 0.6s var(--ease-out);
+}
+.trade-process li:hover img {
+  filter: none;
+  transform: translateY(-4px);
+}
+.trade-process span {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  opacity: 0.55;
+}
+.trade-process strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(22px, 1.8vw, 28px);
+}
+.trade-process small {
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+#enquire {
+  scroll-margin-top: 80px;
+}
+
+/* ---------- Header on the trade side ---------- */
+.trade-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill, 999px);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.trade-cta:hover {
+  background: #f2efe6;
+  color: #07251b;
+  border-color: #f2efe6;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .shop-collections {
+    grid-template-columns: repeat(6, 104px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .shop-collections::-webkit-scrollbar {
+    display: none;
+  }
+  .shop-tile {
+    scroll-snap-align: start;
+  }
+  .shop-promise {
+    grid-template-columns: 1fr 1fr;
+  }
+  .shop-promise > div:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .shop-promise > div:nth-child(n + 3) {
+    border-top: 1px solid var(--line, #07251b1f);
+  }
+  .trade-process ol {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 32px;
+  }
+}
+@media (max-width: 640px) {
+  .trade-process ol {
+    grid-template-columns: 1fr 1fr;
+  }
+  .trade-cta {
+    display: none;
+  }
+  .sf-button {
+    padding: 14px 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shop-hero > img,
+  .trade-hero > img,
+  .shop-trade > img {
+    animation: none;
+  }
+}
+
+/* ---------- Who we make for ---------- */
+.trade-serve {
+  padding-block: clamp(72px, 10vw, 140px) clamp(40px, 6vw, 80px);
+}
+.serve-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 1.2vw, 18px);
+}
+.serve-card {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 3 / 4;
+  color: #f2efe6;
+  text-decoration: none;
+}
+.serve-card > img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease-out);
+}
+.serve-card:hover > img,
+.serve-card:focus-visible > img {
+  transform: scale(1.06);
+}
+.serve-veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #07251b00 35%, #07251be6 100%);
+}
+.serve-body {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  padding: clamp(18px, 1.8vw, 28px);
+}
+.serve-body strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(22px, 1.9vw, 30px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.serve-body small {
+  max-width: 28ch;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #f2efe6c7;
+}
+.serve-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-top: 8px;
+  border: 1px solid #f2efe666;
+  border-radius: 50%;
+  transition:
+    transform 0.35s var(--ease-out),
+    background 0.25s,
+    color 0.25s;
+}
+.serve-card:hover .serve-arrow,
+.serve-card:focus-visible .serve-arrow {
+  transform: rotate(45deg);
+  background: #f2efe6;
+  color: #07251b;
+}
+@media (max-width: 900px) {
+  .serve-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .serve-grid {
+    grid-template-columns: 1fr;
+  }
+  .serve-card {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ---------- Floating enquiry (phones) ---------- */
+.floating-enquiry {
+  display: none;
+}
+@media (max-width: 640px) {
+  .floating-enquiry {
+    position: fixed;
+    left: 50%;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 24px;
+    border-radius: var(--radius-pill, 999px);
+    background: #07251b;
+    color: #f2efe6;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 10px 30px #03180f59;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 20px);
+    transition:
+      opacity 0.3s,
+      transform 0.4s var(--ease-out);
+  }
+  .floating-enquiry.is-shown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+}

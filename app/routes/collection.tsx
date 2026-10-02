@@ -45,7 +45,15 @@ export default function Collection() {
   const items = products.filter((p) => p.category === c.slug);
   return (
     <>
-      <PageIntro title={c.name}>
+      <PageIntro
+        title={
+          <>
+            {c.name}
+            <br /> <em>{c.tagline}</em>
+          </>
+        }
+        image={c.cover}
+      >
         <p>{c.summary}</p>
       </PageIntro>
       <section className="collection-story container">

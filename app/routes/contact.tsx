@@ -29,7 +29,14 @@ export default function Contact() {
   }
   return (
     <>
-      <PageIntro title="Contact us">
+      <PageIntro
+        title={
+          <>
+            Let’s <em>talk.</em>
+          </>
+        }
+        image="hero"
+      >
         <p>Questions about a piece, a project or an order?</p>
       </PageIntro>
       {/* The two desks, as listed on aurelio.in/contact. */}

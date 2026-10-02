@@ -1,5 +1,4 @@
 import { PageIntro, Picture, TextLink } from "../components/ui";
-import { OriginalAtelier } from "../components/original-sections";
 import { brand } from "../lib/brand";
 export const meta = () => [
   { title: "About us — Aurelio by AF International" },
@@ -17,16 +16,16 @@ const pillars = [
 export default function Craft() {
   return (
     <>
-      <PageIntro title="About us">
+      <PageIntro
+        title={
+          <>
+            A family <em>atelier.</em>
+          </>
+        }
+        image="craft"
+      >
         <p>{brand.story}</p>
       </PageIntro>
-      <div className="wide-editorial container">
-        <Picture
-          name="brand/bespoke"
-          alt="Bespoke work from the Aurelio collection"
-          eager
-        />
-      </div>
       <section className="philosophy section container">
         <h2>
           A workshop,
@@ -58,7 +57,6 @@ export default function Craft() {
           </div>
         ))}
       </section>
-      <OriginalAtelier />
       <section className="editorial-cta container">
         <h2>
           Metal. Wood.

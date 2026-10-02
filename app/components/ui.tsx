@@ -10,6 +10,7 @@ import {
 import { useStore } from "../lib/store";
 import { money, type Product } from "../lib/catalog";
 import { useEffect, useRef, type ReactNode } from "react";
+import "../page-hero.css";
 export function Picture({
   name,
   alt,
@@ -175,12 +176,26 @@ export function Quantity({
 }
 export function PageIntro({
   title,
+  image,
   children,
 }: {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
+  /* With an image the intro becomes a full-bleed hero under a clear header. */
+  image?: string;
   children?: ReactNode;
 }) {
+  if (image)
+    return (
+      <header className="page-hero">
+        <Picture name={image} alt="" sizes="100vw" eager />
+        <div className="page-hero-veil" aria-hidden="true" />
+        <div className="page-hero-body container">
+          <h1>{title}</h1>
+          {children && <div className="page-hero-copy">{children}</div>}
+        </div>
+      </header>
+    );
   return (
     <header className="page-intro container">
       <h1>{title}</h1>
@@ -218,6 +233,35 @@ export function EmptyState({
         <ArrowUpRight size={18} />
       </Link>
     </div>
+  );
+}
+/* Under an empty bag or empty saved list: a few pieces to begin with, so the
+   page leads somewhere instead of ending. Featured pieces come first. */
+export function Suggestions({
+  title = "Pieces to start with.",
+}: {
+  title?: string;
+}) {
+  const { products } = useStore();
+  const picks = products
+    .filter((p) => p.featured)
+    .concat(products.filter((p) => !p.featured))
+    .slice(0, 4);
+  if (!picks.length) return null;
+  return (
+    <section className="suggestions" aria-labelledby="suggestions-title">
+      <div className="suggestions-head">
+        <h2 id="suggestions-title">{title}</h2>
+        <Link to="/shop" className="text-link">
+          Shop all <ArrowUpRight size={16} />
+        </Link>
+      </div>
+      <div className="product-grid">
+        {picks.map((p, i) => (
+          <ProductCard key={p.id} product={p} index={i} />
+        ))}
+      </div>
+    </section>
   );
 }
 export function Success({

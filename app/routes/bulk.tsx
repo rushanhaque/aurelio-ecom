@@ -1,23 +1,24 @@
 import { brand, commissionStages } from "../lib/brand";
 import { collections } from "../lib/brand-content";
-import { useState } from "react";
-import { useSearchParams } from "react-router";
-import {
-  ArrowUpRight,
-  Building2,
-  Gift,
-  Store,
-  PenTool,
-  MessageCircle,
-  BookOpen,
-  Plus,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import { useLoaderData, useSearchParams } from "react-router";
+import { ArrowUpRight, MessageCircle, BookOpen, Plus } from "lucide-react";
 import { Link } from "react-router";
 import { pages } from "../lib/help-content";
-import { PageIntro, Picture, Field, Success } from "../components/ui";
+import { Picture, Field, Success } from "../components/ui";
 import { request, useStore } from "../lib/store";
+import "../storefront.css";
+import { MakingStory } from "../components/storytelling";
+import { OriginalAtelier } from "../components/original-sections";
+import { MaterialAtelier } from "../components/material-atelier";
+import { Heritage } from "../components/heritage";
+import { MaterialStudies } from "../components/material-studies";
+import { Studies, YourLine } from "../components/atelier-experiments";
+import { homeContent } from "../lib/home-content";
+import { database } from "../../server/db";
+import { frontendPreview } from "../../server/preview-mode";
 export const meta = () => [
-  { title: "Bulk enquiries — Aurelio" },
+  { title: "Export & bulk orders — Aurelio by AF International" },
   {
     name: "description",
     content:
@@ -37,10 +38,67 @@ const tradeAnswers = tradeQuestions
   .map((q) => pages.faq?.sections.find(([question]) => question === q))
   .filter((entry): entry is [string, string] => !!entry);
 
+const processNotes = [
+  "Share quantities, finishes and timing.",
+  "We draw and cost your range.",
+  "Approve a sample before production.",
+  "Raised, cast and forged by hand.",
+  "Polished, lacquered and checked.",
+  "Packed for freight and shipped.",
+];
 const whatsappBrief = `${brand.whatsapp}?text=${encodeURIComponent(
   "Hello Aurelio — I'd like to discuss a bulk / trade enquiry.",
 )}`;
+/* The material copy is editable in the CMS under the "home" slug. */
+export async function loader() {
+  if (frontendPreview()) return { homeCopy: homeContent };
+  const { db } = await database();
+  const saved = await db.collection("content").findOne({ slug: "home" });
+  return { homeCopy: (saved?.published || homeContent) as typeof homeContent };
+}
+/* On phones the header has no room for the enquiry button, so a pill floats
+   at the foot of the screen — shown past the hero, hidden once the form is
+   on screen. */
+function FloatingEnquiry() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const hero = document.querySelector(".trade-hero");
+    const form = document.getElementById("enquire");
+    if (!hero || !form) return;
+    let pastHero = false,
+      atForm = false;
+    const sync = () => setShow(pastHero && !atForm);
+    const watchHero = new IntersectionObserver(([e]) => {
+      pastHero = !e.isIntersecting;
+      sync();
+    });
+    const watchForm = new IntersectionObserver(
+      ([e]) => {
+        atForm = e.isIntersecting;
+        sync();
+      },
+      { rootMargin: "0px 0px -20% 0px" },
+    );
+    watchHero.observe(hero);
+    watchForm.observe(form);
+    return () => {
+      watchHero.disconnect();
+      watchForm.disconnect();
+    };
+  }, []);
+  return (
+    <a
+      href="#enquire"
+      className={`floating-enquiry ${show ? "is-shown" : ""}`}
+      aria-hidden={!show}
+      tabIndex={show ? 0 : -1}
+    >
+      Start an enquiry <ArrowUpRight size={16} />
+    </a>
+  );
+}
 export default function Bulk() {
+  const { homeCopy } = useLoaderData<typeof loader>();
   const [params] = useSearchParams();
   const { cart, products } = useStore();
   const selected =
@@ -82,39 +140,117 @@ export default function Bulk() {
   }
   return (
     <>
-      <PageIntro title="Bulk enquiries">
-        <p>Trade, hospitality, gifting and bespoke work.</p>
-      </PageIntro>
-      <div className="bulk-hero container">
+      <section className="trade-hero" aria-labelledby="trade-title">
         <Picture
-          name="brand/decor"
-          alt="Brass vessels and decor displayed in a boutique interior"
+          name="brand/furniture"
+          alt="Handcrafted metal and wood furniture in a sunlit room"
+          sizes="100vw"
           eager
         />
-        <div>
-          <h2>
-            Let’s make
-            <br /> <em>something together.</em>
-          </h2>
+        <div className="trade-hero-veil" aria-hidden="true" />
+        <div className="trade-hero-body container">
+          <h1 id="trade-title">
+            Export &amp;
+            <br /> <em>bulk orders.</em>
+          </h1>
+          <p>
+            Metal and wood, made by hand in Moradabad for retailers, hotels and
+            gifting programmes worldwide.
+          </p>
+          <div className="trade-hero-actions">
+            <a href="#enquire" className="sf-button sf-solid">
+              Start an enquiry <ArrowUpRight size={17} />
+            </a>
+            <Link
+              to="/contact?topic=Catalogue%20request"
+              className="sf-button sf-glass"
+            >
+              Request the catalogue <ArrowUpRight size={17} />
+            </Link>
+          </div>
         </div>
-      </div>
-      <section className="section container">
-        <div className="use-cases">
+      </section>
+      <section className="section container trade-serve">
+        <h2 className="trade-kicker">
+          Who we <em>make for.</em>
+        </h2>
+        <div className="serve-grid">
           {[
-            [Building2, "Hospitality & interiors", "For spaces with a story."],
-            [Gift, "Corporate & occasion gifting", "Gifts worth keeping."],
-            [Store, "Retail & wholesale", "A range for your store."],
-            [PenTool, "Bespoke projects", "Made to your idea."],
-          ].map(([Icon, title, copy]: any) => (
-            <div key={title}>
-              <Icon size={26} />
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </div>
+            [
+              "Hospitality & interiors",
+              "Lighting and furniture for hotels, restaurants and residences.",
+              "brand/lightings",
+            ],
+            [
+              "Corporate gifting",
+              "Gifts worth keeping, branded or engraved.",
+              "brand/accessories",
+            ],
+            [
+              "Retail & wholesale",
+              "A ready range or your own line for your store.",
+              "brand/kitchenware",
+            ],
+            [
+              "Bespoke projects",
+              "Your drawing, made in metal and wood.",
+              "brand/bespoke",
+            ],
+          ].map(([title, copy, image]) => (
+            <a key={title} href="#enquire" className="serve-card">
+              <Picture
+                name={image}
+                alt=""
+                sizes="(max-width: 900px) 50vw, 25vw"
+              />
+              <span className="serve-veil" aria-hidden="true" />
+              <span className="serve-body">
+                <strong>{title}</strong>
+                <small>{copy}</small>
+                <span className="serve-arrow" aria-hidden="true">
+                  <ArrowUpRight size={16} />
+                </span>
+              </span>
+            </a>
           ))}
         </div>
       </section>
-      <section className="form-section container">
+      <div id="collections" />
+      <MakingStory />
+      <OriginalAtelier />
+      <MaterialAtelier copy={homeCopy} />
+      <MaterialStudies />
+      <Heritage />
+      <Studies>
+        <YourLine />
+      </Studies>
+      <section
+        className="trade-process container"
+        id="process"
+        aria-labelledby="process-title"
+      >
+        <h2 id="process-title" className="trade-kicker">
+          From brief <em>to container.</em>
+        </h2>
+        <ol>
+          {commissionStages.map((stage, i) => (
+            <li key={stage}>
+              <img
+                src={`/images/stages/${stage.toLowerCase()}.webp`}
+                alt=""
+                width={700}
+                height={170}
+                loading="lazy"
+                decoding="async"
+              />
+              <span>0{i + 1}</span>
+              <strong>{stage}</strong>
+              <small>{processNotes[i]}</small>
+            </li>
+          ))}
+        </ol>
+      </section>
+      <section className="form-section container" id="enquire">
         <div className="form-aside">
           {!!selected.length && (
             <div className="address-card">
@@ -132,22 +268,6 @@ export default function Bulk() {
             <br /> your <em>idea.</em>
           </h2>
           <p>Quantities, finishes, timing. An early idea is fine.</p>
-          <ol className="process-list">
-            {commissionStages.map((stage, i) => (
-              <li key={stage}>
-                <span>0{i + 1}</span>
-                {stage}
-                <img
-                  src={`/images/stages/${stage.toLowerCase()}.webp`}
-                  alt=""
-                  width={700}
-                  height={170}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </li>
-            ))}
-          </ol>
           <p className="brand-contact">
             <a href={`mailto:${brand.tradeEmail}`}>{brand.tradeEmail}</a>
             <a href={brand.telephone}>{brand.phone}</a>
@@ -229,6 +349,7 @@ export default function Bulk() {
                 </span>
                 <input
                   name="product"
+                  key={params.get("product") || ""}
                   list="brief-collections"
                   defaultValue={params.get("product") || ""}
                 />
@@ -243,6 +364,7 @@ export default function Bulk() {
               <span>Your project</span>
               <textarea
                 name="message"
+                key={params.get("brief") || ""}
                 defaultValue={(params.get("brief") || "").slice(0, 4000)}
                 minLength={10}
                 maxLength={4000}
@@ -299,6 +421,7 @@ export default function Bulk() {
           </div>
         </section>
       )}
+      <FloatingEnquiry />
     </>
   );
 }
