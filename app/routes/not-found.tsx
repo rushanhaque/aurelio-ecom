@@ -19,7 +19,10 @@ export default function NotFound() {
       </h1>
       <div className="not-found-actions">
         <Link className="button" to="/shop">
-          Back to the shop ↗
+          Visit the shop ↗
+        </Link>
+        <Link className="button button-outline" to="/bulk-orders">
+          Export & bulk ↗
         </Link>
         <button
           className="button button-outline"

@@ -1,15 +1,11 @@
 import { useLoaderData, Link } from "react-router";
 import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { Studies, YourLine } from "../components/atelier-experiments";
 import { piecesIn } from "../lib/catalogue.server";
 import { collections } from "../lib/brand-content";
 import { useStore } from "../lib/store";
-import {
-  PageIntro,
-  Picture,
-  ProductCard,
-  PieceCard,
-  TextLink,
-} from "../components/ui";
+import { PageIntro, ProductCard, PieceCard, TextLink } from "../components/ui";
 export function loader({ params }: { params: { slug?: string } }) {
   const collection = collections.find((c) => c.slug === params.slug);
   if (!collection) throw new Response("Not found", { status: 404 });
@@ -54,32 +50,54 @@ export default function Collection() {
         }
         image={c.cover}
       >
-        <p>{c.summary}</p>
+        <p>{c.description}</p>
+        <Link
+          className="page-hero-cta"
+          to={
+            c.slug === "bespoke"
+              ? "/bulk-orders?product=Bespoke#enquire"
+              : items.length
+                ? "#shop-collection"
+                : `/bulk-orders?product=${encodeURIComponent(c.name)}#enquire`
+          }
+        >
+          {c.slug === "bespoke"
+            ? "Begin your commission"
+            : items.length
+              ? `Shop ${c.name.toLowerCase()}`
+              : `Enquire about ${c.name.toLowerCase()}`}
+          <ArrowUpRight size={16} />
+        </Link>
       </PageIntro>
-      <section className="collection-story container">
-        <Picture
-          name={c.cover}
-          alt={`The Aurelio ${c.name} collection`}
-          eager
-        />
-        <div>
-          <h2>
-            {c.name},<br /> <em>by Aurelio.</em>
+      {c.slug === "bespoke" && (
+        <Studies>
+          <YourLine />
+        </Studies>
+      )}
+      {c.slug !== "bespoke" && (!!items.length || !pieces.length) && (
+        <section className="container section" id="shop-collection">
+          <h2 className="collection-objects-heading">
+            Shop {c.name.toLowerCase()}.
           </h2>
-          <p>{c.description}</p>
-          <TextLink
-            to={
-              c.slug === "bespoke"
-                ? "/bulk-orders?product=Bespoke"
-                : `/shop?category=${c.slug}`
-            }
-          >
-            {c.slug === "bespoke"
-              ? "Begin your commission"
-              : `Shop ${c.name.toLowerCase()}`}
-          </TextLink>
-        </div>
-      </section>
+          {items.length ? (
+            <div className="product-grid">
+              {items.map((p, i) => (
+                <ProductCard product={p} index={i} key={p.id} />
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state">
+              <h3>Coming soon.</h3>
+              <p>Pieces will appear here soon.</p>
+              <TextLink
+                to={`/bulk-orders?product=${encodeURIComponent(c.name)}`}
+              >
+                Enquire about {c.name.toLowerCase()}
+              </TextLink>
+            </div>
+          )}
+        </section>
+      )}
       {!!pieces.length && (
         <section className="container section piece-section" id="pieces">
           <div className="section-heading">
@@ -111,30 +129,6 @@ export default function Collection() {
               >
                 Show more
               </button>
-            </div>
-          )}
-        </section>
-      )}
-      {c.slug !== "bespoke" && (!!items.length || !pieces.length) && (
-        <section className="container section">
-          <h2 className="collection-objects-heading">
-            Shop {c.name.toLowerCase()}.
-          </h2>
-          {items.length ? (
-            <div className="product-grid">
-              {items.map((p, i) => (
-                <ProductCard product={p} index={i} key={p.id} />
-              ))}
-            </div>
-          ) : (
-            <div className="empty-state">
-              <h3>Coming soon.</h3>
-              <p>Pieces will appear here soon.</p>
-              <TextLink
-                to={`/bulk-orders?product=${encodeURIComponent(c.name)}`}
-              >
-                Enquire about {c.name.toLowerCase()}
-              </TextLink>
             </div>
           )}
         </section>

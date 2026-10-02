@@ -111,3 +111,32 @@ body:has(:is(.page-hero, .shop-hero, .trade-hero)):not([data-scrolled="true"])
     animation: none;
   }
 }
+
+/* A single action inside a page hero. */
+.page-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 14px 22px;
+  border-radius: var(--radius-pill, 999px);
+  background: #f2efe6;
+  color: #07251b;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.25s;
+}
+.page-hero-cta:hover {
+  background: #d8c39d;
+}
+.page-hero-cta svg {
+  transition: transform 0.35s var(--ease-out);
+}
+.page-hero-cta:hover svg {
+  transform: rotate(45deg);
+}
+#shop-collection {
+  scroll-margin-top: 90px;
+}
