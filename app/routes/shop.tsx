@@ -6,19 +6,17 @@ import {
   Search,
   X,
   ArrowUpRight,
-  Hammer,
-  Package,
-  Sparkles,
-  PenTool,
 } from "lucide-react";
 import { useStore } from "../lib/store";
 import { Picture, ProductCard } from "../components/ui";
 import "../storefront.css";
 import {
+  LightStudy,
   ObjectAnatomy,
   Studies,
   ThreeLives,
 } from "../components/atelier-experiments";
+import { OpeningNote } from "../components/home-sections";
 export const meta = () => [
   { title: "Shop — Aurelio by AF International" },
   {
@@ -248,24 +246,12 @@ export default function Shop() {
           </nav>
         )}
       </section>
+      <OpeningNote />
       <Studies>
+        <LightStudy />
         <ObjectAnatomy />
         <ThreeLives />
       </Studies>
-      <section className="shop-promise container" aria-label="Our promise">
-        {[
-          [Hammer, "Made by hand", "Raised, cast and finished in Moradabad."],
-          [Package, "Packed to travel", "Wrapped and crated for the journey."],
-          [Sparkles, "Made to age", "Care notes come with every piece."],
-          [PenTool, "Bespoke on request", "Your size, finish or idea."],
-        ].map(([Icon, title, copy]: any) => (
-          <div key={title}>
-            <Icon size={22} strokeWidth={1.4} />
-            <strong>{title}</strong>
-            <span>{copy}</span>
-          </div>
-        ))}
-      </section>
       <section className="shop-trade">
         <Picture name="brand/decor" alt="" sizes="100vw" />
         <div className="shop-trade-veil" aria-hidden="true" />

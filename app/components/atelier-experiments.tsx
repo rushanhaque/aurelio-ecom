@@ -281,26 +281,26 @@ const lampParts = [
   {
     x: 68,
     y: 24,
-    name: "The shade",
-    finish: "Pleated linen, soft light.",
+    name: "Pure leather",
+    finish: "Rich natural texture, made to age beautifully.",
   },
   {
     x: 50,
     y: 38,
-    name: "The light source",
-    finish: "Wired and balanced by hand.",
+    name: "Built to last",
+    finish: "Durable construction, carefully assembled by hand.",
   },
   {
     x: 55,
     y: 60,
-    name: "The stem",
-    finish: "Cast brass, antiqued.",
+    name: "Crafted in brass",
+    finish: "Cast brass with a warm, antiqued finish.",
   },
   {
     x: 62,
     y: 85,
-    name: "The base",
-    finish: "Weighted brass, burnished.",
+    name: "Finished by hand",
+    finish: "Carefully burnished for lasting character.",
   },
 ];
 export function ObjectAnatomy() {

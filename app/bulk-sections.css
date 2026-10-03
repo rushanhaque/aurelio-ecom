@@ -1,0 +1,185 @@
+/* Scoped to Bulk: every visible section participates in the alternating rhythm. */
+.bulk-sections .bulk-band .lab-intro h2 { color: var(--band-ink); }
+.bulk-sections .bulk-band .lab-intro h2 em { color: var(--band-accent); }
+.bulk-sections .bulk-band .lab-intro > p,
+.bulk-sections .bulk-band .lab-intro .interaction-note { color: var(--band-muted); }
+.bulk-band {
+  display: flow-root;
+  background: var(--band-bg);
+  color: var(--band-ink);
+  --band-accent: #987139;
+  --band-line: #14382b26;
+}
+.bulk-band--white {
+  --band-bg: #fff;
+  --band-ink: #10382a;
+  --band-muted: #596e62;
+}
+.bulk-band--green {
+  --band-bg: #092c21;
+  --band-ink: #f8f3e8;
+  --band-muted: #c2cfc5;
+  --band-accent: #d9c297;
+  --band-line: #f8f3e82e;
+}
+.bulk-sections
+  .bulk-band
+  > :is(section, .atelier-experiments, .material-studies),
+.bulk-sections .bulk-band :is(.study, .experiment, .making-stage) {
+  background: var(--band-bg);
+  color: var(--band-ink);
+  border-color: var(--band-line);
+}
+.bulk-sections
+  .bulk-band
+  :is(
+    .workshop-heading,
+    .workshop-bottom,
+    .study-intro,
+    .experiment-heading,
+    .trade-kicker,
+    .section-heading,
+    .standard-foot,
+    .original-standard h2,
+    .trade-process ol
+  ) {
+  color: var(--band-ink);
+}
+.bulk-sections
+  .bulk-band
+  :is(
+    .study-intro h2 em,
+    .original-standard h2 em,
+    .trade-kicker em,
+    .experiment-heading h2 em,
+    .standard-principles,
+    .workshop-number
+  ) {
+  color: var(--band-accent);
+}
+.bulk-sections
+  .bulk-band
+  :is(
+    .study-intro > p,
+    .experiment-heading > p,
+    .standard-foot > p,
+    .trade-process small
+  ) {
+  color: var(--band-muted);
+}
+.bulk-sections
+  .bulk-band
+  :is(.study-link, .workshop-bottom .text-link, .section-heading .text-link) {
+  color: var(--band-ink);
+}
+.bulk-sections .bulk-band--white .original-standard::before {
+  color: #10382a08;
+}
+.bulk-sections .bulk-band--white .original-atelier .workshop-controls button {
+  color: #10382a;
+  border-color: #10382a40;
+}
+.bulk-sections .bulk-band--white .original-atelier .workshop-controls > span {
+  color: #596e62;
+}
+.bulk-sections .bulk-band--green .trade-process :is(li, ol) {
+  border-color: var(--band-line);
+}
+.bulk-sections .bulk-band--green .trade-process li > span {
+  color: var(--band-accent);
+}
+.bulk-sections .bulk-band--green .atelier-experiments {
+  --study-ink: #f8f3e8;
+  --study-line: #f8f3e82e;
+}
+/* The opening section is white, with the furniture photograph alongside it. */
+.bulk-sections .bulk-band--white .heritage-scrim { background: #fffffff0; }
+.bulk-sections .bulk-band .heritage-body h2 { color: var(--band-ink); }
+.bulk-sections .bulk-band .heritage-body h2 em { color: var(--band-accent); }
+.bulk-sections .bulk-band :is(.heritage-prose p, .heritage-stat dt) { color: var(--band-muted); }
+.bulk-sections .bulk-band .heritage-stats { border-color: var(--band-line); }
+.bulk-sections .bulk-band .heritage-stat + .heritage-stat::before { background: var(--band-line); }
+.bulk-sections .bulk-band--white .experiment-dark {
+  --study-ink: #10382a;
+  --study-line: #14382b26;
+}
+.bulk-sections .bulk-band--white .experiment-dark p { color: var(--band-muted); }
+.bulk-sections .bulk-band--white .experiment-dark .experiment-options button[aria-pressed="true"] { color: #fff; }
+.bulk-sections .bulk-band--green .trade-faq-list :is(details, summary, p) { color: var(--band-ink); border-color: var(--band-line); }
+.bulk-sections .bulk-band--white .workshop-copy p,
+.bulk-sections .bulk-band--white .workshop-stage span,
+.bulk-sections .bulk-band--white .workshop-bottom > span {
+  color: var(--band-muted);
+}
+.bulk-sections .bulk-band--white .workshop-copy h3 {
+  color: var(--band-ink);
+}
+.bulk-sections .bulk-band--white .standard-foot li {
+  border-color: var(--band-line);
+}
+.bulk-sections .bulk-band--white .standard-numeral {
+  color: #10382a08;
+}
+.bulk-sections .trade-hero {
+  color: #10382a;
+}
+.bulk-sections .trade-hero > img {
+  left: 48%;
+  width: 52%;
+}
+.bulk-sections .trade-hero-veil {
+  background: linear-gradient(90deg, #fff 42%, #ffffffa6 55%, transparent 72%);
+}
+.bulk-sections .trade-hero-body h1 {
+  color: #10382a;
+}
+.bulk-sections .trade-hero-body h1 em {
+  color: #987139;
+}
+.bulk-sections .trade-hero-body p {
+  color: #596e62;
+  max-width: 42ch;
+}
+.bulk-sections .trade-hero-actions .sf-solid {
+  background: #10382a;
+  color: #fff;
+  border-color: #10382a;
+}
+.bulk-sections .trade-hero-actions .sf-glass {
+  background: #fff;
+  color: #10382a;
+  border-color: #10382a50;
+}
+/* Image-backed stories keep their photography with a matching green ground. */
+.bulk-sections .bulk-band--green .heritage-scrim {
+  background: #092c21b3;
+}
+.bulk-sections .bulk-band--green .commission-veil {
+  background: linear-gradient(90deg, #092c21e6, #092c2180);
+}
+.bulk-sections .bulk-band--white .commission-veil {
+  background: #fffffff0;
+}
+.bulk-sections
+  .bulk-band--white
+  :is(
+    .commission-content,
+    .commission-content h2,
+    .commission-content h2 em,
+    .commission-bottom p,
+    .commission-link
+  ) {
+  color: #10382a;
+}
+@media (max-width: 760px) {
+  .bulk-sections .trade-hero > img {
+    left: 0;
+    width: 100%;
+  }
+  .bulk-sections .trade-hero-veil {
+    background: #ffffffeb;
+  }
+  .bulk-sections .trade-hero-body p {
+    max-width: 36ch;
+  }
+}

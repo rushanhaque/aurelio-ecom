@@ -1,0 +1,730 @@
+@font-face {
+  font-family: "Cinzel";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/cinzel-600.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/jost-400.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/jost-500.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/jost-600.ttf) format("truetype");
+}
+
+/* ============================================================
+   Footer — compact, clean, minimal. Deep-emerald bookend.
+   Four link columns + a small enquiry form, a quiet AURELIO
+   wordmark, and a fine legal bar.
+   ============================================================ */
+
+.ft {
+  --t-fast: 0.4s;
+  --t: 0.55s;
+  --ease-silk: cubic-bezier(0.16, 1, 0.3, 1);
+  background: #07251b; /* the original deep near-black emerald */
+  position: relative;
+  isolation: isolate;
+  /* dark context, scoped to the footer: light text on the emerald ground */
+  --fg: #ffffff;
+  --fg-soft: rgba(255, 255, 255, 0.7);
+  --fg-faint: rgba(255, 255, 255, 0.48);
+  --ivory: #ffffff;
+  --brass-soft: rgba(255, 255, 255, 0.82);
+  --line: rgba(255, 255, 255, 0.16);
+  --line-light: rgba(255, 255, 255, 0.16);
+  --line-light-mid: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  padding-top: clamp(2rem, 1.6rem + 2vw, 3.2rem);
+  padding-bottom: clamp(1.1rem, 0.9rem + 0.9vw, 1.8rem);
+}
+
+.ft-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- main row: link columns + small enquiry form ---- */
+.ft-main {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.ft-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.2rem, 2.5vw, 2.4rem) clamp(1rem, 2vw, 2rem);
+}
+
+.ft-col-head {
+  font-family: var(--sans);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brass-soft);
+  margin-bottom: clamp(0.7rem, 1.4vw, 1.1rem);
+}
+
+.ft-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.ft-link {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  color: var(--fg-soft);
+  transition:
+    color var(--t-fast) var(--ease-silk),
+    transform var(--t) var(--ease-silk);
+}
+.ft-link:hover {
+  color: var(--ivory);
+  transform: translateX(5px);
+}
+.ft-link-btn {
+  text-align: left;
+}
+
+.ft-list--visit li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.7rem;
+}
+.ft-visit-city {
+  font-size: 0.84rem;
+  color: var(--ivory);
+}
+.ft-visit-addr {
+  font-size: 0.7rem;
+  color: var(--fg-faint);
+  line-height: 1.45;
+  max-width: 22ch;
+}
+
+/* ---- small enquiry form ---- */
+.ft-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.ft-input {
+  width: 100%;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line-light-mid);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  padding: 0.4rem 0;
+  transition: border-color 0.4s var(--ease-silk);
+}
+.ft-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.ft-input:focus {
+  outline: none;
+  border-bottom-color: var(--brass-soft);
+}
+
+.ft-send {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  align-self: flex-start;
+  margin-top: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  transition: color 0.4s var(--ease-silk);
+}
+.ft-send svg {
+  transition: transform 0.45s var(--ease-silk);
+}
+.ft-send:hover {
+  color: var(--brass-soft);
+}
+.ft-send:hover svg {
+  transform: translateX(3px);
+}
+
+/* ---- big AURELIO wordmark reveal — full-bleed, screen-filling ---- */
+.ft-mark {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.ft-mark-wrap {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.ft-mark-word {
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-size: clamp(2.2rem, 8vw, 8.5rem);
+  font-weight: 600;
+  letter-spacing: 0.44em;
+  text-indent: 0.44em;
+  color: var(--ivory);
+  display: block;
+  will-change: transform;
+  /* slide-up reveal: waits below its overflow-hidden mask, then rises when the
+     footer scrolls into view (.is-revealed added by an IntersectionObserver).
+     A keyframe animation (not a transition) so it always plays on class add. */
+  transform: translateY(110%);
+}
+.ft-mark-word.is-revealed {
+  animation: ftMarkRise 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes ftMarkRise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-mark-word {
+    transform: translateY(0);
+  }
+  .ft-mark-word.is-revealed {
+    animation: none;
+  }
+}
+
+/* ---- horizontal atelier nav — sits below the wordmark ---- */
+.ft-atelier {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: clamp(1.4rem, 3vw, 2.6rem);
+  padding-top: clamp(1.4rem, 2.5vw, 2rem);
+  border-top: 1px solid var(--line-light);
+}
+
+.ft-atelier-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ft-atelier-link {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-soft);
+  padding: 0.3rem clamp(0.9rem, 2vw, 1.6rem);
+  transition: color 0.4s var(--ease-silk);
+  white-space: nowrap;
+}
+.ft-atelier-link:hover {
+  color: var(--ivory);
+}
+
+.ft-atelier-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--fg-faint);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .ft-atelier {
+    gap: 0.15rem 0.1rem;
+    margin-top: clamp(1.1rem, 4vw, 1.6rem);
+    padding-top: clamp(1.1rem, 4vw, 1.6rem);
+  }
+  .ft-atelier-item {
+    min-height: 44px;
+  }
+  .ft-atelier-link {
+    padding: 0.55rem 0.7rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+  .ft-atelier-sep {
+    display: none;
+  }
+}
+
+/* ---- bottom bar: copy · legal ---- */
+/* ---- the quiet bench clock — sits in the bottom bar, reading like the copy ---- */
+.ft-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--fg-faint);
+}
+.ft-clock-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--fg-faint);
+  flex-shrink: 0;
+}
+.ft-clock-dot.is-open {
+  background: #5fb98e;
+}
+
+/* live atelier status — a quiet centred line that opens the footer */
+.ft-status {
+  display: flex;
+  justify-content: center;
+  padding-bottom: clamp(1rem, 1.6vw, 1.5rem);
+  margin-bottom: clamp(1.6rem, 3vw, 2.6rem);
+  border-bottom: 1px solid var(--line-light);
+}
+
+/* bottom bar — just the developer credit, pinned bottom-right */
+.ft-bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: clamp(1.4rem, 3vw, 2.4rem);
+  padding-top: clamp(1rem, 1.6vw, 1.5rem);
+  border-top: 1px solid var(--line-light);
+}
+
+.ft-word {
+  font-family: var(--display); /* Cinzel — matches nav wordmark */
+  font-size: clamp(1rem, 0.8rem + 0.7vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.48em;
+  text-indent: 0.48em;
+  color: var(--ivory);
+}
+
+.ft-copy {
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--fg-faint);
+}
+
+.ft-legal {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.6rem);
+}
+.ft-legal a {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--fg-faint);
+  transition: color 0.4s var(--ease-silk);
+}
+.ft-legal a:hover {
+  color: var(--ivory);
+}
+
+/* ---- minimal "contact developer" credit ---- */
+.ft-dev {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  border: 1px solid var(--line-light);
+  border-radius: 2px;
+  padding: 0.4rem 0.85rem;
+  transition:
+    color 0.4s var(--ease-silk),
+    border-color 0.4s var(--ease-silk);
+}
+.ft-dev:hover {
+  color: var(--ivory);
+  border-color: var(--line-light-mid);
+}
+
+.ft-legal-btn {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--fg-faint);
+  transition: color 0.4s var(--ease-silk);
+}
+.ft-legal-btn:hover {
+  color: var(--ivory);
+}
+
+/* ---- Catalogue modal ---- */
+.cat-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(7, 37, 27, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.cat-modal {
+  position: relative;
+  background: #07251b;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.6rem, 3.5vw, 2.6rem);
+  width: 100%;
+  max-width: 26rem;
+  color: #ffffff;
+}
+
+.cat-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+  padding: 0.3rem;
+}
+.cat-modal-close:hover {
+  color: #ffffff;
+}
+
+.cat-modal-kicker {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.75rem;
+}
+
+.cat-modal-lead {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1.8rem;
+}
+
+.cat-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.cat-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cat-modal-label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ft-select {
+  cursor: pointer;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #ffffff;
+}
+.ft-select option {
+  background: #07251b;
+  color: #ffffff;
+}
+
+.cat-modal .ft-input,
+.cat-modal .ft-select {
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+}
+.cat-modal .ft-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+.cat-modal .ft-input:focus,
+.cat-modal .ft-select:focus {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.cat-modal-submit {
+  margin-top: 0.6rem;
+}
+
+.cat-modal-thanks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.dev-modal-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.3s ease;
+}
+.dev-modal-link:hover {
+  color: #ffffff;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* ---- tablet: stack the columns block above the enquiry form ---- */
+@media (max-width: 900px) {
+  .ft-main {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 6vw, 2.6rem);
+  }
+  /* a touch more room between the form fields once it spans full width */
+  .ft-form {
+    gap: 1rem;
+    max-width: 30rem;
+  }
+}
+
+/* ---- phone: a compact, much shorter footer ---- */
+@media (max-width: 640px) {
+  /* tight vertical padding — the footer is a lot shorter on phones */
+  .ft {
+    padding-top: clamp(1.1rem, 4.5vw, 1.6rem);
+    padding-bottom: clamp(0.8rem, 3vw, 1.1rem);
+  }
+
+  /* quieter status line, less air around it */
+  .ft-status {
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.1rem;
+  }
+
+  /* drop the wide gap between the columns block and the form */
+  .ft-main {
+    gap: 1.3rem;
+  }
+
+  /* Collections column is hidden on phones (per request); the rest sit in
+     two tight columns */
+  .ft-col--collections {
+    display: none;
+  }
+  .ft-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem 1rem;
+  }
+  .ft-col {
+    min-width: 0;
+  }
+  .ft-col-head {
+    margin-bottom: 0.5rem;
+  }
+
+  .ft-list {
+    gap: 0.1rem;
+  }
+  .ft-link {
+    padding: 0.32rem 0;
+    font-size: 0.84rem;
+  }
+  .ft-link:hover {
+    transform: none;
+  } /* hover slide is desktop-only */
+  .ft-list--visit li {
+    margin-bottom: 0.45rem;
+  }
+  .ft-visit-addr {
+    max-width: none;
+  }
+
+  /* the enquiry form is dropped on phones to keep the footer short — the
+     Connect/Contact columns + cart + Contact page already cover enquiries */
+  .ft-form {
+    display: none;
+  }
+
+  /* shrink the giant AURELIO wordmark a lot + pull its block tight */
+  .ft-mark {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .ft-mark-word {
+    font-size: clamp(1.35rem, 7vw, 2rem);
+    letter-spacing: 0.24em;
+    text-indent: 0.24em;
+  }
+
+  /* compact atelier nav + bottom credit */
+  .ft-atelier {
+    margin-top: 1.1rem;
+    padding-top: 1rem;
+    gap: 0.1rem 0;
+  }
+  .ft-atelier-link {
+    padding: 0.3rem 0.55rem;
+  }
+  .ft-bottom {
+    justify-content: center;
+    margin-top: 1.1rem;
+    padding-top: 0.8rem;
+  }
+  .ft-dev {
+    min-height: 40px;
+  }
+}
+
+/* ---- small phone: single column for the link lists ---- */
+@media (max-width: 400px) {
+  .ft-cols {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.4rem;
+  }
+  .ft-atelier-link {
+    padding: 0.55rem 0.55rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+  }
+  .ft-mark-word {
+    letter-spacing: 0.24em;
+    text-indent: 0.24em;
+  }
+  .cat-modal {
+    padding: clamp(1.6rem, 7vw, 2rem) clamp(1.2rem, 5vw, 1.6rem);
+  }
+  .cat-modal-overlay {
+    padding: 1rem;
+  }
+}
+
+/* ============================================================
+   MOBILE MOTION — tasteful one-shot reveals for the parts not
+   already driven by <Reveal> (atelier nav + legal bar). Uses a
+   scroll-driven view-timeline so it fires once as each block
+   enters; transform + opacity only (60fps). Degrades to fully
+   visible where unsupported or when motion is reduced.
+   ============================================================ */
+@media (max-width: 900px) {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .ft-atelier,
+      .ft-bottom {
+        animation: ftRiseIn both linear;
+        animation-timeline: view();
+        animation-range: entry 0% entry 60%;
+      }
+    }
+  }
+}
+
+@keyframes ftRiseIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-atelier,
+  .ft-bottom {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Local resets preserve the reference styling inside this storefront. */
+.ft {
+  overflow: clip;
+}
+.ft h2 {
+  margin-top: 0;
+  line-height: 1.5;
+}
+.ft-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ft button,
+.cat-modal button {
+  background: transparent;
+  cursor: pointer;
+}
+.ft-send,
+.cat-modal-close,
+.ft-atelier-btn {
+  border: 0;
+  padding-inline: 0;
+}
+.ft-input {
+  border-radius: 0;
+  box-shadow: none;
+}
+.ft-error {
+  color: #ffd6c9;
+  font-size: 0.8rem;
+}
+.ft-send:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.cat-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 901;
+  max-height: 90dvh;
+  overflow-y: auto;
+  width: calc(100% - 3rem);
+  --ivory: #fff;
+}
+
+.ft,
+.cat-modal {
+  --sans: "Jost", sans-serif;
+}

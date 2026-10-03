@@ -27,6 +27,7 @@ import {
   NavigationProgress,
 } from "./components/layout";
 import { AtelierMotion } from "./components/atelier-motion";
+import { PageIntro } from "./components/page-intro";
 import NotFound from "./routes/not-found";
 /* One bundle for the seven global layers — see app.css for the cascade order. */
 import styles from "./app.css?url";
@@ -299,6 +300,7 @@ export default function App() {
         aria-live="polite"
       />
       <NavigationProgress />
+      <PageIntro />
       <Header />
       <main id="main" tabIndex={-1}>
         {unavailable ? (
@@ -317,7 +319,7 @@ export default function App() {
           <Outlet />
         )}
       </main>
-      <Footer />
+      {location.pathname !== "/" && <Footer />}
       <GlobalPanels />
       <RouteEffects />
       <AtelierMotion />

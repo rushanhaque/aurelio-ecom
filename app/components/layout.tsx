@@ -2,7 +2,6 @@ import { brand } from "../lib/brand";
 import { collections } from "../lib/brand-content";
 import {
   Link,
-  NavLink,
   useLocation,
   useNavigate,
   useNavigation,
@@ -11,14 +10,9 @@ import { useEffect, useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
   Search,
-  ShoppingBag,
-  Heart,
-  Menu,
   X,
   ArrowUpRight,
   ArrowRight,
-  ChevronDown,
-  User,
   Check,
 } from "lucide-react";
 import { useStore, request } from "../lib/store";
@@ -51,29 +45,6 @@ export function NavigationProgress() {
     >
       <span className="sr-only">{busy ? "Loading page" : "Page loaded"}</span>
     </div>
-  );
-}
-
-/* The label is duplicated into a data attribute so the v2 nav hover can lift
-   one copy away and raise its brass twin without a second DOM node. */
-function NavLabel({ children }: { children: string }) {
-  return (
-    <span className="nav-label">
-      <span data-label={children}>{children}</span>
-    </span>
-  );
-}
-
-/* Each letter carries its index so the wordmark can settle in sequence. */
-function Wordmark({ text }: { text: string }) {
-  return (
-    <>
-      {[...text].map((letter, i) => (
-        <b key={i} style={{ "--i": i } as React.CSSProperties}>
-          {letter}
-        </b>
-      ))}
-    </>
   );
 }
 
@@ -120,291 +91,10 @@ function Highlight({ text, query }: { text: string; query: string }) {
   );
 }
 
-export function Header() {
-  const { cart, wishlist, currency, setCurrency, setPanel } = useStore();
-  const bagCount = cart.reduce((sum, line) => sum + line.quantity, 0);
-  // The export side is its own world: trade navigation, no bag or currency.
-  const trade = useLocation().pathname.startsWith("/bulk-orders");
-  return (
-    <>
-      <div className="announcement">
-        {trade ? (
-          <>
-            <span>Made in Moradabad. Shipped to 25+ countries.</span>
-            <Link to="/shop">
-              Visit the shop <ArrowUpRight size={12} />
-            </Link>
-          </>
-        ) : (
-          <>
-            <span>Made by hand in Moradabad.</span>
-            <Link to="/about">
-              Our story <ArrowUpRight size={12} />
-            </Link>
-          </>
-        )}
-      </div>
-      <header className={`site-header ${trade ? "is-trade" : ""}`}>
-        <div className="header-left">
-          <button
-            className="icon-button mobile-menu"
-            onClick={() => setPanel("menu")}
-            aria-label="Open menu"
-          >
-            <Menu size={22} />
-          </button>
-          <nav aria-label="Main navigation">
-            {trade ? (
-              <>
-                <a href="#collections">
-                  <NavLabel>Collections</NavLabel>
-                </a>
-                <a href="#process">
-                  <NavLabel>How we work</NavLabel>
-                </a>
-                <NavLink to="/about">
-                  <NavLabel>About us</NavLabel>
-                </NavLink>
-                <NavLink to="/contact">
-                  <NavLabel>Contact us</NavLabel>
-                </NavLink>
-              </>
-            ) : (
-              <>
-                <NavLink to="/shop">
-                  <NavLabel>Shop</NavLabel> <ChevronDown size={11} />
-                </NavLink>
-                <NavLink to="/collections">
-                  <NavLabel>Collections</NavLabel>
-                </NavLink>
-                <NavLink to="/about">
-                  <NavLabel>About us</NavLabel>
-                </NavLink>
-                <NavLink to="/contact">
-                  <NavLabel>Contact us</NavLabel>
-                </NavLink>
-              </>
-            )}
-          </nav>
-        </div>
-        {/* The link's aria-label carries the name, so the per-letter spans stay
-            purely decorative and never fragment the accessible name. */}
-        <Link className="wordmark" to="/" aria-label="Aurelio home">
-          <Wordmark text="AURELIO" />
-          <span>BY AF INTERNATIONAL</span>
-        </Link>
-        <div className="header-right">
-          {trade ? (
-            <>
-              <Link className="bulk-nav" to="/shop">
-                <NavLabel>Shop</NavLabel> <ArrowUpRight size={13} />
-              </Link>
-              <a className="trade-cta" href="#enquire">
-                Start an enquiry <ArrowUpRight size={14} />
-              </a>
-            </>
-          ) : (
-            <>
-              <Link className="bulk-nav" to="/bulk-orders">
-                <NavLabel>Export & bulk</NavLabel> <ArrowUpRight size={13} />
-              </Link>
-              <div className="currency-select">
-                <span className="sr-only">Currency</span>
-                <select
-                  value={currency}
-                  onChange={(e) => setCurrency(e.target.value as any)}
-                  aria-label="Select currency"
-                >
-                  {currencies.map((c) => (
-                    <option key={c}>{c}</option>
-                  ))}
-                </select>
-                <span className="currency-display" aria-hidden="true">
-                  {currency} <ChevronDown size={10} strokeWidth={2.5} />
-                </span>
-              </div>
-              <button
-                className="icon-button"
-                onClick={() => setPanel("search")}
-                aria-label="Search objects"
-              >
-                <Search size={19} />
-              </button>
-              <Link
-                className="icon-button desktop-icon"
-                to="/account"
-                aria-label="Your account"
-              >
-                <User size={19} />
-              </Link>
-              <Link
-                className="icon-button desktop-icon"
-                to="/wishlist"
-                aria-label={`Wishlist, ${wishlist.length} saved objects`}
-              >
-                <Heart size={19} />
-              </Link>
-              <button
-                className="icon-button bag-button"
-                onClick={() => setPanel("cart")}
-                aria-label={`Open bag, ${bagCount} ${bagCount === 1 ? "item" : "items"}`}
-              >
-                <ShoppingBag size={19} />
-                <span>{bagCount}</span>
-              </button>
-            </>
-          )}
-        </div>
-      </header>
-    </>
-  );
-}
-export function Footer() {
-  const [status, setStatus] = useState(""),
-    [busy, setBusy] = useState(false);
-  async function subscribe(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setBusy(true);
-    try {
-      await request("/api/newsletter", {
-        method: "POST",
-        body: JSON.stringify({
-          email: new FormData(e.currentTarget).get("email"),
-          consent: true,
-        }),
-      });
-      setStatus("You’re subscribed.");
-    } catch (e) {
-      setStatus((e as Error).message);
-    } finally {
-      setBusy(false);
-    }
-  }
-  return (
-    <footer className="site-footer">
-      <div className="footer-top container">
-        <div className="footer-invitation">
-          <h2>
-            Good things.
-            <br />
-            <em>Now and then.</em>
-          </h2>
-          <p>New objects and workshop stories.</p>
-          <form className="newsletter-form" onSubmit={subscribe}>
-            <label className="sr-only" htmlFor="newsletter-email">
-              Your email address
-            </label>
-            <input
-              id="newsletter-email"
-              name="email"
-              type="email"
-              placeholder="Your email address"
-              required
-            />
-            <button aria-label="Subscribe to Aurelio notes" disabled={busy}>
-              <ArrowRight size={21} />
-            </button>
-          </form>
-          <small>
-            You agree to receive our notes.{" "}
-            <Link to="/privacy">Privacy policy</Link>
-          </small>
-          <p className="form-status" role="status">
-            {status}
-          </p>
-        </div>
-        <div className="footer-links">
-          <div>
-            <h3>SHOP</h3>
-            <Link to="/shop">Shop all</Link>
-            <Link to="/collections">Collections</Link>
-            <Link to="/materials">Materials</Link>
-            <Link to="/care">Care guide</Link>
-            <Link to="/wishlist">Saved items</Link>
-            <Link to="/track-order">Track your order</Link>
-          </div>
-          <div>
-            <h3>EXPORT & TRADE</h3>
-            <Link to="/bulk-orders">Export & bulk</Link>
-            <Link to="/bulk-orders#process">How we work</Link>
-            <Link to="/collections/bespoke">Bespoke</Link>
-            <Link to="/contact?topic=Catalogue%20request">
-              Request a catalogue
-            </Link>
-            <Link to="/bulk-orders#enquire">Start an enquiry</Link>
-          </div>
-          <div>
-            <h3>HELP</h3>
-            <Link to="/contact">Contact us</Link>
-            <Link to="/shipping">Shipping & delivery</Link>
-            <Link to="/returns">Returns & refunds</Link>
-            <Link to="/faq">FAQ</Link>
-            <Link to="/about">About us</Link>
-            <Link to="/journal">Journal</Link>
-          </div>
-        </div>
-      </div>
-      <div className="footer-business container">
-        <div>
-          <h3>VISIT</h3>
-          <address>
-            {brand.address.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
-          </address>
-          <p>{brand.hours}</p>
-        </div>
-        <div>
-          <h3>COLLECTIONS</h3>
-          <nav aria-label="Footer collections">
-            {collections.map((c) => (
-              <Link key={c.slug} to={`/collections/${c.slug}`}>
-                {c.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
-        <div>
-          <h3>CONNECT</h3>
-          <a href={brand.telephone}>{brand.phone}</a>
-          <a href={`mailto:${brand.email}`}>{brand.email}</a>
-          <a href={`mailto:${brand.tradeEmail}`}>{brand.tradeEmail}</a>
-          <a href={brand.whatsapp} target="_blank" rel="noreferrer">
-            WhatsApp ↗
-          </a>
-          <a href={brand.instagram} target="_blank" rel="noreferrer">
-            Instagram ↗
-          </a>
-        </div>
-      </div>
-      <div className="footer-brand container">AURELIO</div>
-      <div className="footer-bottom container">
-        <span>© {new Date().getFullYear()} Aurelio by AF International.</span>
-        <button
-          className="back-to-top"
-          onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-                ? "auto"
-                : "smooth",
-            });
-            document.getElementById("main")?.focus({ preventScroll: true });
-          }}
-        >
-          Back to top <ArrowUpRight size={13} />
-        </button>
-        <span className="preview-note">Design preview</span>
-        <div>
-          <Link to="/privacy">Privacy</Link>
-          <Link to="/preferences">Preferences</Link>
-          <Link to="/terms">Terms</Link>
-          <Link to="/accessibility">Accessibility</Link>
-        </div>
-      </div>
-    </footer>
-  );
-}
+export { Header } from "./header";
+
+export { default as Footer } from "./footer";
+
 export function GlobalPanels() {
   const {
     panel,
@@ -420,7 +110,7 @@ export function GlobalPanels() {
   } = useStore();
   const [query, setQuery] = useState("");
   const location = useLocation();
-  const trade = location.pathname.startsWith("/bulk-orders");
+  const trade = location.pathname.startsWith("/bulk-orders") || location.pathname.startsWith("/quotes");
   const navigate = useNavigate();
   // A hash jump on the same page (the trade menu's section links) closes too.
   useEffect(
@@ -488,7 +178,9 @@ export function GlobalPanels() {
                   ? [
                       ["/bulk-orders#enquire", "Start an enquiry"],
                       ["/bulk-orders#collections", "Collections"],
+                      ["/bulk-orders#material-atelier", "Materials & finishes"],
                       ["/bulk-orders#process", "How we work"],
+                      ["/contact?topic=Catalogue%20request", "Request a catalogue"],
                       ["/shop", "Visit the shop"],
                       ["/about", "About us"],
                       ["/contact", "Contact us"],
@@ -510,6 +202,12 @@ export function GlobalPanels() {
                     <ArrowUpRight size={22} />
                   </Link>
                 ))}
+                {trade && (
+                  <div className="menu-utilities">
+                    <a href={brand.whatsapp} target="_blank" rel="noreferrer">WhatsApp the trade desk</a>
+                    <Link to="/">Aurelio home</Link>
+                  </div>
+                )}
                 {!trade && (
                   <div className="menu-utilities">
                     <label className="menu-currency">

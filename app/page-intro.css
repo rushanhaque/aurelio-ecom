@@ -1,0 +1,140 @@
+/* ============================================================
+   PageIntro — full-viewport emerald veil on first load.
+   ============================================================ */
+
+.pi {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.2rem, 3vw, 2rem);
+  will-change: transform;
+}
+
+/* Wordmark mask — the inner span rises out */
+.pi-mark-wrap {
+  overflow: hidden;
+  padding-bottom: 0.08em; /* room for descenders / optical safety */
+}
+
+.pi-mark-inner {
+  display: block;
+  font-family:
+    "Cinzel", "Trajan Pro", "Times New Roman", serif; /* Cinzel — same mark as the navbar */
+  font-weight: 600;
+  font-size: clamp(2.6rem, 0.8rem + 6vw, 7rem);
+  letter-spacing: clamp(0.5em, 0.38em + 0.7vw, 0.7em);
+  text-indent: clamp(0.5em, 0.38em + 0.7vw, 0.7em);
+  color: #0e3b2c;
+  line-height: 1;
+  will-change: transform;
+  font-feature-settings: "kern" 1;
+}
+
+/* Fine brass rule that draws beneath the wordmark */
+.pi-rule {
+  width: clamp(2.6rem, 8vw, 5rem);
+  height: 1px;
+  background: #0e3b2c;
+  transform: scaleX(0);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.pi-tag {
+  opacity: 0;
+  color: rgba(14, 59, 44, 0.55);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+/* Large, faint loading percentage in the corner — counts 0 → 100 */
+.pi-count {
+  position: absolute;
+  right: clamp(1.4rem, 4vw, 3.2rem);
+  bottom: clamp(1.2rem, 3.5vw, 2.8rem);
+  font-family: var(--sans);
+  font-size: clamp(2rem, 1rem + 3.4vw, 4.8rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: rgba(14, 59, 44, 0.14);
+  font-variant-numeric: tabular-nums;
+}
+.pi-count::after {
+  content: "%";
+  font-size: 0.42em;
+  vertical-align: super;
+  margin-left: 0.08em;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   RESPONSIVE
+   The veil is full-viewport already; these layers keep the wide-
+   tracked wordmark, tagline and corner count from ever bleeding
+   past a phone edge, and keep the composition centered and calm.
+   ============================================================ */
+
+/* ---- tablet ---- */
+@media (max-width: 900px) {
+  .pi {
+    gap: clamp(1.1rem, 3.5vw, 1.8rem);
+  }
+}
+
+/* ---- phone ---- */
+@media (max-width: 640px) {
+  /* breathe the stack in from the gutter so wide tracking never clips */
+  .pi {
+    padding-inline: var(--gutter);
+  }
+
+  .pi-mark-wrap {
+    max-width: 100%;
+  }
+  .pi-mark-inner {
+    /* trim the extreme tracking on a narrow screen so AURELIO stays
+       on one line and centered within the gutter */
+    font-size: clamp(2rem, 1rem + 7vw, 3.4rem);
+    letter-spacing: clamp(0.34em, 0.22em + 3vw, 0.5em);
+    text-indent: clamp(0.34em, 0.22em + 3vw, 0.5em);
+    max-width: 100%;
+  }
+
+  .pi-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-align: center;
+    max-width: calc(100% - 2 * var(--gutter));
+  }
+
+  /* let the count sit comfortably in the corner without crowding */
+  .pi-count {
+    right: var(--gutter);
+    bottom: clamp(1.1rem, 5vw, 2rem);
+    font-size: clamp(2rem, 1rem + 6vw, 3.4rem);
+  }
+}
+
+/* ---- small phone ---- */
+@media (max-width: 400px) {
+  .pi-mark-inner {
+    letter-spacing: clamp(0.28em, 0.18em + 2.5vw, 0.4em);
+    text-indent: clamp(0.28em, 0.18em + 2.5vw, 0.4em);
+  }
+  .pi-tag {
+    letter-spacing: 0.18em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pi {
+    display: none;
+  }
+}

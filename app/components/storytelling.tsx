@@ -85,7 +85,7 @@ export function MakingStory() {
           <div className="making-track" aria-hidden="true">
             <i />
           </div>
-          <a href="#selected-works">
+          <a href="/bulk-orders#selected-works">
             MEET THE OBJECTS <ArrowUpRight size={14} />
           </a>
         </div>
