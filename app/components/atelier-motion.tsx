@@ -409,41 +409,6 @@ export function AtelierMotion() {
           matchMedia("(hover:hover) and (pointer:fine)").matches &&
           document.querySelector("[data-cursor],[data-magnetic]")
         ) {
-          document
-            .querySelectorAll<HTMLElement>(".archive-frame")
-            .forEach((frame) => {
-              const rotateX = gsap.quickTo(frame, "rotationX", {
-                duration: 0.55,
-                ease: "power3.out",
-              });
-              const rotateY = gsap.quickTo(frame, "rotationY", {
-                duration: 0.55,
-                ease: "power3.out",
-              });
-              gsap.set(frame, { transformPerspective: 1000 });
-              frame.addEventListener(
-                "pointermove",
-                (e) => {
-                  if (e.pointerType === "touch") return;
-                  const b = frame.getBoundingClientRect();
-                  const x = (e.clientX - b.left) / b.width,
-                    y = (e.clientY - b.top) / b.height;
-                  rotateX((0.5 - y) * 5);
-                  rotateY((x - 0.5) * 5);
-                  frame.style.setProperty("--glint-x", x * 100 + "%");
-                  frame.style.setProperty("--glint-y", y * 100 + "%");
-                },
-                { passive: true, signal: abort.signal },
-              );
-              frame.addEventListener(
-                "pointerleave",
-                () => {
-                  rotateX(0);
-                  rotateY(0);
-                },
-                { signal: abort.signal },
-              );
-            });
           const bubble = cursor.current;
           if (!bubble) return;
           const setX = gsap.quickTo(bubble, "x", {

@@ -70,12 +70,6 @@
   outline: 3px solid #967240;
   outline-offset: 5px;
 }
-.archive-frame:hover,
-.archive-frame:focus-visible,
-.archive-work.is-lit .archive-frame {
-  box-shadow: 0 15px 35px #07231918;
-  border-color: #07231955;
-}
 .archive-off {
   position: relative;
   z-index: 1;
@@ -87,8 +81,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.04);
-  transition: transform 1.4s var(--ease);
+
 }
 .archive-work.is-lit .archive-off,
 .archive-work.in-light .archive-off,

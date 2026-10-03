@@ -1,0 +1,352 @@
+AURELIO BY AF INTERNATIONAL
+HOMEPAGE FILM — STARTING-FRAME IMAGE + GOOGLE FLOW VIDEO PROMPTS
+
+11 SCENES / 22 COMPLETE PROMPTS
+2 indoor scenes, 2 outdoor scenes, 4 single-product scenes, 3 products-in-use scenes.
+
+HOW TO USE THIS DOCUMENT
+1. Choose a scene and attach the product photographs listed for it to ChatGPT image generation. Paste that scene's entire STARTING-FRAME IMAGE PROMPT. Each prompt already includes the full shared visual direction.
+2. Inspect the generated still against your product photographs. Correct any inaccurate silhouette, material, finish, mounting, scale, hand or object placement before proceeding. A video will inherit mistakes in its starting image.
+3. Upload the approved still as the starting frame in Google Flow. Paste that scene's entire GOOGLE FLOW VIDEO PROMPT. You do not need to paste the image prompt into Flow.
+4. Select landscape 16:9, the highest suitable quality available and approximately eight seconds where supported. Prompt requests do not guarantee particular settings or exact product fidelity; inspect each generated take.
+5. Keep the website name and buttons in the website layer, not baked into the image or video. These compositions reserve calm upper-centre space for AURELIO and its small byline, and calm lower-centre space for the two buttons.
+
+Use clean, well-lit product references. Multiple views should depict the same exact product and finish. For group scenes, label the intended pieces and use a coherent selection that can be displayed at realistic scale. Single-product prompts feature only one hero product. Environmental styling is subordinate to your products.
+
+All 22 prompts below are standalone. Copy the complete prompt under the relevant label, including its scene-specific paragraphs. The recurring direction is intentionally repeated so nothing needs to be added from another section.
+
+==============================================================================
+SCENE 01 — INDOOR SCENERY — THE SUNLIT AURELIO RESIDENCE
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach a coordinated selection of your furniture, lighting and decorative-object photographs. Identify each product clearly; use only the pieces you want visible in this room.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Build a spacious contemporary heritage residence with tall windows, ivory plaster walls, pale limestone flooring and sheer linen curtains. Arrange the attached furniture as a believable seating group, the attached lights in their correct functional positions, and the attached decorative objects on appropriate surfaces. Include every selected product once, with generous breathing room. Use one restrained emerald textile and minimal secondary styling. This is a lived-in, beautifully composed residence rather than a crowded showroom.
+
+Opening viewpoint: a level, eye-height, three-quarter view from just inside a broad doorway, photographed with a natural 35 mm lens character. A table provides gentle foreground depth, the main furniture occupies the middle distance, and lighting gives depth farther into the room. Ensure the products are recognisable rather than hidden behind one another. Late-morning daylight enters from one side; the garden outside is softly visible. Curtains hang naturally. Leave a calm stretch of pale architecture in the upper centre and clear floor or subdued furniture tones in the lower centre. This frame begins a very slow forward camera move into the room.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+From the supplied doorway composition, make a very slow forward dolly into the room, travelling only a short distance. Let the foreground table, principal furniture and background lighting create gentle natural parallax. Keep the full arrangement readable throughout; do not push into a close-up or crop away the main pieces. A sheer curtain moves lightly in a small breeze and distant garden leaves stir subtly. Furniture and decorative objects remain perfectly still. Preserve the soft late-morning side light and end on a balanced view of the complete coordinated collection. The feeling is a fresh, peaceful arrival in a beautifully furnished home.
+
+==============================================================================
+SCENE 02 — INDOOR SCENERY — THE GARDEN-FACING BOUTIQUE SUITE
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach the table or console, table lamp, and decorative vase or accessories you want featured. Use a small, coordinated selection.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Create an airy boutique-hotel suite facing an open green courtyard. Use off-white plaster, light oak, ivory upholstery and a single deep emerald accent. Place the attached table or console in the foreground, with the reference lamp and decorative accessories arranged naturally on or beside it as their size and function require. Preserve adequate spacing and actual product scale. A casually open book may be a subordinate styling detail; avoid rows of objects that resemble a catalogue shelf.
+
+Opening viewpoint: a refined three-quarter composition with the camera just above tabletop height and a natural 40 mm lens character. Show the table silhouette and lamp clearly, with the courtyard softly layered behind them. Soft reflected garden daylight fills the room; the lamp retains the visible illumination state of the reference. A loose curtain edge sits at the far side of the image. Reserve calm areas of plaster and softly toned furnishings for the upper-centre wordmark and lower-centre buttons. Compose this as the beginning of a short left-to-right camera slide.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+Make a slow, short left-to-right camera slide just above tabletop height. Preserve the starting frame's table, lamp and accessories, revealing their relationship through modest parallax. Keep the products readable at the same time with gentle depth of field rather than a dramatic focus pull. A loose curtain edge moves slightly; garden foliage outside has faint natural motion. Brass and glass reflections evolve subtly with the camera position. Do not change the lamp's illumination state. Finish with the principal objects still visible in a serene, bright suite that feels freshly prepared for a guest.
+
+==============================================================================
+SCENE 03 — OUTDOOR SCENERY — THE LIMESTONE GARDEN COURTYARD
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach furniture and decorative products suited to a sheltered courtyard arrangement. Use photographs of the exact pieces you want shown.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Create a refined enclosed garden courtyard with warm-white walls, pale limestone paving, a mature olive tree and a shaded architectural loggia. Position the attached furniture and decorative objects entirely beneath the shelter on dry paving. Arrange a cohesive seating composition with ivory cushions only where appropriate to the original furniture; do not conceal distinctive product details. Add a neatly folded linen textile as a restrained secondary element. The garden should feel green, fresh and cultivated.
+
+Opening viewpoint: a level, eye-height, three-quarter wide composition with a natural 35 mm lens character. Products sit in soft open shade while filtered morning sunlight brightens the courtyard paving farther away. Show the main pieces clearly with the quiet white wall behind them and greenery around the edges. Avoid busy branches crossing important product silhouettes. Keep the upper and lower central overlay areas calm. The scene starts a shallow camera arc around the arrangement; show no rain or wet products.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+Move the camera in a very shallow arc of approximately ten to fifteen degrees around the sheltered furniture arrangement, maintaining a consistent height and distance. Preserve the products' exact shapes, support points and positions. Keep the collection dominant and entirely under the loggia. Olive leaves stir lightly and one loose linen edge moves a little in the breeze. Maintain bright morning light on the distant paving and soft shade on the products, without shifting sunlight or time of day. End on a harmonious view of the collection against white architecture and layered greens. All product surfaces remain dry.
+
+==============================================================================
+SCENE 04 — OUTDOOR SCENERY — THE COVERED VERANDA AFTER RAIN
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach the seating, side table and lantern or decorative vessel you want in the veranda. Choose a coordinated group rather than unrelated products.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Create a bright covered veranda with white limewashed columns, a dry pale-stone floor under a roof, ivory textiles and a lush garden beyond. Arrange the attached seating and side table naturally, with the reference lantern or decorative vessel in a functionally correct position. Keep all products sheltered and dry. Beyond the veranda, a garden path has a faint sheen from recently finished rain. The sky has cleared to soft bright daylight, with no falling rain, fog or gloomy storm atmosphere.
+
+Opening viewpoint: a natural 50 mm lens character, looking diagonally across the arrangement from beside a white column. Let only a narrow edge of the column appear in the foreground, never obscuring a main product. Keep the products crisp and the garden gently softer. Green reflections in metal or glass should be subtle and physically plausible. Preserve quiet upper-centre architecture and a subdued lower-centre area. This is the opening of a short sideways reveal into the veranda.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+Make a slow sideways camera slide away from the narrow foreground column, gently revealing a little more of the existing veranda arrangement. Keep every principal product recognisable and stationary, with the garden softly behind it. Leaves outside move lightly and a few existing droplets glint naturally without exaggerated sparkle. The distant garden path retains a subtle wet sheen while the products and sheltered floor stay dry. Maintain the same bright, soft post-rain daylight throughout. No weather transition, falling rain, moving furniture or dramatic camera reveal. End on an inviting, balanced composition of the products and garden.
+
+==============================================================================
+SCENE 05 — SINGLE PRODUCT — THE BRASS TABLE LAMP
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach clear photographs of one exact table lamp. If you want it illuminated, include a photograph showing its intended lit appearance.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Feature only the attached table lamp as the hero, standing on a pale limestone side table in a bright ivory room. Reproduce the exact shade shape and pleats, shade material, stem detailing, base proportions and metal finish from the references. Keep the illumination state shown in the reference; do not invent an oversized glow. A distant emerald curtain edge and a softly sunlit wall provide restrained background colour.
+
+Opening viewpoint: a natural 85 mm lens character, front-left three-quarter view, with the entire lamp and its contact with the tabletop visible. Leave breathing room above the shade and around the base. Use enough depth of field to read the complete lamp, with gentle background separation. A broad soft window produces controlled highlights that reveal the brass detailing without clipping. Keep pale upper-centre space and an uncluttered lower-centre area for the website overlays. This frame begins a very shallow camera arc toward a more frontal angle.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+Make a very shallow, slow camera arc from the supplied front-left view toward a slightly more frontal view. Keep the entire lamp within frame and maintain its size approximately constant. The lamp itself never rotates or moves. Let the window reflection glide naturally across the brass as the camera shifts, revealing the base and stem craftsmanship. Preserve the exact pleats and edges of the shade. Maintain the original illumination state with no switching, pulsing or change in brightness. The background curtain may move almost imperceptibly. Finish with the lamp still fully visible, elegant and structurally identical to the opening frame.
+
+==============================================================================
+SCENE 06 — SINGLE PRODUCT — THE LANTERN AND ITS DETAILS
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach one lantern or wall light. Include a view showing its actual bracket, suspension or base so the installation is accurate.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Feature the attached lantern against warm-white plaster in a bright sheltered garden setting. Install it exactly as its design requires: wall-mounted with its actual bracket, hanging from its actual suspension, or standing on its actual base. Do not convert one mounting type into another. Preserve the metalwork, glass panes, hinges, fasteners, light source and true dark, aged or polished finish. Keep the light state faithful to the chosen reference.
+
+Opening viewpoint: a natural 70 mm lens character, front three-quarter angle, with the entire lantern and its support visible. Allow sufficient margin for a very small diagonal camera move closer. Soft daylight reveals the structure; the glass has restrained reflections of pale architecture and garden greenery. A faint leaf shadow may fall on the adjacent wall without obscuring the product. Keep the background airy and uncluttered, with quiet upper and lower central areas. This should feel like luxury architectural photography in daylight.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+Make a short, slow diagonal camera slide slightly closer to the lantern, retaining the entire product and its support in the frame. Keep its bracket, suspension or base rigid and structurally consistent. Show delicate changes in the glass reflections as the camera moves; maintain transparent glass where the opening image shows it. Distant foliage moves subtly and a faint leaf shadow shifts gently on the adjacent wall. Do not make the lantern swing or alter its light state. Preserve bright daylight, true metal colour and readable construction. Avoid turning this into a dark night-time lighting demonstration.
+
+==============================================================================
+SCENE 07 — SINGLE PRODUCT — THE SCULPTURAL VESSEL
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach one urn, decorative vase, planter or other vessel. Identify its intended function. A funerary urn must remain respectfully displayed and must not be styled as a flower vase.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Display the attached vessel alone on a low pale-travertine plinth in a luminous white architectural alcove. Preserve the exact body, opening, lid if present, handles, ornament, proportions and surface finish. Keep a closed vessel closed. Leave it empty, with no flowers, branches or invented contents. A small glimpse of garden greenery at one edge is the only strong background accent.
+
+Opening viewpoint: a natural 90 mm lens character, a subtle three-quarter angle, showing the whole object and a little of the plinth. Use soft side-window light to reveal the actual hammered, brushed, cast, carved or polished surface visible in the reference. Retain believable fine imperfections rather than making every surface perfectly smooth. Keep metal highlights controlled and shadows gentle. Leave clear space above the vessel and a subdued lower-centre plinth area for website overlays. This frame begins a very small horizontal camera slide.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+Slide the camera horizontally by roughly twenty centimetres at a slow, even pace while retaining the complete vessel in frame. The object and plinth remain absolutely stationary; do not rotate the vessel. Let the soft window reflection shift naturally across the existing surface texture. Preserve the exact lid, opening, handles and ornament throughout, with no new contents appearing. The distant garden glimpse may have barely perceptible leaf movement. Keep focus settled on the product, brightness stable and the mood bright, tactile and quiet. End on a subtly different three-quarter view of the same unchanged object.
+
+==============================================================================
+SCENE 08 — SINGLE PRODUCT — THE FURNITURE SILHOUETTE
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach one chair, table or console, ideally with multiple views showing its legs, joints and materials. Use the actual material shown; do not request leather if the product is not leather.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Place the attached furniture piece alone in an airy ivory room with pale-oak flooring and a distant garden-facing window. Reproduce its exact silhouette, leg spacing, joinery, upholstery, timber grain and metal finish. If the reference includes leather, show its real grain and colour; if it uses another material, preserve that material instead. Do not add cushions, stitching, drawers or ornament absent from the reference. Secondary decor should be minimal and distant.
+
+Opening viewpoint: a natural 50 mm lens character from a slightly low three-quarter position, showing the entire piece, all visible feet and their floor contact. Keep vertical architectural lines upright. Soft side daylight reveals construction and surface texture with realistic shadows. Leave enough margin for a gentle forward dolly that will still show the full silhouette at its end. A sheer curtain appears far in the background. Keep the upper-centre and lower-centre overlay areas calm.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+Make a gentle forward dolly toward the furniture piece over the length of the shot, travelling only far enough to bring the material and joinery slightly closer. Keep the whole silhouette and its feet in frame at the end. Maintain upright architecture and realistic perspective; do not use a dolly zoom. The furniture stays fixed to the floor with unchanged legs, joints and upholstery. Only a distant sheer curtain moves softly. Preserve the natural side daylight and material colour. No spinning platform, flexing parts, floating feet, appearing decorations or invented stitching. The shot should celebrate the real construction with restrained confidence.
+
+==============================================================================
+SCENE 09 — PRODUCT IN USE — A QUIET READING MOMENT
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach the table lamp and, if desired, the chair and side table. Include a lit lamp reference if that is the appearance you want.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Create a bright, intimate reading corner beside a garden window, styled with ivory linen and a restrained emerald accent. Feature the attached lamp prominently on the attached side table, or on a simple neutral table if no table reference is supplied. Preserve the lamp's exact design and chosen illumination state. If a chair reference is attached, reproduce it faithfully.
+
+An adult wearing a simple cream outfit sits naturally beside the lamp, shown from the shoulders down so the person remains secondary. An open book rests comfortably in their lap. Show one hand resting near the outer edge of a single page, ready to turn it but not yet moving; the other hand supports the book naturally. Fingers must be anatomically plausible and clearly separated. Opening viewpoint: a natural 50 mm lens character, a three-quarter medium-wide composition showing the complete lamp and the reading gesture. Soft garden daylight and a curtain at the edge make the room feel fresh. Keep the quiet upper and lower central overlay areas free of faces and hands.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+Begin exactly with the seated reader, book and lamp shown in the supplied frame. During one subtle forward camera drift, the reader slowly turns one page of the open book and lets the hand settle naturally. Keep the action small and unhurried, with plausible fingers and continuous page movement. The reader remains seated and secondary, without looking toward the camera or making a promotional gesture. The lamp stays the visual hero, retaining its precise structure and illumination state. A curtain moves lightly in the background. Preserve bright garden daylight and do not add further actions, people or props. End in a calm reading pose.
+
+==============================================================================
+SCENE 10 — PRODUCT IN USE — SERVING A FRESH MORNING TABLE
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach a serving tray suitable for holding a cup, plus any matching serveware you want in the shot. This scene requires a tray; do not substitute a decorative urn or unrelated vessel.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Create a fresh morning table on a sheltered garden terrace with ivory linen, restrained white ceramics and soft greenery behind it. Feature the attached serving tray as the central hero, preserving its handles, rim, thickness, engraving, colour and finish. Place a simple small ceramic cup securely on the tray without concealing its key details. Include attached matching serveware only if its function and size fit naturally. Avoid elaborate food styling.
+
+Opening viewpoint: an elevated three-quarter composition with a natural 65 mm lens character, clearly showing the tray and its surface. At one side, show a single adult hand with a light linen sleeve resting next to the cup, fingers poised to grasp its handle, before the lift begins. Keep the tray mostly unobstructed. The cup and hand must have credible proportions and contact. Use bright soft daylight, subtle shadows and genuine material texture. Leave the upper and lower central overlay zones subdued. No pouring, splashing or multiple people.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+From the supplied initial hand position, the adult gently grasps the ceramic cup by its handle and lifts it once from the reference tray, holding it just clear of the tray before moving it slowly toward the same side of the frame. Use natural hand anatomy and a stable cup shape. Keep the tray and all other objects stationary, preserving their construction, finish and contact shadows. Make only a tiny lateral camera drift during the action. The hand should never obscure most of the hero tray. Background leaves move softly. No pouring, spills, additional hands or extra gestures. End with the tray clearly visible in the same bright morning light.
+
+==============================================================================
+SCENE 11 — PRODUCT IN USE — ARRANGING A LIVING SPACE
+==============================================================================
+
+PRODUCT PHOTOS TO ATTACH FOR THE IMAGE
+Attach a vase intended to hold flowers or branches and, optionally, a console or table. Do not use a funerary urn or a closed decorative vessel for this scene.
+
+STARTING-FRAME IMAGE PROMPT
+
+Generate one photorealistic cinematic starting-frame photograph for the homepage of Aurelio by AF International, a premium furniture, lighting and decorative objects brand. Use the attached product photographs as the source of truth for the featured products. Preserve their exact silhouette, proportions, construction, material, colour, finish and decorative details. The photographs define the products; the scene description defines their surroundings. Do not merge references into a new design or invent matching hero merchandise. Maintain realistic scale, support, installation and contact shadows.
+
+Use a fresh, luminous, light-themed aesthetic: chalk white and warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Brass should retain its actual reference finish, with restrained champagne highlights inspired by #B9944F, never an exaggerated yellow coating. Neutral whites, gentle warmth, soft directional daylight, realistic shadows and tactile materials. The result should feel like a professionally photographed luxury interiors campaign, welcoming and alive, with a calm composition.
+
+Create a landscape 16:9 image with fine natural detail and realistic photographic optics. Compose for a full-screen website background: keep the upper centre relatively quiet for the Aurelio wordmark and the lower centre uncluttered for two website buttons. Place important product details within the central crop-safe area without crowding those overlay zones. The image itself contains no text, logos, captions, watermarks or letterboxing. No excessive orange grading, heavy haze, artificial sparkle, dramatic lens flare or exaggerated blur. Produce a single still image, not a collage or storyboard. Show the exact opening moment described below, with all objects physically stable and no motion blur.
+
+Create a luminous entrance hall with white plaster, natural wood and a distant deep emerald doorway. Put the attached flower vase on the attached console, or on a simple pale-stone surface if no furniture reference is supplied. Preserve the vase's exact opening, body, material, colour and finish. Leave sufficient open space around it so its silhouette reads clearly.
+
+Show one adult hand and an ivory linen sleeve near the vase, holding a single slender olive branch with its cut stem just above the vase opening, ready to lower it in. The branch must be proportionate to the vase and able to fit through its actual opening. The hand must not conceal the vessel or change its shape. Opening viewpoint: a natural 70 mm lens character, three-quarter medium view with the whole vase and supporting surface visible. Soft side daylight reveals the material. Keep the gesture in the middle of the frame and quiet pale architecture above it for the wordmark; keep the lower centre subdued for the buttons.
+
+GOOGLE FLOW VIDEO PROMPT
+
+Animate the supplied starting-frame image into a photorealistic cinematic homepage background film for Aurelio by AF International. Use that image as the exact opening composition and visual source of truth. Preserve the products, architecture, materials, finishes, colours, scale, placement and lighting established in it. Keep the same product geometry throughout; do not redesign, duplicate, replace or introduce hero products. Reveal only a modest amount of surrounding space consistent with the starting image.
+
+Maintain a fresh, luminous, premium, light-themed palette of chalk white, warm ivory, pale limestone, natural wood, restrained garden greens and small deep emerald accents inspired by #072319. Retain the reference brass finish with controlled champagne highlights, neutral whites and gentle warmth. Keep realistic texture, natural shadows, stable exposure and physically believable reflections. Environmental movement should feel subtle and alive while the products remain visually dominant.
+
+Create an approximately eight-second, landscape 16:9 shot, using the nearest supported duration if necessary. One continuous, professionally stabilised camera take, following only the movement described below. Smooth restrained speed with no sudden acceleration. Preserve quiet upper-centre and lower-centre areas for website branding and buttons; do not generate that text. No cuts, transitions, time-lapse, sudden zooms, spinning products, handheld shake, focus hunting, geometry warping, flicker, floating objects, artificial sparkle or excessive flare. No generated titles, logos, captions, watermarks or letterboxing. No dialogue, narration or music; if audio is generated, use only faint natural room or garden ambience. The film must work completely muted.
+
+Starting with the branch held just above the vase opening, the hand slowly lowers the slender stem through that existing opening, releases it once it is supported, then withdraws gently toward the same side of the frame. The branch settles with one small natural movement. Keep the vase and console completely stationary and unchanged, with no widening mouth, deforming surface or passing through solid material. Use a slow, very short lateral camera slide while keeping the entire vase readable. Maintain the bright soft daylight and quiet entrance-hall composition. No extra branches, additional hands or repeated arranging. End on the vase with the single branch resting naturally inside it.
+
+==============================================================================
+ASSEMBLING THE HOMEPAGE BACKGROUND
+==============================================================================
+
+Generate these as separate shots, then select the strongest takes. You do not need to use all eleven in one background film. A restrained 25–35 second edit can use six or seven short selections: residence, lamp, courtyard, reading moment, vessel, serving moment, then residence again. Let the products and daylight establish continuity rather than adding conspicuous effects.
+
+Match exposure, white balance and movement speed across the selected clips. Keep the final website video muted. Check desktop and mobile crops with the actual wordmark, byline and buttons visible. A wide composition does not automatically survive a narrow mobile crop; use a separate crop or alternative shot when necessary.
+
+These are continuous shots, not individually guaranteed seamless loops. Create the overall loop in editing by matching the first and final compositions or choosing a quiet, visually compatible cut. Inspect the result for geometry changes, flickering reflections, incorrect materials, hand anomalies and generated text before publishing.
+
+WORKFLOW REFERENCES
+Google Flow: Create videos using frames and other inputs
+https://support.google.com/flow/answer/16353334?co=GENIE.Platform%3DDesktop&hl=en
+Google DeepMind: Veo prompting guide
+https://deepmind.google/models/veo/prompt-guide/
+

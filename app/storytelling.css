@@ -263,30 +263,8 @@ body:has([role="dialog"]) .journey-dock {
   pointer-events: none;
 }
 
-.archive-frame {
-  transform-style: preserve-3d;
-  transform-origin: center;
-}
 .archive-frame:focus-visible {
   clip-path: none !important;
-}
-.archive-frame:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: radial-gradient(
-    circle at var(--glint-x, 50%) var(--glint-y, 50%),
-    #fff3,
-    transparent 55%
-  );
-  opacity: 0;
-  transition: opacity 0.4s;
-  mix-blend-mode: soft-light;
-}
-.archive-frame:hover:before {
-  opacity: 1;
 }
 .original-section-spine {
   transform-origin: left;
