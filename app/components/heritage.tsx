@@ -116,22 +116,27 @@ export function Heritage() {
         </div>
         <dl className="heritage-stats">
           {stats.map((s, i) => (
+            /* A <dl> group may only hold <dt> and <dd>; the bar and the
+               counting figure live inside the <dd>, and CSS sets the label
+               back under the figure. */
             <div className="heritage-stat" key={s.label}>
-              <span className="heritage-bar" aria-hidden="true" />
-              <dd
-                className="heritage-num"
-                aria-hidden="true"
-                ref={(el) => {
-                  numbers.current[i] = el;
-                }}
-              >
-                0{s.suffix}
-              </dd>
-              <span className="sr-only">
-                {format(s.value)}
-                {s.suffix}
-              </span>
               <dt>{s.label}</dt>
+              <dd>
+                <span className="heritage-bar" aria-hidden="true" />
+                <span
+                  className="heritage-num"
+                  aria-hidden="true"
+                  ref={(el) => {
+                    numbers.current[i] = el;
+                  }}
+                >
+                  0{s.suffix}
+                </span>
+                <span className="sr-only">
+                  {format(s.value)}
+                  {s.suffix}
+                </span>
+              </dd>
             </div>
           ))}
         </dl>

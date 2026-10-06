@@ -1,5 +1,7 @@
 import { PageIntro, Picture, TextLink } from "../components/ui";
 import { brand } from "../lib/brand";
+/* Tells the root layout this route writes its own description. */
+export const handle = { describes: true };
 export const meta = () => [
   { title: "About us — Aurelio by AF International" },
   { name: "description", content: brand.story },

@@ -299,7 +299,6 @@ export function Header() {
             name={preview.cover}
             alt={preview.name}
             sizes="380px"
-            eager
           />
           <span>
             <small>EXPLORE {preview.name.toUpperCase()}</small>

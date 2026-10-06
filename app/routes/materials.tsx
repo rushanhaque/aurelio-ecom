@@ -10,16 +10,27 @@ function MaterialCard({
   material: (typeof materials)[number];
 }) {
   const [texture, setTexture] = useState(false);
+  // The texture sits invisible until asked for, so it is only fetched once a
+  // visitor approaches the card (hover, focus or the first tap).
+  const [armed, setArmed] = useState(false);
+  const arm = () => setArmed(true);
   return (
     <article className="brand-material" id={m.slug} data-reveal>
       <button
         className={`material-surface ${texture ? "show-texture" : ""}`}
-        onClick={() => setTexture(!texture)}
+        onClick={() => {
+          arm();
+          setTexture(!texture);
+        }}
+        onPointerEnter={arm}
+        onFocus={arm}
         aria-pressed={texture}
         aria-label={`View the texture of ${m.name}`}
       >
         <Picture name={m.image} alt={m.name} />
-        <Picture name={m.texture} alt="" className="material-texture" />
+        {armed && (
+          <Picture name={m.texture} alt="" className="material-texture" />
+        )}
         <span>
           <Layers size={15} />{" "}
           {texture ? "See the material" : "See the texture"}

@@ -17,6 +17,8 @@ import {
   ThreeLives,
 } from "../components/atelier-experiments";
 import { OpeningNote } from "../components/home-sections";
+/* Tells the root layout this route writes its own description. */
+export const handle = { describes: true };
 export const meta = () => [
   { title: "Shop — Aurelio by AF International" },
   {
@@ -220,10 +222,19 @@ export default function Shop() {
                 ? "Nothing matches. Try clearing your filters."
                 : "Our collection is on its way."}
             </p>
-            <button className="button" onClick={() => setParams({})}>
-              Clear filters
-              <X size={17} />
-            </button>
+            {/* Clearing filters only helps when there are filters to clear;
+                with an empty catalogue the way forward is the trade desk. */}
+            {products.length ? (
+              <button className="button" onClick={() => setParams({})}>
+                Clear filters
+                <X size={17} />
+              </button>
+            ) : (
+              <Link className="button" to="/bulk-orders#enquire">
+                Ask about a piece
+                <ArrowUpRight size={17} />
+              </Link>
+            )}
           </div>
         )}
         {pages > 1 && (

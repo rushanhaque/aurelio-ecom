@@ -28,6 +28,8 @@ import { homeContent } from "../lib/home-content";
 import { database } from "../../server/db";
 import { frontendPreview } from "../../server/preview-mode";
 import { CommissionScene } from "../components/home-sections";
+/* Tells the root layout this route writes its own description. */
+export const handle = { describes: true };
 export const meta = () => [
   { title: "Export & bulk orders — Aurelio by AF International" },
   {

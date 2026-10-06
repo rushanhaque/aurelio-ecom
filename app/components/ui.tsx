@@ -10,7 +10,6 @@ import {
 import { useStore } from "../lib/store";
 import { money, type Product } from "../lib/catalog";
 import { useEffect, useRef, type ReactNode } from "react";
-import "../page-hero.css";
 export function Picture({
   name,
   alt,

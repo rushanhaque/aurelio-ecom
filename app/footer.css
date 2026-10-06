@@ -3,28 +3,36 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(/fonts/cinzel-600.ttf) format("truetype");
+  src:
+    url(/fonts/cinzel-600.woff2) format("woff2"),
+    url(/fonts/cinzel-600.ttf) format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/fonts/jost-400.ttf) format("truetype");
+  src:
+    url(/fonts/jost-400.woff2) format("woff2"),
+    url(/fonts/jost-400.ttf) format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(/fonts/jost-500.ttf) format("truetype");
+  src:
+    url(/fonts/jost-500.woff2) format("woff2"),
+    url(/fonts/jost-500.ttf) format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(/fonts/jost-600.ttf) format("truetype");
+  src:
+    url(/fonts/jost-600.woff2) format("woff2"),
+    url(/fonts/jost-600.ttf) format("truetype");
 }
 
 /* ============================================================
@@ -698,6 +706,11 @@
 .cat-modal-close,
 .ft-atelier-btn {
   border: 0;
+}
+/* The catalogue entry is a button among links: it keeps the links' spacing
+   so the separators either side of it sit evenly. */
+.ft-send,
+.cat-modal-close {
   padding-inline: 0;
 }
 .ft-input {

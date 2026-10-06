@@ -130,7 +130,7 @@ export const pages: Record<
       ],
       [
         "Your requests",
-        "For access or deletion, use the contact form or email info@aurelio.in.",
+        "For access or deletion, use the contact form or email mohdsaudsaud595@gmail.com.",
       ],
     ],
   },

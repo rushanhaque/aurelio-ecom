@@ -55,9 +55,20 @@ export function MaterialAtelier({
   // viewport, using the same srcset so the browser reuses the exact file. The
   // first pointer entry is a fallback for when the observer cannot run.
   const warmed = useRef(false);
+  // The loupe's texture is only fetched once the section is close; before,
+  // its inline background downloaded a 1440px texture with the page.
+  const [near, setNear] = useState(false);
   const warm = () => {
     if (warmed.current) return;
     warmed.current = true;
+    setNear(true);
+    // Saving data means not prefetching eight specimens nobody asked for.
+    const connection = (
+      navigator as Navigator & { connection?: { saveData?: boolean } }
+    ).connection;
+    if (connection?.saveData) return;
+    // Loupe textures only matter where there is a hovering pointer.
+    const loupe = matchMedia("(hover: hover) and (pointer: fine)").matches;
     for (const m of materials) {
       const img = new Image();
       img.sizes = "(max-width: 900px) 90vw, 46vw";
@@ -65,7 +76,7 @@ export function MaterialAtelier({
         .map((w) => `/images/${m.image}-${w}.webp ${w}w`)
         .join(", ");
       img.src = `/images/${m.image}-800.webp`;
-      new Image().src = `/images/${m.texture}-1440.webp`;
+      if (loupe) new Image().src = `/images/${m.texture}-1440.webp`;
     }
   };
   useEffect(() => {
@@ -148,7 +159,6 @@ export function MaterialAtelier({
                   name={materials[previous].image}
                   alt=""
                   sizes="(max-width: 900px) 90vw, 46vw"
-                  eager
                 />
               </div>
             )}
@@ -157,15 +167,18 @@ export function MaterialAtelier({
                 name={surface ? material.texture : material.image}
                 alt={`${material.name}, ${surface ? "surface detail" : "material study"}`}
                 sizes="(max-width: 900px) 90vw, 46vw"
-                eager
               />
             </div>
             <div
               className="mx-loupe"
               aria-hidden="true"
-              style={{
-                backgroundImage: `url(/images/${material.texture}-1440.webp)`,
-              }}
+              style={
+                near
+                  ? {
+                      backgroundImage: `url(/images/${material.texture}-1440.webp)`,
+                    }
+                  : undefined
+              }
             >
               <span>×{LOUPE}</span>
             </div>

@@ -1,14 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 
-/** The reference introduction plays once per full page load. */
+const seen = "aurelio:intro";
+
+/** The reference introduction plays once per visit: on the first full page
+    load of a browsing session, not again on every refresh or deep link. */
 export function PageIntro() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    try {
+      if (sessionStorage.getItem(seen)) return;
+      sessionStorage.setItem(seen, "1");
+    } catch {
+      // Storage can be blocked; the introduction simply plays.
     }
+    setVisible(true);
   }, []);
 
   useEffect(() => {

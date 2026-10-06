@@ -133,11 +133,11 @@ export function CommissionScene() {
         <div className="commission-bottom">
           <p>One piece for your home, or a range for your business.</p>
           <div className="commission-links">
-            <Link to="/shop" className="commission-link" data-magnetic>
+            <Link to="/shop" className="commission-link">
               <span>VISIT THE SHOP</span>
               <ArrowUpRight size={28} />
             </Link>
-            <Link to="/bulk-orders#enquire" className="commission-link" data-magnetic>
+            <Link to="/bulk-orders#enquire" className="commission-link">
               <span>START AN ENQUIRY</span>
               <ArrowUpRight size={28} />
             </Link>

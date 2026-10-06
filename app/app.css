@@ -12,6 +12,9 @@
      interaction-v2  the v2 layer
      legibility      the reading-size floor, last so nothing undercuts it
 */
+/* page-hero was a separate render-blocking file linked ahead of this one on
+   every page; it keeps that position at the head of the cascade. */
+@import "./page-hero.css";
 @import "./tokens.css";
 @import "./styles.css";
 @import "./interaction.css";
@@ -24,3 +27,6 @@
 
 @import "./footer.css";
 @import "./commerce-header.css";
+/* The atelier finish: signature hovers, shared polish and the accessibility
+   and low-power floors. Last, so it settles every earlier layer. */
+@import "./atelier-finish.css";

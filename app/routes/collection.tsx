@@ -23,6 +23,8 @@ export function loader({ params }: { params: { slug?: string } }) {
   );
   return { collection, pieces };
 }
+/* Tells the root layout this route writes its own description. */
+export const handle = { describes: true };
 export const meta = ({
   data,
 }: {

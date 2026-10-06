@@ -37,7 +37,7 @@ export const articles = [
       "Every commission begins as a conversation.",
       "It follows six steps: enquiry, design, sample, forge, finish and delivery.",
       "Size, finish and material can be tailored. Lead times come with your quotation.",
-      "To start, email saud@aurelio.in or use the bulk enquiry form.",
+      "To start, email mohdsaudsaud595@gmail.com or use the bulk enquiry form.",
     ],
   },
 ];

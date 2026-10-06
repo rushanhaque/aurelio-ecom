@@ -118,6 +118,17 @@ export function AtelierMotion() {
     const reduce = matchMedia("(prefers-reduced-motion: reduce)");
     async function start() {
       if (reduce.matches) return;
+      // GSAP is not needed to paint or to respond, so it waits until the
+      // browser is idle instead of competing with hydration for the CPU.
+      await new Promise<void>((resolve) =>
+        "requestIdleCallback" in window
+          ? requestIdleCallback(() => resolve(), { timeout: 1600 })
+          : setTimeout(resolve, 300),
+      );
+      if (disposed) return;
+      // Low-powered devices keep every reveal but skip the continuously
+      // scrubbed parallax, which re-renders on every scroll frame.
+      const lite = document.documentElement.dataset.perf === "lite";
       const [{ gsap }, { ScrollTrigger }] = await Promise.all([
         import("gsap"),
         import("gsap/ScrollTrigger"),
@@ -270,7 +281,9 @@ export function AtelierMotion() {
         if (document.querySelector(".story-reading")) {
           gsap.fromTo(
             ".reading-word",
-            { color: "#bfc5be" },
+            // The resting tone still reads (3:1 at this size) before the
+            // words ink in as the statement is reached.
+            { color: "#7d8b86" },
             {
               color: "#072319",
               stagger: 0.12,
@@ -301,7 +314,9 @@ export function AtelierMotion() {
           );
           gsap.fromTo(
             work.querySelector("figcaption"),
-            { y: 18, opacity: 0.3 },
+            // From fully transparent: a half-faded caption waiting below the
+            // fold read as low-contrast text to assistive checks.
+            { y: 18, opacity: 0 },
             {
               y: 0,
               opacity: 1,
@@ -325,7 +340,7 @@ export function AtelierMotion() {
               },
             );
           });
-        if (document.querySelector(".type-ribbon"))
+        if (!lite && document.querySelector(".type-ribbon"))
           gsap.fromTo(
             ".type-ribbon>div",
             { xPercent: 0 },
@@ -340,7 +355,7 @@ export function AtelierMotion() {
               },
             },
           );
-        if (document.querySelector(".commission-scene"))
+        if (!lite && document.querySelector(".commission-scene"))
           gsap.to(".commission-scene>img", {
             yPercent: -10,
             ease: "none",
@@ -354,7 +369,7 @@ export function AtelierMotion() {
         // Absorbed from the old RouteEffects pass so GSAP is imported, parsed
         // and context-managed exactly once per route.
         media.add("(min-width: 900px) and (pointer: fine)", () => {
-          if (!document.querySelector(".hero-visual img")) return;
+          if (lite || !document.querySelector(".hero-visual img")) return;
           gsap.to(".hero-visual img", {
             yPercent: 7,
             ease: "none",
@@ -389,6 +404,7 @@ export function AtelierMotion() {
           .toArray<HTMLElement>(
             ".statement,.lab-intro,.explorer-heading,.premiere-head,.archive-heading,.original-standard h2,.workshop-heading",
           )
+          .filter(() => !lite)
           .forEach((el) => {
             gsap.fromTo(
               el,

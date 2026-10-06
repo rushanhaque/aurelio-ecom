@@ -1,5 +1,7 @@
 import {
+  useEffect,
   useId,
+  useRef,
   useState,
   type CSSProperties,
   type PointerEvent,
@@ -183,9 +185,33 @@ function Vessel({
   );
 }
 
+/* True once the element is within a screen or so of the viewport. SVG
+   <image> elements cannot be lazy-loaded, so without this the lens fetched its
+   photographs with the page. */
+function useNear<T extends Element>(margin = "600px 0px") {
+  const ref = useRef<T>(null);
+  const [near, setNear] = useState(false);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || near) return;
+    const watch = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        watch.disconnect();
+        setNear(true);
+      },
+      { rootMargin: margin },
+    );
+    watch.observe(node);
+    return () => watch.disconnect();
+  }, [near, margin]);
+  return [ref, near] as const;
+}
+
 export function MakersLens() {
   const [point, setPoint] = useState({ x: 300, y: 225 });
   const clip = useId();
+  const [canvas, near] = useNear<HTMLDivElement>();
   function inspect(e: PointerEvent<SVGSVGElement>) {
     const r = e.currentTarget.getBoundingClientRect();
     setPoint({
@@ -196,7 +222,7 @@ export function MakersLens() {
   return (
     <Chapter index={1} dark intro="Every mark is placed by hand.">
       <div className="experiment-split">
-        <div className="experiment-canvas lens-canvas">
+        <div className="experiment-canvas lens-canvas" ref={canvas}>
           <svg
             viewBox="0 0 600 450"
             role="img"
@@ -219,14 +245,14 @@ export function MakersLens() {
               </clipPath>
             </defs>
             <image
-              href="/images/finishes/hammered-brass-2400.webp"
+              href={near ? "/images/finishes/hammered-brass-1200.webp" : undefined}
               width="600"
               height="450"
               preserveAspectRatio="xMidYMid slice"
             />
             <g clipPath={`url(#${clip})`}>
               <image
-                href="/images/finishes/hammered-brass-2400.webp"
+                href={near ? "/images/finishes/hammered-brass-1800.webp" : undefined}
                 width="600"
                 height="450"
                 preserveAspectRatio="xMidYMid slice"

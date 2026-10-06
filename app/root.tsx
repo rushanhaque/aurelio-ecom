@@ -13,6 +13,7 @@ import {
   Link,
   useRouteLoaderData,
   useLocation,
+  useMatches,
 } from "react-router";
 import type { ReactNode } from "react";
 import type { Product } from "./lib/catalog";
@@ -37,6 +38,10 @@ import styles from "./app.css?url";
 import manrope from "@fontsource/manrope/files/manrope-latin-400-normal.woff2?url";
 import cormorant from "@fontsource/cormorant-garamond/files/cormorant-garamond-latin-400-normal.woff2?url";
 export const links = () => [
+  /* The stylesheet is the only thing that blocks the first paint, so it is
+     requested ahead of the font preloads that would otherwise share its
+     bandwidth. */
+  { rel: "stylesheet", href: styles },
   {
     rel: "preload",
     href: manrope,
@@ -51,14 +56,21 @@ export const links = () => [
     type: "font/woff2",
     crossOrigin: "anonymous" as const,
   },
-  { rel: "stylesheet", href: styles },
+  /* The wordmark face: the header mark on every page and the landing title. */
+  {
+    rel: "preload",
+    href: "/fonts/cinzel-600.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous" as const,
+  },
   { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
 ];
+/* Only the title lives here: a route that exports its own meta replaces this
+   list entirely, which silently dropped theme-color and friends on every such
+   page. Tags every page needs are written straight into the Layout head. */
 export const meta = () => [
   { title: "Aurelio by AF International — Metal & Wood" },
-  { name: "theme-color", content: "#072319" },
-  { name: "color-scheme", content: "light" },
-  { name: "format-detection", content: "telephone=no" },
 ];
 export async function loader({ context }: { context: { cspNonce?: unknown } }) {
   return {
@@ -79,6 +91,11 @@ export async function loader({ context }: { context: { cspNonce?: unknown } }) {
 function absoluteImage(siteUrl: string, image: string) {
   return `${siteUrl}${image.startsWith("/") ? image : `/images/${image}-1440.webp`}`;
 }
+
+/* Runs before first paint: marks devices that would struggle with the heavier
+   effects (blur, grain, scrubbed parallax) so CSS and the motion layer can
+   lighten them. Everything still works and reveals; it just costs less. */
+const perfProbe = `(function(){try{var n=navigator,c=n.connection||{},m=n.deviceMemory||8,h=n.hardwareConcurrency||8;if(c.saveData||m<=2||h<=2||(m<=4&&h<=4))document.documentElement.dataset.perf="lite"}catch(e){}})()`;
 
 function structuredData({
   siteUrl,
@@ -195,6 +212,12 @@ function structuredData({
 export function Layout({ children }: { children: ReactNode }) {
   const data = useRouteLoaderData<typeof loader>("root");
   const location = useLocation();
+  const matches = useMatches();
+  // Routes whose own meta already carries a description flag it in their
+  // handle, so the page never ships two competing descriptions.
+  const describedByRoute = matches.some(
+    (match) => (match.handle as { describes?: boolean } | undefined)?.describes,
+  );
   const canonical = `${data?.siteUrl || ""}${location.pathname}`;
   const product = data?.products.find(
     (p) => location.pathname === `/products/${p.slug}`,
@@ -215,16 +238,24 @@ export function Layout({ children }: { children: ReactNode }) {
     <html
       lang="en"
       data-frontend-preview={data?.frontendPreview ? "true" : undefined}
+      suppressHydrationWarning
     >
       <head>
         <meta charSet="utf-8" />
+        <script
+          nonce={data?.nonce}
+          dangerouslySetInnerHTML={{ __html: perfProbe }}
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#072319" />
+        <meta name="color-scheme" content="light" />
+        <meta name="format-detection" content="telephone=no" />
         <Meta />
         {data?.frontendPreview && (
           <meta name="robots" content="noindex,nofollow" />
         )}
         <Links nonce={data?.nonce} />
-        <meta name="description" content={description} />
+        {!describedByRoute && <meta name="description" content={description} />}
         {data &&
           structuredData({
             siteUrl: data.siteUrl,

@@ -78,7 +78,15 @@
 }
 .heritage-stat {
   position: relative;
+  display: flex;
+  flex-direction: column;
   padding: 0 clamp(16px, 3vw, 48px);
+}
+.heritage-stat dd {
+  margin: 0;
+}
+.heritage-stat dt {
+  order: 2;
 }
 .heritage-stat:first-child {
   padding-left: 0;
@@ -116,6 +124,7 @@
   transform: none;
 }
 .heritage-num {
+  display: block;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(40px, 4.6vw, 80px);

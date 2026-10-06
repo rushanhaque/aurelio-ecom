@@ -133,8 +133,26 @@ export function PatinaStudy() {
   const hurry = useRef(0);
   const dirty = useRef(false);
 
+  // The texture is only fetched once the canvas is close to the viewport.
+  const [near, setNear] = useState(false);
+  useEffect(() => {
+    const node = canvas.current;
+    if (!node || near) return;
+    const watch = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        watch.disconnect();
+        setNear(true);
+      },
+      { rootMargin: "600px 0px" },
+    );
+    watch.observe(node);
+    return () => watch.disconnect();
+  }, [near]);
+
   // Build the fully aged surface once per metal, then paint it on.
   useEffect(() => {
+    if (!near) return;
     const img = new Image();
     let alive = true;
     img.onload = () => {
@@ -179,7 +197,7 @@ export function PatinaStudy() {
     return () => {
       alive = false;
     };
-  }, [metal]);
+  }, [metal, near]);
 
   // Time keeps passing: the patina creeps back, and the readout follows it.
   useEffect(() => {
@@ -289,6 +307,10 @@ export function PatinaStudy() {
           src={patinas[metal].texture}
           alt=""
           aria-hidden="true"
+          width={800}
+          height={800}
+          loading="lazy"
+          decoding="async"
         />
         <canvas
           ref={canvas}

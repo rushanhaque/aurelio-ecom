@@ -83,7 +83,20 @@ if (development) {
     "/assets",
     express.static("build/client/assets", { immutable: true, maxAge: "1y" }),
   );
-  app.use(express.static("build/client", { maxAge: "1h" }));
+  app.use(
+    express.static("build/client", {
+      maxAge: "1h",
+      // Fonts, photographs and film change rarely and are never personalised,
+      // so repeat visits should not revalidate them every hour.
+      setHeaders(res, path) {
+        if (/[\\/](fonts|images|videos)[\\/]/.test(path))
+          res.setHeader(
+            "Cache-Control",
+            "public, max-age=604800, stale-while-revalidate=2592000",
+          );
+      },
+    }),
+  );
   app.use(
     createRequestHandler({
       build: await import("./build/server/index.js"),
