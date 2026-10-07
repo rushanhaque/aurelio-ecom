@@ -10,6 +10,7 @@ import {
 import { useStore } from "../lib/store";
 import { money, type Product } from "../lib/catalog";
 import { useEffect, useRef, type ReactNode } from "react";
+import { Words } from "./motion-text";
 export function Picture({
   name,
   alt,
@@ -190,14 +191,18 @@ export function PageIntro({
         <Picture name={image} alt="" sizes="100vw" eager />
         <div className="page-hero-veil" aria-hidden="true" />
         <div className="page-hero-body container">
-          <h1>{title}</h1>
+          <h1>
+            <Words>{title}</Words>
+          </h1>
           {children && <div className="page-hero-copy">{children}</div>}
         </div>
       </header>
     );
   return (
     <header className="page-intro container">
-      <h1>{title}</h1>
+      <h1>
+        <Words>{title}</Words>
+      </h1>
       {children && <div className="intro-copy">{children}</div>}
     </header>
   );

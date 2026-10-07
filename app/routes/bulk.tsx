@@ -28,6 +28,8 @@ import { homeContent } from "../lib/home-content";
 import { database } from "../../server/db";
 import { frontendPreview } from "../../server/preview-mode";
 import { CommissionScene } from "../components/home-sections";
+import { MaterialMarquee } from "../components/story-sections";
+import { Words } from "../components/motion-text";
 /* Tells the root layout this route writes its own description. */
 export const handle = { describes: true };
 export const meta = () => [
@@ -154,6 +156,8 @@ export default function Bulk() {
   return (
     <>
       <BulkSections>
+        {/* One band: the hero and the vocabulary ribbon under it. */}
+        <>
         <section className="trade-hero" aria-labelledby="trade-title">
           <Picture
             name="brand/furniture"
@@ -164,8 +168,10 @@ export default function Bulk() {
           <div className="trade-hero-veil" aria-hidden="true" />
           <div className="trade-hero-body container">
             <h1 id="trade-title">
-              Export &amp;
-              <br /> <em>bulk orders.</em>
+              <Words>
+                Export &amp;
+                <br /> <em>bulk orders.</em>
+              </Words>
             </h1>
             <p>
               Metal and wood, made by hand in Moradabad for retailers, hotels
@@ -184,6 +190,8 @@ export default function Bulk() {
             </div>
           </div>
         </section>
+        <MaterialMarquee />
+        </>
         <MakingStory />
         <SelectedWorks limit={6} />
         <Studies>

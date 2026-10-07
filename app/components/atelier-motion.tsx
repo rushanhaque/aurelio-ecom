@@ -1,5 +1,14 @@
-import { useEffect, useRef } from "react";
-import { useLocation } from "react-router";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLocation, useNavigationType } from "react-router";
+
+/* Blocks enrolled in the shared reveal by selector (see useAmbientMotion). */
+const autoReveal: [string, string][] = [
+  [".collection-card > div, .journal-card > div, .about-portrait", "image"],
+  [
+    ".philosophy > *, .collection-card > h2, .collection-card > p, .journal-card > h2, .journal-card > p, .editorial-cta > *, .info-content > *, .care-content > *, .article-body > *, .material-index, .suggestions-head, .section-heading, .trade-faq-list > *, .contact-links, .brand-contact",
+    "rise",
+  ],
+];
 
 /* The ambient layer: reading progress, the condensed header, the shared reveal
    and the cursor coordinates every v2 hover effect reads from. None of it needs
@@ -18,12 +27,32 @@ function useAmbientMotion(pathname: string) {
     // jump, the End key or a fast flick can carry an element from below the
     // fold to above it between two samples, and it then never reveals at all.
     // Comparing positions on the scroll frame cannot miss one.
+    // Content that should arrive as it is reached but was written without a
+    // reveal of its own is enrolled here, so every page shares one entrance:
+    // blocks rise, image frames open like a curtain.
+    for (const [selector, kind] of autoReveal)
+      document.querySelectorAll<HTMLElement>(selector).forEach((el) => {
+        // An image frame may open inside a card that itself rises; a plain
+        // block never nests inside another reveal.
+        if (el.dataset.reveal) return;
+        if (kind === "image" || !el.closest("[data-reveal]"))
+          el.dataset.reveal = kind;
+      });
     let pending = [...document.querySelectorAll<HTMLElement>("[data-reveal]")];
     const reveal = () => {
       if (!pending.length) return;
       const limit = window.innerHeight * 0.94;
+      // Whatever arrives in the same frame is staggered, so a row of cards
+      // lands one after another rather than all at once.
+      let wave = 0;
       pending = pending.filter((el) => {
         if (el.getBoundingClientRect().top >= limit) return true;
+        el.style.setProperty("--reveal-delay", `${Math.min(wave++, 6) * 85}ms`);
+        // A group reveals its children in sequence (CSS reads --n).
+        if (el.dataset.reveal === "group")
+          [...el.children].forEach((child, i) =>
+            (child as HTMLElement).style.setProperty("--n", String(i)),
+          );
         el.dataset.revealed = "true";
         return false;
       });
@@ -106,10 +135,151 @@ function useAmbientMotion(pathname: string) {
   }, [pathname]);
 }
 
+/* The glide of the original site: wheel and trackpad scrolling eased with
+   Lenis, so pinned and scrubbed scenes move with weight instead of in steps.
+   Only for a mouse or trackpad (touch scrolling is already inertial), never
+   for reduced motion or low-powered devices, and paused whenever a dialog
+   locks the page. Lenis scrolls the window itself, so the reveal and
+   ScrollTrigger keep reading the native scroll position. */
+function useGlide(pathname: string) {
+  const glide = useRef<{
+    resize(): void;
+    destroy(): void;
+    stop(): void;
+    start(): void;
+  } | null>(null);
+  const location = useLocation();
+  const navigation = useNavigationType();
+  useEffect(() => {
+    if (
+      !matchMedia("(hover: hover) and (pointer: fine)").matches ||
+      matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      document.documentElement.dataset.perf === "lite"
+    )
+      return;
+    let disposed = false;
+    let frame = 0;
+    let locks: MutationObserver | undefined;
+    const begin = async () => {
+      const { default: Lenis } = await import("lenis");
+      if (disposed) return;
+      const lenis = new Lenis({
+        lerp: 0.1,
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        // Anything that scrolls on its own keeps native scrolling.
+        prevent: (node: HTMLElement) =>
+          !!node.closest?.(
+            ".side-panel, .cat-modal, .commerce-mega, [data-lenis-prevent]",
+          ),
+      });
+      glide.current = lenis;
+      const loop = (time: number) => {
+        lenis.raf(time);
+        frame = requestAnimationFrame(loop);
+      };
+      frame = requestAnimationFrame(loop);
+      locks = new MutationObserver(() =>
+        document.body.hasAttribute("data-scroll-locked")
+          ? lenis.stop()
+          : lenis.start(),
+      );
+      locks.observe(document.body, {
+        attributes: true,
+        attributeFilter: ["data-scroll-locked"],
+      });
+    };
+    const idle = () => begin().catch(() => {});
+    const id =
+      "requestIdleCallback" in window
+        ? requestIdleCallback(idle, { timeout: 2000 })
+        : setTimeout(idle, 600);
+    return () => {
+      disposed = true;
+      if ("cancelIdleCallback" in window) cancelIdleCallback(id as number);
+      clearTimeout(id as number);
+      cancelAnimationFrame(frame);
+      locks?.disconnect();
+      glide.current?.destroy();
+      glide.current = null;
+    };
+  }, []);
+  // Navigation belongs to the router: it puts a new page at the top or its
+  // anchor, and Back at the remembered spot. Two things used to fight it: the
+  // site's smooth scroll-behavior turned that jump into a slow glide that the
+  // next ScrollTrigger refresh cut short, and Lenis kept the old page's
+  // target. This layout effect runs before the router's own scroll handling,
+  // so it makes that jump instant and pauses Lenis until the page has landed.
+  // A jump to an anchor on the same page is the one move that should glide.
+  const previous = useRef(location.pathname);
+  useLayoutEffect(() => {
+    const html = document.documentElement;
+    const lenis = glide.current;
+    const samePage = previous.current === location.pathname;
+    previous.current = location.pathname;
+    const anchor =
+      samePage && location.hash
+        ? document.getElementById(decodeURIComponent(location.hash.slice(1)))
+        : null;
+    if (anchor) {
+      // The browser's own smooth anchor scroll already honours the header's
+      // scroll-padding; Lenis steps aside until it has arrived.
+      html.classList.add("is-anchoring");
+      void getComputedStyle(html).scrollBehavior;
+      lenis?.stop();
+      let settled = false;
+      const done = () => {
+        if (settled) return;
+        settled = true;
+        // Sections passed on the way finish rendering and grow, which moves
+        // the target; one short glide puts the anchor back under the header.
+        const pad = parseFloat(getComputedStyle(html).scrollPaddingTop) || 0;
+        const drift = anchor.getBoundingClientRect().top - pad;
+        if (Math.abs(drift) > 24)
+          window.scrollBy({ top: drift, behavior: "smooth" });
+        setTimeout(() => {
+          html.classList.remove("is-anchoring");
+          lenis?.start();
+        }, Math.abs(drift) > 24 ? 700 : 0);
+      };
+      const timer = setTimeout(done, 1600);
+      addEventListener("scrollend", done, { once: true });
+      return () => {
+        clearTimeout(timer);
+        removeEventListener("scrollend", done);
+        settled = true;
+        html.classList.remove("is-anchoring");
+        lenis?.start();
+      };
+    }
+    html.classList.add("is-routing");
+    // Read the style back so the browser applies it before the router
+    // scrolls in the same frame; otherwise the jump still starts smoothly.
+    void getComputedStyle(html).scrollBehavior;
+    lenis?.stop();
+    let inner = 0;
+    const outer = requestAnimationFrame(() => {
+      inner = requestAnimationFrame(() => {
+        html.classList.remove("is-routing");
+        lenis?.start();
+        lenis?.resize();
+      });
+    });
+    return () => {
+      cancelAnimationFrame(outer);
+      cancelAnimationFrame(inner);
+      html.classList.remove("is-routing");
+    };
+  }, [location.pathname, location.hash, location.key, navigation]);
+}
+
+let scrollMemory: { clearScrollMemory(): void } | undefined;
+
 export function AtelierMotion() {
   const location = useLocation();
   const cursor = useRef<HTMLDivElement>(null);
   useAmbientMotion(location.pathname);
+  useGlide(location.pathname);
   useEffect(() => {
     let disposed = false;
     let context: any;
@@ -135,6 +305,11 @@ export function AtelierMotion() {
       ]);
       if (disposed || reduce.matches) return;
       gsap.registerPlugin(ScrollTrigger);
+      scrollMemory = ScrollTrigger;
+      // ScrollTrigger remembers the last page's scroll position and restores
+      // it after a refresh, which undid the router's scroll to the top on
+      // every client-side navigation. The router owns scroll position.
+      ScrollTrigger.clearScrollMemory();
       context = gsap.context(() => {
         media = gsap.matchMedia();
         // Native sticky positioning keeps the story stable as images decode.
@@ -381,6 +556,50 @@ export function AtelierMotion() {
             },
           });
         });
+        // Page heroes: as the reader scrolls on, the title lifts away and
+        // fades over the photograph, handing the screen to the story below.
+        media.add(
+          "(min-width: 901px) and (prefers-reduced-motion: no-preference)",
+          () => {
+            if (lite) return;
+            gsap.utils
+              .toArray<HTMLElement>(
+                ".page-hero-body, .shop-hero-body, .trade-hero-body",
+              )
+              .forEach((copy) => {
+                const hero = copy.parentElement;
+                if (!hero) return;
+                gsap.to(copy, {
+                  yPercent: -22,
+                  opacity: 0.15,
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: hero,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 0.6,
+                  },
+                });
+              });
+            // The seven worlds settle into place from a slight depth.
+            const worlds = document.querySelector(".worlds-panels");
+            if (worlds)
+              gsap.fromTo(
+                worlds,
+                { scale: 0.94 },
+                {
+                  scale: 1,
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: worlds,
+                    start: "top bottom",
+                    end: "top 30%",
+                    scrub: 0.8,
+                  },
+                },
+              );
+          },
+        );
         // Section rules draw themselves in as each block is reached, which
         // gives the long reading pages a visible spine.
         gsap.utils
@@ -492,6 +711,7 @@ export function AtelierMotion() {
       abort.abort();
       media?.revert();
       context?.revert();
+      scrollMemory?.clearScrollMemory();
       cursor.current?.classList.remove("visible");
     };
     reduce.addEventListener("change", stop, { signal: abort.signal });

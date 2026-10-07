@@ -1,0 +1,615 @@
+/* =========================================================================
+   Aurelio · the story layer
+   -------------------------------------------------------------------------
+   The motion language of the original Aurelio site, as CSS that the shared
+   reveal (atelier-motion.tsx) switches on. Slow, weighted, never bouncy:
+
+     data-reveal            a block rises and settles (the house reveal)
+     data-reveal="words"    each word of a heading rises out of its own mask
+     data-reveal="image"    a frame opens like a curtain, the photograph
+                            settling from a slight zoom as it does
+     data-reveal="group"    the children arrive one after another
+
+   Everything animates transform, opacity or clip-path only, once, and is
+   skipped entirely for reduced motion (tokens.css) and before hydration.
+   ========================================================================= */
+
+:root {
+  --story-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --story-ease-in-out: cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+/* ---------- The house reveal, deepened ---------------------------------- */
+body[data-motion="on"] [data-reveal] {
+  transition:
+    opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 1.15s var(--story-ease);
+}
+body[data-motion="on"] [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+}
+body[data-motion="on"] [data-reveal][data-revealed] {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* ---------- Words ------------------------------------------------------- */
+.w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  /* Room for ascenders, descenders and italic overhang inside the mask. */
+  padding: 0.08em 0.07em 0.12em;
+  margin: -0.08em -0.07em -0.12em;
+}
+.w > span {
+  display: inline-block;
+  transition: transform 1.1s var(--story-ease);
+  transition-delay: calc(var(--i, 0) * 55ms + var(--reveal-delay, 0ms));
+}
+body[data-motion="on"] [data-reveal="words"]:not([data-revealed]) {
+  opacity: 1;
+  transform: none;
+}
+body[data-motion="on"] [data-reveal]:not([data-revealed]) .w > span {
+  transform: translate3d(0, 112%, 0);
+}
+
+/* Page titles rise as the page arrives, without waiting for a script. */
+@keyframes story-word-rise {
+  from {
+    transform: translate3d(0, 112%, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+:is(.page-hero, .page-intro, .shop-hero, .trade-hero) h1 .w > span {
+  animation: story-word-rise 1.15s var(--story-ease) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 120ms);
+}
+:is(.page-hero, .page-intro) :is(.page-hero-copy, .intro-copy) {
+  animation: story-fade-up 1.1s var(--story-ease) 0.45s both;
+}
+@keyframes story-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* ---------- Image curtain ----------------------------------------------- */
+body[data-motion="on"] [data-reveal="image"] {
+  transition: clip-path 1.3s var(--story-ease-in-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+body[data-motion="on"] [data-reveal="image"]:not([data-revealed]) {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(100% 0 0 0);
+}
+body[data-motion="on"] [data-reveal="image"][data-revealed] {
+  clip-path: inset(0 0 0 0);
+}
+body[data-motion="on"] [data-reveal="image"] img {
+  transition: transform 1.8s var(--story-ease);
+}
+body[data-motion="on"] [data-reveal="image"]:not([data-revealed]) img {
+  transform: scale(1.16);
+}
+
+/* ---------- Groups ------------------------------------------------------ */
+body[data-motion="on"] [data-reveal="group"]:not([data-revealed]) {
+  opacity: 1;
+  transform: none;
+}
+/* The container itself never transitions: scroll-scrubbed scenes may drive
+   its transform, and a CSS transition on top would make them lag. */
+body[data-motion="on"] [data-reveal="group"] {
+  transition: none;
+}
+body[data-motion="on"] [data-reveal="group"] > * {
+  transition:
+    opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 1.15s var(--story-ease);
+  transition-delay: calc(var(--n, 0) * 80ms + var(--reveal-delay, 0ms));
+}
+body[data-motion="on"] [data-reveal="group"]:not([data-revealed]) > * {
+  opacity: 0;
+  transform: translate3d(0, 9%, 0);
+}
+
+/* ---------- Arriving on a new page -------------------------------------- */
+main.is-arriving {
+  animation: story-arrive 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+@keyframes story-arrive {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ---------- Section kicker: label · brass rule · count ------------------- */
+.story-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 22px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass-ink, #806132);
+}
+.story-kicker-rule {
+  width: 56px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform 1.2s var(--story-ease) 0.2s;
+}
+body[data-motion="on"] .story-kicker:not([data-revealed]) .story-kicker-rule {
+  transform: scaleX(0);
+}
+
+/* =========================================================================
+   Marquee
+   ========================================================================= */
+.story-marquee {
+  overflow: hidden;
+  padding-block: 18px;
+  border-block: 1px solid #07231921;
+  background: #fff;
+  color: var(--ink);
+  -webkit-mask: linear-gradient(90deg, #0000, #000 6% 94%, #0000);
+  mask: linear-gradient(90deg, #0000, #000 6% 94%, #0000);
+}
+.story-marquee--dark {
+  background: #072319;
+  color: #efe4cc;
+  border-color: #efe4cc24;
+}
+.story-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: story-marquee 80s linear infinite;
+  animation-play-state: paused;
+}
+.story-marquee[data-running] .story-marquee-track {
+  animation-play-state: running;
+}
+@media (hover: hover) and (pointer: fine) {
+  .story-marquee[data-running]:hover .story-marquee-track {
+    animation-play-state: paused;
+  }
+}
+.story-marquee ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.story-marquee li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-inline: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.story-diamond {
+  font-size: 8px;
+  color: var(--brass-500, #9b773b);
+}
+@keyframes story-marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@media (max-width: 760px) {
+  .story-marquee {
+    padding-block: 14px;
+  }
+  .story-marquee li {
+    font-size: 12px;
+    padding-inline: 16px;
+  }
+  .story-marquee-track {
+    animation-duration: 50s;
+  }
+}
+
+/* =========================================================================
+   The path a piece travels
+   ========================================================================= */
+.path-story {
+  padding-block: clamp(80px, 10vw, 150px) 0;
+  background: #fff;
+  color: var(--ink);
+}
+.path-head {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: end;
+  gap: 24px 48px;
+  margin-bottom: clamp(40px, 5vw, 72px);
+}
+.path-head .story-kicker {
+  grid-column: 1 / -1;
+}
+.path-head h2,
+.worlds-head h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(46px, 6vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+.path-head h2 em,
+.worlds-head h2 em {
+  color: var(--brass-500, #9b773b);
+}
+.path-lead,
+.worlds-lead {
+  margin: 0;
+  max-width: 38ch;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.path-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #07231924;
+}
+.path-station {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  min-height: clamp(84px, 11vh, 120px);
+  padding-inline: var(--gutter);
+  border-bottom: 1px solid #07231924;
+  overflow: hidden;
+  cursor: default;
+}
+.path-index {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--brass-ink, #806132);
+}
+.path-name {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.2vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.path-note {
+  justify-self: end;
+  max-width: 26ch;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: right;
+  color: var(--muted);
+}
+/* The band: an emerald strip that rises from the edge the pointer crossed. */
+.path-band {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #0e3b2c;
+  color: #f7efdc;
+  transform: translate3d(0, 101%, 0);
+  transition: transform 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+}
+.path-band-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  transform: translate3d(0, -101%, 0);
+  transition: transform 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+  animation: story-marquee 22s linear infinite;
+  animation-play-state: paused;
+}
+.path-band-part {
+  display: flex;
+  align-items: center;
+  gap: 2.4vw;
+  padding-right: 2.4vw;
+}
+.path-band-part > span:first-child {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.2vw, 64px);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.path-band-image {
+  width: clamp(150px, 15vw, 230px);
+  height: clamp(48px, 6.5vh, 72px);
+  border-radius: 999px;
+  background-size: cover;
+  background-position: center;
+}
+.path-station[data-edge="top"] .path-band {
+  transform: translate3d(0, -101%, 0);
+}
+.path-station[data-edge="top"] .path-band-track {
+  transform: translate3d(0, 101%, 0);
+}
+@media (hover: hover) and (pointer: fine) {
+  .path-station:hover .path-band,
+  .path-station:hover .path-band-track {
+    transform: translate3d(0, 0, 0);
+  }
+  .path-station:hover .path-band-track {
+    animation-play-state: running;
+  }
+}
+
+/* Touch: each station shows its band, looping while the list is on screen,
+   alternate rows running the other way — the hover sweep, always on. */
+@media (hover: none), (max-width: 900px) {
+  .path-station {
+    grid-template-columns: auto 1fr;
+    min-height: 0;
+    padding-block: 18px 0;
+    row-gap: 6px;
+  }
+  .path-name {
+    font-size: clamp(30px, 8vw, 44px);
+  }
+  .path-note {
+    grid-column: 1 / -1;
+    justify-self: start;
+    text-align: left;
+  }
+  .path-band {
+    position: relative;
+    grid-column: 1 / -1;
+    height: 64px;
+    margin-inline: calc(var(--gutter) * -1);
+  }
+  .path-band,
+  .path-band-track,
+  .path-station[data-edge] :is(.path-band, .path-band-track) {
+    transform: none;
+  }
+  .path-list[data-running] .path-band-track {
+    animation-play-state: running;
+  }
+  .path-station:nth-child(even) .path-band-track {
+    animation-direction: reverse;
+  }
+  .path-band-part > span:first-child {
+    font-size: 26px;
+  }
+  .path-band-image {
+    width: 92px;
+    height: 40px;
+  }
+}
+
+/* =========================================================================
+   Seven worlds
+   ========================================================================= */
+.worlds {
+  padding-block: clamp(80px, 10vw, 150px);
+  background: #072319;
+  color: #f4ecdb;
+}
+.worlds-head {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: end;
+  gap: 24px 48px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.worlds-head .story-kicker {
+  grid-column: 1 / -1;
+  color: #d8c39d;
+}
+.worlds-head h2 em {
+  color: #d8c39d;
+}
+.worlds-lead {
+  color: #c9d3cb;
+}
+.worlds-panels {
+  display: flex;
+  gap: 8px;
+  height: clamp(460px, 72vh, 720px);
+  padding-inline: var(--gutter);
+}
+.worlds-panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 3px;
+  color: #fff8ea;
+  isolation: isolate;
+  transition: flex-grow 0.9s var(--story-ease);
+}
+/* One panel is always open: the first, until another is reached for. */
+.worlds-panels:not(:hover):not(:focus-within) .worlds-panel:first-child,
+.worlds-panel:hover,
+.worlds-panel:focus-visible {
+  flex-grow: 5.2;
+}
+.worlds-panel > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  transform: scale(1.08);
+  transition:
+    transform 1.6s var(--story-ease),
+    filter 0.9s;
+  filter: saturate(0.7) brightness(0.8);
+}
+.worlds-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #031a121a 0%, #031a1200 35%, #031a12d9 100%);
+}
+.worlds-index {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: #e6d1a4;
+}
+.worlds-vertical {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  writing-mode: vertical-rl;
+  transform: translateX(-50%) rotate(180deg);
+  font-size: 13px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: opacity 0.4s;
+}
+.worlds-content {
+  position: absolute;
+  left: clamp(20px, 2.6vw, 40px);
+  right: clamp(20px, 2.6vw, 40px);
+  bottom: clamp(22px, 3vw, 40px);
+  display: grid;
+  gap: 8px;
+  max-width: 460px;
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 0.45s ease,
+    transform 0.9s var(--story-ease);
+}
+.worlds-content strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(36px, 3.6vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.worlds-content em {
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.7vw, 26px);
+  color: #e6d1a4;
+}
+.worlds-summary {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e9e1cf;
+}
+.worlds-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  width: fit-content;
+  padding-bottom: 4px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e6d1a480;
+}
+.worlds-panels:not(:hover):not(:focus-within) .worlds-panel:first-child > img,
+.worlds-panel:is(:hover, :focus-visible) > img {
+  transform: scale(1);
+  filter: none;
+}
+.worlds-panels:not(:hover):not(:focus-within)
+  .worlds-panel:first-child
+  .worlds-content,
+.worlds-panel:is(:hover, :focus-visible) .worlds-content {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.25s;
+}
+.worlds-panels:not(:hover):not(:focus-within)
+  .worlds-panel:first-child
+  .worlds-vertical,
+.worlds-panel:is(:hover, :focus-visible) .worlds-vertical {
+  opacity: 0;
+}
+.worlds-panel:focus-visible {
+  outline: 2px solid #e6d1a4;
+  outline-offset: 3px;
+}
+
+/* Phones and tablets: the panels stack as full cards, all open. */
+@media (max-width: 900px) {
+  .worlds-head {
+    grid-template-columns: 1fr;
+  }
+  .worlds-panels {
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
+  }
+  .worlds-panel,
+  .worlds-panels:not(:hover):not(:focus-within) .worlds-panel:first-child,
+  .worlds-panel:hover {
+    flex: none;
+    aspect-ratio: 4 / 3.4;
+  }
+  .worlds-panel > img {
+    transform: none;
+    filter: none;
+  }
+  .worlds-vertical {
+    display: none;
+  }
+  .worlds-content {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 900px) {
+  .path-head {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Lenis (the glide; see useGlide in atelier-motion.tsx) -------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* While the router moves to a new page its scroll is instant (see the route
+   effect in atelier-motion.tsx); smooth scrolling stays for in-page anchors. */
+html.is-routing {
+  scroll-behavior: auto !important;
+}
+html.lenis.is-anchoring {
+  scroll-behavior: smooth !important;
+}

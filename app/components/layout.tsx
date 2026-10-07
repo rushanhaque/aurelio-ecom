@@ -110,13 +110,26 @@ export function RouteEffects() {
       first.current = false;
       return;
     }
+    // The new page fades in as a whole; the words and reveals within it
+    // carry the rest of the arrival.
+    const main = document.getElementById("main");
+    main?.classList.remove("is-arriving");
+    void main?.offsetWidth;
+    main?.classList.add("is-arriving");
+    const settle = setTimeout(() => main?.classList.remove("is-arriving"), 700);
     const announcer = document.getElementById("route-announcer");
-    if (!announcer) return;
-    const heading = document.querySelector("main h1")?.textContent?.trim();
+    if (!announcer) return () => clearTimeout(settle);
+    const heading = document
+      .querySelector("main h1")
+      ?.textContent?.replace(/\s+/g, " ")
+      .trim();
     const timer = setTimeout(() => {
       announcer.textContent = `${heading || document.title.split("—")[0].trim()}. Page loaded.`;
     }, 80);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(settle);
+    };
   }, [location.pathname]);
   return null;
 }

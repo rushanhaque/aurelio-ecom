@@ -17,6 +17,7 @@ import {
   ThreeLives,
 } from "../components/atelier-experiments";
 import { OpeningNote } from "../components/home-sections";
+import { Words } from "../components/motion-text";
 /* Tells the root layout this route writes its own description. */
 export const handle = { describes: true };
 export const meta = () => [
@@ -83,17 +84,19 @@ export default function Shop() {
         />
         <div className="shop-hero-veil" aria-hidden="true" />
         <div className="shop-hero-body container">
-          <h1 id="shop-title">
-            {current ? (
-              <>
-                {current.name}
-                <br /> <em>{current.tagline}</em>
-              </>
-            ) : (
-              <>
-                The <em>Shop.</em>
-              </>
-            )}
+          <h1 id="shop-title" key={current?.slug || "all"}>
+            <Words>
+              {current ? (
+                <>
+                  {current.name}
+                  <br /> <em>{current.tagline}</em>
+                </>
+              ) : (
+                <>
+                  The <em>Shop.</em>
+                </>
+              )}
+            </Words>
           </h1>
           <p>
             {current?.description ||
