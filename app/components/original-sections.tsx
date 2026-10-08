@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 import dimensions from "../lib/original-image-sizes.json";
 import "../original-sections.css";
+import { Words } from "./motion-text";
 
 // Editorial archive adapted from the owner's Aurelio Gallery.jsx.
 // These are deliberately not catalog records, cart items or purchasable SKUs.
@@ -223,10 +224,11 @@ export function SelectedWorks({ limit = works.length }: { limit?: number }) {
     >
       <div className="container">
         <header className="archive-heading">
-          <h2 id="archive-heading">
+          <h2 id="archive-heading" data-reveal="words">
+            <Words>
             Pieces with
             <br />
-            <em>a past tense.</em>
+            <em>a past tense.</em></Words>
           </h2>
           <div>
             <p>Raised, forged or cast. Finished to be lived with.</p>
@@ -261,12 +263,13 @@ export function AurelioStandard() {
   return (
     <section className="original-standard" aria-labelledby="standard-heading">
       <div className="container">
-        <h2 id="standard-heading">
+        <h2 id="standard-heading" data-reveal="words">
+          <Words>
           Objects that refuse
           <br />
           to be disposable.
           <br />
-          <em>Made slowly, to last.</em>
+          <em>Made slowly, to last.</em></Words>
         </h2>
         <div className="standard-foot">
           <p>{brand.story}</p>
@@ -317,8 +320,9 @@ export function OriginalAtelier() {
     >
       <div className="container">
         <div className="workshop-heading">
-          <h2 id="original-atelier-heading">
-            Where we <em>excel.</em>
+          <h2 id="original-atelier-heading" data-reveal="words">
+            <Words>
+            Where we <em>excel.</em></Words>
           </h2>
           <div className="workshop-controls">
             <button

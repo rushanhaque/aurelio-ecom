@@ -613,3 +613,14 @@ html.is-routing {
 html.lenis.is-anchoring {
   scroll-behavior: smooth !important;
 }
+
+/* The manifesto and the seven worlds share the emerald ground on the About
+   page; their two paddings stacked into one empty band, so the worlds follow
+   on closer, across a fine rule. */
+.original-standard + .worlds {
+  padding-top: clamp(48px, 6vw, 88px);
+}
+.original-standard + .worlds .worlds-head {
+  padding-top: clamp(40px, 5vw, 64px);
+  border-top: 1px solid #efe4cc1f;
+}

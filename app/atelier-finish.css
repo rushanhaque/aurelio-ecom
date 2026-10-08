@@ -1366,3 +1366,21 @@ html .ft {
   content-visibility: auto;
   contain-intrinsic-size: auto 760px;
 }
+
+/* The bag's two secondary links sit side by side with room between them,
+   each with its own rule, and stack on narrow screens. */
+.summary-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  margin-top: 18px;
+}
+
+/* Bag and checkout: the summary stays beside the form while it is filled in. */
+@media (min-width: 901px) {
+  html .order-summary {
+    position: sticky;
+    top: 120px;
+    align-self: start;
+  }
+}

@@ -96,13 +96,16 @@ export default function Cart() {
                 Continue to checkout
                 <ArrowUpRight size={18} />
               </Link>
-              <Link className="text-link" to="/shop">
-                Keep shopping
-                <ArrowUpRight size={16} />
-              </Link>
-              <Link className="text-link" to="/bulk-orders?from=cart">
-                Enquire in bulk ↗
-              </Link>
+              <div className="summary-links">
+                <Link className="text-link" to="/shop">
+                  Keep shopping
+                  <ArrowUpRight size={16} />
+                </Link>
+                <Link className="text-link" to="/bulk-orders?from=cart">
+                  Enquire in bulk
+                  <ArrowUpRight size={16} />
+                </Link>
+              </div>
             </aside>
           </div>
         )}

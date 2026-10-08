@@ -212,8 +212,9 @@ export default function Bulk() {
           id="process"
           aria-labelledby="process-title"
         >
-          <h2 id="process-title" className="trade-kicker">
-            From brief <em>to container.</em>
+          <h2 id="process-title" className="trade-kicker" data-reveal="words">
+            <Words>
+            From brief <em>to container.</em></Words>
           </h2>
           <ol>
             {commissionStages.map((stage, i) => (
@@ -234,8 +235,9 @@ export default function Bulk() {
           </ol>
         </section>
         <section className="section container trade-serve">
-          <h2 className="trade-kicker">
-            Who we <em>make for.</em>
+          <h2 className="trade-kicker" data-reveal="words">
+            <Words>
+            Who we <em>make for.</em></Words>
           </h2>
           <div className="serve-grid">
             {[
@@ -300,9 +302,10 @@ export default function Bulk() {
                   <p>Your bag stays saved. Add quantities in the brief.</p>
                 </div>
               )}
-              <h2 id="enquiry-title">
+              <h2 id="enquiry-title" data-reveal="words">
+                <Words>
                 Tell us
-                <br /> your <em>idea.</em>
+                <br /> your <em>idea.</em></Words>
               </h2>
               <p>Quantities, finishes, timing. An early idea is fine.</p>
               <p className="brand-contact">
@@ -448,9 +451,10 @@ export default function Bulk() {
           <section className="section container trade-faq">
             <div className="section-heading">
               <div>
-                <h2>
+                <h2 data-reveal="words">
+                  <Words>
                   Common
-                  <br /> <em>questions.</em>
+                  <br /> <em>questions.</em></Words>
                 </h2>
               </div>
               <Link className="text-link" to="/faq">

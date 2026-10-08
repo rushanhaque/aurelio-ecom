@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
-import { heroMedia } from "../lib/home-content";
 import { ArrowUpRight } from "lucide-react";
 import { Picture } from "../components/ui";
 import "../immersive.css";
@@ -75,12 +74,8 @@ function VideoHero() {
           aria-hidden="true"
           onPlaying={() => setReady(true)}
         >
-          {film.map((ext) => (
-            <source
-              key={ext}
-              src={heroMedia[ext]}
-              type={`video/${ext}`}
-            />
+          {film.map((source) => (
+            <source key={source.src} {...source} />
           ))}
         </video>
       )}

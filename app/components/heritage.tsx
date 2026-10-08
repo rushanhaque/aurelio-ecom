@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "../heritage.css";
+import { Words } from "./motion-text";
 
 /* Adapted from the original Aurelio project's Heritage section: a full-bleed
    atelier film, a short story and four counters that count up once. */
@@ -100,9 +101,10 @@ export function Heritage() {
         <div className="heritage-scrim" />
       </div>
       <div className="heritage-body container">
-        <h2 id="heritage-title">
+        <h2 id="heritage-title" data-reveal="words">
+          <Words>
           At the bench
-          <br /> <em>since 2008.</em>
+          <br /> <em>since 2008.</em></Words>
         </h2>
         <div className="heritage-prose">
           <p>

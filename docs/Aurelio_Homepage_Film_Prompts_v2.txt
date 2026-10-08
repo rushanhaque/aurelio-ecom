@@ -1,0 +1,1286 @@
+====================================================================================================
+AURELIO BY AF INTERNATIONAL
+HOMEPAGE BACKGROUND FILM: PROMPTS, VERSION 2
+Starting-frame image prompts (ChatGPT image generation) and video prompts (Google Flow)
+====================================================================================================
+
+11 scenes, 22 complete prompts: 2 indoor scenery, 2 outdoor scenery, 4 single-product and 3
+products-in-use. Every scene has one IMAGE PROMPT and one VIDEO PROMPT. Every prompt is complete on
+its own: the shared Aurelio direction is written into each one, so you never need to combine
+anything. Version 1 (docs/Aurelio_Homepage_Image_and_Video_Prompts.txt) is unchanged; this version
+has new scenes and is calibrated to the live homepage layout.
+
+----------------------------------------------------------------------------------------------------
+HOW TO USE IT
+----------------------------------------------------------------------------------------------------
+1. Pick a scene. In ChatGPT image generation, attach the product photos listed for it, then paste
+   that scene's complete IMAGE PROMPT. Use clean, well-lit product photos; several angles of the
+   same product help. Label each photo (for example "pendant light", "side table") when attaching
+   more than one.
+2. Check the generated image against your product photos before going further. Fix any wrong shape,
+   finish, scale, mounting, or (in the in-use scenes) hands. A video inherits every mistake in its
+   starting frame, so regenerate or ask for corrections until the still is right.
+3. In Google Flow, use Frames to Video. Upload the approved image as the starting frame and paste
+   that scene's complete VIDEO PROMPT. Choose landscape 16:9, the highest quality available, and the
+   standard length of about 8 seconds.
+4. Generate two to four takes of each scene and keep the steadiest one: products unchanged, no
+   warping, calm motion. Prompts improve the odds but cannot guarantee exact product fidelity, so
+   always check every take.
+5. Seamless loop (optional): if Flow lets you set an ending frame, you can give the same approved
+   image as both the first and last frame. That makes a single clip that loops without a jump.
+6. Never put the AURELIO name, buttons or any text into the image or film. The website draws those
+   on top, and the prompts keep space clear for them.
+
+----------------------------------------------------------------------------------------------------
+WHERE THE WEBSITE SITS ON TOP OF THE FILM (measured on the live homepage)
+----------------------------------------------------------------------------------------------------
+- AURELIO wordmark: about 7-19% down from the top, across the middle third of the width.
+- Two buttons: about 85-91% down, across the middle 36% of the width.
+- "Contact us": a small tag on the right edge, at mid-height.
+- Veil: the site softly darkens the top 30% and bottom 45% of the film with deep emerald.
+- Phones: a tall phone screen shows only the central ~26% of a 16:9 film's width. That is why every
+  prompt places the hero product on the centre line. For a perfect phone version, see the PORTRAIT
+  CUT section at the end.
+
+----------------------------------------------------------------------------------------------------
+THE COMMON DIRECTION (already included in every prompt below)
+----------------------------------------------------------------------------------------------------
+- Brand: a family atelier in Moradabad, since 2008; brass, copper, bronze, patinated steel, blown
+  glass and seasoned wood, made by hand.
+- Mood: fresh, lively, light and quietly luxurious, like an editorial interiors film. Calm, never
+  busy; alive, never static.
+- Palette: chalk white, warm ivory #F2EFE6, paper white #F2F2F2, pale limestone and travertine,
+  natural light oak, sage and garden greens; small accents of deep emerald #072319 / #0E3B2C; brass
+  highlights in champagne #D8C39D / #B9944F.
+- Light: soft directional natural daylight, high-key but holding detail; no orange/teal grade, haze,
+  sparkle, flare or HDR.
+- Products: the attached photos are the truth. Exact shape, finish and scale, rigid and still, never
+  redesigned, morphing or duplicated.
+- Camera: one slow, stabilised move per clip, about 8 seconds, ending on a held, balanced frame. No
+  cuts and no text; works muted.
+
+
+====================================================================================================
+SCENE 01 | INDOOR SCENERY | THE MORNING SALON
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+A coordinated set: one seating piece or pair of chairs, one low or side table, one pendant or
+chandelier, and one or two vessels or vases. Label each photo with what it is.
+
+WHAT THIS CLIP IS FOR
+The establishing shot: the whole Aurelio world in one sunlit room. Strong opening clip for the edit.
+
+--- IMAGE PROMPT | SCENE 01 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: a double-height salon in a contemporary heritage house, walls of warm ivory lime plaster, a
+pale honed-limestone floor, and tall arched steel-framed windows at the far end opening onto a
+sunlit garden of olive trees and clipped green hedges. Sheer ivory linen curtains hang at the
+windows. Arrange the attached seating and table as one relaxed, believable seating group on a pale
+wool rug, the attached pendant or chandelier hanging above the group at a realistic height (low
+enough that it sits in the middle band of the frame, not against the ceiling), and the attached
+vessels on the table and on a simple travertine plinth. One deep emerald velvet cushion is the only
+colour accent. Generous space around every piece; a lived-in home, not a showroom.
+
+Opening viewpoint: a calm, symmetrical one-point perspective from the room's entrance, at standing
+eye height, with a 35 mm lens character, looking straight down the centre of the room toward the
+middle arched window. The seating group and table sit on the centre line in the middle of the frame;
+the hanging light is centred above them, below the top band. Late-morning sun falls in soft, long
+rectangles across the floor from the left. The upper centre is quiet arched wall and window glow;
+the lower centre is clear limestone floor and the edge of the rug.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 01 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a very slow, perfectly centred push-in along the room's axis, travelling about one metre, with
+gentle natural parallax between the seating group, the plinth and the window. The sheer curtains
+breathe softly in a light breeze; garden leaves beyond the glass stir; a faint passing cloud softens
+and returns the sunlight on the floor once. Furniture, light fitting and vessels stay perfectly
+still, and the pendant does not swing. End on a balanced view of the full arrangement, still
+centred, never cropping the main pieces. The feeling is a quiet, fresh arrival into a beautiful
+home.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 02 | INDOOR SCENERY | THE LONG TABLE
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+Two to four matching pendant lights, plus brass or copper serveware, kitchenware, candleholders or a
+centrepiece vessel from your range.
+
+WHAT THIS CLIP IS FOR
+The hospitality shot: lighting and table pieces together, ideal for showing the range to hotels,
+restaurants and homes.
+
+--- IMAGE PROMPT | SCENE 02 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: a long, light-filled dining room with white lime-washed walls, a pale oak floor and wide
+glazed garden doors standing open at the far end onto a bright green lawn. A long natural-oak dining
+table runs straight down the middle of the room. Hang the attached pendants in an evenly spaced row
+above the table at a realistic height. Lay the table for a late breakfast for eight: crisp undyed
+linen runner and napkins, plain clear glasses and simple white plates as quiet support, and the
+attached serveware, kitchenware, candleholders and centrepiece vessel placed down the centre of the
+table where they would truly be used. A single small arrangement of fresh greenery. Light, airy and
+inviting.
+
+Opening viewpoint: a centred one-point perspective from the near end of the table, at seated eye
+height, with a 40 mm lens character, looking straight down its length toward the open garden doors.
+The row of pendants recedes along the centre line in the middle band of the frame; the featured
+serveware and centrepiece sit on the centre line in the middle distance, sharp. Soft morning
+daylight pours in from the garden doors and a side window. The upper centre is pale wall and doorway
+light; the lower centre is the clean near end of the oak table and runner.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 02 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a slow, smooth forward glide straight down the length of the table at seated eye height,
+travelling about one metre, with the pendants and table pieces passing in gentle parallax. A thin
+wisp of steam rises from a cup; the linen napkins lift very slightly in the breeze from the garden
+doors; leaves outside move softly. The pendants hang perfectly still and every object on the table
+stays exactly in place. End on a balanced, symmetrical view with the centrepiece and pendants still
+centred. The feeling is a fresh, generous morning about to begin.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 03 | OUTDOOR SCENERY | THE SANDSTONE COURTYARD
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+Two matching lanterns (floor, table or wall), planters, and one or two sculptural vessels or urns
+that suit an outdoor setting.
+
+WHAT THIS CLIP IS FOR
+The heritage shot: a nod to Moradabad and Indian craft, bright and contemporary. Excellent visual
+signature for the brand.
+
+--- IMAGE PROMPT | SCENE 03 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: a serene courtyard of pale ivory-pink sandstone in a restored heritage house, with a
+colonnade of softly carved arches and a fine stone jaali lattice screen on one side, a long, shallow
+rectangular reflecting pool running down the centre, and a fresh green garden of frangipani, olive
+and clipped hedges beyond. Place the attached lanterns symmetrically at the near end of the pool,
+the attached planters filled with healthy green plants along the colonnade, and the attached
+sculptural vessel on a simple sandstone plinth at the far end of the pool, exactly on the centre
+line. Clean, bright, unhurried, and quietly grand.
+
+Opening viewpoint: a low, centred, symmetrical view from just above the near end of the pool, with a
+35 mm lens character, looking down its length to the vessel on its plinth. The still water reflects
+the arches, the sky and the vessel. Fresh morning sun comes from one side, so the jaali casts a
+delicate lattice of light and shade across the sandstone floor. The upper centre is pale sky and the
+soft line of the far arch; the lower centre is calm water.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 03 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a slow, smooth crane rise from just above the water to about chest height while drifting
+gently forward, revealing more of the courtyard and the reflections. The water surface carries the
+faintest ripples from the breeze, softly distorting the reflections; frangipani and olive leaves
+move gently; the jaali light pattern on the floor shifts almost imperceptibly as leaves pass the
+sun. Lanterns, planters and the vessel remain perfectly still. End on a balanced, centred view of
+the pool leading to the vessel. The feeling is calm, timeless and full of light.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 04 | OUTDOOR SCENERY | THE GARDEN PAVILION
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+Outdoor-suitable furniture (a table with chairs or a lounge pair), hanging or table lanterns, and a
+planter or large vessel.
+
+WHAT THIS CLIP IS FOR
+The lifestyle shot: Aurelio pieces living outdoors in a fresh, sunlit garden.
+
+--- IMAGE PROMPT | SCENE 04 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: a light, airy garden pavilion of white-limed timber posts and a pergola roof draped with
+sheer ivory linen panels, standing on a pale travertine terrace in the middle of a lush lawn with
+mature olive trees, white roses and clipped box hedges. Place the attached furniture as one inviting
+outdoor setting under the pavilion, the attached lanterns hanging from the pergola beams or standing
+on the table, and the attached planter or vessel at the edge of the terrace. A linen cushion or two
+in natural ivory and a single deep emerald throw. Bright late-afternoon sun, soft and clean rather
+than orange.
+
+Opening viewpoint: an eye-height, straight-on view of the pavilion from across a short stretch of
+lawn, with a 50 mm lens character, the pavilion and its furniture centred in the middle band of the
+frame. Soft, out-of-focus tall grasses and white flowers frame the very edges of the foreground.
+Sunlight comes from behind and to one side, rim-lighting the linen and the brass. The upper centre
+is the plain pergola edge and open sky; the lower centre is calm lawn.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 04 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a slow, steady lateral slide from left to right, parallel to the pavilion, travelling about a
+metre, with the out-of-focus foreground grasses passing softly across the frame edges for depth. The
+sheer linen panels billow and settle in a light breeze; leaves and roses move gently; dappled light
+moves across the terrace. The furniture, lanterns and vessel remain perfectly still and the hanging
+lanterns do not swing. End with the pavilion again centred and balanced. The feeling is an easy,
+golden, open-air afternoon.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 05 | SINGLE PRODUCT | THE PENDANT AWAKENS
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+One pendant light, chandelier or lantern, with clear photos of its full shape, its details and, if
+available, how it looks when lit.
+
+WHAT THIS CLIP IS FOR
+A lighting hero shot. Pairs well after an interior scene in the edit.
+
+--- IMAGE PROMPT | SCENE 05 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: a calm, minimal room of warm ivory lime plaster with one tall window to the side and a
+glimpse of green garden. The attached light hangs alone, at a realistic height from a fine ceiling
+drop, against the plain plaster wall. A single low travertine bench below it, far softer in focus.
+Nothing else competes with it. Its lamp glows softly and warmly, gentle enough that the fitting's
+metalwork, glass and details remain fully readable in the daylight.
+
+Opening viewpoint: a slightly low, frontal view with an 85 mm lens character, the light hanging
+exactly on the vertical centre line in the middle band of the frame, its whole silhouette visible
+with comfortable space around it. Daylight from the side window models its form; the warm glow
+creates a soft halo on the wall behind. The upper centre is plain plaster with the thin ceiling
+drop; the lower centre is soft out-of-focus wall and bench.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 05 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a slow, smooth arc around the light of about fifteen degrees at a slightly low angle, keeping
+it on the vertical centre line, so its form, glass and metalwork turn gracefully in the light. The
+lamp warms very slightly brighter over the shot; delicate patterns of light from the fitting play
+softly on the plaster wall; dust-free, clean air. The fitting itself hangs perfectly still: no
+swinging, rotating or flickering. End on a composed frontal three-quarter view. The feeling is quiet
+and luminous: light, made by hand.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 06 | SINGLE PRODUCT | THE HAMMERED VESSEL
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+One vase, vessel or bowl with a hammered, spun or cast surface, with a close-up photo of its
+texture.
+
+WHAT THIS CLIP IS FOR
+A craft and texture hero shot. The clip that best shows the hand of the maker.
+
+--- IMAGE PROMPT | SCENE 06 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: the attached vessel stands alone on a honed travertine plinth in a softly lit, ivory
+plaster alcove, with a sheer curtain to one side filtering morning sun from a garden window. A few
+olive leaves cast a soft, moving-light suggestion on the wall behind. The vessel's every hammer
+mark, seam and edge is visible and true to the reference.
+
+Opening viewpoint: a close, intimate three-quarter view with a 100 mm macro-lens character, the
+vessel standing exactly on the vertical centre line in the middle band of the frame, its full height
+visible with a little space above and below. A soft band of sunlight rests across the lower half of
+its body, catching the facets; the upper part is in gentle shade. The upper centre is plain plaster;
+the lower centre is the clean front edge of the plinth.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 06 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a very slow push-in with a slight arc of a few degrees, while the band of sunlight glides
+slowly upward across the vessel as leaves outside move past the sun, waking each hammered facet in
+turn so the metal ripples with light. The vessel itself never rotates or moves. The sheer curtain
+breathes gently at the edge of frame. End with the light resting across the vessel's shoulder,
+centred and still. The feeling is tactile, patient and precious: the mark of the hand.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 07 | SINGLE PRODUCT | THE KEEPSAKE URN
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+One urn from your range, with photos of its full shape, lid and finial, and any surface detail.
+
+WHAT THIS CLIP IS FOR
+A respectful hero for the urns collection: serene and dignified, never sombre.
+
+--- IMAGE PROMPT | SCENE 07 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: the attached urn rests alone in a softly carved niche of pale limestone set into a warm
+ivory wall, beside a tall window onto a quiet garden. A single fresh white flower stem lies on the
+niche shelf beside it, smaller and secondary. Soft, even morning light; calm, peaceful and
+dignified, never dark or mournful.
+
+Opening viewpoint: a gentle, frontal view at the urn's mid-height with an 85 mm lens character, the
+urn standing exactly on the vertical centre line in the middle band of the frame, framed by the
+curve of the niche. Window light from one side models its body and catches the lid and finial. The
+upper centre is the plain curve of the niche and wall; the lower centre is the clean stone ledge.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 07 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a very slow, smooth vertical rise of the camera from the urn's base toward its lid and finial,
+with an equally slow tilt so it stays centred, while the morning light brightens softly across its
+surface. Shadows of garden leaves drift faintly over the niche wall. The urn, its lid and the flower
+stem remain perfectly still. End on a calm, balanced view of the whole urn in its niche. The feeling
+is serene, respectful and full of quiet light.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 08 | SINGLE PRODUCT | THE FORGED FORM
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+One furniture piece (side table, console, chair or stool), with photos of its frame, joints and top.
+
+WHAT THIS CLIP IS FOR
+A furniture hero shot showing structure, joinery and finish.
+
+--- IMAGE PROMPT | SCENE 08 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: a bright, gallery-like white room with a pale polished-limestone floor and a tall
+steel-framed window whose grid casts long, crisp shadows across the floor. The attached furniture
+piece stands alone in the centre of the room, presented like sculpture, with one small attached
+vessel or a few books on it only if it is a table. Clean, architectural and calm.
+
+Opening viewpoint: a low, three-quarter view with a 50 mm lens character, close to floor height, the
+piece standing on the vertical centre line in the middle band of the frame, its whole form and legs
+visible. The window-grid shadows lead in from one side toward the piece; its metal frame and wood or
+stone top catch the light. The upper centre is plain white wall; the lower centre is clean, softly
+reflective floor.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 08 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a slow, smooth orbit of about twenty degrees around the piece at low height, keeping it
+centred, so its frame, joints and silhouette reveal themselves against the light; reflections in the
+floor move correctly with the camera. The window-grid shadows creep very slightly across the floor
+as the light shifts. The furniture stays perfectly still. End on a composed three-quarter view. The
+feeling is architectural, precise and quietly confident.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 09 | PRODUCTS IN USE | THE MORNING POUR
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+A jug, pitcher or kettle from your kitchenware, plus a serving bowl or tray if you want it on the
+table.
+
+WHAT THIS CLIP IS FOR
+A living, sensory moment that shows the kitchenware being used and enjoyed.
+
+--- IMAGE PROMPT | SCENE 09 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: a sunlit breakfast table of pale oak by a garden window, laid with an undyed linen cloth, a
+clear glass tumbler, a simple white plate of fresh figs and green grapes, and the attached serving
+bowl or tray. The attached jug is held by a pair of hands, about to pour fresh, clear water with a
+slice of lemon. Morning light sparkles naturally in the glass and water. Light, appetising and
+fresh.
+
+Opening viewpoint: a close, side-on view at table height with a 65 mm lens character, the attached
+jug and the glass on the vertical centre line in the middle band of the frame; the hands enter from
+the right, holding the jug by its handle, spout just above the glass, the water not yet flowing. The
+upper centre is soft out-of-focus window and greenery; the lower centre is clean linen.
+
+People appear only as hands and forearms: no faces, heads or full bodies. Natural, relaxed,
+anatomically correct hands with five fingers each, clean neutral nails, plain ivory or soft linen
+sleeves, no rings, bracelets or watches. The hands move slowly and gracefully, and touch the
+products the way a careful owner would.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 09 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a very slow push-in as the hands tilt the jug and pour a smooth, natural stream of clear water
+into the glass, filling it about two-thirds; the water behaves with real weight and clarity, with
+gentle light caustics on the linen and tiny bubbles rising. The hands then ease the jug back upright
+and rest it on the table beside the glass. The jug keeps its exact shape and finish throughout; no
+water spills; nothing else on the table moves. End on a still, centred view of the jug and the full
+glass. The feeling is fresh, generous and everyday luxurious.
+
+People appear only as hands and forearms: no faces, heads or full bodies. Natural, relaxed,
+anatomically correct hands with five fingers each, clean neutral nails, plain ivory or soft linen
+sleeves, no rings, bracelets or watches. The hands move slowly and gracefully, and touch the
+products the way a careful owner would.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 10 | PRODUCTS IN USE | FRESH STEMS
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+One vase or vessel, and if you like, the console or side table it stands on.
+
+WHAT THIS CLIP IS FOR
+A gentle, living moment of styling a home with an Aurelio vase.
+
+--- IMAGE PROMPT | SCENE 10 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: a bright entrance hall of warm ivory plaster and pale limestone, with the attached vase
+standing on a simple console (the attached console, if provided) against the wall, beneath soft
+daylight from a side window. The vase already holds a few loose stems of white garden roses and
+fresh green olive branches; a pair of hands holds one more white rose just above it.
+
+Opening viewpoint: an eye-height, slightly three-quarter view with a 50 mm lens character, the vase
+and its stems on the vertical centre line in the middle band of the frame; the hands enter softly
+from the left with the last stem. The upper centre is plain plaster with gentle window light; the
+lower centre is the clean front of the console.
+
+People appear only as hands and forearms: no faces, heads or full bodies. Natural, relaxed,
+anatomically correct hands with five fingers each, clean neutral nails, plain ivory or soft linen
+sleeves, no rings, bracelets or watches. The hands move slowly and gracefully, and touch the
+products the way a careful owner would.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 10 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a slow lateral drift of the camera, a little to the right, as the hands place the final rose
+into the vase, then make one small, careful adjustment to a branch, and withdraw out of frame. The
+petals and leaves settle naturally with a gentle sway. The vase never moves, tips or changes shape.
+End on a still, centred view of the finished arrangement in the soft light. The feeling is fresh,
+personal and serene.
+
+People appear only as hands and forearms: no faces, heads or full bodies. Natural, relaxed,
+anatomically correct hands with five fingers each, clean neutral nails, plain ivory or soft linen
+sleeves, no rings, bracelets or watches. The hands move slowly and gracefully, and touch the
+products the way a careful owner would.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+SCENE 11 | PRODUCTS IN USE | THE TABLE IS LAID
+====================================================================================================
+
+PRODUCT PHOTOS TO ATTACH (image step)
+A table lantern or candleholder, plus a serving bowl or platter from your range.
+
+WHAT THIS CLIP IS FOR
+An outdoor hosting moment: warm welcome, still bright and light-themed.
+
+--- IMAGE PROMPT | SCENE 11 (paste into ChatGPT with the product photos) ---
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, like the opening frame of an editorial
+interiors film for a premium craft house. A high-key but never washed-out palette of chalk white,
+warm ivory (#F2EFE6), soft paper white (#F2F2F2), pale limestone and travertine, natural light oak,
+soft sage and fresh garden greens, with small, deliberate accents of Aurelio's deep emerald (#072319
+and #0E3B2C) in a single textile, lacquered surface or deep foliage shadow. Brass reads as genuine
+polished or antiqued brass with restrained champagne highlights (#D8C39D, #B9944F), never a yellow,
+orange or chrome-like coating; copper reads rosy and warm, never red; glass is clean and clear.
+Soft, directional natural daylight with gentle warmth, clean neutral whites, realistic light falloff
+and physically correct reflections on metal and glass. Highlights and whites keep their detail. No
+heavy orange or teal grading, no haze or fog, no artificial sparkle, no dramatic lens flare, no HDR
+or CGI look, no clutter.
+
+Setting: a long garden table under an old olive tree on a pale travertine terrace, dressed with an
+ivory linen cloth, simple clear glasses and white plates, a bowl of lemons, and the attached serving
+bowl or platter at its centre. Bright, soft late-afternoon light filters through the olive leaves;
+the garden beyond is fresh and green. The attached lantern or candleholder stands beside the bowl; a
+pair of hands holds a lit taper toward its candle.
+
+Opening viewpoint: a close, three-quarter view at seated height with a 65 mm lens character, the
+attached lantern or candleholder and the serving bowl on the vertical centre line in the middle band
+of the frame; the hand with the taper enters from the right, its flame just reaching the candle. The
+upper centre is soft, out-of-focus olive leaves and sky; the lower centre is clean linen.
+
+People appear only as hands and forearms: no faces, heads or full bodies. Natural, relaxed,
+anatomically correct hands with five fingers each, clean neutral nails, plain ivory or soft linen
+sleeves, no rings, bracelets or watches. The hands move slowly and gracefully, and touch the
+products the way a careful owner would.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+--- VIDEO PROMPT | SCENE 11 (paste into Google Flow with the approved image) ---
+
+Animate the supplied starting-frame image into an approximately eight-second, photorealistic,
+cinematic background film for the homepage of Aurelio by AF International, a family atelier in
+Moradabad, India, that makes heirloom furniture, lighting, vessels, kitchenware and decorative
+objects by hand in brass, copper, bronze, patinated steel, blown glass and seasoned wood. The
+supplied image is the exact first frame and the visual source of truth: every product keeps its
+shape, proportions, construction, finish, colour, scale and position for the whole shot. Products
+are rigid, solid, hand-made objects: they never bend, melt, morph, flicker, duplicate, change their
+pattern or texture, or drift. Do not add new products, people, animals, text, logos or signage
+beyond what is described below. Reveal only a little new space, consistent with the first frame.
+
+Keep the look of the first frame: fresh, lively, light and quietly luxurious, an editorial interiors
+film for a premium craft house. A high-key but never washed-out palette of chalk white, warm ivory
+(#F2EFE6), pale limestone and travertine, natural light oak, soft sage and fresh garden greens, with
+small accents of Aurelio's deep emerald (#072319, #0E3B2C). Brass stays genuine polished or antiqued
+brass with restrained champagne highlights (#D8C39D, #B9944F), never yellow, orange or chrome;
+copper stays rosy and warm; glass stays clean. Soft natural daylight, stable exposure and white
+balance, realistic shadows and physically correct reflections that move correctly as the camera
+moves. No grading shifts, haze, fog, artificial sparkle, lens flare or HDR look.
+
+Shot: a slow push-in as the candle catches and its small, steady flame settles inside the lantern,
+adding a soft warm glow to the brass that is still gentle in the daylight; the hand withdraws out of
+frame. Dappled light from the olive leaves moves gently over the table; the tablecloth edge lifts
+slightly in the breeze. The lantern, candleholder and bowl stay perfectly still and keep their exact
+form. End on a calm, centred view of the lit lantern and the laid table. The feeling is a warm,
+generous welcome on a bright evening.
+
+People appear only as hands and forearms: no faces, heads or full bodies. Natural, relaxed,
+anatomically correct hands with five fingers each, clean neutral nails, plain ivory or soft linen
+sleeves, no rings, bracelets or watches. The hands move slowly and gracefully, and touch the
+products the way a careful owner would.
+
+Camera and pacing: one continuous take in landscape 16:9, with no cuts, transitions, time-lapse or
+speed ramps. The camera moves slowly, smoothly and steadily, as on a dolly, slider or small crane;
+no handheld shake, sudden acceleration, zoom snaps, whip pans, focus hunting or spinning products.
+The only motion is the camera move and the gentle living details described below (light, air, water,
+leaves, fabric, steam, and hands where described), so the film feels alive yet calm and can loop
+quietly behind a website. Keep the top-centre and bottom-centre bands calm and uncluttered for the
+website's wordmark and buttons, and keep the hero product near the vertical centre line throughout
+so a phone crop still shows it. Settle into a composed, balanced frame and hold it steady for the
+final second. No subtitles, titles, captions, watermarks, logos or letterboxing. No music,
+voice-over or dialogue; if audio is produced, only faint natural ambience. The film must work
+completely muted.
+
+
+====================================================================================================
+PORTRAIT CUT FOR PHONES (optional, recommended)
+====================================================================================================
+
+Phones crop a landscape film to its middle. The website can play a separate 9:16 portrait film on
+tall screens instead. For each scene you use, first ask ChatGPT to recompose the approved landscape
+still as a portrait frame with the prompt below, then animate it in Flow at 9:16 with the same
+scene's VIDEO PROMPT, replacing "landscape 16:9" with "portrait 9:16".
+
+--- PORTRAIT IMAGE PROMPT (attach the approved landscape still and the same product photos) ---
+
+Recompose the attached approved image as a portrait 9:16 photograph of the exact same scene, at the
+same moment, in the same light, with the same products, materials, finishes and styling. The
+products must stay identical to the attached product photographs and to the approved image: same
+shape, proportions, finish, colour and scale. Do not redesign, add or remove anything. Centre the
+hero product or the heart of the arrangement on the vertical centre line, in the middle of the
+frame's height. Keep a calm, plain area across the top sixth for a wordmark and across the bottom
+quarter for two stacked buttons. Keep the fresh, light, quietly luxurious palette of warm ivory,
+pale limestone, natural oak, garden greens and small deep emerald (#072319) accents, with true brass
+highlights in champagne (#D8C39D). No text, logos, borders, collage or letterboxing; a single still
+photograph, everything at rest and free of motion blur.
+
+
+====================================================================================================
+EDITING THE FINAL HOMEPAGE FILM
+====================================================================================================
+
+- Length: 20-32 seconds in total, using 4 to 6 clips. A background film should feel unhurried; trim
+  each clip to its calmest 4-6 seconds.
+- Suggested order: 01 The Morning Salon, 06 The Hammered Vessel, 09 The Morning Pour, 03 The
+  Sandstone Courtyard, 05 The Pendant Awakens, 11 The Table Is Laid, then dissolve back into 01.
+  This moves from home, to craft, to life, to the outdoors, to light, to welcome.
+- Transitions: soft cross-dissolves of 0.8-1.2 seconds only. No hard cuts, flashes, zooms or slides.
+- Seamless loop: end the edit by dissolving into the exact opening frame of the first clip, so the
+  website's loop never shows a jump.
+- Consistency: match exposure, white balance and warmth across clips; keep the whole film light and
+  fresh. No music track is needed: the website plays the film muted.
+
+====================================================================================================
+EXPORTING AND ADDING IT TO THE WEBSITE
+====================================================================================================
+
+The website is already wired for this film (and, optionally, for a portrait cut). It starts the film
+only after the page has loaded, never for visitors who prefer reduced motion, who are saving data or
+who are on very slow connections. It pauses the film when it is off screen, and it shows the still
+image until the film is actually playing.
+
+1. Export a master at 1920x1080 (or 2560x1440), 24 or 25 fps, with no audio track.
+2. Create the two web files (requires ffmpeg), keeping the landscape pair under about 6-8 MB:
+     ffmpeg -i master.mp4 -an -vf scale=1920:-2 -c:v libx264 -profile:v high -preset slow -crf 23 -pix_fmt yuv420p -movflags +faststart public/videos/hero.mp4
+     ffmpeg -i master.mp4 -an -vf scale=1920:-2 -c:v libvpx-vp9 -b:v 0 -crf 35 -row-mt 1 -deadline good -cpu-used 2 public/videos/hero.webm
+3. Optional portrait cut (from a 9:16 master), kept under about 4 MB:
+     ffmpeg -i portrait-master.mp4 -an -vf scale=1080:-2 -c:v libx264 -profile:v high -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart public/videos/hero-portrait.mp4
+     ffmpeg -i portrait-master.mp4 -an -vf scale=1080:-2 -c:v libvpx-vp9 -b:v 0 -crf 36 -row-mt 1 -deadline good -cpu-used 2 public/videos/hero-portrait.webm
+4. Make the still match the film's first frame, so the film fades in without a visible change:
+     ffmpeg -i public/videos/hero.mp4 -frames:v 1 public/images/hero-source.png
+     npm run assets
+5. Rebuild (npm run build) and deploy. The build detects whichever of hero.mp4, hero.webm,
+   hero-portrait.mp4 and hero-portrait.webm exist; when running locally, restart the dev server
+   after adding them.
+
+====================================================================================================

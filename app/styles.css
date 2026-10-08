@@ -1401,12 +1401,15 @@ summary {
 }
 .main-product-image {
   position: relative;
-  background: #e6e4df;
+  background: #fff;
   aspect-ratio: 1/1.02;
 }
+/* The whole object, never cropped: a lamp lost its shade and a vase its lip
+   under object-fit: cover. Same treatment as the bulk piece pages. */
 .main-product-image > img {
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 5%;
 }
 .zoom-button {
   position: absolute;
@@ -1573,8 +1576,9 @@ summary {
   display: flex;
   margin: 15px auto 0;
 }
+/* Product and piece pages both offer up to four related objects. */
 .related-grid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 .mobile-buy-bar {
   display: none;

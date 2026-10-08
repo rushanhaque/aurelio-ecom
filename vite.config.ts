@@ -4,10 +4,18 @@ import { existsSync } from "node:fs";
 
 /* The landing film is optional: the poster carries the hero until files are
    dropped into public/videos. Requesting films that are not there cost two
-   404s and console errors on every visit, so only the formats that exist at
-   build time are offered. (Restart the dev server after adding one.) */
-const heroFilm = (["webm", "mp4"] as const).filter((ext) =>
-  existsSync(`public/videos/hero.${ext}`),
+   404s and console errors on every visit, so only the files that exist at
+   build time are offered. A portrait cut (hero-portrait.*) is used on tall
+   phone screens, where the landscape film would be cropped to its middle
+   quarter. (Restart the dev server after adding a file.) */
+const heroFilm = (["hero-portrait", "hero"] as const).flatMap((name) =>
+  (["webm", "mp4"] as const)
+    .filter((ext) => existsSync(`public/videos/${name}.${ext}`))
+    .map((ext) => ({
+      src: `/videos/${name}.${ext}`,
+      type: `video/${ext}`,
+      ...(name === "hero-portrait" ? { media: "(max-aspect-ratio: 4/5)" } : {}),
+    })),
 );
 
 /* React's runtime and the router change together and are needed on every

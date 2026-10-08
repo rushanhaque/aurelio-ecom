@@ -8,10 +8,8 @@ export const homeContent = {
   ] as [string, string][],
 };
 
-/* The landing film. Drop the files into public/videos — the poster holds the
-   frame until the film is ready, and stays put if it never arrives. */
-export const heroMedia = {
-  webm: "/videos/hero.webm",
-  mp4: "/videos/hero.mp4",
-  poster: "/images/hero-1440.webp",
-};
+/* The landing film lives in public/videos: hero.mp4 and hero.webm (16:9), and
+   optionally hero-portrait.mp4 / hero-portrait.webm (9:16) for phones. The
+   build offers whichever exist (vite.config.ts); the responsive hero still
+   (public/images/hero-*.webp) holds the screen until the film is playing.
+   See docs/Aurelio_Homepage_Film_Prompts_v2.txt for producing them. */

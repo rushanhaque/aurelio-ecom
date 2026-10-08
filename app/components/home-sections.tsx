@@ -4,6 +4,7 @@ import { Picture } from "./ui";
 import { ReadingStatement } from "./storytelling";
 import "../immersive.css";
 import "../home-hero.css";
+import { Words } from "./motion-text";
 
 function Orbit({ className = "" }: { className?: string }) {
   return (
@@ -66,8 +67,9 @@ export function ServicesSplit() {
       aria-labelledby="services-title"
     >
       <header className="services-head container" data-reveal>
-        <h2 id="services-title">
-          One workshop. <em>Two doors.</em>
+        <h2 id="services-title" data-reveal="words">
+          <Words>
+          One workshop. <em>Two doors.</em></Words>
         </h2>
         <p>From a single piece to a full container.</p>
       </header>
@@ -126,9 +128,10 @@ export function CommissionScene() {
       />
       <div className="commission-veil" />
       <div className="commission-content">
-        <h2>
+        <h2 data-reveal="words">
+          <Words>
           Let’s make
-          <br /> <em>an impression.</em>
+          <br /> <em>an impression.</em></Words>
         </h2>
         <div className="commission-bottom">
           <p>One piece for your home, or a range for your business.</p>
