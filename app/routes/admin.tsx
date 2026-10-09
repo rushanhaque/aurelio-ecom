@@ -2,7 +2,7 @@ import { collections, materials } from "../lib/brand-content";
 import { StudioWorkflow } from "../components/studio-workflow";
 import { QuoteEditor } from "../components/quote-editor";
 import { ContentEditor } from "../components/content-editor";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRevalidator, useLocation } from "react-router";
 import {
   Plus,
@@ -19,6 +19,58 @@ export const meta = () => [
   { title: "Studio dashboard — Aurelio" },
   { name: "robots", content: "noindex,nofollow" },
 ];
+/* The pictures a visitor sent with an idea. They are private, so each one is
+   fetched with the studio token (an <img> cannot send it) and shown from a
+   local blob; a click opens the full-size picture. */
+function BriefPictures({
+  ids,
+  headers,
+}: {
+  ids: string[];
+  headers: Record<string, string>;
+}) {
+  const [items, setItems] = useState<{ id: string; thumb: string; full: string }[]>([]);
+  useEffect(() => {
+    let alive = true;
+    const made: string[] = [];
+    (async () => {
+      const loaded = [];
+      for (const id of ids) {
+        try {
+          const [thumb, full] = await Promise.all(
+            [`?thumb=1`, ``].map(async (query) => {
+              const response = await fetch(`/api/admin/briefs/${id}${query}`, { headers });
+              if (!response.ok) throw new Error();
+              const url = URL.createObjectURL(await response.blob());
+              made.push(url);
+              return url;
+            }),
+          );
+          loaded.push({ id, thumb, full });
+        } catch {
+          // A picture that has expired or cannot be read is simply skipped.
+        }
+      }
+      if (alive) setItems(loaded);
+    })();
+    return () => {
+      alive = false;
+      made.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [ids.join(","), headers.Authorization]);
+  if (!items.length) return null;
+  return (
+    <ul className="admin-briefs" aria-label="Pictures sent with this idea">
+      {items.map((item) => (
+        <li key={item.id}>
+          <a href={item.full} target="_blank" rel="noreferrer">
+            <img src={item.thumb} alt="A picture the visitor sent" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
 export default function Admin() {
   const location = useLocation();
   const [token, setToken] = useState(""),
@@ -535,6 +587,9 @@ export default function Admin() {
                           </p>
                         ))}
                         <p className="preserve-lines">{q.message}</p>
+                        {!!q.attachments?.length && (
+                          <BriefPictures ids={q.attachments} headers={headers} />
+                        )}
                       </div>
                       <StudioWorkflow
                         record={q}

@@ -163,6 +163,30 @@ test("enquiry validates quantities and the honeypot", () => {
   assert.equal(enquirySchema.safeParse({ ...e, quantity: 0 }).success, false);
 });
 
+test("an enquiry may carry up to three uploaded pictures, by id only", () => {
+  const e = {
+    idempotencyKey: randomUUID(),
+    name: "Test User",
+    email: "test@example.invalid",
+    country: "India",
+    quantity: "1",
+    product: "Bespoke idea",
+    message: "A vessel like this sketch.",
+  };
+  assert.deepEqual(enquirySchema.parse(e).attachments, []);
+  const ids = [randomUUID(), randomUUID(), randomUUID()];
+  assert.equal(enquirySchema.parse({ ...e, attachments: ids }).attachments.length, 3);
+  assert.equal(
+    enquirySchema.safeParse({ ...e, attachments: [...ids, randomUUID()] }).success,
+    false,
+  );
+  // Ids only: a path or a URL can never be smuggled in as an attachment.
+  assert.equal(
+    enquirySchema.safeParse({ ...e, attachments: ["../../.env"] }).success,
+    false,
+  );
+});
+
 test("publication accepts the six Aurelio retail collections and excludes enquiry-only Bespoke", () => {
   for (const category of [
     "urns",

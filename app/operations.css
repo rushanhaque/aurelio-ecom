@@ -122,3 +122,25 @@
     padding: 20px;
   }
 }
+
+/* Pictures a visitor sent with an enquiry (studio view). */
+.admin-briefs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.admin-briefs a {
+  display: block;
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border: 1px solid #07231933;
+}
+.admin-briefs img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

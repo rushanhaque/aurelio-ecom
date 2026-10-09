@@ -15,25 +15,31 @@ import {
 } from "lucide-react";
 import { useStore } from "../lib/store";
 import { currencies, type Currency } from "../lib/catalog";
-import { collections } from "../lib/brand-content";
+import { collections, materials } from "../lib/brand-content";
 import { brand } from "../lib/brand";
+
+type Panel = false | "categories" | "materials" | "collections";
 
 export function Header() {
   const location = useLocation();
   const { cart, wishlist, currency, setCurrency, setPanel } = useStore();
   const root = useRef<HTMLElement>(null);
-  const trigger = useRef<HTMLButtonElement>(null);
+  const triggers = useRef<Record<string, HTMLButtonElement | null>>({});
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined,
   );
-  const [expanded, setExpanded] = useState(false);
-  const [preview, setPreview] = useState(collections[1]);
+  const [expanded, setExpanded] = useState<Panel>(false);
+  const [previewSlug, setPreviewSlug] = useState("");
   function cancelHover() {
     clearTimeout(hoverTimer.current);
   }
   function closeMenu() {
     cancelHover();
     setExpanded(false);
+  }
+  function openMenu(panel: Exclude<Panel, false>) {
+    setPreviewSlug("");
+    setExpanded(panel);
   }
   useEffect(() => {
     closeMenu();
@@ -49,20 +55,136 @@ export function Header() {
     };
   }, []);
   if (location.pathname === "/") return null;
-  const trade =
-    location.pathname.startsWith("/bulk-orders") ||
-    location.pathname.startsWith("/quotes");
+  // Collections belong to the trade side; the shop sorts by category and
+  // material instead.
+  const trade = /^\/(bulk-orders|quotes|collections|pieces)(\/|$)/.test(
+    location.pathname,
+  );
   const count = cart.reduce((total, item) => total + item.quantity, 0);
-  const category = new URLSearchParams(location.search).get("category");
+  const query = new URLSearchParams(location.search);
+  const category = query.get("category");
+  const material = query.get("material");
+
+  type Entry = {
+    slug: string;
+    index: string;
+    name: string;
+    line: string;
+    image: string;
+    to: string;
+    current: boolean;
+  };
+  const entries: Entry[] =
+    expanded === "materials"
+      ? materials.map((m) => ({
+          slug: m.slug,
+          index: m.index,
+          name: m.name,
+          line: m.trait,
+          image: m.image,
+          to: `/shop?material=${encodeURIComponent(m.name)}`,
+          current: material === m.name,
+        }))
+      : collections
+          .filter((c) => trade || c.slug !== "bespoke")
+          .map((c) => ({
+            slug: c.slug,
+            index: c.index,
+            name: c.name,
+            line: c.tagline,
+            image: c.cover,
+            to:
+              c.slug === "bespoke"
+                ? "/bulk-orders#enquire"
+                : trade
+                  ? `/collections/${c.slug}`
+                  : `/shop?category=${c.slug}`,
+            current: !trade && category === c.slug,
+          }));
+  const preview =
+    entries.find((entry) => entry.slug === previewSlug) ||
+    entries[Math.min(1, entries.length - 1)];
+  const mega = {
+    categories: {
+      overline: "SHOP BY CATEGORY",
+      title: (
+        <>
+          Considered objects.
+          <br />
+          <em>Lasting impressions.</em>
+        </>
+      ),
+      text: "Metal, wood and the mark of a maker.",
+      to: "/shop",
+      cta: "View all objects",
+      label: "Browse categories",
+    },
+    materials: {
+      overline: "SHOP BY MATERIAL",
+      title: (
+        <>
+          Nine materials.
+          <br />
+          <em>Each its own.</em>
+        </>
+      ),
+      text: "Choose by the surface you want to live with.",
+      to: "/materials",
+      cta: "About our materials",
+      label: "Browse materials",
+    },
+    collections: {
+      overline: "THE COLLECTIONS",
+      title: (
+        <>
+          Considered objects.
+          <br />
+          <em>Lasting impressions.</em>
+        </>
+      ),
+      text: "Explore the possibilities for your next project.",
+      to: "/bulk-orders#collections",
+      cta: "Explore our collections",
+      label: "Browse collections",
+    },
+  }[expanded || (trade ? "collections" : "categories")];
+  const disclosure = (name: Exclude<Panel, false>, label: string) => (
+    <button
+      ref={(node) => {
+        triggers.current[name] = node;
+      }}
+      className="commerce-disclosure"
+      aria-expanded={expanded === name}
+      aria-controls="header-mega"
+      onClick={() => {
+        cancelHover();
+        if (expanded === name) setExpanded(false);
+        else openMenu(name);
+      }}
+      onPointerEnter={(event) => {
+        if (event.pointerType === "mouse") {
+          cancelHover();
+          hoverTimer.current = setTimeout(
+            () => openMenu(name),
+            expanded ? 80 : 350,
+          );
+        }
+      }}
+      onPointerLeave={cancelHover}
+    >
+      {label} <ChevronDown size={12} />
+    </button>
+  );
 
   return (
     <header
       ref={root}
-      data-expanded={expanded}
+      data-expanded={expanded ? "true" : "false"}
       onKeyDown={(event) => {
         if (event.key === "Escape" && expanded) {
+          const open = expanded;
           closeMenu();
-          trigger.current?.focus();
+          triggers.current[open]?.focus();
         }
       }}
       onBlur={(event) => {
@@ -203,79 +325,58 @@ export function Header() {
             <Link
               to="/shop"
               aria-current={
-                location.pathname === "/shop" && !category ? "page" : undefined
+                location.pathname === "/shop" && !category && !material
+                  ? "page"
+                  : undefined
               }
             >
               All objects
             </Link>
           )}
-          <button
-            ref={trigger}
-            className="commerce-disclosure"
-            aria-expanded={expanded}
-            aria-controls="header-collections"
-            onClick={() => {
-              cancelHover();
-              setExpanded(!expanded);
-            }}
-            onPointerEnter={(event) => {
-              if (event.pointerType === "mouse") {
-                cancelHover();
-                hoverTimer.current = setTimeout(() => setExpanded(true), 350);
+          {trade
+            ? disclosure("collections", "Collections")
+            : disclosure("categories", "Categories")}
+          {trade ? (
+            <Link
+              to="/bulk-orders#material-atelier"
+              aria-current={
+                location.hash === "#material-atelier" ? "page" : undefined
               }
-            }}
-            onPointerLeave={cancelHover}
-          >
-            Collections <ChevronDown size={12} />
-          </button>
-          <Link to={trade ? "/bulk-orders#material-atelier" : "/materials"} aria-current={(trade ? location.hash === "#material-atelier" : location.pathname === "/materials") ? "page" : undefined}>
-            {trade ? "Materials & finishes" : "Materials"}
-          </Link>
+            >
+              Materials &amp; finishes
+            </Link>
+          ) : (
+            disclosure("materials", "Materials")
+          )}
           {trade && <Link to="/bulk-orders#process">How we work</Link>}
           <NavLink to="/about">Our atelier</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
       </div>
-      <div id="header-collections" className="commerce-mega" hidden={!expanded}>
+      <div id="header-mega" className="commerce-mega" hidden={!expanded}>
         <div className="commerce-mega-intro">
-          <span className="commerce-overline">THE COLLECTIONS</span>
-          <h2>
-            Considered objects.
-            <br />
-            <em>Lasting impressions.</em>
-          </h2>
-          <p>
-            {trade
-              ? "Explore the possibilities for your next project."
-              : "Metal, wood and the mark of a maker."}
-          </p>
-          <Link
-            to={trade ? "/bulk-orders#collections" : "/shop"}
-            onClick={closeMenu}
-            className="commerce-mega-all"
-          >
-            {trade ? "Explore our collections" : "View all objects"}
+          <span className="commerce-overline">{mega.overline}</span>
+          <h2>{mega.title}</h2>
+          <p>{mega.text}</p>
+          <Link to={mega.to} onClick={closeMenu} className="commerce-mega-all">
+            {mega.cta}
             <ArrowUpRight size={16} />
           </Link>
         </div>
-        <nav className="commerce-mega-links" aria-label="Browse collections">
-          {collections.map((item) => (
+        <nav
+          className="commerce-mega-links"
+          data-wide={expanded === "materials"}
+          aria-label={mega.label}
+        >
+          {entries.map((item) => (
             <Link
-              key={item.slug}
-              to={
-                item.slug === "bespoke"
-                  ? "/bulk-orders#enquire"
-                  : trade
-                    ? `/collections/${item.slug}`
-                    : `/shop?category=${item.slug}`
-              }
+              key={`${expanded}-${item.slug}`}
+              to={item.to}
               onClick={closeMenu}
-              onPointerEnter={() => setPreview(item)}
-              onFocus={() => setPreview(item)}
-              data-preview={preview.slug === item.slug}
-              aria-current={
-                !trade && category === item.slug ? "page" : undefined
-              }
+              onPointerEnter={() => setPreviewSlug(item.slug)}
+              onFocus={() => setPreviewSlug(item.slug)}
+              data-preview={preview?.slug === item.slug}
+              aria-current={item.current ? "page" : undefined}
             >
               <span>{item.index}</span>
               <strong>{item.name}</strong>
@@ -283,36 +384,35 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <Link
-          className="commerce-mega-preview"
-          to={
-            preview.slug === "bespoke"
-              ? "/bulk-orders#enquire"
-              : trade
-                ? `/collections/${preview.slug}`
-                : `/shop?category=${preview.slug}`
-          }
-          onClick={closeMenu}
-        >
-          <Picture
-            key={preview.slug}
-            name={preview.cover}
-            alt={preview.name}
-            sizes="380px"
-          />
-          <span>
-            <small>EXPLORE {preview.name.toUpperCase()}</small>
-            <strong>{preview.tagline}</strong>
-            <ArrowUpRight size={22} />
-          </span>
-        </Link>
+        {preview && (
+          <Link
+            className="commerce-mega-preview"
+            to={preview.to}
+            onClick={closeMenu}
+          >
+            <Picture
+              key={`${expanded}-${preview.slug}`}
+              name={preview.image}
+              alt={preview.name}
+              sizes="380px"
+            />
+            <span>
+              <small>
+                {trade ? "EXPLORE" : "SHOP"} {preview.name.toUpperCase()}
+              </small>
+              <strong>{preview.line}</strong>
+              <ArrowUpRight size={22} />
+            </span>
+          </Link>
+        )}
         <button
           className="commerce-mega-close commerce-icon"
           onClick={() => {
+            const open = expanded;
             closeMenu();
-            trigger.current?.focus();
+            if (open) triggers.current[open]?.focus();
           }}
-          aria-label="Close collections"
+          aria-label="Close menu"
         >
           <X size={18} />
         </button>

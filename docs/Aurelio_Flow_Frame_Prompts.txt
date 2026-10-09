@@ -1,0 +1,122 @@
+AURELIO — GOOGLE FLOW PROMPTS FOR THE 12 STARTING FRAMES
+Frames: output/frames. Use each image as the starting frame and paste its prompt.
+Each prompt has its own camera move, so no two clips feel alike. All are cinematic,
+slow and smooth, and keep the product exactly as it is in the frame.
+
+--------------------------------------------------------------------------------
+01 — white-salon-ray-mirror-v2.png            MOVE: symmetrical dolly-in
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of a sunlit white living room. A perfectly centred,
+very slow, silky dolly-in glides toward the brass sunburst mirror, with gentle
+parallax between the stone table, the mirror and the olive trees beyond the glass.
+Fine sand falls steadily through the copper hourglass. A soft breeze stirs the
+leaves and the daylight drifts across the rug. The mirror, hourglass and furniture
+never change. Calm, grand, true-to-life.
+
+--------------------------------------------------------------------------------
+02 — white-dining-faceted-pitcher.png         MOVE: low lateral truck + rack focus
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of a bright breakfast table. A low, slow, buttery
+lateral slide moves right to left along the table at glass height, with shallow
+depth of field. Focus eases from the green napkin in the foreground onto the faceted
+copper pitcher, its sharp edges catching the light. Steam curls from the coffee cup
+and the garden sways softly beyond the open doors. The pitcher and tableware stay
+perfectly still. Fresh, airy, completely natural.
+
+--------------------------------------------------------------------------------
+03 — white-courtyard-lit-lantern.png          MOVE: slow crane rise
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of a white courtyard with a long reflecting pool. A
+slow, steady crane move rises gracefully from plinth height, lifting over the lantern
+to reveal more of the pool, columns and olive trees. The candle flame flickers
+gently behind the glass and the water ripples, making the reflections shimmer.
+The lantern stays perfectly still. Serene, expansive, true-to-life.
+
+--------------------------------------------------------------------------------
+04 — white-garden-pavilion-bells.png          MOVE: slow pull-back reveal
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of a white garden pavilion in afternoon sun. A very
+slow, smooth dolly-out pulls back from the cluster of antique brass bells, with a
+faint upward tilt, widening to reveal the pavilion, curtains and lawn. A light breeze
+lifts the sheer curtains and sets the bells swaying softly on their chains, as real
+hanging bells would. Foreground white flowers drift in soft focus. The bells keep
+their exact hammered texture. Peaceful, open, completely realistic.
+
+--------------------------------------------------------------------------------
+05 — white-peacock-oil-lamp.png               MOVE: tight arc + focus pull to flame
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of a brass peacock-feather oil lamp on a white
+marble counter. The camera makes a slow, silky clockwise arc close around the lamp,
+while focus eases from its ringed base up to the small wick flame. The flame
+flickers naturally and a faint thread of smoke curls upward. Leaf shadows drift
+slowly across the white wall. The lamp stays solid and unchanged, its brushed brass
+glowing softly. Intimate, quiet, true-to-life.
+
+--------------------------------------------------------------------------------
+06 — white-hammered-copper-pitcher.png        MOVE: macro push-in + light sweep
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of a hammered copper pitcher with a brass collar on
+a white stone plinth. A slow, smooth push-in drifts toward the pitcher while
+dappled sunlight moves across its surface, so each hammer mark glints in turn like
+ripples of light. The sheer curtain breathes gently at the edge of the frame. The
+pitcher never moves or changes shape. Tactile, luxurious, completely real.
+
+--------------------------------------------------------------------------------
+07 — white-engraved-keepsake-jar.png          MOVE: slow vertical pedestal rise
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of an engraved brass keepsake urn in a white wall
+niche beside a sprig of jasmine. The camera rises in one slow, perfectly smooth
+vertical move from the base of the urn up to its lid and finial, keeping it centred.
+Soft morning light brightens gradually across the carved floral surface, deepening
+every engraved line, as faint leaf shadows drift over the niche. The urn, lid and
+flowers stay perfectly still. Serene, dignified, true-to-life.
+
+--------------------------------------------------------------------------------
+08 — white-gallery-crystal-form.png           MOVE: wide counter-clockwise orbit
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of a faceted brass sculpture on a white marble
+plinth in a bright gallery. The camera orbits slowly and evenly counter-clockwise,
+so light slides across each angular facet and its edges catch a soft glint. Shadows
+of leaves move gently on the white wall and trees sway beyond the tall window. The
+sculpture stays perfectly still and keeps its exact geometry. Clean, architectural,
+completely natural.
+
+--------------------------------------------------------------------------------
+09 — white-morning-pour.png                   MOVE: diagonal push-in following the pour
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film at a sunny breakfast table. A slow, smooth diagonal
+push-in follows the action as the hands tilt the hammered copper pitcher and pour
+clear water into the glass with the lemon slice, the stream falling naturally with
+real weight, bubbles rising and light rippling on the linen. Focus shifts gently from
+the glass to the pitcher as it is eased upright. Olive leaves sway by the window. Real
+hands, real water physics, true-to-life.
+
+--------------------------------------------------------------------------------
+10 — white-fresh-stems-spiral-vase.png        MOVE: lateral slide with parallax
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film in a bright white entryway. A slow, graceful lateral
+slide from left to right passes the spiral-fluted brass vase with soft parallax from
+the window and the mirror edge, while the hands lower the white rose into the vase,
+adjust one olive stem and withdraw. Petals and leaves settle with a soft natural
+sway and leaf shadows glide across the wall. The vase never moves. Fresh, elegant,
+completely realistic.
+
+--------------------------------------------------------------------------------
+11 — white-garden-lattice-candles.png         MOVE: low dolly-in + rack focus
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of a garden table under an olive tree. A low, slow
+dolly-in moves toward the three brass lattice candleholders, with shallow depth of
+field. Focus eases from the flames to the hands as they lower the extinguished
+taper, a thin trail of smoke curling upward before they withdraw. The flames
+flicker softly in the breeze and dappled light shifts over the white linen. The
+holders keep their exact lattice and stay still. Warm, welcoming, true-to-life.
+
+--------------------------------------------------------------------------------
+12 — white-mountain-relief-gallery.png        MOVE: slow diagonal arc, raking light
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film of a cast brass mountain-and-river relief on a
+white gallery wall. The camera glides slowly and smoothly in a gentle diagonal arc
+to the left, so raking sunlight rolls across the raised peaks and the winding river,
+bringing out their depth. Leaf shadows from the window drift over the wall and the
+olive tree on the right moves softly. The panel stays perfectly still and its
+sculpted detail never changes. Calm, luminous, completely realistic.

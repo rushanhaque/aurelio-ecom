@@ -10,6 +10,7 @@ import {
 import { Link } from "react-router";
 import { Picture } from "./ui";
 import { LightStudy } from "./light-study";
+import { BriefStudio } from "./brief-studio";
 import "../atelier-experiments.css";
 
 const experiments = [
@@ -119,69 +120,6 @@ function Range({
         }}
       />
     </label>
-  );
-}
-
-function Vessel({
-  width = 90,
-  neck = 38,
-  height = 170,
-  wire = false,
-}: {
-  width?: number;
-  neck?: number;
-  height?: number;
-  wire?: boolean;
-}) {
-  const id = useId();
-  const top = 285 - height;
-  const path = `M${200 - neck},${top} L${200 + neck},${top} C${200 + neck - 8},${top + 55} ${200 + width},${top + 65} ${200 + width},220 Q${200 + width},275 240,285 L160,285 Q${200 - width},275 ${200 - width},220 C${200 - width},${top + 65} ${200 - neck + 8},${top + 55} ${200 - neck},${top}Z`;
-  return (
-    <g className={wire ? "vessel-wire" : "vessel-solid"}>
-      <defs>
-        <linearGradient id={id}>
-          <stop stopColor="#544633" />
-          <stop offset=".3" stopColor="#ac8752" />
-          <stop offset=".48" stopColor="#dfc796" />
-          <stop offset=".7" stopColor="#ae8d5b" />
-          <stop offset="1" stopColor="#615038" />
-        </linearGradient>
-      </defs>
-      <path
-        d={path}
-        fill={wire ? "none" : `url(#${id})`}
-        stroke={wire ? "currentColor" : "#8b7047"}
-        strokeWidth={wire ? 1.2 : 0.6}
-      />
-      <ellipse
-        cx="200"
-        cy={top}
-        rx={neck}
-        ry="5"
-        fill={wire ? "none" : "#4d4030"}
-        stroke="currentColor"
-        strokeOpacity=".25"
-      />
-      {wire && (
-        <>
-          <path
-            d={`M200 ${top - 20} V305 M${105} 220 H295`}
-            stroke="currentColor"
-            strokeDasharray="3 5"
-            opacity=".4"
-          />
-          <ellipse
-            cx="200"
-            cy="220"
-            rx={width}
-            ry="17"
-            fill="none"
-            stroke="currentColor"
-            opacity=".35"
-          />
-        </>
-      )}
-    </g>
   );
 }
 
@@ -473,110 +411,15 @@ export function ThreeLives() {
   );
 }
 
+/* Your form, your finish: visitors drop a photograph, a drawing or a sketch of
+   an idea and begin a conversation with the atelier (see brief-studio.tsx). */
 export function YourLine() {
-  const [width, setWidth] = useState(75),
-    [neck, setNeck] = useState(32),
-    [height, setHeight] = useState(165),
-    [finish, setFinish] = useState("Brass"),
-    [solid, setSolid] = useState(false);
-  const brief = `Bespoke vessel concept: body ${width}/110, opening ${neck}/60, height ${height}/210, in ${finish}. Proportions only. Please advise on dimensions, finish, quantity and price.`;
   return (
     <Chapter
       index={4}
-      intro="Sketch a form. Pick a metal. We send samples first."
+      intro="Drop a photo, a drawing or a sketch. Tell us what you imagine; we reply with samples first."
     >
-      <div className="experiment-split">
-        <div
-          className={`experiment-canvas line-canvas ${solid ? "is-solid" : ""}`}
-        >
-          <svg
-            viewBox="0 0 400 340"
-            role="img"
-            aria-label={`Vessel concept: body ${width}, opening ${neck}, height ${height}; ${solid ? "form" : "sketch"} view`}
-          >
-            <defs>
-              <pattern
-                id="line-grid"
-                width="20"
-                height="20"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M20 0 H0 V20"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth=".4"
-                  opacity=".12"
-                />
-              </pattern>
-            </defs>
-            <rect width="400" height="340" fill="url(#line-grid)" />
-            <g
-              style={{
-                filter:
-                  solid && finish === "Copper"
-                    ? "hue-rotate(-18deg) saturate(1.4)"
-                    : solid && finish === "Bronze"
-                      ? "brightness(.7)"
-                      : "none",
-              }}
-            >
-              <Vessel width={width} neck={neck} height={height} wire={!solid} />
-            </g>
-          </svg>
-          <button
-            className="line-view"
-            aria-pressed={solid}
-            onClick={() => setSolid((v) => !v)}
-          >
-            {solid ? "Return to the drawing" : "Bring the form to life"} ↗
-          </button>
-        </div>
-        <div className="experiment-copy">
-          <Range
-            label="Body proportion"
-            min={55}
-            max={110}
-            value={width}
-            unit=""
-            onChange={setWidth}
-          />
-          <Range
-            label="Opening proportion"
-            min={20}
-            max={60}
-            value={neck}
-            unit=""
-            onChange={setNeck}
-          />
-          <Range
-            label="Height proportion"
-            min={120}
-            max={210}
-            value={height}
-            unit=""
-            onChange={setHeight}
-          />
-          <div className="experiment-options" aria-label="Preferred metal">
-            {["Brass", "Copper", "Bronze"].map((m) => (
-              <button
-                key={m}
-                aria-pressed={finish === m}
-                onClick={() => setFinish(m)}
-              >
-                {m}
-              </button>
-            ))}
-          </div>
-          <Link
-            className="experiment-cta"
-            to={`/bulk-orders?product=Bespoke+vessel&brief=${encodeURIComponent(brief)}#enquire`}
-            preventScrollReset
-          >
-            Send this idea <span>↗</span>
-          </Link>
-        </div>
-      </div>
+      <BriefStudio />
     </Chapter>
   );
 }

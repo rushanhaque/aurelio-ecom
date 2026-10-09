@@ -554,7 +554,8 @@
 
   /* Collections column is hidden on phones (per request); the rest sit in
      two tight columns */
-  .ft-col--collections {
+  .ft-col--collections,
+  .ft-col--shop {
     display: none;
   }
   .ft-cols {

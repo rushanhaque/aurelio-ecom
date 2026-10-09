@@ -26,6 +26,8 @@ export const enquirySchema = z.object({
   quantity: z.coerce.number().int().min(1).max(100000),
   product: z.string().max(300),
   message: z.string().trim().min(10).max(4000),
+  // Pictures sent with the idea (see server/briefs.ts), by upload id.
+  attachments: z.array(z.uuid()).max(3).default([]),
   website: z.string().max(0).optional(),
 });
 export function priceOrder(

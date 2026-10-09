@@ -37,6 +37,9 @@ import styles from "./app.css?url";
    preloading them lets the text paint in its real face on the first frame. */
 import manrope from "@fontsource/manrope/files/manrope-latin-400-normal.woff2?url";
 import cormorant from "@fontsource/cormorant-garamond/files/cormorant-garamond-latin-400-normal.woff2?url";
+/* The italic cut sets the accent word of nearly every page title ("A family
+   atelier."); without it in hand the title reflowed when it arrived. */
+import cormorantItalic from "@fontsource/cormorant-garamond/files/cormorant-garamond-latin-400-italic.woff2?url";
 export const links = () => [
   /* The stylesheet is the only thing that blocks the first paint, so it is
      requested ahead of the font preloads that would otherwise share its
@@ -52,6 +55,13 @@ export const links = () => [
   {
     rel: "preload",
     href: cormorant,
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous" as const,
+  },
+  {
+    rel: "preload",
+    href: cormorantItalic,
     as: "font",
     type: "font/woff2",
     crossOrigin: "anonymous" as const,
@@ -196,7 +206,7 @@ function structuredData({
       "@type": "BreadcrumbList",
       itemListElement: [
         ["Home", "/"],
-        ["The collection", "/shop"],
+        ["Shop", "/shop"],
         [product.name, pathname],
       ].map(([name, path], i) => ({
         "@type": "ListItem",
@@ -390,7 +400,7 @@ export function ErrorBoundary() {
           ? "A little off the beaten path."
           : "Something interrupted the journey."}
       </h1>
-      <p>Please return to the collection and try again.</p>
+      <p>Please return to the shop and try again.</p>
       <a className="button" href="/">
         Back to Aurelio <span>↗</span>
       </a>

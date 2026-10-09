@@ -1,0 +1,38 @@
+Use case: product-mockup
+Asset type: one premium photorealistic landscape 16:9 starting frame for Google Flow.
+Input images are strict PRODUCT IDENTITY REFERENCES, not background/style references. Preserve the exact products while replacing the catalogue scene with the described modern white location.
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, professional editorial imagery for a premium modern craft house. Match the actual Aurelio website palette: solid pure white (#FFFFFF), paper white (#F2F2F2), and deep green (#072319), with related green (#0D3325) allowed only in foliage and subtle accents. Architecture, floors, counters, linens and supporting furniture read as clean solid white with restrained true shadows; white dominates at least 70% of built surfaces. Greens occupy a small deliberate area or appear as natural garden foliage. Preserve the products' actual brass, copper, glass and dark patina colours; never repaint products white or green. Brass has restrained champagne highlights, copper is rosy warm metal. Soft neutral directional daylight, clean white balance, no warm beige cast, rustic texture, sandstone, ivory plaster, orange/teal grade, haze, fog, sparkle, lens flare, HDR or CGI appearance. Whites retain detail. Modern premium spaces, calm and uncluttered.
+
+Setting: a bright modern white gallery with smooth solid-white walls, white polished stone floor and a tall rectangular window. The attached brass crystal-form sculpture stands alone on a low plain white plinth, presented as a collected art object. Deep-green #072319 garden foliage glimpsed through the window forms a subtle background accent. Clean neutral daylight, architectural and calm.
+
+Opening viewpoint: a low three-quarter view with a 50 mm lens character at plinth height. Entire asymmetric sculpture centred in the middle band, each pointed facet readable. Soft window-grid shadows lead toward the object. Upper centre clean white wall, lower centre white plinth and floor. The sculpture fills the frame confidently without cropped points.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+Reference fidelity and in-use instructions: Image 1 is one joined opaque antique-brass polyhedral sculptural cluster. Preserve exact lobes, pointed triangular planes, asymmetric silhouette and connected structure. Not glass, not a gold crystal mineral, not transparent. Approx28cm tabletop scale. No liquid, flame or smoke from solid sculpture.
+
+Final render: ONE standalone complete photograph in landscape 16:9, highest available quality, ideally 3840x2160. No collage, no panels, no letterboxing, no borders. Absolutely NO words, numbers, letters, labels, captions, logos, watermarks, signatures or website UI anywhere. Mentions of website text refer ONLY to space left empty for later overlays. Professional clean premium solid-white setting with subtle brand deep green, true product materials. Freeze the living scene sharply in its opening instant with no motion blur.

@@ -106,7 +106,8 @@ export default function Shop() {
       </section>
       <section
         className="shop-collections container"
-        aria-label="Shop by collection"
+        id="categories"
+        aria-label="Shop by category"
       >
         {collections
           .filter((c) => c.slug !== "bespoke")
@@ -128,6 +129,31 @@ export default function Shop() {
             </button>
           ))}
       </section>
+      <section
+        className="shop-materials container"
+        id="materials"
+        aria-label="Shop by material"
+      >
+        <span className="eyebrow">Shop by material</span>
+        <div className="shop-material-list">
+          {materials.map((m) => (
+            <button
+              key={m.slug}
+              type="button"
+              className={`shop-pill ${material === m.name ? "active" : ""}`}
+              aria-pressed={material === m.name}
+              onClick={() => {
+                update("material", material === m.name ? "" : m.name);
+                document
+                  .getElementById("catalogue")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {m.name}
+            </button>
+          ))}
+        </div>
+      </section>
       <section className="container shop-content" id="catalogue">
         <div className="shop-toolbar">
           <span className="eyebrow">
@@ -142,6 +168,22 @@ export default function Shop() {
                 onChange={(e) => update("q", e.target.value, true)}
                 placeholder="Find an object"
               />
+            </label>
+            <label className="sort-control">
+              <span className="sr-only">Filter by category</span>
+              <select
+                value={category === "all" ? "" : category}
+                onChange={(e) => update("category", e.target.value)}
+              >
+                <option value="">All categories</option>
+                {collections
+                  .filter((c) => c.slug !== "bespoke")
+                  .map((c) => (
+                    <option value={c.slug} key={c.slug}>
+                      {c.name}
+                    </option>
+                  ))}
+              </select>
             </label>
             <label className="sort-control">
               <span className="sr-only">Filter by material</span>
@@ -223,7 +265,7 @@ export default function Shop() {
             <p>
               {products.length
                 ? "Nothing matches. Try clearing your filters."
-                : "Our collection is on its way."}
+                : "Our objects are on their way."}
             </p>
             {/* Clearing filters only helps when there are filters to clear;
                 with an empty catalogue the way forward is the trade desk. */}

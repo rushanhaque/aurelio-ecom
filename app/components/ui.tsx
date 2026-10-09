@@ -233,7 +233,7 @@ export function EmptyState({
       <h2>{title}</h2>
       <p>{children}</p>
       <Link to="/shop" className="button">
-        Explore the collection
+        Explore the shop
         <ArrowUpRight size={18} />
       </Link>
     </div>
@@ -287,7 +287,7 @@ export function Success({
       <h2>{title}</h2>
       <div>{children}</div>
       <Link to="/shop" className="text-link">
-        Back to the collection
+        Back to the shop
         <ArrowRight size={18} />
       </Link>
     </div>

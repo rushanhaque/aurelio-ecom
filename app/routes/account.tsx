@@ -104,7 +104,7 @@ export default function Account() {
               <div className="quiet-empty">
                 <p>No orders yet.</p>
                 <Link to="/shop" className="text-link">
-                  Explore the collection
+                  Explore the shop
                   <ArrowUpRight size={16} />
                 </Link>
               </div>

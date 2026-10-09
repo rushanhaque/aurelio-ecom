@@ -1,0 +1,43 @@
+Use case: product-mockup
+Asset type: one premium photorealistic landscape 16:9 starting frame for Google Flow.
+Input images are strict PRODUCT IDENTITY REFERENCES, not background/style references. Preserve the exact products while replacing the catalogue scene with the described modern white location.
+
+Create one photorealistic, cinematic starting-frame photograph for the homepage background film of
+Aurelio by AF International, a family atelier in Moradabad, India, that has made heirloom furniture,
+lighting, vessels, kitchenware and decorative objects by hand since 2008, in brass, copper, bronze,
+patinated steel, blown glass and seasoned wood. Treat the attached product photographs as the exact
+source of truth for every featured product: reproduce each one's silhouette, proportions,
+construction, joinery, handles, lids, finials, hammer marks, patina, colour and surface finish
+faithfully, at a believable real-world scale, resting on or installed exactly where such a piece
+would really sit or hang, with true contact shadows and correct reflections. Do not redesign,
+simplify, merge, mirror or restyle the products; do not add engraving, logos, labels or text to
+them; do not invent extra products that compete with them. Any supporting styling is plain,
+secondary and sparse.
+
+Visual direction: fresh, lively, light and quietly luxurious, professional editorial imagery for a premium modern craft house. Match the actual Aurelio website palette: solid pure white (#FFFFFF), paper white (#F2F2F2), and deep green (#072319), with related green (#0D3325) allowed only in foliage and subtle accents. Architecture, floors, counters, linens and supporting furniture read as clean solid white with restrained true shadows; white dominates at least 70% of built surfaces. Greens occupy a small deliberate area or appear as natural garden foliage. Preserve the products' actual brass, copper, glass and dark patina colours; never repaint products white or green. Brass has restrained champagne highlights, copper is rosy warm metal. Soft neutral directional daylight, clean white balance, no warm beige cast, rustic texture, sandstone, ivory plaster, orange/teal grade, haze, fog, sparkle, lens flare, HDR or CGI appearance. Whites retain detail. Modern premium spaces, calm and uncluttered.
+
+Setting: a modern solid-white garden dining table on a smooth white terrace beside minimalist white architecture, beneath green olive branches. Crisp white linen, a few simple clear glasses and white plates, and a small plain white bowl of lemons provide sparse hosting details. The attached set of three brass lattice candleholders is grouped at the centre, each fitted with a slender white candle. All three candles are now lit with small natural flames. Hands just finishing lighting hold a recently extinguished lighting taper beside the group; one thin elegant smoke filament rises from the taper's blackened tip. Bright neutral afternoon daylight and one #072319 linen napkin.
+
+Opening viewpoint: a close three-quarter view at seated height with a 65 mm lens character. Complete three-piece candleholder set centred in the middle band, all bases, lattice stems, cups and candle flames visible. Hands and white sleeves enter from the right with the extinguished taper, clear of the product. Upper centre blurred rich-green olive leaves and white architecture, lower centre clean white linen. Smoke delicate and local, air crystal clear.
+
+People appear only as hands and forearms: no faces, heads or full bodies. Natural, relaxed,
+anatomically correct hands with five fingers each, clean neutral nails, plain white linen
+sleeves, no rings, bracelets or watches. The hands move slowly and gracefully, and touch the
+products the way a careful owner would.
+
+Frame: landscape 16:9, full-frame cinema-camera character, natural lens perspective, moderate depth
+of field with the products crisp and the far background gently soft. This frame will play
+full-screen behind the website, so compose for it. Keep a calm, uncluttered band across the top
+centre (roughly the top fifth of the frame, across the middle third of the width), where the AURELIO
+wordmark will sit, and a calm band across the bottom centre (roughly the lowest fifth, across the
+middle two-fifths of the width), where two buttons will sit; plain wall, sky, floor, foliage or
+tabletop is ideal there. The website lays a soft deep-emerald veil over the top and bottom edges, so
+place the brightest, most important product detail in the middle band of the frame. Phones show only
+the central quarter of the frame's width, so place the hero product, or the heart of the
+arrangement, on the vertical centre line, inside the central 25 to 30 percent of the width. The
+image contains no text, logos, watermarks, borders, letterboxing, collage or split panels: a single
+still photograph of the opening moment, with everything physically at rest and free of motion blur.
+
+Reference fidelity and in-use instructions: Exactly three candleholders matching the photograph, small/medium/tall. Preserve thick round disc feet, tapering open diamond-lattice brass bodies, straight solid top cups and original proportions. One slim white candle securely seated in each cup, moderate length, one flame per candle. Tallest holder approx35cm excluding candle. Realistic hands only, no faces. Smoke comes ONLY from the extinguished taper, not from metal.
+
+Final render: ONE standalone complete photograph in landscape 16:9, highest available quality, ideally 3840x2160. No collage, no panels, no letterboxing, no borders. Absolutely NO words, numbers, letters, labels, captions, logos, watermarks, signatures or website UI anywhere. Mentions of website text refer ONLY to space left empty for later overlays. Professional clean premium solid-white setting with subtle brand deep green, true product materials. Freeze the living scene sharply in its opening instant with no motion blur.

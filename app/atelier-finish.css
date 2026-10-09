@@ -1384,3 +1384,93 @@ html .ft {
     align-self: start;
   }
 }
+
+/* =========================================================================
+   Shop: sorting by category and material
+   ========================================================================= */
+
+/* The materials menu lists nine names, so it runs in two columns. */
+.commerce-mega-links[data-wide="true"] {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 28px;
+  align-content: center;
+}
+.commerce-mega-links[data-wide="true"] strong {
+  font-size: 21px;
+}
+
+/* "Shop by material": a row of pills under the category tiles. */
+.shop-materials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+  margin-top: clamp(24px, 3.4vw, 44px);
+  padding-top: clamp(20px, 2.6vw, 32px);
+  border-top: 1px solid var(--ink-a12, #0723191f);
+}
+.shop-material-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.shop-pill {
+  min-height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--ink-a20, #07231933);
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  background: transparent;
+  transition:
+    background-color 0.4s var(--ease-out),
+    border-color 0.4s var(--ease-out),
+    color 0.4s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .shop-pill:hover {
+    border-color: var(--brass-500);
+    color: var(--brass-ink, #806132);
+  }
+}
+.shop-pill.active,
+.shop-pill[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+@media (max-width: 900px) {
+  .shop-materials {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .shop-material-list {
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .shop-material-list::-webkit-scrollbar {
+    display: none;
+  }
+  .shop-pill {
+    flex-shrink: 0;
+  }
+}
+
+/* The category and material above a product's name lead back to the shop. */
+.product-sort a {
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .product-sort a:hover {
+    color: var(--brass-ink, #806132);
+    border-color: currentColor;
+  }
+}

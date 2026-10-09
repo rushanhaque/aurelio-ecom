@@ -260,10 +260,6 @@
   touch-action: none;
   cursor: crosshair;
 }
-.line-canvas .experiment-stamp {
-  color: #072319;
-  text-shadow: none;
-}
 .experiment-under {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -397,25 +393,6 @@
   font-size: 24px;
   color: var(--study-gold);
 }
-.line-canvas {
-  background: #e5e2d8;
-  color: #072319;
-}
-.line-canvas svg {
-  padding: 42px 10px 60px;
-}
-.line-view {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
-  border: 1px solid #07231930;
-  background: #f2f2f2dd;
-  padding: 17px 12px;
-  font-size: 11px;
-  color: #072319;
-  cursor: pointer;
-}
 .experiment-cta {
   margin-top: 30px;
   display: flex;
@@ -548,10 +525,7 @@
   .room-selector b {
     display: none;
   }
-  .line-canvas svg {
-    padding-top: 30px;
-  }
-  .experiment-directory h2 {
+    .experiment-directory h2 {
     font-size: 46px;
   }
 }

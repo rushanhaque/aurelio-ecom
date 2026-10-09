@@ -14,6 +14,7 @@ import {
 import * as Dialog from "@radix-ui/react-dialog";
 import { useStore } from "../lib/store";
 import { money } from "../lib/catalog";
+import { collections, materials } from "../lib/brand-content";
 import { Picture, Quantity, ProductCard, TextLink } from "../components/ui";
 import NotFound from "./not-found";
 import { getProducts } from "../../server/db";
@@ -67,6 +68,10 @@ export default function Product() {
     ...products.filter((x) => x.id !== p.id && x.category === p.category),
     ...products.filter((x) => x.id !== p.id && x.category !== p.category),
   ].slice(0, 4);
+  const categoryInfo = collections.find((c) => c.slug === p.category);
+  const materialInfo = materials.find((m) =>
+    p.material.toLowerCase().includes(m.name.toLowerCase()),
+  );
   const recentlyViewed = recent
     .map((id) => products.find((x) => x.id === id))
     .filter((x): x is typeof p => !!x && !related.some((r) => r.id === x.id))
@@ -90,7 +95,15 @@ export default function Product() {
       <div className="container breadcrumbs">
         <Link to="/">Home</Link>
         <span>/</span>
-        <Link to="/shop">The collection</Link>
+        <Link to="/shop">Shop</Link>
+        {categoryInfo && (
+          <>
+            <span>/</span>
+            <Link to={`/shop?category=${categoryInfo.slug}`}>
+              {categoryInfo.name}
+            </Link>
+          </>
+        )}
         <span>/</span>
         <span>{p.name}</span>
       </div>
@@ -151,8 +164,24 @@ export default function Product() {
           </div>
         </div>
         <div className="product-information">
-          <p className="eyebrow">
-            THE AURELIO COLLECTION / {p.material.toUpperCase()}
+          {/* Sorting runs both ways: the category and the material both lead
+              back to the shop filtered by them. */}
+          <p className="eyebrow product-sort">
+            {categoryInfo && (
+              <Link to={`/shop?category=${categoryInfo.slug}`}>
+                {categoryInfo.name.toUpperCase()}
+              </Link>
+            )}
+            {categoryInfo && " / "}
+            {materialInfo ? (
+              <Link
+                to={`/shop?material=${encodeURIComponent(materialInfo.name)}`}
+              >
+                {p.material.toUpperCase()}
+              </Link>
+            ) : (
+              p.material.toUpperCase()
+            )}
           </p>
           <h1>{p.name}</h1>
           <p className="product-subtitle">{p.subtitle}</p>

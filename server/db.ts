@@ -74,6 +74,12 @@ async function connect() {
       .collection("contentVersions")
       .createIndex({ slug: 1, version: 1 }, { unique: true }),
     db.collection("draftOrders").createIndex({ quoteId: 1 }, { unique: true }),
+    db.collection("briefFiles").createIndex({ id: 1 }, { unique: true }),
+    // Pictures nobody attached to an enquiry go after a day (expiresAt is
+    // removed once an enquiry claims them).
+    db
+      .collection("briefFiles")
+      .createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
   ]);
   return { db, client };
 }

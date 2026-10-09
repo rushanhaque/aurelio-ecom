@@ -80,9 +80,13 @@ function FloatingEnquiry() {
     const hero = document.querySelector(".trade-hero");
     const form = document.getElementById("enquire");
     if (!hero || !form) return;
+    // Either form on screen means the pill is not needed: the main enquiry
+    // form, or the drop-your-idea one.
+    const idea = document.getElementById("your-finish");
     let pastHero = false,
-      atForm = false;
-    const sync = () => setShow(pastHero && !atForm);
+      atForm = false,
+      atIdea = false;
+    const sync = () => setShow(pastHero && !atForm && !atIdea);
     const watchHero = new IntersectionObserver(([e]) => {
       pastHero = !e.isIntersecting;
       sync();
@@ -94,11 +98,20 @@ function FloatingEnquiry() {
       },
       { rootMargin: "0px 0px -20% 0px" },
     );
+    const watchIdea = new IntersectionObserver(
+      ([e]) => {
+        atIdea = e.isIntersecting;
+        sync();
+      },
+      { rootMargin: "0px 0px -20% 0px" },
+    );
     watchHero.observe(hero);
     watchForm.observe(form);
+    if (idea) watchIdea.observe(idea);
     return () => {
       watchHero.disconnect();
       watchForm.disconnect();
+      watchIdea.disconnect();
     };
   }, []);
   return (

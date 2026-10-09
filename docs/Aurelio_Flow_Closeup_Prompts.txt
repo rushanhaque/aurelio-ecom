@@ -1,0 +1,148 @@
+AURELIO — GOOGLE FLOW PROMPTS FOR YOUR 12 FRAMES (output/frames)
+Upload each frame as the starting frame and paste its prompt.
+Moves: push-ins 01 03 07 11 · pull-backs 06 09 · left to right 02 05 08 12 ·
+right to left 04 10. All very slow, smooth and cinematic, with real product sizes.
+
+--------------------------------------------------------------------------------
+01 — 01-white-salon-ray-mirror-v2.png · SLOW PUSH-IN AND RISE
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera pushes in extremely slowly toward the
+copper hourglass, about 30 cm tall, on the low round white stone coffee table, then
+rises gently up the white wall to settle on the antique brass sunburst mirror,
+about 90 cm across. The movement is one continuous, perfectly smooth glide at a
+constant speed, like a camera on a motion-control rig. Fine sand falls in a thin,
+steady stream through the hourglass, olive leaves stir beyond the glass doors, and
+soft daylight drifts across the rug. Both objects keep their exact shape, finish,
+real size and position. No cuts, no sudden zoom, no added objects, no text.
+
+--------------------------------------------------------------------------------
+02 — 02-white-dining-faceted-pitcher.png · SLOW SLIDE LEFT TO RIGHT
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera slides extremely slowly from left to
+right along the breakfast table at glass height, easing gently closer to the
+faceted copper pitcher, about 28 cm tall, with its slim brass handle. Light slides
+across its folded facets as the angle changes, and the glasses and cups pass in
+soft parallax. A thin wisp of steam rises from the coffee cup and the garden sways
+softly through the open doors. Fresh morning light, shallow depth of field. The
+pitcher and tableware stay still and keep their real size and placement. One
+continuous, smooth shot at a constant speed; no cuts, no text.
+
+--------------------------------------------------------------------------------
+03 — 03-white-courtyard-lit-lantern.png · SLOW PUSH-IN
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera pushes in extremely slowly and smoothly
+toward the antique brass lantern, about 40 cm tall, on its white stone plinth at
+the edge of the reflecting pool, until its glass panels, pierced lattice base and
+lit pillar candle fill much of the frame. The candle flame flickers softly, and the
+pool ripples gently behind, making the reflections of the columns and olive trees
+shimmer. Bright, clean daylight, shallow depth of field. The lantern stays perfectly
+still and keeps its exact shape and real size. One continuous shot at a constant
+speed; no cuts, no sudden zoom, no text.
+
+--------------------------------------------------------------------------------
+04 — 04-white-garden-pavilion-bells.png · SLOW SLIDE RIGHT TO LEFT
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera slides extremely slowly from right to
+left past the cluster of six antique hammered brass bells, each about 10 cm tall,
+hanging on brass chains from the white pavilion beam, drifting slightly closer as
+it moves. A light breeze billows the sheer white curtains and the bells sway only
+very slightly, as real hanging bells would. White flowers in the foreground and
+olive trees behind pass in soft parallax. Sunlit and airy, shallow depth of field.
+The bells keep their exact form, texture and real size. One smooth, continuous
+shot at a constant speed; no cuts, no text.
+
+--------------------------------------------------------------------------------
+05 — 05-white-peacock-oil-lamp.png · SLOW ARC LEFT TO RIGHT
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera moves in a very slow, gentle arc from
+left to right around the brushed brass peacock-feather oil lamp, about 30 cm tall,
+on the white marble counter, drawing slightly closer to it. The small flame at the
+wick flickers naturally and a faint thread of smoke curls upward. Soft leaf
+shadows drift across the white wall, and the garden outside the window stays
+softly out of focus. Warm, gentle daylight, shallow depth of field. The lamp stays
+perfectly still and keeps its exact shape and real size. One continuous, smooth
+shot at a constant speed; no cuts, no text.
+
+--------------------------------------------------------------------------------
+06 — 06-white-hammered-copper-pitcher.png · SLOW PULL-BACK
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera pulls back extremely slowly and
+smoothly from the hammered copper pitcher with a brushed brass collar and handle,
+about 25 cm tall, on its white stone plinth, revealing a little more of the bright
+white room and the sheer curtain. Dappled sunlight through olive leaves drifts
+slowly across the pitcher, so each hand-hammered mark glints in turn. The curtain
+breathes gently at the edge of frame. Soft natural light, shallow depth of field.
+The pitcher never moves and keeps its exact texture, shape and real size. One
+continuous shot at a constant speed; no cuts, no sudden zoom, no text.
+
+--------------------------------------------------------------------------------
+07 — 07-white-engraved-keepsake-jar.png · SLOW PUSH-IN
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera pushes in extremely slowly and smoothly
+toward the engraved brass keepsake urn, about 25 cm tall, resting in the white wall
+niche beside a small sprig of white jasmine, until its domed lid, finial and deeply
+carved floral pattern fill much of the frame. Soft morning light brightens
+gradually across the engraving, and faint leaf shadows drift over the niche. Calm,
+gentle light, shallow depth of field. The urn, lid and flowers stay perfectly still
+and keep their real size and placement. Serene and dignified. One continuous shot
+at a constant speed; no cuts, no text.
+
+--------------------------------------------------------------------------------
+08 — 08-white-gallery-crystal-form.png · SLOW SLIDE LEFT TO RIGHT
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera slides extremely slowly from left to
+right past the faceted brass sculpture of interlocking pyramids, about 40 cm
+across, on its white marble plinth, easing slightly closer as it moves. As the
+angle changes, light travels across each flat brass facet and the edges catch a
+soft glint. Leaf shadows move gently on the white wall and the trees beyond the
+window fall softly out of focus. Clean gallery daylight, shallow depth of field.
+The sculpture stays perfectly still and keeps its exact geometry and real size.
+One continuous, smooth shot at a constant speed; no cuts, no text.
+
+--------------------------------------------------------------------------------
+09 — 09-white-morning-pour.png · SLOW PULL-BACK DURING THE POUR
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera pulls back extremely slowly as the two
+hands gently tilt the hammered copper pitcher with its brass collar, about 25 cm
+tall, and pour a smooth, clear stream of water into the glass with the lemon slice,
+filling it about two-thirds, with real bubbles and light rippling on the white
+linen; then they ease the pitcher upright. Figs, grapes and olive leaves sit softly
+out of focus. Fresh morning light. Natural hand movement, real water physics; the
+pitcher keeps its exact shape and real size. No spills; one continuous, smooth shot
+at a constant speed; no cuts, no text.
+
+--------------------------------------------------------------------------------
+10 — 10-white-fresh-stems-spiral-vase.png · SLOW SLIDE RIGHT TO LEFT
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera slides extremely slowly from right to
+left toward the spiral-fluted antique brass vase, about 35 cm tall, on the white
+marble console, as the two hands gently lower the white rose into the vase, adjust
+one olive stem and withdraw out of frame. Petals and leaves settle with a soft
+natural sway, and leaf shadows glide across the white wall. Bright, fresh daylight,
+shallow depth of field. The vase never moves and keeps its twisted flutes and real
+size. Natural, graceful hand movement. One continuous, smooth shot at a constant
+speed; no cuts, no text.
+
+--------------------------------------------------------------------------------
+11 — 11-white-garden-lattice-candles.png · SLOW PUSH-IN
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera pushes in extremely slowly and smoothly
+at table height toward the three brass lattice candleholders, about 20, 25 and 30
+cm tall, on the white linen garden table, until their woven lattice and lit candles
+fill much of the frame. A thin ribbon of smoke curls up from the extinguished taper
+as the hands lower it and withdraw. The flames flicker softly in a light breeze
+and dappled sunlight from the olive tree moves over the table. Bright afternoon
+light, shallow depth of field. The holders keep their exact pattern, real size and
+placement. One continuous shot at a constant speed; no cuts, no text.
+
+--------------------------------------------------------------------------------
+12 — 12-white-mountain-relief-gallery.png · SLOW SLIDE LEFT TO RIGHT
+--------------------------------------------------------------------------------
+Cinematic, photorealistic film. The camera slides extremely slowly from left to
+right along the white gallery wall, easing gently closer to the framed cast-brass
+relief of folded mountains and a winding river, about 90 by 60 cm, hanging by two
+brass rings. As the angle shifts, raking sunlight and drifting leaf shadows roll
+across the raised peaks and river curves, bringing out their depth. The olive tree
+on the right moves softly. Calm, luminous daylight, shallow depth of field. The
+relief stays perfectly still and its sculpted detail and real size never change.
+One continuous, smooth shot at a constant speed; no cuts, no text.

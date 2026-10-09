@@ -1,5 +1,5 @@
 import { brand } from "../lib/brand";
-import { collections } from "../lib/brand-content";
+import { collections, materials } from "../lib/brand-content";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -15,7 +15,7 @@ import { Picture, Quantity, EmptyState } from "./ui";
    so "brass bowl" finds "Hammered Bowl · Brass". Name matches rank first. */
 function searchCatalog(query: string, products: Product[]) {
   const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
-  if (!terms.length) return { products, collections };
+  if (!terms.length) return { products, collections, materials };
   const scored = products
     .map((p) => {
       const name = p.name.toLowerCase();
@@ -34,6 +34,9 @@ function searchCatalog(query: string, products: Product[]) {
     products: scored.map((entry) => entry.p),
     collections: collections.filter((c) =>
       terms.every((t) => `${c.name} ${c.tagline}`.toLowerCase().includes(t)),
+    ),
+    materials: materials.filter((m) =>
+      terms.every((t) => `${m.name} ${m.trait}`.toLowerCase().includes(t)),
     ),
   };
 }
@@ -69,10 +72,46 @@ export default function Panels() {
   } = useStore();
   const [query, setQuery] = useState("");
   const location = useLocation();
-  const trade = location.pathname.startsWith("/bulk-orders") || location.pathname.startsWith("/quotes");
+  const trade = /^\/(bulk-orders|quotes|collections|pieces)(\/|$)/.test(
+    location.pathname,
+  );
   const navigate = useNavigate();
-  const { products: productResults, collections: collectionResults } =
-    searchCatalog(query, products);
+  const {
+    products: productResults,
+    collections: collectionResults,
+    materials: materialResults,
+  } = searchCatalog(query, products);
+  // The shop sorts by category and material; collections are the trade side's.
+  const groups = (
+    trade
+      ? [
+          {
+            label: query ? "COLLECTIONS" : "BROWSE A WORLD",
+            links: collectionResults.map((c) => ({
+              name: c.name,
+              to: `/collections/${c.slug}`,
+            })),
+          },
+        ]
+      : [
+          {
+            label: query ? "CATEGORIES" : "SHOP BY CATEGORY",
+            links: collectionResults
+              .filter((c) => c.slug !== "bespoke")
+              .map((c) => ({
+                name: c.name,
+                to: `/shop?category=${c.slug}`,
+              })),
+          },
+          {
+            label: query ? "MATERIALS" : "SHOP BY MATERIAL",
+            links: materialResults.map((m) => ({
+              name: m.name,
+              to: `/shop?material=${encodeURIComponent(m.name)}`,
+            })),
+          },
+        ]
+  ).filter((group) => group.links.length);
   const results = productResults.slice(0, 8);
   function submitSearch(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -106,7 +145,7 @@ export default function Panels() {
               {panel === "cart"
                 ? "Review the objects in your bag."
                 : panel === "search"
-                  ? "Search the Aurelio collection."
+                  ? "Search the Aurelio shop."
                   : "Explore Aurelio pages."}
             </Dialog.Description>
             {panel === "menu" ? (
@@ -125,9 +164,10 @@ export default function Panels() {
                     ]
                   : [
                       ["/shop", "Shop"],
-                      ["/collections", "Collections"],
+                      ["/shop#categories", "Shop by category"],
+                      ["/shop#materials", "Shop by material"],
                       ["/bulk-orders", "Export & bulk"],
-                      ["/materials", "Materials"],
+                      ["/materials", "About our materials"],
                       ["/about", "About us"],
                       ["/contact", "Contact us"],
                       ["/faq", "FAQ"],
@@ -182,30 +222,28 @@ export default function Panels() {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Search vases, brass…"
-                    aria-label="Search the collection"
+                    aria-label="Search the shop"
                   />
                   <kbd className="search-hint" aria-hidden="true">
                     ↵
                   </kbd>
                 </form>
-                {!!collectionResults.length && (
-                  <div className="search-collections">
-                    <p className="eyebrow">
-                      {query ? "COLLECTIONS" : "BROWSE A WORLD"}
-                    </p>
+                {groups.map((group) => (
+                  <div className="search-collections" key={group.label}>
+                    <p className="eyebrow">{group.label}</p>
                     <div>
-                      {collectionResults.map((c) => (
-                        <Link key={c.slug} to={`/collections/${c.slug}`}>
-                          <Highlight text={c.name} query={query} />
+                      {group.links.map((link) => (
+                        <Link key={link.to} to={link.to}>
+                          <Highlight text={link.name} query={query} />
                         </Link>
                       ))}
                     </div>
                   </div>
-                )}
+                ))}
                 <p className="eyebrow" aria-live="polite">
                   {query
                     ? `${productResults.length} ${productResults.length === 1 ? "OBJECT" : "OBJECTS"} FOUND`
-                    : "THE COLLECTION"}
+                    : "ALL OBJECTS"}
                 </p>
                 {results.map((p) => (
                   <Link
@@ -246,7 +284,7 @@ export default function Panels() {
                       </Link>
                     </div>
                   ) : (
-                    <p>The collection is on its way.</p>
+                    <p>The shop is on its way.</p>
                   ))}
               </div>
             ) : cart.length ? (

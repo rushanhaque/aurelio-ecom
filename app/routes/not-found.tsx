@@ -32,12 +32,14 @@ export default function NotFound() {
           <Search size={17} />
         </button>
       </div>
-      <nav className="not-found-worlds" aria-label="The collections">
-        {collections.map((c) => (
-          <Link key={c.slug} to={`/collections/${c.slug}`}>
-            {c.name}
-          </Link>
-        ))}
+      <nav className="not-found-worlds" aria-label="Shop by category">
+        {collections
+          .filter((c) => c.slug !== "bespoke")
+          .map((c) => (
+            <Link key={c.slug} to={`/shop?category=${c.slug}`}>
+              {c.name}
+            </Link>
+          ))}
       </nav>
     </div>
   );

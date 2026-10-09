@@ -93,12 +93,39 @@
   --study-line: #f8f3e82e;
 }
 /* The opening section is white, with the furniture photograph alongside it. */
-.bulk-sections .bulk-band--white .heritage-scrim { background: #fffffff0; }
 .bulk-sections .bulk-band .heritage-body h2 { color: var(--band-ink); }
 .bulk-sections .bulk-band .heritage-body h2 em { color: var(--band-accent); }
 .bulk-sections .bulk-band :is(.heritage-prose p, .heritage-stat dt) { color: var(--band-muted); }
 .bulk-sections .bulk-band .heritage-stats { border-color: var(--band-line); }
 .bulk-sections .bulk-band .heritage-stat + .heritage-stat::before { background: var(--band-line); }
+/* The film plays clear: no wash over it at all. The type is white with a soft
+   shadow instead, so it still reads over both the dark and the bright parts of
+   the footage. */
+.bulk-sections .bulk-band--white .heritage-scrim {
+  background: none;
+}
+.bulk-sections .bulk-band--white .heritage-video {
+  filter: none;
+}
+.bulk-sections .bulk-band--white .heritage {
+  color: #fff;
+  text-shadow: 0 1px 18px #00000080, 0 0 2px #00000040;
+}
+.bulk-sections .bulk-band--white .heritage-body h2 {
+  color: #fff;
+}
+.bulk-sections .bulk-band--white .heritage-body h2 em {
+  color: #f0dcae;
+}
+.bulk-sections .bulk-band--white :is(.heritage-prose p, .heritage-stat dt) {
+  color: #fffffff2;
+}
+.bulk-sections .bulk-band--white .heritage-stats {
+  border-color: #ffffff59;
+}
+.bulk-sections .bulk-band--white .heritage-stat + .heritage-stat::before {
+  background: #ffffff40;
+}
 .bulk-sections .bulk-band--white .experiment-dark {
   --study-ink: #10382a;
   --study-line: #14382b26;

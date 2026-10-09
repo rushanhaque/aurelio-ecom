@@ -14,6 +14,7 @@ import { productSchema } from "./product-schema.ts";
 import { profileSchema } from "./account-schema.ts";
 import { createAccountLink, localEmailEnabled } from "./account-links.ts";
 import { quotes } from "./quotes.ts";
+import { briefsPublic, briefsAdmin } from "./briefs.ts";
 import { content } from "./content.ts";
 import sharp from "sharp";
 import { mkdir } from "node:fs/promises";
@@ -531,6 +532,18 @@ router.post("/api/enquiries", async (req, res, next) => {
         error:
           "This enquiry has already been submitted with different details. Start a new enquiry.",
       });
+    // Pictures must be ones this visitor just uploaded and nobody has used.
+    if (!previous && data.attachments.length) {
+      const free = await db.collection("briefFiles").countDocuments({
+        id: { $in: data.attachments },
+        enquiry: { $exists: false },
+      });
+      if (free !== new Set(data.attachments).size)
+        return res.status(400).json({
+          error:
+            "One of your pictures expired. Please add it again and resend.",
+        });
+    }
     const catalog = await getProducts();
     const selections = data.items.map((line) => {
       const product = catalog.find((p) => p.id === line.productId);
@@ -566,6 +579,12 @@ router.post("/api/enquiries", async (req, res, next) => {
       return res.status(409).json({
         error: "This enquiry was already submitted with different details.",
       });
+    // The enquiry now owns its pictures, so they no longer expire.
+    if (data.attachments.length)
+      await db.collection("briefFiles").updateMany(
+        { id: { $in: data.attachments }, enquiry: { $exists: false } },
+        { $set: { enquiry: saved!.reference }, $unset: { expiresAt: "" } },
+      );
     res.status(201).json({ reference: saved!.reference });
   } catch (e) {
     next(e);
@@ -672,6 +691,7 @@ router.post("/api/returns", async (req, res, next) => {
     next(e);
   }
 });
+router.use(briefsPublic);
 router.use("/api/admin", (req, res, next) => {
   const expected = process.env.ADMIN_TOKEN;
   const provided = req.get("authorization")?.replace("Bearer ", "");
@@ -686,6 +706,7 @@ router.use("/api/admin", (req, res, next) => {
   next();
 });
 router.use(quotes);
+router.use(briefsAdmin);
 router.use(content);
 router.get("/api/admin/overview", async (req, res) => {
   const { db } = await database();

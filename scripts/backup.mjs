@@ -20,6 +20,7 @@ const collections = [
   "audit",
   "content",
   "contentVersions",
+  "briefFiles",
 ];
 await client.connect();
 try {
