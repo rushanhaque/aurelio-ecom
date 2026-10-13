@@ -531,17 +531,6 @@ html .commerce-header .commerce-icon:is(:hover, :focus-visible) svg {
 }
 
 /* Search · the lens comes into focus and its label is underscored. */
-html .commerce-header .commerce-search span {
-  background: linear-gradient(var(--nav-accent), var(--nav-accent)) left 100% /
-    0% 1px no-repeat;
-  padding-bottom: 2px;
-  transition: background-size 0.5s var(--ease-out);
-}
-html .commerce-header .commerce-search svg {
-  transition:
-    transform 0.5s var(--ease-out),
-    color 0.3s;
-}
 html .commerce-header .commerce-search:is(:hover, :focus-visible) span {
   background-size: 100% 1px;
 }
@@ -551,12 +540,6 @@ html .commerce-header .commerce-search:is(:hover, :focus-visible) svg {
 }
 
 /* Bag · the count fills like a wax seal. */
-html .commerce-bag .commerce-count {
-  transition:
-    background-color 0.4s var(--ease-out),
-    color 0.4s var(--ease-out),
-    border-color 0.4s;
-}
 html .commerce-bag:is(:hover, :focus-visible) .commerce-count {
   background: var(--nav-accent);
   border-color: var(--nav-accent);
@@ -724,35 +707,6 @@ html .commission-link:is(:hover, :focus-visible) svg {
 
 /* Circular collection tiles · Orbit: a dashed orbit swings into place
    around the object. */
-html .shop-tile {
-  position: relative;
-}
-html .shop-tile > img,
-html .shop-tile::before {
-  grid-area: 1 / 1;
-}
-html .shop-tile > span {
-  grid-area: 2 / 1;
-}
-html .shop-tile::before {
-  content: "";
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 1px dashed var(--brass-400);
-  opacity: 0;
-  transform: rotate(-70deg) scale(1.02);
-  transition:
-    transform 0.9s var(--ease-out),
-    opacity 0.4s;
-  pointer-events: none;
-  z-index: 1;
-}
-html .shop-tile > span {
-  transition:
-    color 0.3s,
-    letter-spacing 0.5s var(--ease-out);
-}
 html .shop-tile:is(:hover, :focus-visible)::before {
   opacity: 1;
   transform: rotate(0deg) scale(1.1);
@@ -762,18 +716,6 @@ html .shop-tile:is(:hover, :focus-visible) > span {
 }
 
 /* Product cards · the saved heart fills with brass from its base. */
-html .save-button svg {
-  transition:
-    fill 0.4s var(--ease-out),
-    color 0.3s,
-    transform 0.4s var(--ease-out);
-}
-@media (hover: hover) and (pointer: fine) {
-  html .save-button:not(.saved):hover svg {
-    fill: #c39a5566;
-    color: var(--brass-600);
-  }
-}
 
 /* Image cards across the site · a mount is laid inside the frame. */
 html :is(.serve-card, .collection-card > div, .journal-card > div) {
@@ -931,21 +873,6 @@ html .mobile-navigation > a:is(:hover, :focus-visible) svg {
 }
 
 /* Search results and bag lines · a hairline index runs in from the left. */
-html .search-result {
-  position: relative;
-}
-html .search-result::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 1px;
-  background: var(--brass-500);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s var(--ease-out);
-}
 html .search-result:is(:hover, :focus-visible)::before {
   transform: scaleX(1);
 }
@@ -1201,11 +1128,6 @@ html .toast svg {
 }
 
 /* Empty states read as a quiet card, not a gap. */
-html .empty-state .empty-star {
-  display: inline-block;
-  color: var(--brass-500);
-  animation: aurelio-turn 1.6s var(--ease-out) both;
-}
 @keyframes aurelio-turn {
   from {
     transform: rotate(-90deg) scale(0.6);
@@ -1259,9 +1181,6 @@ html
   color: color-mix(in srgb, currentColor 74%, transparent);
 }
 /* The shop header's brass sat just under 4.5:1 on its ivory ground. */
-html .commerce-header--shop {
-  --nav-accent: #8a6a36;
-}
 /* Captions under a muted paragraph take its tone rather than fading again. */
 html .atelier-experiments .experiment-under small {
   color: color-mix(in srgb, var(--study-ink, #072319) 72%, transparent);
@@ -1331,9 +1250,6 @@ html .archive-work figcaption small {
   html .commerce-links > :is(a, button) {
     flex-shrink: 0;
   }
-  html .commerce-header--shop .commerce-links {
-    justify-content: space-between;
-  }
 }
 
 /* Hero subtitles sit on photography: keep them bright, with a soft shadow
@@ -1369,12 +1285,6 @@ html .ft {
 
 /* The bag's two secondary links sit side by side with room between them,
    each with its own rule, and stack on narrow screens. */
-.summary-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 32px;
-  margin-top: 18px;
-}
 
 /* Bag and checkout: the summary stays beside the form while it is filled in. */
 @media (min-width: 901px) {
@@ -1400,77 +1310,54 @@ html .ft {
 }
 
 /* "Shop by material": a row of pills under the category tiles. */
-.shop-materials {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px 28px;
-  margin-top: clamp(24px, 3.4vw, 44px);
-  padding-top: clamp(20px, 2.6vw, 32px);
-  border-top: 1px solid var(--ink-a12, #0723191f);
-}
-.shop-material-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.shop-pill {
-  min-height: 40px;
-  padding: 0 18px;
-  border: 1px solid var(--ink-a20, #07231933);
-  border-radius: 999px;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  color: var(--ink);
-  background: transparent;
-  transition:
-    background-color 0.4s var(--ease-out),
-    border-color 0.4s var(--ease-out),
-    color 0.4s var(--ease-out);
-}
-@media (hover: hover) and (pointer: fine) {
-  .shop-pill:hover {
-    border-color: var(--brass-500);
-    color: var(--brass-ink, #806132);
-  }
-}
-.shop-pill.active,
-.shop-pill[aria-pressed="true"] {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--paper);
-}
-@media (max-width: 900px) {
-  .shop-materials {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .shop-material-list {
-    flex-wrap: nowrap;
-    max-width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding-bottom: 4px;
-  }
-  .shop-material-list::-webkit-scrollbar {
-    display: none;
-  }
-  .shop-pill {
-    flex-shrink: 0;
-  }
-}
 
 /* The category and material above a product's name lead back to the shop. */
-.product-sort a {
-  border-bottom: 1px solid transparent;
-  transition:
-    color 0.3s,
-    border-color 0.3s;
+
+/* =========================================================================
+   Policy pages: long reading text at a readable size
+   ========================================================================= */
+html .info-body p,
+html .info-body li {
+  font-size: 15px;
+  line-height: 1.8;
 }
-@media (hover: hover) and (pointer: fine) {
-  .product-sort a:hover {
-    color: var(--brass-ink, #806132);
-    border-color: currentColor;
-  }
+html .info-body p {
+  margin: 0 0 14px;
+}
+html .info-body ul {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+html .info-body li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+}
+html .info-body li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.78em;
+  width: 6px;
+  height: 1px;
+  background: var(--brass-500);
+}
+html .info-body > section {
+  margin-bottom: 44px;
+}
+html .info-body h2 {
+  font-size: clamp(26px, 2.4vw, 34px);
+  margin-bottom: 14px;
+}
+html .info-body details p,
+html .info-body details ul {
+  padding-bottom: 8px;
+}
+.info-updated {
+  margin: 14px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
 }

@@ -43,7 +43,6 @@
 }
 
 /* ---------- Shop hero ---------- */
-.shop-hero,
 .trade-hero {
   position: relative;
   isolation: isolate;
@@ -53,13 +52,7 @@
   color: #f2efe6;
   background: #07251b;
 }
-.shop-hero {
-  min-height: clamp(420px, 62svh, 640px);
-  padding-block: 140px 56px;
-}
-.shop-hero > img,
-.trade-hero > img,
-.shop-trade > img {
+.trade-hero > img {
   position: absolute;
   inset: 0;
   z-index: -2;
@@ -74,9 +67,7 @@
     opacity: 0.4;
   }
 }
-.shop-hero-veil,
-.trade-hero-veil,
-.shop-trade-veil {
+.trade-hero-veil {
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -89,7 +80,6 @@
   display: grid;
   gap: 20px;
 }
-.shop-hero h1,
 .trade-hero h1 {
   margin: 0;
   font-family: var(--serif);
@@ -98,12 +88,9 @@
   line-height: 0.94;
   letter-spacing: -0.045em;
 }
-.shop-hero h1 em,
-.trade-hero h1 em,
-.shop-trade h2 em {
+.trade-hero h1 em {
   color: #ecdfc5;
 }
-.shop-hero p,
 .trade-hero p {
   margin: 0;
   max-width: 44ch;
@@ -113,122 +100,10 @@
 }
 
 /* ---------- Shop by collection ---------- */
-.shop-collections {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: clamp(10px, 1.4vw, 20px);
-  margin-top: clamp(32px, 5vw, 64px);
-}
-.shop-tile {
-  display: grid;
-  gap: 12px;
-  justify-items: center;
-  padding: 0;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  color: inherit;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.shop-tile img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 50%;
-  outline: 1px solid transparent;
-  outline-offset: 5px;
-  transition:
-    outline-color 0.25s,
-    transform 0.5s var(--ease-out),
-    filter 0.3s;
-  filter: saturate(0.85);
-}
-.shop-tile:hover img {
-  transform: scale(1.04);
-  filter: none;
-}
-.shop-tile.active img {
-  outline-color: currentColor;
-  filter: none;
-}
-.shop-tile span {
-  position: relative;
-}
-.shop-tile.active span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -5px;
-  height: 1px;
-  background: currentColor;
-}
-.shop-content {
-  scroll-margin-top: 90px;
-}
 
 /* ---------- Promise strip ---------- */
-.shop-promise {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-block: clamp(64px, 9vw, 120px) 0;
-  border-block: 1px solid var(--line, #07251b1f);
-}
-.shop-promise > div {
-  display: grid;
-  gap: 8px;
-  padding: clamp(24px, 3vw, 40px) clamp(16px, 2vw, 32px);
-}
-.shop-promise > div + div {
-  border-left: 1px solid var(--line, #07251b1f);
-}
-.shop-promise > div:first-child {
-  padding-left: 0;
-}
-.shop-promise svg {
-  margin-bottom: 8px;
-  opacity: 0.8;
-}
-.shop-promise strong {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(20px, 1.6vw, 26px);
-}
-.shop-promise span {
-  font-size: 13px;
-  line-height: 1.55;
-  opacity: 0.7;
-}
 
 /* ---------- Trade cross-sell ---------- */
-.shop-trade {
-  position: relative;
-  isolation: isolate;
-  overflow: clip;
-  margin-top: clamp(64px, 9vw, 120px);
-  padding-block: clamp(90px, 14vw, 180px);
-  color: #f2efe6;
-  background: #07251b;
-}
-.shop-trade-body {
-  display: grid;
-  gap: 18px;
-  justify-items: start;
-}
-.shop-trade h2 {
-  margin: 0;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(40px, 5.4vw, 84px);
-  line-height: 0.98;
-  letter-spacing: -0.04em;
-}
-.shop-trade p {
-  margin: 0 0 10px;
-  color: #f2efe6cc;
-}
 
 /* ---------- Trade hero ---------- */
 .trade-hero {
@@ -306,52 +181,9 @@
 }
 
 /* ---------- Header on the trade side ---------- */
-.trade-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
-  border: 1px solid currentColor;
-  border-radius: var(--radius-pill, 999px);
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition:
-    background 0.25s,
-    color 0.25s;
-}
-.trade-cta:hover {
-  background: #f2efe6;
-  color: #07251b;
-  border-color: #f2efe6;
-}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .shop-collections {
-    grid-template-columns: repeat(6, 104px);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 8px;
-    scrollbar-width: none;
-  }
-  .shop-collections::-webkit-scrollbar {
-    display: none;
-  }
-  .shop-tile {
-    scroll-snap-align: start;
-  }
-  .shop-promise {
-    grid-template-columns: 1fr 1fr;
-  }
-  .shop-promise > div:nth-child(3) {
-    border-left: 0;
-    padding-left: 0;
-  }
-  .shop-promise > div:nth-child(n + 3) {
-    border-top: 1px solid var(--line, #07251b1f);
-  }
   .trade-process ol {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 32px;
@@ -361,17 +193,12 @@
   .trade-process ol {
     grid-template-columns: 1fr 1fr;
   }
-  .trade-cta {
-    display: none;
-  }
   .sf-button {
     padding: 14px 20px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .shop-hero > img,
-  .trade-hero > img,
-  .shop-trade > img {
+  .trade-hero > img {
     animation: none;
   }
 }

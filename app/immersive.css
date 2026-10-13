@@ -21,34 +21,6 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' opacity='.45' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
   pointer-events: none;
 }
-
-.live-point {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #d5c097;
-  box-shadow: 0 0 0 5px #d5c09718;
-}
-
-.scroll-track {
-  width: 1px;
-  height: 36px;
-  background: #f2f2f237;
-  overflow: clip;
-}
-.scroll-track i {
-  display: block;
-  background: #e5d1a6;
-  height: 15px;
-  animation: scroll-drop 2.5s infinite;
-}
-
-.chapter-tag {
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  display: block;
-  font-weight: 500;
-}
 .opening-note {
   padding-block: 105px 65px;
 }
@@ -88,28 +60,12 @@
   font-size: 11px;
   line-height: 1.9;
 }
-.little-coordinate {
-  margin-left: auto;
-  font-size: 8px;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  text-align: right;
-}
 .material-story {
   background: #072319;
   color: #f2f2f2;
   position: relative;
   height: 220svh;
   min-height: 1300px;
-}
-.material-sticky {
-  height: 100svh;
-  min-height: 700px;
-  max-height: 1100px;
-  position: sticky;
-  top: 0;
-  padding: 44px var(--gutter) 30px;
-  overflow: clip;
 }
 .material-heading {
   display: flex;
@@ -123,124 +79,6 @@
   gap: 14px;
   font-size: 7px;
   letter-spacing: 0.12em;
-}
-.material-stage {
-  height: calc(100% - 92px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5%;
-  align-items: center;
-}
-.material-words {
-  position: relative;
-  z-index: 2;
-}
-.material-words h2 {
-  font-size: clamp(75px, 8.2vw, 145px);
-  line-height: 0.87;
-  letter-spacing: -0.045em;
-  margin: 30px 0;
-}
-.material-words h2 span {
-  display: block;
-  color: #f2f2f24d;
-}
-.material-words h2 span:first-child {
-  color: #f2f2f2;
-}
-.material-words h2 em {
-  color: inherit;
-}
-.material-words > p {
-  color: #aebdac;
-  font-size: 11px;
-  line-height: 1.9;
-  margin: 28px 0 20px;
-}
-.material-portrait {
-  height: 88%;
-  position: relative;
-  max-height: 700px;
-  margin-top: 26px;
-  perspective: 1000px;
-}
-.portrait-arch {
-  position: absolute;
-  inset: 0 10% 0 0;
-  border-radius: 48% 48% 0 0;
-  overflow: clip;
-  transform-origin: 50% 90%;
-}
-.portrait-arch img {
-  height: 115%;
-  object-fit: cover;
-  object-position: 60% center;
-  filter: saturate(0.6) brightness(0.82);
-  transform: translateY(-5%);
-}
-.portrait-warmth {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, #07231999, transparent 40%);
-}
-.portrait-orbit {
-  position: absolute;
-  right: -5%;
-  top: 12%;
-  width: 220px;
-  height: 220px;
-  color: #d6c29c;
-  opacity: 0.55;
-  mix-blend-mode: screen;
-}
-.portrait-index {
-  position: absolute;
-  right: 0;
-  bottom: 13%;
-  font-size: 7px;
-  letter-spacing: 0.14em;
-  writing-mode: vertical-rl;
-}
-.portrait-index b {
-  font-size: 12px;
-  margin-top: 20px;
-  font-weight: 400;
-}
-.portrait-caption {
-  position: absolute;
-  bottom: 30px;
-  left: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 7px;
-  letter-spacing: 0.16em;
-}
-.portrait-caption > span:last-child {
-  font-size: 10px;
-}
-.story-progress {
-  display: flex;
-  gap: 25px;
-  align-items: center;
-  font-size: 7px;
-  letter-spacing: 0.12em;
-  color: #b1bda8;
-  height: 45px;
-}
-.story-progress > div {
-  height: 1px;
-  background: #f2f2f222;
-  flex: 1;
-  overflow: clip;
-}
-.story-progress i {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #c6b18b;
-  transform: scaleX(0);
-  transform-origin: left;
 }
 .light-lab {
   display: grid;
@@ -307,14 +145,6 @@
 .lab-cross.bottom-right {
   bottom: 86px;
   right: 22px;
-}
-.lab-mark {
-  position: absolute;
-  left: 26px;
-  top: 62px;
-  font-size: 7px;
-  letter-spacing: 0.15em;
-  color: #f2f2f2aa;
 }
 .lab-value {
   position: absolute;
@@ -401,9 +231,6 @@
   outline: 2px solid #f1e5ce;
   outline-offset: 4px;
 }
-.form-explorer {
-  padding-block: 20px 110px;
-}
 .explorer-heading {
   position: relative;
   margin-bottom: 40px;
@@ -418,154 +245,6 @@
   right: 0;
   font-size: 11px;
   max-width: 225px;
-}
-.explorer-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8%;
-  align-items: center;
-}
-.form-row {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  width: 100%;
-  padding: 29px 0;
-  border-top: 1px solid var(--line);
-  text-align: left;
-  position: relative;
-}
-.form-row:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: var(--ink);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.65s var(--ease);
-}
-.form-row.active:after {
-  transform: scaleX(1);
-}
-.form-number {
-  font-size: 9px;
-  opacity: 0.6;
-}
-.form-name {
-  height: 1.12em;
-  font-family: var(--serif);
-  font-size: clamp(37px, 4vw, 66px);
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  overflow: clip;
-  display: block;
-}
-.form-name > span {
-  display: block;
-  transition: transform 0.7s var(--ease);
-}
-.form-name > span:last-child {
-  font-style: italic;
-}
-.form-row.active .form-name > span {
-  transform: translateY(-100%);
-}
-.form-row > svg {
-  margin-left: auto;
-  opacity: 0.35;
-  transform: rotate(45deg);
-  transition:
-    transform 0.6s var(--ease),
-    opacity 0.3s;
-}
-.form-row.active > svg {
-  transform: rotate(0deg);
-  opacity: 1;
-}
-.index-footnote {
-  font-size: 7px;
-  letter-spacing: 0.12em;
-  margin-top: 25px;
-}
-.form-preview {
-  position: relative;
-  aspect-ratio: 0.88;
-}
-.form-panel {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(14px);
-  transition:
-    opacity 0.55s,
-    transform 0.65s var(--ease),
-    visibility 0.55s;
-}
-.form-panel.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.form-panel > a {
-  display: block;
-  position: relative;
-  height: calc(100% - 60px);
-  overflow: clip;
-  background: #e8e6df;
-}
-.form-panel img {
-  height: 100%;
-  object-fit: cover;
-  transition: transform 1.2s var(--ease);
-}
-.form-panel > a:hover img {
-  transform: scale(1.065) rotate(-1deg);
-}
-.preview-corner {
-  position: absolute;
-  left: 20px;
-  top: 19px;
-  font-size: 7px;
-  letter-spacing: 0.12em;
-}
-.preview-ring {
-  position: absolute;
-  right: 22px;
-  bottom: 23px;
-  border: 1px solid #07231944;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: grid;
-  place-items: center;
-  transition:
-    background 0.4s,
-    color 0.4s,
-    transform 0.5s;
-}
-.form-panel > a:hover .preview-ring {
-  background: var(--ink);
-  color: #f2f2f2;
-  transform: rotate(45deg);
-}
-.preview-caption {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-.preview-caption p {
-  font-size: 10px;
-  max-width: 240px;
-}
-.preview-caption > .text-link {
-  font-size: 10px;
-  gap: 16px;
 }
 .type-ribbon {
   overflow: clip;
@@ -591,9 +270,6 @@
   margin-inline: 35px;
   color: #72816b;
 }
-.collection-premiere {
-  padding-block: 115px 95px;
-}
 .premiere-head {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -607,57 +283,6 @@
 .premiere-head > .text-link {
   justify-self: end;
   white-space: nowrap;
-}
-.arrival-composition {
-  display: flex;
-  align-items: center;
-  gap: 5%;
-  padding: 45px 5%;
-  border: 1px solid var(--line);
-  background: #eaebe4;
-  position: relative;
-  overflow: clip;
-}
-.arrival-art {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  flex-shrink: 0;
-}
-.arrival-art .orbit-art {
-  width: 100%;
-  height: 100%;
-  opacity: 0.25;
-  animation: orbit-spin 65s linear infinite;
-}
-.arrival-art > span {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 80px;
-  line-height: 1;
-  padding-bottom: 15px;
-}
-.arrival-composition h3 {
-  font-size: 43px;
-  margin: 16px 0;
-}
-.arrival-composition p {
-  font-size: 11px;
-  line-height: 1.9;
-}
-.arrival-composition .text-link {
-  margin-top: 18px;
-}
-.arrival-edition {
-  margin-left: auto;
-  writing-mode: vertical-rl;
-  font-size: 7px;
-  letter-spacing: 0.16em;
-  line-height: 1.9;
 }
 .commission-scene {
   height: 660px;
@@ -723,35 +348,6 @@
 .commission-link:hover svg {
   transform: rotate(45deg);
 }
-.commission-side {
-  position: absolute;
-  right: 30px;
-  top: 60px;
-  writing-mode: vertical-rl;
-  font-size: 7px;
-  letter-spacing: 0.15em;
-  color: #e1e4d8;
-}
-.atelier-signoff {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: 55px;
-}
-.atelier-signoff > span {
-  font-size: 8px;
-  letter-spacing: 0.25em;
-}
-.atelier-signoff > p {
-  font-family: var(--serif);
-  font-size: 40px;
-  line-height: 1;
-  text-align: center;
-  color: var(--ink);
-}
-.atelier-signoff > svg {
-  opacity: 0.6;
-}
 @keyframes orbit-spin {
   to {
     transform: rotate(360deg);
@@ -766,13 +362,6 @@
   }
 }
 @media (max-width: 1100px) {
-  .material-sticky {
-    min-height: 650px;
-  }
-  .portrait-orbit {
-    width: 170px;
-    height: 170px;
-  }
   .light-lab {
     gap: 6%;
     padding-block: 90px;
@@ -782,16 +371,6 @@
   }
   .premiere-head > .text-link {
     justify-self: start;
-  }
-  .arrival-art {
-    width: 145px;
-    height: 145px;
-  }
-  .arrival-composition h3 {
-    font-size: 36px;
-  }
-  .form-row {
-    gap: 17px;
   }
   .commission-content h2 {
     font-size: 11vw;
@@ -807,16 +386,8 @@
     max-height: 950px;
   }
 
-  .scroll-track {
-    height: 27px;
-  }
-
   .opening-note {
     padding-block: 58px 43px;
-  }
-  .chapter-tag {
-    font-size: 7px;
-    letter-spacing: 0.15em;
   }
   .statement {
     font-size: 39px;
@@ -848,75 +419,12 @@
   .opening-foot > p br {
     display: none;
   }
-  .little-coordinate {
-    display: none;
-  }
   .material-story {
     height: auto;
     min-height: 0;
   }
-  .material-sticky {
-    position: relative;
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    padding: 35px 22px 20px;
-  }
   .material-heading > span {
     display: none;
-  }
-  .material-stage {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: stretch;
-  }
-  .material-words h2 {
-    font-size: 83px;
-    line-height: 0.88;
-    margin: 37px 0 25px;
-  }
-  .material-words > p {
-    font-size: 11px;
-    line-height: 1.8;
-    margin: 22px 0 12px;
-  }
-  .material-portrait {
-    height: 430px;
-    margin-top: 8px;
-    margin-left: 20px;
-    max-height: none;
-  }
-  .portrait-arch {
-    inset: 0 7% 0 0;
-  }
-  .portrait-orbit {
-    width: 150px;
-    height: 150px;
-    right: -5%;
-    top: 13%;
-  }
-  .portrait-index {
-    right: -3px;
-    font-size: 6px;
-  }
-  .portrait-index b {
-    font-size: 9px;
-  }
-  .portrait-caption {
-    bottom: 25px;
-    left: 20px;
-    font-size: 6px;
-  }
-  .portrait-caption > span:last-child {
-    font-size: 8px;
-  }
-  .story-progress {
-    font-size: 5px;
-    gap: 15px;
-    margin-top: 18px;
-    letter-spacing: 0.1em;
   }
   .light-lab {
     grid-template-columns: 1fr;
@@ -939,11 +447,6 @@
   .light-object {
     aspect-ratio: 0.92;
   }
-  .lab-mark {
-    font-size: 6px;
-    left: 20px;
-    top: 51px;
-  }
   .lab-value {
     font-size: 35px;
     top: 21px;
@@ -963,9 +466,6 @@
   .light-control > span {
     font-size: 6px;
   }
-  .form-explorer {
-    padding-block: 0 55px;
-  }
   .explorer-heading {
     margin-bottom: 28px;
   }
@@ -979,53 +479,6 @@
     margin-top: 18px;
     max-width: none;
   }
-  .explorer-layout {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-  .form-row {
-    padding: 19px 0;
-    gap: 20px;
-    min-height: 77px;
-  }
-  .form-name {
-    font-size: 43px;
-  }
-  .form-number {
-    font-size: 8px;
-  }
-  .form-row > svg {
-    width: 23px;
-  }
-  .index-footnote {
-    font-size: 6px;
-    margin-top: 20px;
-  }
-  .form-preview {
-    aspect-ratio: 0.88;
-  }
-  .preview-corner {
-    font-size: 6px;
-    left: 18px;
-    top: 17px;
-  }
-  .preview-caption {
-    gap: 12px;
-  }
-  .preview-caption p {
-    font-size: 10px;
-    max-width: 220px;
-  }
-  .preview-ring {
-    width: 51px;
-    height: 51px;
-    right: 18px;
-    bottom: 18px;
-  }
-  .preview-caption .text-link {
-    font-size: 9px;
-    gap: 13px;
-  }
   .type-ribbon {
     padding-block: 22px;
     margin-top: 5px;
@@ -1035,9 +488,6 @@
   }
   .type-ribbon span {
     margin-inline: 22px;
-  }
-  .collection-premiere {
-    padding-block: 65px 55px;
   }
   .premiere-head {
     display: block;
@@ -1051,52 +501,11 @@
     margin-top: 22px;
     font-size: 10px;
   }
-  .arrival-composition {
-    display: block;
-    padding: 30px 25px 35px;
-  }
-  .arrival-art {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 25px;
-  }
-  .arrival-art > span {
-    font-size: 57px;
-    padding-bottom: 9px;
-  }
-  .arrival-composition .eyebrow {
-    font-size: 7px;
-  }
-  .arrival-composition h3 {
-    font-size: 36px;
-    line-height: 1.02;
-    margin: 15px 0;
-  }
-  .arrival-composition p {
-    font-size: 11px;
-    line-height: 1.8;
-  }
-  .arrival-composition p br {
-    display: none;
-  }
-  .arrival-composition .text-link {
-    font-size: 10px;
-    gap: 19px;
-  }
-  .arrival-edition {
-    position: absolute;
-    right: 23px;
-    top: 34px;
-    font-size: 6px;
-  }
   .commission-scene {
     height: 580px;
   }
   .commission-content {
     padding: 37px 22px;
-  }
-  .commission-content > .chapter-tag {
-    font-size: 6px;
   }
   .commission-content h2 {
     font-size: 75px;
@@ -1120,30 +529,11 @@
   .commission-link svg {
     width: 28px;
   }
-  .commission-side {
-    right: 12px;
-    top: 38px;
-    font-size: 5px;
-    letter-spacing: 0.13em;
-  }
   .commission-scene > img {
     object-position: 65% center;
   }
   .commission-veil {
     background: linear-gradient(90deg, #072319dd, #07231980);
-  }
-  .atelier-signoff {
-    padding-block: 35px;
-  }
-  .atelier-signoff > span {
-    font-size: 6px;
-    letter-spacing: 0.12em;
-  }
-  .atelier-signoff > p {
-    font-size: 30px;
-  }
-  .atelier-signoff > svg {
-    width: 20px;
   }
 }
 @media (max-width: 370px) {
@@ -1153,45 +543,13 @@
   .statement {
     font-size: 35px;
   }
-  .material-words h2 {
-    font-size: 73px;
-  }
-  .material-portrait {
-    height: 370px;
-  }
-  .form-name {
-    font-size: 37px;
-  }
   .commission-content h2 {
     font-size: 65px;
-  }
-  .preview-caption p {
-    max-width: 170px;
-  }
-  .arrival-composition {
-    padding-inline: 22px;
-  }
-  .arrival-composition h3 {
-    font-size: 32px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .material-story {
     height: auto;
     min-height: 0;
-  }
-  .material-sticky {
-    position: relative;
-    height: auto;
-    min-height: 700px;
-  }
-  .material-stage {
-    min-height: 600px;
-  }
-  .material-words h2 span {
-    color: #f2f2f2;
-  }
-  .story-progress i {
-    transform: scaleX(1);
   }
 }

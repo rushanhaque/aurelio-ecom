@@ -8,13 +8,9 @@ const uri =
 const client = new MongoClient(uri, { serverSelectionTimeoutMS: 10000 });
 const sourceName = process.env.MONGODB_DATABASE || "aurelio";
 const collections = [
-  "products",
-  "customers",
-  "orders",
   "enquiries",
   "messages",
   "newsletter",
-  "returns",
   "quotes",
   "draftOrders",
   "audit",

@@ -135,9 +135,9 @@ export function JourneyNavigation() {
         </a>
       ))}
       <Link
-        to="/shop"
+        to="/collections"
         className="journey-shop"
-        aria-label="Shop the collection"
+        aria-label="Explore the collections"
       >
         <ArrowUpRight size={18} />
       </Link>

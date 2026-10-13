@@ -37,10 +37,6 @@ html body :is(.anatomy-list span, .serve-body small, .experiment-under small) {
 }
 
 /* ---------- Tier 2 · interface text ---------- */
-html body .nav-label,
-html body .nav-label > span {
-  font-size: 12px;
-}
 html body :is(
     .text-link,
     .field > span,
@@ -63,9 +59,6 @@ html body :is(
 }
 html body :is(.button, .sf-button, .film-button) {
   font-size: 12px;
-}
-html body .product-accordions summary {
-  font-size: 13px;
 }
 html body .product-caption p,
 html body .archive-work figcaption small {
@@ -137,27 +130,13 @@ html body :is(
   font-size: 13px;
   line-height: 1.7;
 }
-html body .footer-invitation p {
-  font-size: 14px;
-}
 html body :is(.footer-invitation small, .footer-invitation small a) {
   font-size: 11.5px;
 }
 
 /* Footer link columns follow the site's two halves: shop, export, help. */
-@media (min-width: 901px) {
-  html body .footer-links {
-    grid-template-columns: repeat(3, auto);
-    gap: clamp(40px, 5vw, 75px);
-  }
-}
 
 /* Suggestions under an empty bag or saved list. */
-.suggestions {
-  margin-top: clamp(56px, 7vw, 96px);
-  padding-top: clamp(40px, 5vw, 64px);
-  border-top: 1px solid var(--line, #07251b1f);
-}
 .suggestions-head {
   display: flex;
   align-items: end;

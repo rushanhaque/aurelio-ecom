@@ -3,95 +3,93 @@ import express from "express";
 import { MongoClient } from "mongodb";
 import { randomUUID } from "node:crypto";
 import assert from "node:assert/strict";
-import { api } from "../server/api.ts";
-// Disposable database and separate random-port HTTP server. Never touches the storefront catalog.
-const client = new MongoClient(
-  `mongodb://127.0.0.1:${process.env.LOCAL_MONGO_PORT || 63938}/?replicaSet=testset`,
-);
+// A throwaway replica set and a random-port server: never touches real data.
+const { MongoMemoryReplSet } = await import("mongodb-memory-server");
+const replica = await MongoMemoryReplSet.create({ replSet: { count: 1 } });
+const client = new MongoClient(replica.getUri());
 await client.connect();
 const db = client.db(`aurelio_qa_${randomUUID().replaceAll("-", "")}`);
 globalThis.aurelioDatabase = Promise.resolve({ db, client });
+process.env.ADMIN_TOKEN = randomUUID();
+const { api } = await import("../server/api.ts");
 const app = express();
 app.use(api);
 const server = app.listen(0, "127.0.0.1");
 await new Promise<void>((resolve) => server.once("listening", resolve));
-const port = (server.address() as any).port;
-const fixture = {
-  id: "isolated-fixture",
-  slug: "isolated-fixture",
-  name: "Isolated test fixture",
-  finish: "Test",
-  image: "/uploads/test.webp",
-  stock: 3,
-  prices: { INR: 100000, USD: 1000, GBP: 1000, EUR: 1000 },
-};
+const base = `http://127.0.0.1:${(server.address() as any).port}`;
 const payload = (key = randomUUID()) => ({
   idempotencyKey: key,
-  currency: "INR",
-  items: [{ productId: fixture.id, quantity: 2 }],
-  email: "qa@example.invalid",
   name: "Isolated QA",
-  address: "Test address 123",
-  city: "Test City",
-  postalCode: "123456",
-  country: "IN",
-  previewConsent: true,
+  email: "qa@example.invalid",
+  company: "QA Hotels",
+  country: "India",
+  quantity: 40,
+  product: "Lighting",
+  message: "Forty brass pendants for a hotel lobby.",
 });
-async function order(data: any) {
-  const r = await fetch(`http://127.0.0.1:${port}/api/checkout`, {
+async function post(path: string, data: unknown, headers = {}) {
+  const r = await fetch(base + path, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...headers },
     body: JSON.stringify(data),
   });
   return { status: r.status, data: await r.json() };
 }
 try {
   await db
-    .collection("orders")
+    .collection("enquiries")
     .createIndex({ idempotencyKey: 1 }, { unique: true });
-  await db.collection("products").insertOne(fixture);
+  // A double-clicked send makes one enquiry, not two.
   const shared = payload();
-  const pair = await Promise.all([order(shared), order(shared)]);
-  assert.equal(pair[0].status, 201);
-  assert.equal(pair[1].status, 201);
+  const pair = await Promise.all([
+    post("/api/enquiries", shared),
+    post("/api/enquiries", shared),
+  ]);
+  assert.deepEqual(pair.map((r) => r.status), [201, 201]);
   assert.equal(pair[0].data.reference, pair[1].data.reference);
-  assert.equal(await db.collection("orders").countDocuments(), 1);
+  assert.equal(await db.collection("enquiries").countDocuments(), 1);
+  // The same key with different details is refused, not silently merged.
   assert.equal(
-    (await db.collection("products").findOne({ id: fixture.id }))!.stock,
-    1,
+    (await post("/api/enquiries", { ...shared, quantity: 41 })).status,
+    409,
   );
-  const altered = await order({
-    ...shared,
-    items: [{ productId: fixture.id, quantity: 1 }],
+  // Bots that fill the hidden field are turned away.
+  assert.equal(
+    (await post("/api/enquiries", { ...payload(), website: "spam" })).status,
+    400,
+  );
+  // A picture id nobody uploaded cannot be attached.
+  assert.equal(
+    (
+      await post("/api/enquiries", {
+        ...payload(),
+        attachments: [randomUUID()],
+      })
+    ).status,
+    400,
+  );
+  const message = await post("/api/contact", {
+    name: "Isolated QA",
+    email: "qa@example.invalid",
+    topic: "Catalogue request",
+    message: "Please send the catalogue.",
   });
-  assert.equal(altered.status, 409);
-  const retry = await order(shared);
-  assert.equal(retry.status, 200);
-  assert.equal(retry.data.reference, pair[0].data.reference);
-  const privateOrder = await fetch(
-    `http://127.0.0.1:${port}/api/orders/${retry.data.reference}`,
-  );
-  assert.equal(privateOrder.status, 404);
-  const permitted = await fetch(
-    `http://127.0.0.1:${port}/api/orders/${retry.data.reference}`,
-    { headers: { "x-order-token": retry.data.accessToken } },
-  );
-  assert.equal(permitted.status, 200);
-  assert.equal((await permitted.json()).paymentStatus, "unpaid-preview");
-  await db
-    .collection("products")
-    .updateOne({ id: fixture.id }, { $set: { stock: 3 } });
-  const competition = await Promise.all([order(payload()), order(payload())]);
-  assert.deepEqual(competition.map((x) => x.status).sort(), [201, 400]);
-  assert.equal(
-    (await db.collection("products").findOne({ id: fixture.id }))!.stock,
-    1,
-  );
+  assert.equal(message.status, 201);
+  // The studio's records are behind the admin token.
+  assert.equal((await fetch(`${base}/api/admin/overview`)).status, 401);
+  const overview = await fetch(`${base}/api/admin/overview`, {
+    headers: { Authorization: `Bearer ${process.env.ADMIN_TOKEN}` },
+  });
+  const records = await overview.json();
+  assert.equal(records.enquiries.length, 1);
+  assert.equal(records.messages.length, 1);
+  assert.equal(records.enquiries[0].idempotencyKey, undefined);
   console.log(
-    "Transactional integration passed: duplicate retries, payload conflict, private order access, concurrent stock protection. Storefront catalog untouched.",
+    "Enquiry integration passed: duplicate sends, payload conflict, honeypot, unknown pictures, contact messages, private studio records.",
   );
 } finally {
   await db.dropDatabase();
   await client.close();
+  await replica.stop();
   await new Promise<void>((resolve) => server.close(() => resolve()));
 }

@@ -4,8 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Studies, YourLine } from "../components/atelier-experiments";
 import { piecesIn } from "../lib/catalogue.server";
 import { collections } from "../lib/brand-content";
-import { useStore } from "../lib/store";
-import { PageIntro, ProductCard, PieceCard, TextLink } from "../components/ui";
+import { PageIntro, PieceCard, TextLink } from "../components/ui";
 export function loader({ params }: { params: { slug?: string } }) {
   const collection = collections.find((c) => c.slug === params.slug);
   if (!collection) throw new Response("Not found", { status: 404 });
@@ -38,9 +37,7 @@ export const meta = ({
 ];
 export default function Collection() {
   const { collection: c, pieces } = useLoaderData<typeof loader>();
-  const { products } = useStore();
   const [shown, setShown] = useState(24);
-  const items = products.filter((p) => p.category === c.slug);
   return (
     <>
       <PageIntro
@@ -58,16 +55,12 @@ export default function Collection() {
           to={
             c.slug === "bespoke"
               ? "/bulk-orders?product=Bespoke#enquire"
-              : items.length
-                ? "#shop-collection"
-                : `/bulk-orders?product=${encodeURIComponent(c.name)}#enquire`
+              : `/bulk-orders?product=${encodeURIComponent(c.name)}#enquire`
           }
         >
           {c.slug === "bespoke"
             ? "Begin your commission"
-            : items.length
-              ? `Shop ${c.name.toLowerCase()}`
-              : `Enquire about ${c.name.toLowerCase()}`}
+            : `Enquire about ${c.name.toLowerCase()}`}
           <ArrowUpRight size={16} />
         </Link>
       </PageIntro>
@@ -76,28 +69,17 @@ export default function Collection() {
           <YourLine />
         </Studies>
       )}
-      {c.slug !== "bespoke" && (!!items.length || !pieces.length) && (
-        <section className="container section" id="shop-collection">
-          <h2 className="collection-objects-heading">
-            Shop {c.name.toLowerCase()}.
-          </h2>
-          {items.length ? (
-            <div className="product-grid">
-              {items.map((p, i) => (
-                <ProductCard product={p} index={i} key={p.id} />
-              ))}
-            </div>
-          ) : (
-            <div className="empty-state">
-              <h3>Coming soon.</h3>
-              <p>Pieces will appear here soon.</p>
-              <TextLink
-                to={`/bulk-orders?product=${encodeURIComponent(c.name)}`}
-              >
-                Enquire about {c.name.toLowerCase()}
-              </TextLink>
-            </div>
-          )}
+      {c.slug !== "bespoke" && !pieces.length && (
+        <section className="container section">
+          <div className="empty-state">
+            <h3>Made to order.</h3>
+            <p>Tell us what you need and we will draw and cost it.</p>
+            <TextLink
+              to={`/bulk-orders?product=${encodeURIComponent(c.name)}`}
+            >
+              Enquire about {c.name.toLowerCase()}
+            </TextLink>
+          </div>
         </section>
       )}
       {!!pieces.length && (

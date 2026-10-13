@@ -128,48 +128,6 @@
   background: var(--nav-line);
   transform: translateY(-2px);
 }
-.commerce-header .commerce-search {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 16px;
-  margin-left: 12px;
-  border-left: 1px solid var(--nav-line);
-  min-height: 44px;
-  font-size: 11px;
-}
-.commerce-header .commerce-currency {
-  min-height: 44px;
-  max-width: 66px;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-}
-.commerce-bag {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 44px;
-  font-size: 11px;
-}
-.commerce-count {
-  display: grid;
-  place-items: center;
-  min-width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  border: 1px solid var(--nav-line);
-  color: var(--nav-accent);
-  font-size: 10px;
-}
-.commerce-dot {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  right: 8px;
-  top: 8px;
-  background: var(--nav-accent);
-  border-radius: 50%;
-}
 .commerce-catalogue {
   display: inline-flex;
   align-items: center;
@@ -431,13 +389,8 @@ body:has(.commerce-header)
     gap: 6px;
   }
   .commerce-catalogue span,
-  .commerce-whatsapp,
-  .commerce-search span {
+  .commerce-whatsapp {
     display: none !important;
-  }
-  .commerce-header .commerce-search {
-    padding-inline: 10px;
-    margin-left: 0;
   }
   .commerce-enquire {
     gap: 10px;
@@ -457,10 +410,6 @@ body:has(.commerce-header)
     width: 34px;
   }
   .commerce-context,
-  .commerce-account,
-  .commerce-saved,
-  .commerce-currency,
-  .commerce-bag-label,
   .commerce-catalogue {
     display: none !important;
   }
@@ -474,11 +423,6 @@ body:has(.commerce-header)
   }
   .commerce-identity {
     gap: 4px;
-  }
-  .commerce-header .commerce-search {
-    border: 0;
-    padding: 0;
-    width: 34px;
   }
   .commerce-links {
     gap: 12px;
@@ -524,9 +468,6 @@ body:has(.commerce-header)
   .commerce-header .commerce-icon {
     width: 32px;
   }
-  .commerce-bag {
-    gap: 5px;
-  }
   .commerce-enquire {
     font-size: 9px;
     gap: 0;
@@ -563,9 +504,6 @@ body:has(.commerce-header)
 @media (max-width: 370px) {
   .commerce-brand {
     font-size: 20px;
-  }
-  .commerce-header .commerce-search {
-    width: 28px;
   }
   .commerce-enquire {
     font-size: 8px;

@@ -6,7 +6,7 @@ import { ArrowUpRight, MessageCircle, BookOpen, Plus } from "lucide-react";
 import { Link } from "react-router";
 import { pages } from "../lib/help-content";
 import { Picture, Field, Success } from "../components/ui";
-import { request, useStore } from "../lib/store";
+import { request } from "../lib/store";
 import "../storefront.css";
 import "../enquiry-card.css";
 import "../bulk-sections.css";
@@ -21,13 +21,15 @@ import { Heritage } from "../components/heritage";
 import {
   MakersLens,
   LightStudy,
+  ObjectAnatomy,
   Studies,
+  ThreeLives,
   YourLine,
 } from "../components/atelier-experiments";
 import { homeContent } from "../lib/home-content";
 import { database } from "../../server/db";
 import { frontendPreview } from "../../server/preview-mode";
-import { CommissionScene } from "../components/home-sections";
+import { CommissionScene, OpeningNote } from "../components/home-sections";
 import { MaterialMarquee } from "../components/story-sections";
 import { Words } from "../components/motion-text";
 /* Tells the root layout this route writes its own description. */
@@ -128,16 +130,6 @@ function FloatingEnquiry() {
 export default function Bulk() {
   const { homeCopy } = useLoaderData<typeof loader>();
   const [params] = useSearchParams();
-  const { cart, products } = useStore();
-  const selected =
-    params.get("from") === "cart"
-      ? cart
-          .map((line) => ({
-            ...line,
-            product: products.find((p) => p.id === line.productId)!,
-          }))
-          .filter((line) => line.product)
-      : [];
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [reference, setReference] = useState("");
@@ -152,10 +144,6 @@ export default function Bulk() {
         method: "POST",
         body: JSON.stringify({
           ...data,
-          items: selected.map((line) => ({
-            productId: line.productId,
-            quantity: line.quantity,
-          })),
           idempotencyKey: key,
         }),
       });
@@ -204,11 +192,15 @@ export default function Bulk() {
           </div>
         </section>
         <MaterialMarquee />
+        {/* In the opening band, so the white/green rhythm below is unchanged. */}
+        <OpeningNote />
         </>
         <MakingStory />
         <SelectedWorks limit={6} />
         <Studies>
           <LightStudy />
+          <ObjectAnatomy />
+          <ThreeLives />
         </Studies>
         <OriginalAtelier />
         <MaterialAtelier copy={homeCopy} />
@@ -303,18 +295,6 @@ export default function Bulk() {
               <span className="enquiry-kicker">
                 LET’S MAKE SOMETHING EXCEPTIONAL
               </span>
-              {!!selected.length && (
-                <div className="address-card">
-                  <p className="eyebrow">YOUR SELECTED OBJECTS</p>
-                  {selected.map((line) => (
-                    <p key={line.productId}>
-                      {line.product.name} · {line.product.finish} ×{" "}
-                      {line.quantity}
-                    </p>
-                  ))}
-                  <p>Your bag stays saved. Add quantities in the brief.</p>
-                </div>
-              )}
               <h2 id="enquiry-title" data-reveal="words">
                 <Words>
                 Tell us
@@ -361,10 +341,7 @@ export default function Bulk() {
                 <Success title="Thank you.">
                   <p>We’ve saved your enquiry.</p>
                   <p className="reference">{reference}</p>
-                  <p>
-                    Keep this reference. Email notifications are off in this
-                    preview.
-                  </p>
+                  <p>Keep this reference. We aim to reply within two working days.</p>
                 </Success>
               ) : (
                 <form className="editorial-form" onSubmit={submit}>

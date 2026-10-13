@@ -26,7 +26,9 @@ function useAmbientMotion(pathname: string) {
     // the obvious tool here, but it samples intersections per frame: an anchor
     // jump, the End key or a fast flick can carry an element from below the
     // fold to above it between two samples, and it then never reveals at all.
-    // Comparing positions on the scroll frame cannot miss one.
+    // Comparing positions on the scroll frame cannot miss one. The positions
+    // are measured once and kept (page coordinates), and measured again only
+    // when the page changes height, so a scroll frame never forces a layout.
     // Content that should arrive as it is reached but was written without a
     // reveal of its own is enrolled here, so every page shares one entrance:
     // blocks rise, image frames open like a curtain.
@@ -39,14 +41,26 @@ function useAmbientMotion(pathname: string) {
           el.dataset.reveal = kind;
       });
     let pending = [...document.querySelectorAll<HTMLElement>("[data-reveal]")];
-    const reveal = () => {
-      if (!pending.length) return;
-      const limit = window.innerHeight * 0.94;
+    let tops: number[] | null = null;
+    const locate = (scrolled: number) => {
+      tops = pending.map((el) => el.getBoundingClientRect().top + scrolled);
+    };
+    // Reads only: run before anything on the frame is written.
+    const due = (scrolled: number) => {
+      if (!pending.length) return [];
+      if (!tops) locate(scrolled);
+      const limit = scrolled + window.innerHeight * 0.94;
+      return pending.filter((_, i) => tops![i] < limit);
+    };
+    const reveal = (arrived: HTMLElement[]) => {
+      if (!arrived.length) return;
+      const keep = pending.map((el) => !arrived.includes(el));
+      tops = tops && tops.filter((_, i) => keep[i]);
+      pending = pending.filter((_, i) => keep[i]);
       // Whatever arrives in the same frame is staggered, so a row of cards
       // lands one after another rather than all at once.
       let wave = 0;
-      pending = pending.filter((el) => {
-        if (el.getBoundingClientRect().top >= limit) return true;
+      arrived.forEach((el) => {
         el.style.setProperty("--reveal-delay", `${Math.min(wave++, 6) * 85}ms`);
         // A group reveals its children in sequence (CSS reads --n).
         if (el.dataset.reveal === "group")
@@ -54,16 +68,28 @@ function useAmbientMotion(pathname: string) {
             (child as HTMLElement).style.setProperty("--n", String(i)),
           );
         el.dataset.revealed = "true";
-        return false;
       });
     };
+    // Images arriving, fonts settling or a section opening move everything
+    // below them: measure again on the next frame.
+    const relayout = new ResizeObserver(() => {
+      tops = null;
+      onScroll();
+    });
+    relayout.observe(document.body);
 
     let lastY = window.scrollY;
     const measure = () => {
       frame = 0;
       const scrolled = window.scrollY;
       const travel = document.documentElement.scrollHeight - window.innerHeight;
-      body.dataset.scrolled = scrolled > 120 ? "true" : "false";
+      const arrived = due(scrolled);
+      // Writes from here on, and only of what actually changed: a data
+      // attribute on <body> restyles the whole page even when it is the same.
+      const set = (key: string, value: string) => {
+        if (body.dataset[key] !== value) body.dataset[key] = value;
+      };
+      set("scrolled", scrolled > 120 ? "true" : "false");
       // Headroom: step aside while reading down, return on any scroll up. Never
       // hide while keyboard focus is inside the header.
       const delta = scrolled - lastY;
@@ -72,19 +98,19 @@ function useAmbientMotion(pathname: string) {
           delta > 0 &&
           scrolled > 520 &&
           !header?.contains(document.activeElement);
-        body.dataset.header = hide ? "hidden" : "shown";
+        set("header", hide ? "hidden" : "shown");
         lastY = scrolled;
       }
-      if (scrolled < 120) body.dataset.header = "shown";
+      if (scrolled < 120) set("header", "shown");
       header?.style.setProperty(
         "--read",
         String(travel > 0 ? Math.min(1, scrolled / travel) : 0),
       );
-      reveal();
+      reveal(arrived);
     };
-    const onScroll = () => {
+    function onScroll() {
       if (!frame) frame = requestAnimationFrame(measure);
-    };
+    }
     measure();
     addEventListener("scroll", onScroll, {
       passive: true,
@@ -130,6 +156,7 @@ function useAmbientMotion(pathname: string) {
     return () => {
       abort.abort();
       cancelAnimationFrame(frame);
+      relayout.disconnect();
       pending = [];
     };
   }, [pathname]);

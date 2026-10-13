@@ -57,28 +57,11 @@ export function GlobalPanels() {
     const id = setTimeout(warm, 2500);
     return () => clearTimeout(id);
   }, []);
-  // A hash jump on the same page (the trade menu's section links) closes too.
+  // A hash jump on the same page (the menu's section links) closes too.
   useEffect(
     () => setPanel(null),
     [location.pathname, location.search, location.hash],
   );
-  // "/" and Ctrl/Cmd+K open search from anywhere, unless the reader is typing.
-  useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      const target = event.target as HTMLElement | null;
-      const typing =
-        target?.isContentEditable ||
-        /^(INPUT|TEXTAREA|SELECT)$/.test(target?.tagName || "");
-      const shortcut =
-        (event.key === "/" && !typing) ||
-        (event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey));
-      if (!shortcut || event.altKey) return;
-      event.preventDefault();
-      setPanel("search");
-    };
-    addEventListener("keydown", onKey);
-    return () => removeEventListener("keydown", onKey);
-  }, [setPanel]);
   return (
     <>
       {mounted && (

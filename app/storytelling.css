@@ -48,11 +48,6 @@
   position: relative;
   z-index: 2;
 }
-.making-label {
-  font-size: 9px;
-  letter-spacing: 0.16em;
-  color: #c6b18b;
-}
 .making-copy h3 {
   font: 400 clamp(60px, 6.6vw, 112px)/0.92 var(--serif);
   letter-spacing: -0.055em;
@@ -76,13 +71,6 @@
   color: #f2f2f2ad;
   max-width: 325px;
 }
-.making-detail {
-  display: block;
-  font-size: 8px;
-  letter-spacing: 0.16em;
-  margin-top: 35px;
-  color: #f2f2f278;
-}
 .making-image {
   position: relative;
   aspect-ratio: 4/4.8;
@@ -104,23 +92,6 @@
   box-shadow: inset 0 0 65px #07231933;
   border: 1px solid #f2f2f21a;
   border-radius: inherit;
-  pointer-events: none;
-}
-.making-image-corner {
-  position: absolute;
-  bottom: 25px;
-  left: 26px;
-  font-size: 9px;
-  letter-spacing: 0.17em;
-  color: white;
-  text-shadow: 0 1px 8px #000;
-}
-.making-watermark {
-  position: absolute;
-  left: 29%;
-  top: 0;
-  font: 400 clamp(200px, 38vw, 600px)/1 var(--serif);
-  color: #f2f2f207;
   pointer-events: none;
 }
 .making-thread {
@@ -324,19 +295,10 @@ body:has([role="dialog"]) .journey-dock {
     font-size: 13px;
     max-width: 340px;
   }
-  .making-detail {
-    margin-top: 20px;
-  }
   .making-image {
     width: 100%;
     aspect-ratio: 4/4.6;
     max-height: none;
-  }
-  .making-watermark {
-    left: auto;
-    right: 0;
-    top: 15px;
-    font-size: 270px;
   }
   .making-thread {
     width: 170%;

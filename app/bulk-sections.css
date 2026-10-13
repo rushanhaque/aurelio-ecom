@@ -2,7 +2,10 @@
 .bulk-sections .bulk-band .lab-intro h2 { color: var(--band-ink); }
 .bulk-sections .bulk-band .lab-intro h2 em { color: var(--band-accent); }
 .bulk-sections .bulk-band .lab-intro > p,
-.bulk-sections .bulk-band .lab-intro .interaction-note { color: var(--band-muted); }
+.bulk-sections .bulk-band .lab-intro .interaction-note,
+.bulk-sections .bulk-band .experiment-under > p,
+.bulk-sections .bulk-band .experiment-under small { color: var(--band-muted); }
+.bulk-sections .bulk-band .experiment-under h3 { color: var(--band-ink); }
 .bulk-band {
   display: flow-root;
   background: var(--band-bg);
@@ -134,7 +137,6 @@
 .bulk-sections .bulk-band--white .experiment-dark .experiment-options button[aria-pressed="true"] { color: #fff; }
 .bulk-sections .bulk-band--green .trade-faq-list :is(details, summary, p) { color: var(--band-ink); border-color: var(--band-line); }
 .bulk-sections .bulk-band--white .workshop-copy p,
-.bulk-sections .bulk-band--white .workshop-stage span,
 .bulk-sections .bulk-band--white .workshop-bottom > span {
   color: var(--band-muted);
 }
@@ -143,9 +145,6 @@
 }
 .bulk-sections .bulk-band--white .standard-foot li {
   border-color: var(--band-line);
-}
-.bulk-sections .bulk-band--white .standard-numeral {
-  color: #10382a08;
 }
 .bulk-sections .trade-hero {
   color: #10382a;

@@ -1,14 +1,5 @@
 import { Link } from "react-router";
-import {
-  ArrowUpRight,
-  Heart,
-  Plus,
-  Minus,
-  ArrowRight,
-  Check,
-} from "lucide-react";
-import { useStore } from "../lib/store";
-import { money, type Product } from "../lib/catalog";
+import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import { useEffect, useRef, type ReactNode } from "react";
 import { Words } from "./motion-text";
 export function Picture({
@@ -82,98 +73,6 @@ export function TextLink({
     </Link>
   );
 }
-export function ProductCard({
-  product,
-  index = 0,
-}: {
-  product: Product;
-  index?: number;
-}) {
-  const { wishlist, toggleWish, currency, add } = useStore();
-  return (
-    <article className="product-card" data-reveal>
-      <div className="product-image">
-        {/* viewTransition lets the card image morph into the detail image where
-            the browser supports it, and is a no-op everywhere else. */}
-        <Link
-          to={`/products/${product.slug}`}
-          viewTransition
-          aria-label={`Discover ${product.name}`}
-        >
-          <Picture
-            name={product.image}
-            alt={`${product.name} in ${product.finish}`}
-            sizes="(max-width: 600px) 48vw, (max-width: 1000px) 45vw, 24vw"
-          />
-        </Link>
-        <button
-          className={`icon-button save-button ${wishlist.includes(product.id) ? "saved" : ""}`}
-          onClick={() => toggleWish(product.id)}
-          aria-label={`${wishlist.includes(product.id) ? "Unsave" : "Save"} ${product.name}`}
-          aria-pressed={wishlist.includes(product.id)}
-        >
-          <Heart
-            size={17}
-            fill={wishlist.includes(product.id) ? "currentColor" : "none"}
-          />
-        </button>
-        <button
-          className="quick-add"
-          disabled={!product.stock}
-          onClick={() => add(product.id)}
-          aria-label={`Add ${product.name} to bag`}
-        >
-          <Plus size={16} />
-          <span>{product.stock ? "Add to bag" : "Unavailable"}</span>
-        </button>
-      </div>
-      <div className="product-caption">
-        <div>
-          <Link
-            to={`/products/${product.slug}`}
-            viewTransition
-            className="product-name"
-          >
-            {product.name}
-          </Link>
-          <p>{product.finish}</p>
-        </div>
-        <span className="product-price">
-          {money(product.prices[currency], currency)}
-        </span>
-      </div>
-    </article>
-  );
-}
-export function Quantity({
-  value,
-  onChange,
-  max = 50,
-}: {
-  value: number;
-  onChange: (n: number) => void;
-  max?: number;
-}) {
-  return (
-    <div className="quantity-control">
-      <button
-        aria-label="Decrease quantity"
-        disabled={value <= 1}
-        onClick={() => onChange(value - 1)}
-      >
-        <Minus size={14} />
-      </button>
-      <span aria-live="polite">{value}</span>
-      <button
-        aria-label="Increase quantity"
-        disabled={value >= max}
-        onClick={() => onChange(value + 1)}
-      >
-        <Plus size={14} />
-      </button>
-    </div>
-  );
-}
 export function PageIntro({
   title,
   image,
@@ -207,67 +106,6 @@ export function PageIntro({
     </header>
   );
 }
-/* The cart and wishlist live in localStorage, which the server cannot see. Until
-   the browser has read it, these pages must not claim the bag is empty. */
-export function Settling({ label }: { label: string }) {
-  return (
-    <div className="settling-state" role="status">
-      <span className="settling-mark" aria-hidden="true">
-        ✳
-      </span>
-      <p>{label}</p>
-    </div>
-  );
-}
-
-export function EmptyState({
-  title,
-  children,
-}: {
-  title: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="empty-state">
-      <span className="empty-star">✳</span>
-      <h2>{title}</h2>
-      <p>{children}</p>
-      <Link to="/shop" className="button">
-        Explore the shop
-        <ArrowUpRight size={18} />
-      </Link>
-    </div>
-  );
-}
-/* Under an empty bag or empty saved list: a few pieces to begin with, so the
-   page leads somewhere instead of ending. Featured pieces come first. */
-export function Suggestions({
-  title = "Pieces to start with.",
-}: {
-  title?: string;
-}) {
-  const { products } = useStore();
-  const picks = products
-    .filter((p) => p.featured)
-    .concat(products.filter((p) => !p.featured))
-    .slice(0, 4);
-  if (!picks.length) return null;
-  return (
-    <section className="suggestions" aria-labelledby="suggestions-title">
-      <div className="suggestions-head">
-        <h2 id="suggestions-title">{title}</h2>
-        <Link to="/shop" className="text-link">
-          Shop all <ArrowUpRight size={16} />
-        </Link>
-      </div>
-      <div className="product-grid">
-        {picks.map((p, i) => (
-          <ProductCard key={p.id} product={p} index={i} />
-        ))}
-      </div>
-    </section>
-  );
-}
 export function Success({
   title,
   children,
@@ -286,8 +124,8 @@ export function Success({
       </span>
       <h2>{title}</h2>
       <div>{children}</div>
-      <Link to="/shop" className="text-link">
-        Back to the shop
+      <Link to="/" className="text-link">
+        Back to Aurelio
         <ArrowRight size={18} />
       </Link>
     </div>
@@ -332,7 +170,7 @@ export function Arrow() {
 }
 
 /* A bulk-enquiry piece from the aurelio.in catalogue: no price, no bag, an
-   enquiry. Shaped to match ProductCard so the two can share a grid. */
+   enquiry. */
 export type PieceSummary = {
   slug: string;
   name: string;
@@ -365,6 +203,7 @@ export function PieceCard({ piece }: { piece: PieceSummary }) {
         <Link
           className="quick-add"
           to={`/bulk-orders?product=${encodeURIComponent(`${piece.name} ${piece.suffix}`)}`}
+          aria-label={`Enquire about the ${piece.name} ${piece.suffix}`}
         >
           <ArrowUpRight size={16} />
           <span>Enquire</span>

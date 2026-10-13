@@ -36,13 +36,6 @@
   color: var(--muted);
   font-size: 14px;
 }
-.archive-instruction {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 10px;
-  margin: 22px 0;
-}
 .archive-grid {
   columns: 3;
   column-gap: 22px;
@@ -84,12 +77,10 @@
 
 }
 .archive-work.is-lit .archive-off,
-.archive-work.in-light .archive-off,
 .archive-frame:focus-visible .archive-off {
   opacity: 0;
 }
 .archive-work.is-lit .archive-on,
-.archive-work.in-light .archive-on,
 .archive-frame:focus-visible .archive-on {
   transform: scale(1);
 }
@@ -108,49 +99,8 @@
 }
 .archive-frame:hover:after,
 .archive-frame:focus-visible:after,
-.archive-work.is-lit .archive-frame:after,
-.archive-work.in-light .archive-frame:after {
+.archive-work.is-lit .archive-frame:after {
   transform: scaleX(1);
-}
-.archive-number {
-  position: absolute;
-  z-index: 2;
-  top: 16px;
-  left: 16px;
-  background: #f2f2f2d9;
-  color: #072319;
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  padding: 5px 8px;
-}
-.archive-light {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  border: 1px solid #ffffff55;
-  background: #072319db;
-  color: #f2f2f2;
-  padding: 11px;
-  border-radius: 30px;
-}
-.archive-light > span {
-  max-width: 0;
-  overflow: clip;
-  white-space: nowrap;
-  font-size: 10px;
-  opacity: 0;
-  transition:
-    max-width 0.6s,
-    opacity 0.5s;
-}
-.archive-frame:hover .archive-light > span,
-.archive-frame:focus-visible .archive-light > span {
-  max-width: 180px;
-  opacity: 1;
 }
 .archive-work figcaption {
   display: flex;
@@ -201,15 +151,6 @@
   overflow: clip;
   background: #072319;
   color: #f2f2f2;
-}
-.standard-numeral {
-  position: absolute;
-  right: 0;
-  bottom: -140px;
-  z-index: -1;
-  font: 400 650px/0.9 var(--serif);
-  color: #f2f2f205;
-  pointer-events: none;
 }
 .original-standard h2 {
   font: 400 clamp(48px, 6.8vw, 105px)/1.1 var(--serif);
@@ -353,17 +294,6 @@
   max-width: 350px;
   line-height: 1.9;
 }
-.workshop-stage {
-  display: block;
-  margin-top: 35px;
-  letter-spacing: 0.17em;
-  font-size: 9px;
-  color: #c6b18b;
-}
-.workshop-stage span {
-  color: #f2f2f24d;
-  margin-left: 12px;
-}
 .workshop-image {
   overflow: clip;
   aspect-ratio: 4/4.5;
@@ -470,10 +400,6 @@
   .standard-foot li {
     font-size: 25px;
   }
-  .standard-numeral {
-    font-size: 450px;
-    bottom: -70px;
-  }
   .original-atelier {
     padding-top: 60px;
   }
@@ -526,9 +452,6 @@
     font-size: 12px;
     clear: both;
   }
-  .workshop-stage {
-    margin-top: 20px;
-  }
   .workshop-rule {
     margin-bottom: 17px;
   }
@@ -543,7 +466,6 @@
   .archive-off,
   .archive-on,
   .archive-frame:after,
-  .archive-light > span,
   .workshop-image img,
   .workshop-rule,
   .standard-foot li i {
@@ -556,13 +478,6 @@
   .archive-frame:after {
     display: none;
   }
-}
-
-.archive-work.manual-unlit .archive-off {
-  opacity: 1;
-}
-.archive-work.manual-unlit .archive-on {
-  transform: scale(1.04);
 }
 
 /* "Where we excel" fits one screen: on desktop the section is a single
@@ -604,9 +519,6 @@
   }
   .original-atelier .workshop-rule {
     margin-bottom: clamp(10px, 2vh, 18px);
-  }
-  .original-atelier .workshop-stage {
-    margin-top: clamp(14px, 3vh, 28px);
   }
   .original-atelier .workshop-bottom {
     padding-top: 12px;

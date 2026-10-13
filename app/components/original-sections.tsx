@@ -232,8 +232,8 @@ export function SelectedWorks({ limit = works.length }: { limit?: number }) {
           </h2>
           <div>
             <p>Raised, forged or cast. Finished to be lived with.</p>
-            <Link to="/shop" className="text-link">
-              Explore the collection <ArrowUpRight size={17} />
+            <Link to="/collections" className="text-link">
+              Explore the collections <ArrowUpRight size={17} />
             </Link>
           </div>
         </header>

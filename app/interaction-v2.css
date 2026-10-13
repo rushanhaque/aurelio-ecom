@@ -47,15 +47,8 @@ body[data-scrolled="true"] .site-header {
   color: var(--paper-200);
   border-color: var(--paper-a10);
 }
-body[data-scrolled="true"] .header-left nav a::after {
-  background: var(--brass-300);
-}
 body[data-scrolled="true"] .icon-button:hover {
   background: var(--paper-a10);
-}
-body[data-scrolled="true"] .currency-select option {
-  color: var(--ink-800);
-  background: var(--paper-200);
 }
 body[data-scrolled="true"] .wordmark {
   font-size: 27px;
@@ -87,36 +80,6 @@ body[data-scrolled="true"] .wordmark span {
 /* --- Navigation: the label lifts away and its twin rises in brass -------
    .nav-label is the clipping window; the inner span and its ::after twin are
    what travel, so the link keeps its own padding and hit area. */
-.nav-label {
-  display: inline-block;
-  overflow: hidden;
-  line-height: 1.3;
-  vertical-align: bottom;
-}
-.nav-label > span[data-label] {
-  position: relative;
-  display: block;
-  transition: transform var(--dur-3) var(--ease-atelier);
-}
-.nav-label > span[data-label]::after {
-  content: attr(data-label);
-  position: absolute;
-  left: 0;
-  top: 100%;
-  color: var(--brass-600);
-  white-space: nowrap;
-}
-.header-left nav a:hover .nav-label > span,
-.header-left nav a:focus-visible .nav-label > span,
-.header-left nav a.active .nav-label > span,
-.bulk-nav:hover .nav-label > span,
-.bulk-nav:focus-visible .nav-label > span {
-  transform: translateY(-100%);
-}
-body:has(.atelier-hero) .nav-label > span[data-label]::after,
-body[data-scrolled="true"] .nav-label > span[data-label]::after {
-  color: var(--brass-300);
-}
 
 /* --- Buttons: the fill rises from where the cursor entered -------------- */
 .button {
@@ -204,19 +167,6 @@ body[data-scrolled="true"] .nav-label > span[data-label]::after {
 }
 
 /* The object number strikes out to a rule as the card wakes up. */
-.object-number {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 3;
-}
-.object-number::after {
-  content: "";
-  height: 1px;
-  width: calc(var(--aperture) * 34px);
-  background: currentColor;
-  transition: width var(--dur-3) var(--ease-atelier);
-}
 
 /* Quick-add arrives as a wipe rather than a slide, and the label follows.
    Scoped to hover-capable pointers: on touch the card keeps the compact
@@ -249,22 +199,6 @@ body[data-scrolled="true"] .nav-label > span[data-label]::after {
 }
 
 /* The heart draws itself in before it fills. */
-.save-button {
-  z-index: 3;
-  opacity: calc(0.4 + var(--aperture) * 0.6);
-  transition:
-    opacity var(--dur-2),
-    transform var(--dur-2) var(--ease-atelier);
-}
-.save-button:hover {
-  transform: scale(1.14);
-}
-.save-button.saved {
-  opacity: 1;
-}
-.save-button.saved svg {
-  animation: keepsake var(--dur-4) var(--ease-atelier);
-}
 @keyframes keepsake {
   0% {
     transform: scale(1);
@@ -323,43 +257,6 @@ body[data-scrolled="true"] .nav-label > span[data-label]::after {
 /* --- Footer: a hairline draws out and walks the label with it ----------- */
 /* Flex, not inline-flex: these lists stack, so the links must stay
    block-level. */
-.footer-links a,
-.footer-business a {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  gap: 0;
-  transform: none;
-  transition:
-    gap var(--dur-3) var(--ease-atelier),
-    color var(--dur-2);
-}
-.footer-links a:hover,
-.footer-business a:hover {
-  text-decoration: none;
-}
-.footer-links a::before,
-.footer-business a::before {
-  content: "";
-  width: 0;
-  height: 1px;
-  background: var(--brass-600);
-  transition: width var(--dur-3) var(--ease-atelier);
-}
-.footer-links a:hover,
-.footer-links a:focus-visible,
-.footer-business a:hover,
-.footer-business a:focus-visible {
-  transform: none;
-  gap: 9px;
-  color: var(--brass-700);
-}
-.footer-links a:hover::before,
-.footer-links a:focus-visible::before,
-.footer-business a:hover::before,
-.footer-business a:focus-visible::before {
-  width: 15px;
-}
 
 /* --- Fields: the rule fills from the middle out ------------------------- */
 .field input,
@@ -405,39 +302,8 @@ body[data-scrolled="true"] .nav-label > span[data-label]::after {
   opacity: 0.28;
   transform: scale(1);
 }
-.bag-button span {
-  transition: transform var(--dur-2) var(--ease-atelier);
-}
-.bag-button:hover span {
-  transform: scale(1.18);
-}
 
 /* --- Category tabs: the rule opens from the centre ---------------------- */
-.category-tabs button,
-.category-tabs a {
-  position: relative;
-  transition: color var(--dur-2);
-}
-.category-tabs button::after,
-.category-tabs a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  bottom: 0;
-  height: 1px;
-  background: var(--brass-600);
-  transition:
-    left var(--dur-3) var(--ease-atelier),
-    right var(--dur-3) var(--ease-atelier);
-}
-.category-tabs button:hover::after,
-.category-tabs button:focus-visible::after,
-.category-tabs a:hover::after,
-.category-tabs button.active::after {
-  left: 0;
-  right: 0;
-}
 
 /* --- A focus ring that reads as brass foil, not a browser default ------- */
 :focus-visible {
@@ -474,14 +340,8 @@ body[data-motion="on"] [data-reveal][data-revealed] {
   .product-card {
     --aperture: 1;
   }
-  .save-button {
-    opacity: 1;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .save-button.saved svg {
-    animation: none;
-  }
   body[data-motion="on"] [data-reveal]:not([data-revealed]) {
     opacity: 1;
     transform: none;
@@ -544,32 +404,9 @@ body[data-motion="on"] [data-reveal][data-revealed] {
 }
 
 /* --- Settling: the beat between server render and the saved bag --------- */
-.settling-state {
-  display: grid;
-  place-items: center;
-  gap: 16px;
-  padding: clamp(64px, 12vw, 140px) 0;
-  text-align: center;
-}
-.settling-state p {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-}
-.settling-mark {
-  font-size: 26px;
-  line-height: 1;
-  color: var(--brass-500);
-  animation: settling-turn 2.4s linear infinite;
-}
 @keyframes settling-turn {
   to {
     transform: rotate(360deg);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .settling-mark {
-    animation: none;
   }
 }
 
@@ -601,147 +438,11 @@ body[data-motion="on"] [data-reveal][data-revealed] {
   .main-product-image:hover > img {
     transform: scale(1.85);
   }
-  .main-product-image .zoom-button {
-    z-index: 2;
-  }
-}
-.gallery-thumbs button {
-  transition:
-    opacity var(--dur-2),
-    transform var(--dur-3) var(--ease-atelier);
-}
-.gallery-thumbs button:not(.active) {
-  opacity: 0.62;
-}
-.gallery-thumbs button:hover {
-  opacity: 1;
-  transform: translateY(-3px);
 }
 
 /* Share sits beside the heart and matches it. */
-.detail-share {
-  border: 1px solid var(--line);
-  border-radius: 0;
-  min-width: 48px;
-  height: 52px;
-}
-.detail-share::before,
-.detail-heart::before {
-  border-radius: 0;
-}
-.share-status {
-  min-height: 1em;
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  color: var(--brass-700);
-  margin-top: 8px;
-}
-.share-status:empty {
-  margin: 0;
-}
-@media (max-width: 600px) {
-  .detail-share {
-    min-width: 40px;
-  }
-}
 
 /* --- Search panel --------------------------------------------------------- */
-.search-input {
-  transition: border-color var(--dur-2);
-}
-.search-input:focus-within {
-  border-bottom-color: var(--brass-600);
-}
-.search-input input::-webkit-search-cancel-button {
-  cursor: pointer;
-}
-.search-input input:focus-visible {
-  outline: none;
-}
-.search-hint {
-  font-family: var(--sans);
-  font-size: 11px;
-  color: var(--muted);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-1);
-  padding: 1px 7px;
-}
-.search-collections {
-  margin-bottom: 30px;
-}
-.search-collections .eyebrow {
-  margin-bottom: 12px;
-}
-.search-collections > div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.search-collections a {
-  font-size: 11px;
-  padding: 7px 14px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  transition:
-    background-color var(--dur-2),
-    color var(--dur-2),
-    border-color var(--dur-2);
-}
-.search-collections a:hover,
-.search-collections a:focus-visible {
-  background: var(--ink-800);
-  border-color: var(--ink-800);
-  color: var(--paper-200);
-}
-.search-result {
-  transition: padding var(--dur-3) var(--ease-atelier);
-}
-.search-result img {
-  transition: transform var(--dur-3) var(--ease-atelier);
-}
-.search-result svg {
-  transition: transform var(--dur-3) var(--ease-atelier);
-}
-.search-result:hover,
-.search-result:focus-visible {
-  padding-left: 8px;
-}
-.search-result:hover img {
-  transform: scale(0.94);
-}
-.search-result:hover svg,
-.search-result:focus-visible svg {
-  transform: rotate(45deg);
-}
-.search-content mark {
-  background: linear-gradient(transparent 62%, #d2c09d99 62%);
-  color: inherit;
-}
-.search-content > .text-link {
-  margin-top: 22px;
-}
-.search-empty {
-  display: grid;
-  gap: 14px;
-  padding: 12px 0 20px;
-}
-.search-shortcut {
-  margin-top: 36px;
-  font-size: 10px;
-  color: var(--muted);
-}
-.search-shortcut kbd {
-  font-family: var(--sans);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-1);
-  padding: 0 6px;
-  margin-inline: 2px;
-}
-@media (hover: none) {
-  .search-shortcut {
-    display: none;
-  }
-}
 
 /* --- Trade desk shortcuts on the bulk page -------------------------------- */
 .trade-shortcuts {
@@ -836,25 +537,6 @@ details[open] > summary + * {
 }
 
 /* --- Back to the top -------------------------------------------------- */
-.back-to-top {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  transition: color var(--dur-2);
-}
-.back-to-top svg {
-  transform: rotate(-45deg);
-  transition: transform var(--dur-3) var(--ease-atelier);
-}
-.back-to-top:hover {
-  color: var(--ink-800);
-}
-.back-to-top:hover svg {
-  transform: rotate(-45deg) translate(2px, -2px);
-}
 main:focus {
   outline: none;
 }
@@ -902,6 +584,10 @@ main:focus {
 .piece-card .product-image img {
   object-fit: contain;
   padding: 6%;
+}
+/* A whole block to tap, not two thin fragments of a wrapped line. */
+.piece-card .product-name {
+  display: block;
 }
 .piece-card .product-name em {
   color: var(--muted);
@@ -1046,37 +732,3 @@ main:focus {
 }
 
 /* --- Commission stages with their own imagery (bulk page) ----------------- */
-.process-list li {
-  display: grid;
-  grid-template-columns: 34px 1fr auto;
-  align-items: center;
-  gap: 16px;
-}
-.process-list img {
-  width: 132px;
-  height: 38px;
-  object-fit: cover;
-  border-radius: var(--radius-pill);
-  filter: grayscale(1) contrast(0.9);
-  opacity: 0.55;
-  transition:
-    width var(--dur-4) var(--ease-atelier),
-    filter var(--dur-3),
-    opacity var(--dur-3);
-}
-.process-list li:hover img {
-  width: 190px;
-  filter: none;
-  opacity: 1;
-}
-@media (hover: none) {
-  .process-list img {
-    filter: none;
-    opacity: 0.9;
-  }
-}
-@media (max-width: 420px) {
-  .process-list img {
-    width: 96px;
-  }
-}

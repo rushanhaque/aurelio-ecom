@@ -1,9 +1,6 @@
 import { MongoClient, type Db } from "mongodb";
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
-import type { Product } from "../app/lib/catalog.ts";
-import { frontendPreview } from "./preview-mode.ts";
-import { sampleProducts } from "./sample-products.ts";
 declare global {
   var aurelioDatabase: Promise<{ db: Db; client: MongoClient }> | undefined;
 }
@@ -36,38 +33,13 @@ async function connect() {
   await client.connect();
   const db = client.db(process.env.MONGODB_DATABASE || "aurelio");
   await Promise.all([
-    db.collection("products").createIndex({ id: 1 }, { unique: true }),
-    db.collection("products").createIndex({ slug: 1 }, { unique: true }),
-    db
-      .collection("products")
-      .createIndex(
-        { sku: 1 },
-        { unique: true, partialFilterExpression: { sku: { $gt: "" } } },
-      ),
-    db.collection("orders").createIndex({ customerId: 1, createdAt: -1 }),
-    db.collection("customers").createIndex({ email: 1 }, { unique: true }),
-    db
-      .collection("sessions")
-      .createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
-    db.collection("sessions").createIndex({ tokenHash: 1 }, { unique: true }),
-    db
-      .collection("orders")
-      .createIndex({ idempotencyKey: 1 }, { unique: true }),
-    db.collection("orders").createIndex({ reference: 1 }, { unique: true }),
     db
       .collection("enquiries")
       .createIndex({ idempotencyKey: 1 }, { unique: true }),
     db.collection("newsletter").createIndex({ email: 1 }, { unique: true }),
     db
-      .collection("accountLinks")
-      .createIndex({ tokenHash: 1 }, { unique: true }),
-    db
-      .collection("accountLinks")
-      .createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
-    db
       .collection("emailPreview")
       .createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
-    db.collection("returns").createIndex({ reference: 1 }, { unique: true }),
     db.collection("quotes").createIndex({ id: 1 }, { unique: true }),
     db.collection("content").createIndex({ slug: 1 }, { unique: true }),
     db
@@ -82,19 +54,4 @@ async function connect() {
       .createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }),
   ]);
   return { db, client };
-}
-export async function getProducts() {
-  if (frontendPreview()) return sampleProducts;
-  const { db } = await database();
-  const products = (await db
-    .collection("products")
-    .find(
-      { status: { $nin: ["draft", "archived"] } },
-      { projection: { _id: 0, stockReason: 0 } },
-    )
-    .toArray()) as unknown as Product[];
-  // Placeholder listings fill an empty shop while developing; never in production.
-  if (!products.length && process.env.NODE_ENV !== "production")
-    return sampleProducts;
-  return products;
 }

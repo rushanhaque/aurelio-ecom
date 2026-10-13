@@ -1,5 +1,7 @@
 # Aurelio â€” implementation audit
 
+> **Update, 13 October 2026.** The retail shop was removed from this site and moves to Shopify: products, bag, wishlist, checkout, payments, orders, customer accounts, order tracking and the shipping/returns/seller policies are gone, and "Visit the shop" links to the Shopify store (`brand.shopUrl`). This site is now the atelier, trade catalogue, enquiries, quotations and studio. Rows below about the shop, checkout, accounts and payments no longer apply. See [LAUNCH_SETUP.md](LAUNCH_SETUP.md).
+
 Audit date: 27 September 2026. Source: `AURELIO_IMPLEMENTATION_PLAN.md`, checked against the actual code and local tests. This document supersedes older README statements about missing local features. **The complete production plan is not finished. The site is a functional local storefront and studio, not yet a live payment store.**
 
 No products have been added to the storefront. Product fixtures exist only in disposable QA databases. Original Aurelio brand assets/content are documented in `BRAND_CONTENT.md`; the reference project remains untouched.
@@ -61,7 +63,7 @@ Bundle report across **all** routes: JavaScript 201.3 KiB Brotli, CSS 19.8 KiB B
 
 These are real remaining work items, **not** boxes that can be checked by supplying API keys alone. Nothing has been deployed, no live email has been sent, and no payment has been taken.
 
-## Visual and CMS refinement — 27 September 2026
+## Visual and CMS refinement ï¿½ 27 September 2026
 
 Added a responsive material atelier using the nine canonical Aurelio materials: accessible swatch tabs, keyboard selection, form/surface image switching, a pointer-following light treatment, image wipes, progressive scroll reveals and a commission seal. Only the active material image is mounted; motion respects reduced-motion preferences. Added subtle product-image glints and refined studio spacing and mobile grids. No products were added.
 

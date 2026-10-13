@@ -309,7 +309,7 @@ export function ObjectAnatomy() {
                 onPointerLeave={() => setPart(null)}
                 onFocus={() => setPart(i)}
                 onBlur={() => setPart(null)}
-                aria-label={`${p.name}: ${p.finish}`}
+                aria-label={`0${i + 1} ${p.name}: ${p.finish}`}
               >
                 <span>0{i + 1}</span>
               </button>

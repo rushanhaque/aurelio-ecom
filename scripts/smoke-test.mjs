@@ -2,7 +2,7 @@ import "dotenv/config";
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import { MongoClient } from "mongodb";
-// Local-only smoke test. No product records are created or changed.
+// Local-only smoke test against the running dev server.
 const base = "http://localhost:3000";
 const marker = randomUUID();
 const email = `qa-${marker}@example.invalid`;
@@ -11,7 +11,6 @@ const client = new MongoClient(
 );
 await client.connect();
 const db = client.db(process.env.MONGODB_DATABASE || "aurelio");
-let userId;
 let assertions = 0;
 const check = (condition, message) => {
   assert.ok(condition, message);
@@ -23,22 +22,10 @@ const api = async (path, data, extra = {}) => {
     headers: { "Content-Type": "application/json", ...extra },
     ...(data ? { body: JSON.stringify(data) } : {}),
   });
-  return {
-    status: r.status,
-    body: await r.json(),
-    cookie: r.headers.get("set-cookie"),
-  };
+  return { status: r.status, body: await r.json() };
 };
 try {
-  const before = await db.collection("products").countDocuments();
   check((await api("/api/health")).body.ok, "Database health");
-  check(
-    (await api("/api/products")).body.length ===
-      (await db
-        .collection("products")
-        .countDocuments({ status: { $nin: ["draft", "archived"] } })),
-    "Public catalog matches database",
-  );
   check((await api("/api/admin/overview")).status === 401, "Admin protected");
   const documentResponse = await fetch(base + "/");
   const documentHtml = await documentResponse.text();
@@ -51,41 +38,6 @@ try {
   check(documentHtml.includes('rel="canonical"'), "Canonical link rendered");
   check((await fetch(base + "/sitemap.xml")).status === 200, "Sitemap available");
   check((await fetch(base + "/robots.txt")).status === 200, "Robots policy available");
-  const auth = await api("/api/auth", {
-    mode: "register",
-    email,
-    password: `test-only-${marker}`,
-    name: "Disposable QA",
-  });
-  check(
-    auth.status === 200 && auth.body.customer.email === email,
-    "Register account",
-  );
-  userId = auth.body.customer.id;
-  check(
-    auth.cookie.includes("HttpOnly") && auth.cookie.includes("SameSite=Lax"),
-    "Session security attributes",
-  );
-  const cookie = auth.cookie.split(";")[0];
-  check(
-    (await api("/api/session", null, { Cookie: cookie })).body.customer.id ===
-      userId,
-    "Session persistence",
-  );
-  check(
-    (await api("/api/orders", null, { Cookie: cookie })).status === 200,
-    "Private order history",
-  );
-  check(
-    (
-      await api("/api/auth", {
-        mode: "login",
-        email,
-        password: "wrong-password",
-      })
-    ).status === 401,
-    "Invalid credentials",
-  );
   const brief = {
     idempotencyKey: marker,
     name: "Disposable QA",
@@ -151,13 +103,8 @@ try {
     ).status === 403,
     "Cross-origin mutation rejected",
   );
-  check(
-    (await api("/api/orders/AUR-unknown")).status === 404,
-    "Order authorization",
-  );
   for (const path of [
     "/",
-    "/shop",
     "/collections",
     "/collections/urns",
     "/collections/lighting",
@@ -168,25 +115,16 @@ try {
     "/collections/bespoke",
     "/materials",
     "/about",
-    "/about",
     "/bulk-orders",
     "/contact",
-    "/cart",
-    "/checkout",
-    "/account",
-    "/account/link",
     "/preferences",
-    "/wishlist",
     "/journal",
     "/journal/the-beauty-of-brass",
-    "/shipping",
-    "/returns",
     "/care",
     "/faq",
     "/privacy",
     "/terms",
     "/accessibility",
-    "/track-order",
     "/admin",
     "/cms",
   ]) {
@@ -196,28 +134,18 @@ try {
   }
   for (const path of [
     "/not-a-page",
-    "/products/not-a-product",
+    "/pieces/not-a-piece",
     "/journal/not-an-article",
   ])
     check((await fetch(base + path)).status === 404, `${path} returns 404`);
-  check((await api("/api/logout", {}, { Cookie: cookie })).body.ok, "Logout");
-  check(
-    (await api("/api/session", null, { Cookie: cookie })).body.customer ===
-      null,
-    "Session revoked",
-  );
-  check(
-    (await db.collection("products").countDocuments()) === before,
-    "Product catalog unchanged",
-  );
-  console.log(`${assertions} smoke assertions passed. No products added.`);
+  // The shop lives on Shopify: /shop forwards there (or to Contact until set).
+  check((await fetch(base + "/shop", { redirect: "manual" })).status === 302, "/shop forwards to the online shop");
+  console.log(`${assertions} smoke assertions passed.`);
 } finally {
-  if (userId)
-    await db.collection("sessions").deleteMany({ customerId: userId });
-  for (const collection of ["customers", "enquiries", "messages", "newsletter"])
+  for (const collection of ["enquiries", "messages", "newsletter"])
     await db.collection(collection).deleteMany({ email });
   await client.close();
   console.log(
-    "Removed only this test run’s disposable account and form records.",
+    "Removed only this test run’s form records.",
   );
 }

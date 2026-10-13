@@ -22,8 +22,8 @@ try {
     id = new ObjectId();
   await client
     .db(sourceName)
-    .collection("products")
-    .insertOne({ _id: id, id: "qa-only", stock: 7, createdAt: date });
+    .collection("enquiries")
+    .insertOne({ _id: id, reference: "qa-only", quantity: 7, createdAt: date });
   await run(process.execPath, [script, "export"], { cwd: directory, env });
   const backupDirectory = path.join(directory, ".data", "backups");
   const files = await readdir(backupDirectory);
@@ -34,9 +34,9 @@ try {
   });
   const restored = await client
     .db(targetName)
-    .collection("products")
-    .findOne({ id: "qa-only" });
-  assert.equal(restored.stock, 7);
+    .collection("enquiries")
+    .findOne({ reference: "qa-only" });
+  assert.equal(restored.quantity, 7);
   assert.equal(restored._id.toHexString(), id.toHexString());
   assert.equal(restored.createdAt.toISOString(), date.toISOString());
   await assert.rejects(
@@ -47,7 +47,7 @@ try {
     /target must be empty/,
   );
   assert.equal(
-    await client.db(sourceName).collection("products").countDocuments(),
+    await client.db(sourceName).collection("enquiries").countDocuments(),
     1,
   );
   console.log(

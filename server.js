@@ -11,6 +11,11 @@ import { randomBytes, randomUUID } from "node:crypto";
 const development = process.env.NODE_ENV !== "production";
 const app = express();
 app.disable("x-powered-by");
+// Behind a load balancer (AWS ALB) the visitor's address is in
+// X-Forwarded-For. TRUST_PROXY is the number of proxies in front of the app
+// (1 on AWS); without it every visitor looks like the load balancer and the
+// rate limits would apply to all of them together.
+if (process.env.TRUST_PROXY) app.set("trust proxy", Number(process.env.TRUST_PROXY));
 app.use(compression());
 app.use((req, res, next) => {
   res.locals.cspNonce = randomBytes(18).toString("base64");
@@ -55,10 +60,6 @@ if (frontendPreview()) {
   app.use("/api", (_req, res) => res.status(503).json({ error: "Online services are not connected in this client preview." }));
 } else app.use(api);
 app.use(discovery);
-app.use(
-  "/uploads",
-  express.static("public/uploads", { maxAge: "1d", fallthrough: false }),
-);
 if (development) {
   const { createServer } = await import("vite");
   const vite = await createServer({ server: { middlewareMode: true } });
@@ -110,6 +111,11 @@ if (!frontendPreview()) await database();
 const server = app.listen(port, process.env.HOST || "127.0.0.1", () =>
   console.log(`Aurelio is available at http://localhost:${port}`),
 );
+// ECS and other hosts stop a container with SIGTERM: finish what is in flight.
+process.on("SIGTERM", () => {
+  server.close(() => process.exit(0));
+  setTimeout(() => process.exit(0), 10000).unref();
+});
 server.on("error", (error) => {
   console.error(error);
   process.exitCode = 1;

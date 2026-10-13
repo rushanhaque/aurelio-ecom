@@ -1,25 +1,13 @@
 import express from "express";
 import rateLimit from "express-rate-limit";
 import { z } from "zod";
-import {
-  randomBytes,
-  createHash,
-  scrypt,
-  timingSafeEqual,
-  randomUUID,
-} from "node:crypto";
-import { database, getProducts } from "./db.ts";
-import { checkoutSchema, enquirySchema, priceOrder } from "./commerce.ts";
-import { productSchema } from "./product-schema.ts";
-import { profileSchema } from "./account-schema.ts";
-import { createAccountLink, localEmailEnabled } from "./account-links.ts";
+import { randomBytes, createHash, timingSafeEqual } from "node:crypto";
+import { database } from "./db.ts";
+import { enquirySchema } from "./enquiry.ts";
+import { localEmailEnabled, notifyStudio } from "./mail.ts";
 import { quotes } from "./quotes.ts";
 import { briefsPublic, briefsAdmin } from "./briefs.ts";
 import { content } from "./content.ts";
-import sharp from "sharp";
-import { mkdir } from "node:fs/promises";
-import { promisify } from "node:util";
-const derivePassword = promisify(scrypt);
 const router = express.Router();
 export const api = router;
 router.use("/api", express.json({ limit: "32kb" }));
@@ -48,472 +36,10 @@ router.use("/api", (req, res, next) => {
   next();
 });
 const hash = (v: string) => createHash("sha256").update(v).digest("hex");
-function cookies(req: express.Request) {
-  return Object.fromEntries(
-    (req.headers.cookie || "")
-      .split(";")
-      .filter(Boolean)
-      .map((c) => {
-        const i = c.indexOf("=");
-        return [c.slice(0, i).trim(), c.slice(i + 1)];
-      }),
-  );
-}
-async function identity(req: express.Request) {
-  const token = cookies(req).aurelio_session;
-  if (!token) return null;
-  const { db } = await database();
-  const session = await db
-    .collection("sessions")
-    .findOne({ tokenHash: hash(token), expiresAt: { $gt: new Date() } });
-  if (!session) return null;
-  const customer = await db
-    .collection("customers")
-    .findOne({ id: session.customerId });
-  if (
-    !customer ||
-    (session.passwordVersion &&
-      session.passwordVersion !== hash(customer.passwordHash))
-  )
-    return null;
-  const { _id, passwordHash, salt, ...safe } = customer;
-  return safe;
-}
 router.get("/api/health", async (req, res) => {
   const { db } = await database();
   await db.command({ ping: 1 });
-  res.json({ ok: true, database: "mongodb", preview: true });
-});
-router.get("/api/products", async (req, res) => res.json(await getProducts()));
-router.get("/api/session", async (req, res) =>
-  res.json({ customer: await identity(req) }),
-);
-router.post(
-  "/api/auth",
-  rateLimit({ windowMs: 900000, limit: 15 }),
-  async (req, res, next) => {
-    try {
-      const data = z
-        .object({
-          mode: z.enum(["login", "register"]),
-          email: z.email().transform((v) => v.toLowerCase().trim()),
-          password: z.string().min(10).max(128),
-          name: z.string().trim().max(100).optional(),
-        })
-        .parse(req.body);
-      const { db } = await database();
-      let customer = await db
-        .collection("customers")
-        .findOne({ email: data.email });
-      if (data.mode === "register") {
-        if (customer)
-          return res.status(400).json({
-            error: "Unable to create this account. Try signing in instead.",
-          });
-        const salt = randomBytes(16).toString("hex");
-        customer = {
-          id: randomUUID(),
-          email: data.email,
-          name: data.name || "Collector",
-          salt,
-          passwordHash: (
-            (await derivePassword(data.password, salt, 64)) as Buffer
-          ).toString("hex"),
-          createdAt: new Date(),
-        } as any;
-        await db.collection("customers").insertOne(customer!);
-      } else {
-        const actual = (await derivePassword(
-          data.password,
-          customer?.salt || "missing-account-salt",
-          64,
-        )) as Buffer;
-        if (
-          !customer ||
-          !timingSafeEqual(actual, Buffer.from(customer.passwordHash, "hex"))
-        )
-          return res
-            .status(401)
-            .json({ error: "Email or password is incorrect." });
-      }
-      const token = randomBytes(32).toString("hex");
-      await db.collection("sessions").insertOne({
-        tokenHash: hash(token),
-        customerId: customer!.id,
-        passwordVersion: hash(customer!.passwordHash),
-        expiresAt: new Date(Date.now() + 7 * 86400000),
-      });
-      res.cookie("aurelio_session", token, {
-        httpOnly: true,
-        sameSite: "lax",
-        secure: process.env.NODE_ENV === "production",
-        maxAge: 7 * 86400000,
-        path: "/",
-      });
-      res.json({
-        customer: {
-          id: customer!.id,
-          name: customer!.name,
-          email: customer!.email,
-        },
-      });
-    } catch (e) {
-      next(e);
-    }
-  },
-);
-router.post("/api/logout", async (req, res) => {
-  const { db } = await database();
-  const token = cookies(req).aurelio_session;
-  if (token)
-    await db.collection("sessions").deleteOne({ tokenHash: hash(token) });
-  res.clearCookie("aurelio_session", { path: "/" });
-  res.json({ ok: true });
-});
-router.post(
-  "/api/account-links",
-  rateLimit({ windowMs: 900000, limit: 8 }),
-  async (req, res, next) => {
-    try {
-      const data = z
-        .object({
-          email: z.email().transform((v) => v.trim().toLowerCase()),
-          purpose: z.enum(["verify", "reset"]),
-        })
-        .parse(req.body);
-      if (!localEmailEnabled())
-        return res.status(503).json({
-          error:
-            "Email delivery is not connected yet. Please contact the studio for help.",
-        });
-      const { db } = await database();
-      const customer = await db
-        .collection("customers")
-        .findOne({ email: data.email });
-      if (customer && (data.purpose !== "verify" || !customer.emailVerifiedAt))
-        await createAccountLink(
-          { id: customer.id, email: customer.email },
-          data.purpose,
-        );
-      res.json({
-        message:
-          "If an eligible account exists, a link is available in the studio’s local email preview. No email has been sent.",
-      });
-    } catch (error) {
-      next(error);
-    }
-  },
-);
-router.post(
-  "/api/account-links/consume",
-  rateLimit({ windowMs: 900000, limit: 15 }),
-  async (req, res, next) => {
-    try {
-      const data = z
-        .object({
-          token: z.string().regex(/^[a-f0-9]{64}$/),
-          purpose: z.enum(["verify", "reset"]),
-          password: z.string().min(10).max(128).optional(),
-        })
-        .parse(req.body);
-      if (data.purpose === "reset" && !data.password)
-        return res.status(400).json({ error: "Choose a new password." });
-      const { db, client } = await database();
-      const salt = randomBytes(16).toString("hex");
-      const passwordHash = data.password
-        ? ((await derivePassword(data.password, salt, 64)) as Buffer).toString(
-            "hex",
-          )
-        : undefined;
-      const session = client.startSession();
-      let valid = false;
-      try {
-        await session.withTransaction(async () => {
-          valid = false;
-          const link = await db.collection("accountLinks").findOneAndDelete(
-            {
-              tokenHash: hash(data.token),
-              purpose: data.purpose,
-              expiresAt: { $gt: new Date() },
-            },
-            { session },
-          );
-          if (!link) return;
-          const changed = await db.collection("customers").updateOne(
-            { id: link.customerId },
-            {
-              $set:
-                data.purpose === "verify"
-                  ? { emailVerifiedAt: new Date() }
-                  : { salt, passwordHash },
-            },
-            { session },
-          );
-          if (!changed.matchedCount) return;
-          if (data.purpose === "reset") {
-            await db
-              .collection("sessions")
-              .deleteMany({ customerId: link.customerId }, { session });
-            await db
-              .collection("accountLinks")
-              .deleteMany(
-                { customerId: link.customerId, purpose: "reset" },
-                { session },
-              );
-          }
-          valid = true;
-        });
-      } finally {
-        await session.endSession();
-      }
-      if (!valid)
-        return res.status(400).json({
-          error:
-            "This link has expired or has already been used. Request a new link.",
-        });
-      if (data.purpose === "reset")
-        res.clearCookie("aurelio_session", { path: "/" });
-      res.json({ ok: true });
-    } catch (error) {
-      next(error);
-    }
-  },
-);
-router.patch("/api/profile", async (req, res, next) => {
-  try {
-    const user = await identity(req);
-    if (!user) return res.status(401).json({ error: "Please sign in." });
-    const data = profileSchema.parse(req.body);
-    const { db } = await database();
-    await db.collection("customers").updateOne({ id: user.id }, { $set: data });
-    res.json({ customer: await identity(req) });
-  } catch (error) {
-    next(error);
-  }
-});
-router.post(
-  "/api/password",
-  rateLimit({ windowMs: 900000, limit: 10 }),
-  async (req, res, next) => {
-    try {
-      const user = await identity(req);
-      if (!user) return res.status(401).json({ error: "Please sign in." });
-      const data = z
-        .object({
-          currentPassword: z.string().max(128),
-          password: z.string().min(10).max(128),
-        })
-        .parse(req.body);
-      const { db, client } = await database();
-      const customer = await db
-        .collection("customers")
-        .findOne({ id: user.id });
-      const actual = (await derivePassword(
-        data.currentPassword,
-        customer!.salt,
-        64,
-      )) as Buffer;
-      if (!timingSafeEqual(actual, Buffer.from(customer!.passwordHash, "hex")))
-        return res
-          .status(400)
-          .json({ error: "Your current password is incorrect." });
-      const salt = randomBytes(16).toString("hex");
-      const passwordHash = (
-        (await derivePassword(data.password, salt, 64)) as Buffer
-      ).toString("hex");
-      const session = client.startSession();
-      try {
-        await session.withTransaction(async () => {
-          const changed = await db
-            .collection("customers")
-            .updateOne(
-              { id: user.id, passwordHash: customer!.passwordHash },
-              { $set: { salt, passwordHash } },
-              { session },
-            );
-          if (!changed.modifiedCount)
-            throw new Error("Password changed. Please sign in again.");
-          await db
-            .collection("sessions")
-            .deleteMany({ customerId: user.id }, { session });
-        });
-      } finally {
-        await session.endSession();
-      }
-      res.clearCookie("aurelio_session", { path: "/" });
-      res.json({ ok: true });
-    } catch (error) {
-      next(error);
-    }
-  },
-);
-router.get("/api/orders", async (req, res) => {
-  const user = await identity(req);
-  if (!user) return res.status(401).json({ error: "Please sign in." });
-  const { db } = await database();
-  const page = Math.max(
-    1,
-    Math.min(10000, Number.parseInt(String(req.query.page || "1"), 10) || 1),
-  );
-  const orders = await db
-    .collection("orders")
-    .find(
-      { customerId: user.id },
-      {
-        projection: {
-          _id: 0,
-          accessHash: 0,
-          idempotencyKey: 0,
-          fingerprint: 0,
-          internalNotes: 0,
-        },
-      },
-    )
-    .sort({ createdAt: -1 })
-    .skip((page - 1) * 20)
-    .limit(20)
-    .toArray();
-  if (req.query.paginated === "1")
-    return res.json({
-      orders,
-      page,
-      total: await db
-        .collection("orders")
-        .countDocuments({ customerId: user.id }),
-    });
-  res.json(orders);
-});
-router.post("/api/checkout", async (req, res, next) => {
-  try {
-    if (
-      process.env.NODE_ENV === "production" &&
-      process.env.ALLOW_PREVIEW_ORDERS !== "true"
-    )
-      return res.status(503).json({
-        error:
-          "Online payments are not connected yet. Please enquire for an order.",
-      });
-    const data = checkoutSchema.parse(req.body);
-    const { db, client } = await database();
-    const user = await identity(req);
-    const accessToken = hash(
-      `${data.idempotencyKey}:${data.email.toLowerCase()}`,
-    );
-    const fingerprint = hash(JSON.stringify(data));
-    const existing = await db
-      .collection("orders")
-      .findOne({ idempotencyKey: data.idempotencyKey });
-    if (existing) {
-      if (
-        existing.accessHash !== hash(accessToken) ||
-        existing.fingerprint !== fingerprint
-      )
-        return res.status(409).json({ error: "Please start a new checkout." });
-      return res.json({ reference: existing.reference, accessToken });
-    }
-    const session = client.startSession();
-    let reference = "";
-    try {
-      await session.withTransaction(async () => {
-        // A competing request may have committed before a transaction retry.
-        const committed = await db
-          .collection("orders")
-          .findOne({ idempotencyKey: data.idempotencyKey }, { session });
-        if (committed) {
-          if (committed.fingerprint !== fingerprint)
-            throw new Error(
-              "Stock request changed. Please start a new checkout.",
-            );
-          reference = committed.reference;
-          return;
-        }
-        const catalog = await db
-          .collection("products")
-          .find({}, { session, projection: { _id: 0 } })
-          .toArray();
-        const quote = priceOrder(data, catalog as any);
-        reference = `AUR-${Date.now().toString(36).toUpperCase()}-${randomBytes(2).toString("hex").toUpperCase()}`;
-        for (const line of quote.lines) {
-          const change = await db.collection("products").updateOne(
-            {
-              id: line.productId,
-              stock: { $gte: line.quantity },
-              status: { $nin: ["draft", "archived"] },
-            },
-            { $inc: { stock: -line.quantity } },
-            { session },
-          );
-          if (!change.modifiedCount)
-            throw new Error("Stock changed. Please review your bag.");
-        }
-        await db.collection("orders").insertOne(
-          {
-            ...quote,
-            reference,
-            idempotencyKey: data.idempotencyKey,
-            fingerprint,
-            customerId: user?.id || null,
-            email: data.email,
-            name: data.name,
-            address: data.address,
-            city: data.city,
-            postalCode: data.postalCode,
-            country: data.country,
-            status: "preview",
-            paymentStatus: "unpaid-preview",
-            accessHash: hash(accessToken),
-            createdAt: new Date(),
-          },
-          { session },
-        );
-      });
-    } catch (error) {
-      // Unique-key races can surface without an automatic transaction retry.
-      if ((error as any)?.code !== 11000) throw error;
-      const committed = await db
-        .collection("orders")
-        .findOne({ idempotencyKey: data.idempotencyKey });
-      if (!committed || committed.fingerprint !== fingerprint) throw error;
-      reference = committed.reference;
-    } finally {
-      await session.endSession();
-    }
-    res.status(201).json({ reference, accessToken });
-  } catch (e) {
-    next(e);
-  }
-});
-router.get("/api/orders/:reference", async (req, res) => {
-  const { db } = await database();
-  const user = await identity(req);
-  const order = await db
-    .collection("orders")
-    .findOne({ reference: req.params.reference });
-  const token = req.get("x-order-token");
-  if (
-    !order ||
-    (!(user && order.customerId === user.id) &&
-      (!token || hash(token) !== order.accessHash))
-  )
-    return res.status(404).json({
-      error:
-        "Order not found. Use the secure link from your order confirmation.",
-    });
-  const {
-    _id,
-    accessHash,
-    idempotencyKey,
-    fingerprint,
-    internalNotes,
-    ...safe
-  } = order;
-  const support = await db
-    .collection("returns")
-    .findOne(
-      { reference: order.reference },
-      { projection: { _id: 0, internalNotes: 0 } },
-    );
-  res.json({ ...safe, support });
+  res.json({ ok: true, database: "mongodb" });
 });
 router.post("/api/enquiries", async (req, res, next) => {
   try {
@@ -544,26 +70,12 @@ router.post("/api/enquiries", async (req, res, next) => {
             "One of your pictures expired. Please add it again and resend.",
         });
     }
-    const catalog = await getProducts();
-    const selections = data.items.map((line) => {
-      const product = catalog.find((p) => p.id === line.productId);
-      if (!product)
-        throw new Error("One of the selected objects is no longer available.");
-      return {
-        productId: product.id,
-        name: product.name,
-        sku: product.sku || product.id,
-        finish: product.finish,
-        quantity: line.quantity,
-      };
-    });
     const reference = `ENQ-${randomBytes(4).toString("hex").toUpperCase()}`;
     await db.collection("enquiries").updateOne(
       { idempotencyKey: data.idempotencyKey },
       {
         $setOnInsert: {
           ...data,
-          selections,
           fingerprint,
           reference,
           status: "new",
@@ -585,6 +97,11 @@ router.post("/api/enquiries", async (req, res, next) => {
         { id: { $in: data.attachments }, enquiry: { $exists: false } },
         { $set: { enquiry: saved!.reference }, $unset: { expiresAt: "" } },
       );
+    if (!previous)
+      void notifyStudio(
+        `New enquiry ${saved!.reference}: ${data.product}`,
+        `${data.name} <${data.email}>${data.company ? `, ${data.company}` : ""}\n${data.country} · quantity ${data.quantity}\n${data.attachments.length ? `${data.attachments.length} picture(s) attached (open them in the studio)\n` : ""}\n${data.message}\n\nOpen the studio: ${process.env.SITE_URL || "http://localhost:3000"}/admin`,
+      );
     res.status(201).json({ reference: saved!.reference });
   } catch (e) {
     next(e);
@@ -605,6 +122,10 @@ router.post("/api/contact", async (req, res, next) => {
     await db
       .collection("messages")
       .insertOne({ ...data, reference, createdAt: new Date(), status: "new" });
+    void notifyStudio(
+      `New message ${reference}: ${data.topic}`,
+      `${data.name} <${data.email}>\nTopic: ${data.topic}\n\n${data.message}\n\nOpen the studio: ${process.env.SITE_URL || "http://localhost:3000"}/admin`,
+    );
     res.status(201).json({ reference });
   } catch (e) {
     next(e);
@@ -648,49 +169,6 @@ router.post("/api/newsletter/unsubscribe", async (req, res, next) => {
     next(error);
   }
 });
-router.post("/api/returns", async (req, res, next) => {
-  try {
-    const data = z
-      .object({
-        reference: z.string(),
-        token: z.string().max(128).default(""),
-        type: z
-          .enum(["return", "damage", "cancellation", "question"])
-          .default("question"),
-        reason: z.string().min(10).max(2000),
-      })
-      .parse(req.body);
-    const { db } = await database();
-    const user = await identity(req);
-    const order = await db
-      .collection("orders")
-      .findOne({ reference: data.reference });
-    if (
-      !order ||
-      (!(user && order.customerId === user.id) &&
-        (!data.token || order.accessHash !== hash(data.token)))
-    )
-      return res.status(404).json({
-        error: "Please use your secure order details to make a request.",
-      });
-    await db.collection("returns").updateOne(
-      { reference: data.reference },
-      {
-        $setOnInsert: {
-          reference: data.reference,
-          reason: data.reason,
-          type: data.type,
-          status: "requested",
-          createdAt: new Date(),
-        },
-      },
-      { upsert: true },
-    );
-    res.json({ ok: true });
-  } catch (e) {
-    next(e);
-  }
-});
 router.use(briefsPublic);
 router.use("/api/admin", (req, res, next) => {
   const expected = process.env.ADMIN_TOKEN;
@@ -710,8 +188,8 @@ router.use(briefsAdmin);
 router.use(content);
 router.get("/api/admin/overview", async (req, res) => {
   const { db } = await database();
-  const [orders, enquiries, messages] = await Promise.all(
-    ["orders", "enquiries", "messages"].map((name) =>
+  const [enquiries, messages] = await Promise.all(
+    ["enquiries", "messages"].map((name) =>
       db
         .collection(name)
         .find({}, { projection: { _id: 0, accessHash: 0, idempotencyKey: 0 } })
@@ -720,12 +198,6 @@ router.get("/api/admin/overview", async (req, res) => {
         .toArray(),
     ),
   );
-  const returns = await db
-    .collection("returns")
-    .find({}, { projection: { _id: 0 } })
-    .sort({ createdAt: -1 })
-    .limit(100)
-    .toArray();
   const emailPreview = localEmailEnabled()
     ? await db
         .collection("emailPreview")
@@ -734,119 +206,13 @@ router.get("/api/admin/overview", async (req, res) => {
         .limit(50)
         .toArray()
     : [];
-  const products = await db
-    .collection("products")
-    .find({}, { projection: { _id: 0 } })
-    .toArray();
   const draftOrders = await db
     .collection("draftOrders")
     .find({}, { projection: { _id: 0 } })
     .sort({ createdAt: -1 })
     .limit(100)
     .toArray();
-  res.json({
-    orders,
-    enquiries,
-    messages,
-    returns,
-    emailPreview,
-    products,
-    draftOrders,
-  });
-});
-router.post(
-  "/api/admin/upload",
-  express.raw({
-    type: ["image/jpeg", "image/png", "image/webp"],
-    limit: "8mb",
-  }),
-  async (req, res, next) => {
-    try {
-      if (!Buffer.isBuffer(req.body))
-        return res
-          .status(400)
-          .json({ error: "Choose a JPG, PNG or WebP image." });
-      const id = randomUUID();
-      await mkdir("public/uploads", { recursive: true });
-      await sharp(req.body, { limitInputPixels: 40000000 })
-        .rotate()
-        .resize({
-          width: 1600,
-          height: 1600,
-          fit: "inside",
-          withoutEnlargement: true,
-        })
-        .webp({ quality: 85 })
-        .toFile(`public/uploads/${id}.webp`);
-      res.status(201).json({ image: `/uploads/${id}.webp` });
-    } catch (e) {
-      next(e);
-    }
-  },
-);
-router.post("/api/admin/products", async (req, res, next) => {
-  try {
-    const data = productSchema.parse(req.body);
-    const { db } = await database();
-    if (await db.collection("products").findOne({ slug: data.slug }))
-      return res
-        .status(409)
-        .json({ error: "That product URL is already in use." });
-    const product = { ...data, id: randomUUID() };
-    await db.collection("products").insertOne(product);
-    res.status(201).json(product);
-  } catch (e) {
-    next(e);
-  }
-});
-router.patch("/api/admin/products/:id", async (req, res, next) => {
-  try {
-    const data = productSchema.parse(req.body);
-    const { db } = await database();
-    const before = await db
-      .collection("products")
-      .findOne({ id: req.params.id });
-    if (!before) return res.status(404).json({ error: "Product not found." });
-    if (before.stock !== data.stock && !data.stockReason)
-      return res
-        .status(400)
-        .json({ error: "Add a reason for this stock adjustment." });
-    if (
-      await db
-        .collection("products")
-        .findOne({ slug: data.slug, id: { $ne: req.params.id } })
-    )
-      return res
-        .status(409)
-        .json({ error: "That product URL is already in use." });
-    const result = await db
-      .collection("products")
-      .updateOne({ id: req.params.id, stock: before.stock }, { $set: data });
-    if (!result.matchedCount)
-      return res
-        .status(409)
-        .json({ error: "Stock changed while editing. Refresh and try again." });
-    await db.collection("audit").insertOne({
-      action: "product.update",
-      resource: req.params.id,
-      previousStock: before.stock,
-      stock: data.stock,
-      reason: data.stockReason,
-      at: new Date(),
-    });
-    res
-      .status(result.matchedCount ? 200 : 404)
-      .json(
-        result.matchedCount ? { ok: true } : { error: "Product not found." },
-      );
-  } catch (e) {
-    next(e);
-  }
-});
-router.delete("/api/admin/products/:id", async (req, res) => {
-  const { db } = await database();
-  await db.collection("products").deleteOne({ id: req.params.id });
-  res.json({ ok: true });
+  res.json({ enquiries, messages, emailPreview, draftOrders });
 });
 router.patch("/api/admin/enquiries/:reference", async (req, res, next) => {
   try {
@@ -885,7 +251,7 @@ router.patch("/api/admin/enquiries/:reference", async (req, res, next) => {
 });
 router.patch("/api/admin/workflow/:kind/:reference", async (req, res, next) => {
   try {
-    const kind = z.enum(["messages", "returns"]).parse(req.params.kind);
+    const kind = z.enum(["messages"]).parse(req.params.kind);
     const data = z
       .object({
         status: z.enum([
@@ -943,7 +309,7 @@ router.use(
       });
     const businessError =
       error instanceof Error &&
-      /quantity|Stock|available|smaller|Quote|quote|Enquiry not found/.test(
+      /quantity|available|Quote|quote|Enquiry not found/.test(
         error.message,
       );
     if (!businessError)

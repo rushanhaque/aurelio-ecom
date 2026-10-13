@@ -1,10 +1,4 @@
-.account-settings {
-  margin-top: clamp(64px, 9vw, 120px);
-  border-top: 1px solid var(--line, #ccd2ce);
-  padding-top: 48px;
-}
-.settings-grid,
-.address-grid {
+.settings-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 32px;
@@ -19,46 +13,10 @@
 .address-card p {
   margin: 16px 0;
 }
-.address-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-}
-.address-editor {
-  max-width: 800px;
-  margin: 32px 0;
-}
-.support-form {
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid #cbd1cc;
-}
-.filter-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 20px 0;
-}
-.filter-chips button {
-  padding: 8px 14px;
-  border: 1px solid #cbd1cc;
-  border-radius: 30px;
-}
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  padding: 32px 0;
-}
 .admin-toolbar .auth-tabs {
   flex-wrap: wrap;
 }
-.admin-toolbar, .shop-toolbar, .shop-toolbar > div { flex-wrap:wrap; }
-.shop-toolbar > div { min-width:0; gap:16px; }
-.price-filter { display:flex; align-items:center; gap:8px; }
-.price-filter input { width:88px; padding:10px; border:1px solid #cbd1cc; background:transparent; }
+.admin-toolbar { flex-wrap:wrap; }
 .workflow-form {
   width: 100%;
   max-width: 640px;
@@ -66,9 +24,6 @@
   gap: 16px;
 }
 .admin-records article {
-  flex-wrap: wrap;
-}
-.gallery-thumbs {
   flex-wrap: wrap;
 }
 .quote-editor {
@@ -106,17 +61,9 @@
   overflow-wrap: anywhere;
 }
 @media (max-width: 700px) {
-  .settings-grid,
-  .address-grid {
+  .settings-grid {
     grid-template-columns: 1fr;
     gap: 24px;
-  }
-  .account-settings .section-heading {
-    align-items: flex-start;
-    gap: 20px;
-  }
-  .account-settings {
-    padding-top: 32px;
   }
   .address-card {
     padding: 20px;

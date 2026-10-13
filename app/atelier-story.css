@@ -344,6 +344,11 @@ body[data-motion="on"] .story-kicker:not([data-revealed]) .story-kicker-rule {
   background-size: cover;
   background-position: center;
 }
+/* The photographs are only fetched once the list has been on screen, so they
+   never compete with the page's opening image. */
+.path-list[data-seen] .path-band-image {
+  background-image: var(--band-image);
+}
 .path-station[data-edge="top"] .path-band {
   transform: translate3d(0, -101%, 0);
 }

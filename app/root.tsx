@@ -16,8 +16,6 @@ import {
   useMatches,
 } from "react-router";
 import type { ReactNode } from "react";
-import type { Product } from "./lib/catalog";
-import { getProducts } from "../server/db";
 import { frontendPreview } from "../server/preview-mode";
 import { StoreProvider } from "./lib/store";
 import {
@@ -84,7 +82,6 @@ export const meta = () => [
 ];
 export async function loader({ context }: { context: { cspNonce?: unknown } }) {
   return {
-    products: await getProducts(),
     frontendPreview: frontendPreview(),
     nonce: typeof context.cspNonce === "string" ? context.cspNonce : undefined,
     siteUrl: new URL(
@@ -95,11 +92,9 @@ export async function loader({ context }: { context: { cspNonce?: unknown } }) {
     ).origin,
   };
 }
-/* Catalogue images are stored either as an uploaded path ("/uploads/…") or as
-   the name of a prepared set ("vase" → /images/vase-1440.webp). Concatenating
-   the raw value gave crawlers and social cards URLs like "/vase" that 404. */
+/* Images are named by their prepared set ("hero" → /images/hero-1440.webp). */
 function absoluteImage(siteUrl: string, image: string) {
-  return `${siteUrl}${image.startsWith("/") ? image : `/images/${image}-1440.webp`}`;
+  return `${siteUrl}/images/${image}-1440.webp`;
 }
 
 /* Runs before first paint: marks devices that would struggle with the heavier
@@ -111,12 +106,10 @@ function structuredData({
   siteUrl,
   canonical,
   pathname,
-  product,
 }: {
   siteUrl: string;
   canonical: string;
   pathname: string;
-  product?: Product;
 }) {
   const organization = {
     "@type": "Organization",
@@ -165,57 +158,9 @@ function structuredData({
           url: siteUrl,
           name: brand.name,
           publisher: { "@id": `${siteUrl}/#organization` },
-          potentialAction: {
-            "@type": "SearchAction",
-            target: `${siteUrl}/shop?q={search_term_string}`,
-            "query-input": "required name=search_term_string",
-          },
         },
       ],
     });
-  if (product) {
-    entries.push({
-      "@context": "https://schema.org",
-      "@type": "Product",
-      name: product.name,
-      description: product.description,
-      image: [product.image, ...(product.gallery || [])].map((image) =>
-        absoluteImage(siteUrl, image),
-      ),
-      sku: product.sku || product.id,
-      material: product.material,
-      color: product.finish,
-      brand: { "@type": "Brand", name: brand.name },
-      url: canonical,
-      // Without an offer, Google treats Product markup as invalid.
-      offers: {
-        "@type": "Offer",
-        url: canonical,
-        priceCurrency: "INR",
-        price: (product.prices.INR / 100).toFixed(2),
-        availability:
-          product.stock > 0
-            ? "https://schema.org/InStock"
-            : "https://schema.org/OutOfStock",
-        itemCondition: "https://schema.org/NewCondition",
-        seller: { "@type": "Organization", name: organization.name },
-      },
-    });
-    entries.push({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        ["Home", "/"],
-        ["Shop", "/shop"],
-        [product.name, pathname],
-      ].map(([name, path], i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        name,
-        item: `${siteUrl}${path}`,
-      })),
-    });
-  }
   return entries;
 }
 
@@ -229,9 +174,6 @@ export function Layout({ children }: { children: ReactNode }) {
     (match) => (match.handle as { describes?: boolean } | undefined)?.describes,
   );
   const canonical = `${data?.siteUrl || ""}${location.pathname}`;
-  const product = data?.products.find(
-    (p) => location.pathname === `/products/${p.slug}`,
-  );
   const collection = collections.find(
     (c) => location.pathname === `/collections/${c.slug}`,
   );
@@ -239,10 +181,9 @@ export function Layout({ children }: { children: ReactNode }) {
     (a) => location.pathname === `/journal/${a.slug}`,
   );
   const description =
-    product?.description ||
     article?.excerpt ||
     (collection
-      ? `Explore Aurelio’s ${collection.name.toLowerCase()} collection. Metal and wood, made by hand in Moradabad. Retail objects and bulk enquiries.`
+      ? `Explore Aurelio’s ${collection.name.toLowerCase()} collection. Metal and wood, made by hand in Moradabad, for trade and bulk orders.`
       : brand.story);
   return (
     <html
@@ -271,7 +212,6 @@ export function Layout({ children }: { children: ReactNode }) {
             siteUrl: data.siteUrl,
             canonical,
             pathname: location.pathname,
-            product,
           }).map((entry, i) => (
             <script
               key={i}
@@ -286,29 +226,22 @@ export function Layout({ children }: { children: ReactNode }) {
           <>
             <link rel="canonical" href={canonical} />
             <meta property="og:site_name" content="Aurelio" />
-            <meta
-              property="og:type"
-              content={product ? "product" : "website"}
-            />
+            <meta property="og:type" content="website" />
             <meta property="og:url" content={canonical} />
             <meta
               property="og:title"
-              content={
-                product
-                  ? `${product.name} — Aurelio`
-                  : "Aurelio — Metal & Wood, Made by Hand"
-              }
+              content="Aurelio — Metal & Wood, Made by Hand"
             />
             <meta property="og:description" content={description} />
             <meta
               property="og:image"
-              content={absoluteImage(data.siteUrl, product?.image || "hero")}
+              content={absoluteImage(data.siteUrl, "hero")}
             />
             <meta name="twitter:card" content="summary_large_image" />
           </>
         )}
         {(location.search ||
-          /^\/(account|admin|orders|checkout|cart|wishlist|preferences|track-order)(\/|$)/.test(
+          /^\/(admin|cms|preferences|quotes)(\/|$)/.test(
             location.pathname,
           )) && <meta name="robots" content="noindex,follow" />}
       </head>
@@ -321,15 +254,15 @@ export function Layout({ children }: { children: ReactNode }) {
   );
 }
 export default function App() {
-  const { products, frontendPreview: preview } = useLoaderData<typeof loader>();
+  const { frontendPreview: preview } = useLoaderData<typeof loader>();
   const location = useLocation();
   const unavailable =
     preview &&
-    /^\/(admin|cms|account|checkout|orders|quotes|track-order)(\/|$)/.test(
+    /^\/(admin|cms|quotes)(\/|$)/.test(
       location.pathname,
     );
   return (
-    <StoreProvider products={products}>
+    <StoreProvider>
       <a href="#main" className="skip-link">
         Skip to content
       </a>
@@ -349,7 +282,7 @@ export default function App() {
             <p className="eyebrow">AURELIO / CLIENT PREVIEW</p>
             <h1>This chapter is still taking shape.</h1>
             <p>
-              Accounts, ordering and the studio portal will open when the store
+              Quotations and the studio portal will open when the site
               launches.
             </p>
             <Link className="button" to="/">
@@ -375,7 +308,7 @@ export function ErrorBoundary() {
   // bare page below is kept for real failures, including the root loader's.
   if (data && isRouteErrorResponse(error) && error.status === 404)
     return (
-      <StoreProvider products={data.products}>
+      <StoreProvider>
         <title>Page not found — Aurelio</title>
         <a href="#main" className="skip-link">
           Skip to content
@@ -400,7 +333,7 @@ export function ErrorBoundary() {
           ? "A little off the beaten path."
           : "Something interrupted the journey."}
       </h1>
-      <p>Please return to the shop and try again.</p>
+      <p>Please return to Aurelio and try again.</p>
       <a className="button" href="/">
         Back to Aurelio <span>↗</span>
       </a>

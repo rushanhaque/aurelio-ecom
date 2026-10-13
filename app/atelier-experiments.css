@@ -4,44 +4,6 @@
   --study-line: #07231925;
   overflow: clip;
 }
-.experiment-directory {
-  padding-block: 100px 110px;
-}
-.experiment-directory h2 {
-  font: clamp(44px, 5.6vw, 84px)/1.02 var(--serif);
-  letter-spacing: -0.045em;
-  margin: 24px 0 48px;
-  max-width: 900px;
-}
-.experiment-directory h2 em {
-  font-weight: 400;
-}
-.experiment-directory nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 64px;
-}
-.experiment-directory a {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  border-top: 1px solid var(--study-line);
-  padding: 22px 0;
-  font-size: 13px;
-  text-decoration: none;
-  position: relative;
-}
-.experiment-directory a small {
-  font-size: 9px;
-  color: #776c56;
-}
-.experiment-directory a span {
-  margin-left: auto;
-  transition: transform 0.3s;
-}
-.experiment-directory a:hover span {
-  transform: translate(4px, -4px);
-}
 .experiment {
   padding-block: 100px;
   scroll-margin-top: 40px;
@@ -84,9 +46,6 @@
   gap: clamp(36px, 7vw, 112px);
   align-items: center;
 }
-.experiment-split-reverse {
-  grid-template-columns: 1fr 1.1fr;
-}
 .experiment-canvas {
   position: relative;
   isolation: isolate;
@@ -104,17 +63,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.experiment-stamp {
-  position: absolute;
-  top: 28px;
-  left: 28px;
-  font-size: 8px;
-  letter-spacing: 0.14em;
-  line-height: 1.8;
-  color: #fff;
-  text-shadow: 0 1px 6px #0009;
-  pointer-events: none;
 }
 .experiment-copy {
   max-width: 480px;
@@ -230,28 +178,6 @@
 .atelier-experiments :is(button, a, input):focus-visible {
   outline: 2px solid #b49a70;
   outline-offset: 5px;
-}
-.experiment-scale {
-  display: flex;
-  justify-content: space-between;
-  font-size: 8px;
-  letter-spacing: 0.12em;
-  opacity: 0.65;
-}
-.experiment-copy .experiment-caption {
-  font-size: 10px;
-  line-height: 1.7;
-  margin: 22px 0;
-  opacity: 0.55;
-}
-.experiment-reset {
-  padding: 12px 0;
-  border: 0;
-  border-bottom: 1px solid var(--study-line);
-  background: none;
-  color: inherit;
-  font-size: 11px;
-  cursor: pointer;
 }
 .experiment-dark .text-link {
   color: inherit;
@@ -376,41 +302,6 @@
   margin-left: auto;
   font-weight: 400;
 }
-.sound-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 28px;
-  border: 1px solid var(--study-line);
-  color: inherit;
-  background: transparent;
-  padding: 20px;
-  font-size: 12px;
-  cursor: pointer;
-}
-.sound-button span {
-  font-size: 24px;
-  color: var(--study-gold);
-}
-.experiment-cta {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 24px;
-  background: #072319;
-  color: #f2f2f2;
-  text-decoration: none;
-  font-size: 12px;
-}
-.experiment-cta span {
-  transition: transform 0.3s;
-}
-.experiment-cta:hover span {
-  transform: translate(4px, -4px);
-}
 @keyframes study-rhythm {
   to {
     transform: scaleY(1);
@@ -451,21 +342,8 @@
   .experiment {
     padding-block: 75px;
   }
-  .experiment-directory nav {
-    column-gap: 35px;
-  }
 }
 @media (max-width: 760px) {
-  .experiment-directory {
-    padding-block: 65px;
-  }
-  .experiment-directory nav {
-    grid-template-columns: 1fr;
-  }
-  .experiment-directory a {
-    padding: 18px 0;
-    font-size: 12px;
-  }
   .experiment {
     padding-block: 60px;
     scroll-margin-top: 24px;
@@ -482,13 +360,9 @@
     font-size: 12px;
     max-width: 450px;
   }
-  .experiment-split,
-  .experiment-split-reverse {
+  .experiment-split {
     grid-template-columns: 1fr;
     gap: 28px;
-  }
-  .experiment-split-reverse > .experiment-canvas {
-    grid-row: 1;
   }
   .experiment-copy {
     max-width: none;
@@ -499,11 +373,6 @@
   }
   .experiment-copy p {
     font-size: 12px;
-  }
-  .experiment-stamp {
-    left: 18px;
-    top: 18px;
-    font-size: 7px;
   }
   .experiment-under {
     grid-template-columns: 1fr;
@@ -524,9 +393,6 @@
   }
   .room-selector b {
     display: none;
-  }
-    .experiment-directory h2 {
-    font-size: 46px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -560,11 +426,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.room-stage .experiment-stamp {
-  z-index: 2;
-  color: #fff;
-  text-shadow: 0 1px 8px #0008;
 }
 
 /* Mixed finishes: the real lamp, with linked hotspots and a dimmer. */

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { request } from "../lib/store";
-import { currencies } from "../lib/catalog";
+import { quoteCurrencies as currencies } from "../lib/catalog";
 export function QuoteEditor({
   reference,
   headers,

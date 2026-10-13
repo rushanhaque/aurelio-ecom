@@ -5,15 +5,7 @@ import { homeContent } from "../app/lib/home-content.ts";
 import { database } from "./db.ts";
 export const content = Router();
 export const contentSchema = z.object({
-  slug: z.enum([
-    "home",
-    "shipping",
-    "returns",
-    "faq",
-    "privacy",
-    "terms",
-    "accessibility",
-  ]),
+  slug: z.enum(["home", "faq", "privacy", "terms", "accessibility"]),
   expectedVersion: z.number().int().min(0),
   publish: z.boolean(),
   title: z.string().trim().min(2).max(160),

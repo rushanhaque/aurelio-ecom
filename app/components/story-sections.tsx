@@ -1,4 +1,4 @@
-import { useEffect, useRef, type PointerEvent } from "react";
+import { useEffect, useRef, type CSSProperties, type PointerEvent } from "react";
 import { Link } from "react-router";
 import { ArrowUpRight } from "lucide-react";
 import { commissionStages } from "../lib/brand";
@@ -17,9 +17,11 @@ function useOnScreen<T extends HTMLElement>() {
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-    const watch = new IntersectionObserver(([entry]) =>
-      node.toggleAttribute("data-running", entry.isIntersecting),
-    );
+    const watch = new IntersectionObserver(([entry]) => {
+      node.toggleAttribute("data-running", entry.isIntersecting);
+      // Once seen, stays seen: deferred images load then and are kept.
+      if (entry.isIntersecting) node.setAttribute("data-seen", "");
+    });
     watch.observe(node);
     return () => watch.disconnect();
   }, []);
@@ -99,7 +101,7 @@ function Station({ name, index }: { name: string; index: number }) {
               <span>{name}</span>
               <span
                 className="path-band-image"
-                style={{ backgroundImage: `url(${image})` }}
+                style={{ "--band-image": `url(${image})` } as CSSProperties}
               />
             </span>
           ))}

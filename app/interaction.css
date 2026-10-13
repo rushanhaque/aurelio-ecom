@@ -3,18 +3,6 @@ body:has(.atelier-hero) .site-header {
   color: #f2f2f2;
   border-color: #f2f2f21a;
 }
-body:has(.atelier-hero) .announcement {
-  background: #072319;
-  border-bottom: 1px solid #f2f2f21a;
-  color: #b5c3b4;
-}
-body:has(.atelier-hero) .header-left nav a:after {
-  background: #d2c09d;
-}
-body:has(.atelier-hero) .currency-select option {
-  color: #072319;
-  background: #f2f2f2;
-}
 body:has(.atelier-hero) .icon-button:hover {
   background: #f2f2f216;
 }
@@ -127,15 +115,6 @@ body:has(.atelier-hero) .icon-button:hover {
 .collection-card:hover h2 svg {
   transform: rotate(45deg);
 }
-.site-footer .footer-brand {
-  color: transparent;
-  -webkit-text-stroke: 0.7px #072319;
-  transition: color 0.8s;
-  cursor: default;
-}
-.site-footer .footer-brand:hover {
-  color: #072319;
-}
 .collection-card > div {
   clip-path: inset(0 0 0 0 round 45% 45% 0 0);
   transition: clip-path 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -146,21 +125,6 @@ body:has(.atelier-hero) .icon-button:hover {
 }
 .collection-card h2 {
   font-style: italic;
-}
-.page-intro .tiny-star {
-  display: inline-block;
-  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.page-intro:hover .tiny-star {
-  transform: rotate(180deg);
-}
-.wide-editorial img,
-.bulk-hero > img {
-  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.wide-editorial:hover img,
-.bulk-hero:hover > img {
-  transform: scale(1.04);
 }
 .journal-card > div {
   clip-path: inset(0 0 0 0 round 0 0 0 0);
@@ -195,18 +159,6 @@ body:has(.atelier-hero) .icon-button:hover {
     padding-top: 35px;
   }
 }
-.site-footer .footer-brand > span {
-  color: #072319;
-  -webkit-text-stroke: 0;
-}
-.footer-links a {
-  position: relative;
-  transition: transform 0.35s;
-}
-.footer-links a:hover {
-  transform: translateX(5px);
-  text-decoration: none;
-}
 .field input,
 .field textarea {
   background-image: linear-gradient(#072319, #072319);
@@ -224,15 +176,5 @@ body:has(.atelier-hero) .icon-button:hover {
 @media (hover: none), (prefers-reduced-motion: reduce) {
   .discovery-cursor {
     display: none;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .arrival-art .orbit-art,
-  .scroll-track i {
-    animation: none !important;
-  }
-  .form-panel,
-  .form-name > span {
-    transition: none !important;
   }
 }

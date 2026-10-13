@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Picture } from "../components/ui";
+import { shopLink, shopIsExternal } from "../lib/brand";
 import "../immersive.css";
 import "../home-hero.css";
 
@@ -92,10 +93,15 @@ function VideoHero() {
         className="film-actions"
         aria-label="Choose how to work with Aurelio"
       >
-        <Link to="/shop" className="film-button film-button-solid">
+        {/* The shop runs on Shopify. */}
+        <a
+          href={shopLink}
+          className="film-button film-button-solid"
+          {...(shopIsExternal && { target: "_blank", rel: "noopener" })}
+        >
           <span className="film-button-label">Visit the shop</span>
           <ArrowUpRight size={17} />
-        </Link>
+        </a>
         <Link to="/bulk-orders" className="film-button film-button-glass">
           <span className="film-button-label">Explore bulk export</span>
           <ArrowUpRight size={17} />

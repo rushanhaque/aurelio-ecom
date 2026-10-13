@@ -6,6 +6,7 @@
 import { lazy, Suspense, useState, useRef, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router";
 import { request } from "../lib/store";
+import { shopLink } from "../lib/brand";
 import type { ChangeEvent, FormEvent } from "react";
 
 type FooterItem = {
@@ -13,21 +14,6 @@ type FooterItem = {
   to?: string;
   href?: string;
   action?: string;
-};
-/* The shop sorts by category and material; collections live on the trade
-   side, so the first column follows whichever side the reader is on. */
-const SHOP_COLUMN: { heading: string; links: FooterItem[] } = {
-  heading: "Shop",
-  links: [
-    { label: "All objects", to: "/shop" },
-    { label: "Urns", to: "/shop?category=urns" },
-    { label: "Lighting", to: "/shop?category=lighting" },
-    { label: "Furniture", to: "/shop?category=furniture" },
-    { label: "Kitchenware", to: "/shop?category=kitchenware" },
-    { label: "Decor", to: "/shop?category=decor" },
-    { label: "Accessories", to: "/shop?category=accessories" },
-    { label: "By material", to: "/shop#materials" },
-  ],
 };
 const COLUMNS: { heading: string; links: FooterItem[] }[] = [
   {
@@ -48,6 +34,7 @@ const COLUMNS: { heading: string; links: FooterItem[] }[] = [
       { label: "WhatsApp", href: "https://wa.me/917817976738" },
       { label: "Email", href: "mailto:mohdsaudsaud595@gmail.com" },
       { label: "Instagram", href: "https://instagram.com/afinternational.in" },
+      { label: "Shop online", href: shopLink },
     ],
   },
 ];
@@ -134,8 +121,7 @@ function AtelierClock() {
 
 export default function Footer() {
   const { pathname } = useLocation();
-  const trade = /^\/(bulk-orders|quotes|collections|pieces)(\/|$)/.test(pathname);
-  const columns = trade ? COLUMNS : [SHOP_COLUMN, ...COLUMNS.slice(1)];
+  const columns = COLUMNS;
   const ref = useRef<HTMLElement>(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
@@ -333,10 +319,13 @@ export default function Footer() {
           </nav>
 
           <div className="ft-bottom">
+            <nav className="ft-legal" aria-label="Policies">
+              <Link to="/privacy">Privacy</Link>
+              <Link to="/terms">Terms</Link>
+            </nav>
             <button
               className="ft-dev"
               onClick={openDev}
-              aria-label="View developer information"
             >
               Contact developer
             </button>

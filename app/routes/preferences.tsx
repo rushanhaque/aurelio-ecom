@@ -18,11 +18,14 @@ export default function Preferences() {
         <div>
           <h2>Essential storage only.</h2>
           <p>
-            A session cookie keeps you signed in. Browser storage remembers your
-            bag, wishlist and currency.
+            This site sets no cookies of its own and keeps nothing about you in
+            your browser.
           </p>
           <p>No advertising or analytics trackers are used.</p>
-          <p>Clearing site data removes your saved bag and order keys.</p>
+          <p>
+            Our online shop runs on Shopify, which has its own privacy and
+            cookie notice.
+          </p>
         </div>
         <form
           className="editorial-form"
@@ -48,7 +51,7 @@ export default function Preferences() {
           }}
         >
           <h2>Email</h2>
-          <p>Unsubscribe from our notes. Order emails are unaffected.</p>
+          <p>Unsubscribe from our notes. Replies to your enquiries are unaffected.</p>
           <Field
             name="email"
             type="email"

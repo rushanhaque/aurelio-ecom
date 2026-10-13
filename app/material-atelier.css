@@ -29,18 +29,6 @@
   transition: background 1.4s var(--ease-atelier);
   pointer-events: none;
 }
-.mx-ghost {
-  position: absolute;
-  right: -2vw;
-  bottom: -6vw;
-  z-index: -1;
-  font: 400 clamp(220px, 34vw, 560px) / 0.8 var(--serif);
-  letter-spacing: -0.06em;
-  color: transparent;
-  -webkit-text-stroke: 1px color-mix(in srgb, var(--tone) 55%, transparent);
-  pointer-events: none;
-  animation: mx-ghost 1.4s var(--ease-out) both;
-}
 @keyframes mx-ghost {
   from {
     opacity: 0;
@@ -146,30 +134,6 @@
   border-radius: inherit;
   pointer-events: none;
 }
-.mx-register,
-.mx-hint {
-  position: absolute;
-  z-index: 4;
-  left: 50%;
-  translate: -50% 0;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  color: #fff;
-  text-shadow: 0 1px 8px #0009;
-  white-space: nowrap;
-  pointer-events: none;
-}
-.mx-register {
-  top: 13%;
-}
-.mx-hint {
-  bottom: 30px;
-  text-transform: uppercase;
-  transition: opacity var(--dur-3);
-}
-.mx-specimen:hover .mx-hint {
-  opacity: 0;
-}
 
 /* --- The loupe ---------------------------------------------------------- */
 .mx-loupe {
@@ -238,11 +202,6 @@
   background: #f2f2f2ee;
   color: var(--ink-800);
   font-size: 11px;
-}
-@media (hover: none) {
-  .mx-hint {
-    display: none;
-  }
 }
 
 /* --- Copy --------------------------------------------------------------- */
@@ -388,56 +347,6 @@
 }
 
 /* --- Footnotes & seal --------------------------------------------------- */
-.mx-foot {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: clamp(28px, 5vw, 80px);
-  align-items: end;
-  margin-top: clamp(70px, 9vw, 130px);
-  padding-top: 40px;
-  border-top: 1px solid #f2f2f21f;
-}
-.mx-foot .eyebrow {
-  color: var(--brass-300);
-}
-.mx-foot h3 {
-  margin: 10px 0 8px;
-}
-.mx-foot p {
-  color: #f2f2f2a0;
-  max-width: 330px;
-}
-.mx-seal {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  position: relative;
-  font-size: 9px;
-  letter-spacing: 0.16em;
-  line-height: 1.6;
-  border: 1px solid #f2f2f240;
-  transition:
-    background-color var(--dur-3),
-    color var(--dur-3);
-}
-.mx-seal b {
-  position: absolute;
-  bottom: 22px;
-  font-weight: 400;
-  font-size: 15px;
-  transition: transform var(--dur-3) var(--ease-atelier);
-}
-.mx-seal:hover,
-.mx-seal:focus-visible {
-  background: var(--tone);
-  color: var(--ink-800);
-}
-.mx-seal:hover b {
-  transform: rotate(45deg);
-}
 
 /* --- Small screens ------------------------------------------------------ */
 @media (max-width: 900px) {
@@ -448,16 +357,11 @@
   .mx-stage {
     grid-template-columns: 1fr;
   }
-  .mx-foot {
-    grid-template-columns: 1fr;
-    align-items: start;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .mx-layer.is-current,
   .mx-layer.is-current img,
-  .mx-name span,
-  .mx-ghost {
+  .mx-name span {
     animation: none;
   }
 }
@@ -511,26 +415,5 @@
   .mx-swatches {
     margin-top: clamp(16px, 3.4vh, 34px);
     padding-top: clamp(12px, 2vh, 20px);
-  }
-  .mx-foot {
-    margin-top: clamp(14px, 2.6vh, 28px);
-    padding-top: clamp(12px, 2vh, 20px);
-    align-items: center;
-  }
-  .mx-foot h3 {
-    margin: 4px 0 2px;
-    font-size: clamp(18px, 2.8vh, 26px);
-  }
-  .mx-foot p {
-    font-size: 12px;
-    line-height: 1.55;
-  }
-  .mx-seal {
-    width: clamp(78px, 12vh, 112px);
-    height: clamp(78px, 12vh, 112px);
-    font-size: 7px;
-  }
-  .mx-seal b {
-    bottom: 10px;
   }
 }

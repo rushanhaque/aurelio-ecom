@@ -3,12 +3,11 @@ import express from "express";
 import { MongoClient } from "mongodb";
 import { randomUUID } from "node:crypto";
 import assert from "node:assert/strict";
-import { api } from "../server/api.ts";
 
-// All records live in an isolated disposable database, never the storefront.
-const client = new MongoClient(
-  `mongodb://127.0.0.1:${process.env.LOCAL_MONGO_PORT || 63938}/?replicaSet=testset`,
-);
+// All records live in a throwaway replica set, never the real database.
+const { MongoMemoryReplSet } = await import("mongodb-memory-server");
+const replica = await MongoMemoryReplSet.create({ replSet: { count: 1 } });
+const client = new MongoClient(replica.getUri());
 await client.connect();
 const db = client.db(
   `aurelio_operations_qa_${randomUUID().replaceAll("-", "")}`,
@@ -16,12 +15,12 @@ const db = client.db(
 globalThis.aurelioDatabase = Promise.resolve({ db, client });
 process.env.LOCAL_EMAIL_PREVIEW = "true";
 process.env.ADMIN_TOKEN = randomUUID();
+const { api } = await import("../server/api.ts");
 const app = express();
 app.use(api);
 const server = app.listen(0, "127.0.0.1");
 await new Promise<void>((resolve) => server.once("listening", resolve));
 const base = `http://127.0.0.1:${(server.address() as any).port}`;
-let cookie = "";
 async function call(
   path: string,
   body?: unknown,
@@ -33,225 +32,18 @@ async function call(
     method,
     headers: {
       "Content-Type": "application/json",
-      Cookie: cookie,
       ...(admin ? { Authorization: `Bearer ${process.env.ADMIN_TOKEN}` } : {}),
       ...extra,
     },
     ...(body ? { body: JSON.stringify(body) } : {}),
   });
-  return {
-    status: response.status,
-    data: await response.json(),
-    cookie: response.headers.get("set-cookie")?.split(";")[0],
-  };
+  return { status: response.status, data: await response.json() };
 }
 const email = "operations@example.invalid";
-const password = "isolated-password-one";
 try {
-  await db.collection("customers").createIndex({ email: 1 }, { unique: true });
-  await db
-    .collection("accountLinks")
-    .createIndex({ tokenHash: 1 }, { unique: true });
-  await db
-    .collection("returns")
-    .createIndex({ reference: 1 }, { unique: true });
-  const registered = await call("/api/auth", {
-    mode: "register",
-    email,
-    password,
-    name: "QA Collector",
-  });
-  assert.equal(registered.status, 200);
-  cookie = registered.cookie!;
-  const addressId = randomUUID();
-  const address = {
-    id: addressId,
-    label: "Studio",
-    name: "QA Collector",
-    address: "123 Test Street",
-    city: "Moradabad",
-    region: "UP",
-    postalCode: "244001",
-    country: "IN",
-  };
-  assert.equal(
-    (
-      await call(
-        "/api/profile",
-        { name: "New name", addresses: [address], defaultAddressId: addressId },
-        "PATCH",
-      )
-    ).status,
-    200,
-  );
-  assert.equal(
-    (
-      await call(
-        "/api/profile",
-        {
-          name: "New name",
-          addresses: [{ ...address, postalCode: "abc" }],
-          defaultAddressId: addressId,
-        },
-        "PATCH",
-      )
-    ).status,
-    400,
-  );
-  const session = await call("/api/session", undefined, "GET");
-  assert.equal(session.data.customer.name, "New name");
-  assert.equal(session.data.customer.passwordHash, undefined);
-  const known = await call("/api/account-links", { email, purpose: "verify" });
-  const unknown = await call("/api/account-links", {
-    email: "absent@example.invalid",
-    purpose: "verify",
-  });
-  assert.deepEqual(known.data, unknown.data);
-  const verification = await db
-    .collection("emailPreview")
-    .findOne({ to: email });
-  const verifyToken = new URLSearchParams(
-    new URL(verification!.url).hash.slice(1),
-  ).get("token");
-  assert.equal(
-    (
-      await call("/api/account-links/consume", {
-        token: verifyToken,
-        purpose: "reset",
-        password,
-      })
-    ).status,
-    400,
-  );
-  assert.equal(
-    (
-      await call("/api/account-links/consume", {
-        token: verifyToken,
-        purpose: "verify",
-      })
-    ).status,
-    200,
-  );
-  assert.equal(
-    (
-      await call("/api/account-links/consume", {
-        token: verifyToken,
-        purpose: "verify",
-      })
-    ).status,
-    400,
-  );
-  assert.ok(
-    (await call("/api/session", undefined, "GET")).data.customer
-      .emailVerifiedAt,
-  );
-  await call("/api/account-links", { email, purpose: "reset" });
-  const recovery = await db
-    .collection("emailPreview")
-    .findOne({ subject: "Reset your Aurelio password" });
-  const resetToken = new URLSearchParams(
-    new URL(recovery!.url).hash.slice(1),
-  ).get("token");
-  const resets = await Promise.all([
-    call("/api/account-links/consume", {
-      token: resetToken,
-      purpose: "reset",
-      password: "second-password-only",
-    }),
-    call("/api/account-links/consume", {
-      token: resetToken,
-      purpose: "reset",
-      password: "second-password-only",
-    }),
-  ]);
-  assert.deepEqual(resets.map((r) => r.status).sort(), [200, 400]);
-  assert.equal(
-    (await call("/api/session", undefined, "GET")).data.customer,
-    null,
-  );
-  assert.equal(
-    (await call("/api/auth", { mode: "login", email, password })).status,
-    401,
-  );
-  const login = await call("/api/auth", {
-    mode: "login",
-    email,
-    password: "second-password-only",
-  });
-  assert.equal(login.status, 200);
-  cookie = login.cookie!;
-  await db.collection("orders").insertOne({
-    reference: "QA-ORDER",
-    customerId: registered.data.customer.id,
-    accessHash: "hidden",
-    fingerprint: "private",
-    internalNotes: "staff only",
-  });
-  assert.equal(
-    (
-      await call("/api/returns", {
-        reference: "QA-ORDER",
-        reason: "Please help with this test order.",
-        type: "question",
-      })
-    ).status,
-    200,
-  );
-  assert.equal(
-    (
-      await call("/api/returns", {
-        reference: "QA-ORDER",
-        reason: "Repeated request should not overwrite.",
-      })
-    ).status,
-    200,
-  );
-  assert.equal(await db.collection("returns").countDocuments(), 1);
-  assert.equal(
-    (
-      await call(
-        "/api/admin/workflow/returns/QA-ORDER",
-        {
-          status: "reviewing",
-          internalNotes: "Private notes",
-          customerUpdate: "We are reviewing your request.",
-        },
-        "PATCH",
-        true,
-      )
-    ).status,
-    200,
-  );
-  const order = await call("/api/orders/QA-ORDER", undefined, "GET");
-  assert.equal(order.data.internalNotes, undefined);
-  assert.equal(order.data.fingerprint, undefined);
-  assert.equal(order.data.support.internalNotes, undefined);
-  assert.equal(
-    order.data.support.customerUpdate,
-    "We are reviewing your request.",
-  );
-  cookie = "";
-  assert.equal(
-    (
-      await call("/api/returns", {
-        reference: "QA-ORDER",
-        reason: "Unauthorized test request",
-      })
-    ).status,
-    404,
-  );
   assert.equal(
     (await call("/api/admin/overview", undefined, "GET")).status,
     401,
-  );
-  await db.collection("products").insertMany([
-    { id: "qa-draft", slug: "qa-draft", status: "draft" },
-    { id: "qa-published", slug: "qa-published", status: "published" },
-    { id: "qa-archived", slug: "qa-archived", status: "archived" },
-  ]);
-  assert.deepEqual(
-    (await call("/api/products", undefined, "GET")).data.map((p: any) => p.id),
-    ["qa-published"],
   );
   await call("/api/newsletter", { email, consent: true });
   await call("/api/newsletter/unsubscribe", { email });
@@ -342,10 +134,10 @@ try {
   );
   await db.collection("content").createIndex({ slug: 1 }, { unique: true });
   const pageInput = {
-    slug: "shipping",
+    slug: "faq",
     expectedVersion: 0,
     publish: false,
-    title: "QA shipping page",
+    title: "QA FAQ page",
     eyebrow: "TEST CONTENT",
     intro: "An isolated content test.",
     sections: [
@@ -365,7 +157,7 @@ try {
     200,
   );
   assert.equal(
-    (await db.collection("content").findOne({ slug: "shipping" }))!.published,
+    (await db.collection("content").findOne({ slug: "faq" }))!.published,
     null,
   );
   assert.equal(
@@ -394,21 +186,22 @@ try {
     ).status,
     200,
   );
-  const content = await db.collection("content").findOne({ slug: "shipping" });
-  assert.equal(content!.published.title, "QA shipping page");
+  const content = await db.collection("content").findOne({ slug: "faq" });
+  assert.equal(content!.published.title, "QA FAQ page");
   assert.equal(content!.draft.title, "Private revised draft");
   assert.equal(
-    await db.collection("contentVersions").countDocuments({ slug: "shipping" }),
+    await db.collection("contentVersions").countDocuments({ slug: "faq" }),
     3,
   );
   console.log(
     "Content integration passed: private drafts, explicit publication, stale-edit conflict protection and retained version history.",
   );
   console.log(
-    "Account/operations integration passed: profile validation, one-time purpose-bound links, concurrent reset, revoked sessions, ownership, private notes, draft visibility, unsubscribe. No storefront products added.",
+    "Operations integration passed: studio authorization, unsubscribe, quotations, content.",
   );
 } finally {
   await db.dropDatabase();
   await client.close();
+  await replica.stop();
   await new Promise<void>((resolve) => server.close(() => resolve()));
 }

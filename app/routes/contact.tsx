@@ -1,4 +1,4 @@
-import { brand } from "../lib/brand";
+import { brand, shopLink, shopIsExternal } from "../lib/brand";
 import { useSearchParams } from "react-router";
 import { useState } from "react";
 import { Link } from "react-router";
@@ -37,7 +37,7 @@ export default function Contact() {
         }
         image="hero"
       >
-        <p>Questions about a piece, a project or an order?</p>
+        <p>Questions about a piece or a project?</p>
       </PageIntro>
       {/* The two desks, as listed on aurelio.in/contact. */}
       <section
@@ -127,10 +127,13 @@ export default function Contact() {
               A bulk project
               <ArrowUpRight size={19} />
             </Link>
-            <Link to="/track-order">
-              An existing order
+            <a
+              href={shopLink}
+              {...(shopIsExternal && { target: "_blank", rel: "noopener" })}
+            >
+              The online shop
               <ArrowUpRight size={19} />
-            </Link>
+            </a>
             <Link to="/faq">
               A quick question
               <ArrowUpRight size={19} />
@@ -143,7 +146,6 @@ export default function Contact() {
               Saved to the studio inbox. Reference: <strong>{reference}</strong>
               .
             </p>
-            <p>Email replies are off in this preview.</p>
           </Success>
         ) : (
           <form className="editorial-form" onSubmit={submit}>
@@ -164,8 +166,7 @@ export default function Contact() {
               >
                 <option>Product question</option>
                 <option>Bulk or trade enquiry</option>
-                <option>Order support</option>
-                <option>Shipping & returns</option>
+                <option>The online shop</option>
                 <option>Press & collaborations</option>
                 <option>Catalogue request</option>
                 <option>Privacy request</option>

@@ -1,7 +1,6 @@
 import { Link } from "react-router";
-import { Search } from "lucide-react";
 import { collections } from "../lib/brand-content";
-import { useStore } from "../lib/store";
+import { shopLink, shopIsExternal } from "../lib/brand";
 export function loader() {
   throw new Response("Not found", { status: 404 });
 }
@@ -10,7 +9,6 @@ export const meta = () => [
   { name: "robots", content: "noindex" },
 ];
 export default function NotFound() {
-  const { setPanel } = useStore();
   return (
     <div className="empty-state tall not-found">
       <p className="eyebrow">404</p>
@@ -18,25 +16,22 @@ export default function NotFound() {
         Page not <em>found.</em>
       </h1>
       <div className="not-found-actions">
-        <Link className="button" to="/shop">
-          Visit the shop ↗
-        </Link>
-        <Link className="button button-outline" to="/bulk-orders">
+        <Link className="button" to="/bulk-orders">
           Export & bulk ↗
         </Link>
-        <button
+        <a
           className="button button-outline"
-          onClick={() => setPanel("search")}
+          href={shopLink}
+          {...(shopIsExternal && { target: "_blank", rel: "noopener" })}
         >
-          Search
-          <Search size={17} />
-        </button>
+          Visit the shop ↗
+        </a>
       </div>
-      <nav className="not-found-worlds" aria-label="Shop by category">
+      <nav className="not-found-worlds" aria-label="Collections">
         {collections
           .filter((c) => c.slug !== "bespoke")
           .map((c) => (
-            <Link key={c.slug} to={`/shop?category=${c.slug}`}>
+            <Link key={c.slug} to={`/collections/${c.slug}`}>
               {c.name}
             </Link>
           ))}
