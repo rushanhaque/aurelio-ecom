@@ -24,7 +24,8 @@
     "backup:restore": "node scripts/backup.mjs restore",
     "test:backup": "node tests/backup.local.mjs",
     "test:smoke": "node scripts/smoke-test.mjs",
-    "format": "prettier --write app server server.js tests scripts"
+    "format": "prettier --write app server server.js tests scripts",
+    "test:frontend": "node --import tsx tests/frontend-preview.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1149.0",

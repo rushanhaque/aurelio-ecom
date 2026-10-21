@@ -1,33 +1,214 @@
-/* The single global stylesheet.
-   Every route loaded these seven layers unconditionally as seven separate
-   render-blocking requests; bundling them here collapses that to one while
-   preserving the cascade order exactly:
-
-     tokens          shared vocabulary, must come first
-     styles          the base system
-     interaction     the original hover layer
-     brand-content   editorial and footer composition
-     operations      account, admin and order surfaces
-     refinement      the material atelier pass
-     interaction-v2  the v2 layer
-     legibility      the reading-size floor, last so nothing undercuts it
-*/
-/* page-hero was a separate render-blocking file linked ahead of this one on
-   every page; it keeps that position at the head of the cascade. */
-@import "./page-hero.css";
+/* Shared foundations for the homepage and contact popup. */
 @import "./tokens.css";
-@import "./styles.css";
-@import "./interaction.css";
-@import "./brand-content.css";
-@import "./operations.css";
-@import "./refinement.css";
-@import "./interaction-v2.css";
-@import "./legibility.css";
 @import "./page-intro.css";
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/latin-600.css";
+@import "@fontsource/cormorant-garamond/latin-400.css";
+@import "@fontsource/cormorant-garamond/latin-400-italic.css";
 
-@import "./footer.css";
-@import "./commerce-header.css";
-/* The atelier finish: signature hovers, shared polish and the accessibility
-   and low-power floors. Last, so it settles every earlier layer. */
-@import "./atelier-story.css";
-@import "./atelier-finish.css";
+:root {
+  --paper: #f2f2f2;
+  --ink: #072319;
+  --muted: #5e6963;
+  --line: #07231924;
+  --sand: #e7e5df;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Manrope", Arial, sans-serif;
+  --gutter: clamp(24px, 4.4vw, 80px);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: #cbd1bd;
+  color: var(--ink);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  background: none;
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+button,
+select {
+  touch-action: manipulation;
+}
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+svg {
+  flex-shrink: 0;
+  stroke-width: 1.5;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.03;
+}
+h1 {
+  font-size: clamp(56px, 5.9vw, 100px);
+  letter-spacing: -0.035em;
+}
+h2 {
+  font-size: clamp(38px, 3.5vw, 59px);
+  letter-spacing: -0.035em;
+}
+h3 {
+  font-size: clamp(24px, 2.2vw, 32px);
+  letter-spacing: -0.02em;
+}
+em {
+  font-weight: 400;
+}
+p {
+  color: var(--muted);
+}
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p,
+li {
+  text-wrap: pretty;
+}
+:focus-visible {
+  outline: 2px solid var(--focus-ring, #9b773b);
+  outline-offset: 5px;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-offset: 2px;
+}
+summary {
+  cursor: pointer;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  list-style: none;
+}
+
+@font-face {
+  font-family: "Cinzel";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url(/fonts/cinzel-600.woff2) format("woff2"),
+    url(/fonts/cinzel-600.ttf) format("truetype");
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 20px;
+  z-index: 200;
+  background: var(--ink);
+  color: white;
+  padding: 15px;
+}
+.skip-link:focus {
+  top: 10px;
+}
+
+html[data-perf="lite"] * {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html[data-perf="lite"] .hero-grain {
+  display: none;
+}
+.error-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  padding: max(32px, 8vw);
+  background: #072319;
+  color: #fffdf5;
+}
+.error-wordmark {
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.24em;
+}
+.error-page h1 {
+  max-width: 900px;
+  font-size: clamp(40px, 7vw, 80px);
+}
+.error-page p {
+  color: #d9e0d6;
+}
+.error-return {
+  padding: 12px 18px;
+  border: 1px solid #ffffff45;
+  border-radius: 12px;
+}
+.error-return span {
+  margin-left: 20px;
+}

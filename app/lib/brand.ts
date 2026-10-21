@@ -21,14 +21,9 @@ export const brand = {
   whatsapp: "https://wa.me/917817976738",
   instagram: "https://instagram.com/afinternational.in",
   map: "https://www.google.com/maps/search/?api=1&query=Katghar%20Pachpera%2C%20Moradabad%2C%20Uttar%20Pradesh%20244001%2C%20India",
-  /** The retail shop runs on Shopify. Paste the store's address here, e.g.
-      "https://shop.aurelio.in". Until then the shop buttons lead to Contact. */
-  shopUrl: "",
+  shopUrl: "https://shop.aurelio.in",
+  exportsUrl: "https://exports.aurelio.in",
 };
-/* Where every "Visit the shop" button goes. */
-export const shopLink =
-  brand.shopUrl || "/contact?topic=The%20online%20shop";
-export const shopIsExternal = Boolean(brand.shopUrl);
 export const commissionStages = [
   "Enquiry",
   "Design",

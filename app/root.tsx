@@ -1,6 +1,4 @@
 import { brand } from "./lib/brand";
-import { collections } from "./lib/brand-content";
-import { articles } from "./lib/journal";
 import {
   Links,
   Meta,
@@ -9,26 +7,14 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
   useRouteError,
-  useLoaderData,
   Link,
   useRouteLoaderData,
   useLocation,
-  useMatches,
 } from "react-router";
 import type { ReactNode } from "react";
 import { frontendPreview } from "../server/preview-mode";
-import { StoreProvider } from "./lib/store";
-import {
-  Header,
-  Footer,
-  GlobalPanels,
-  RouteEffects,
-  NavigationProgress,
-} from "./components/layout";
-import { AtelierMotion } from "./components/atelier-motion";
 import { PageIntro } from "./components/page-intro";
-import NotFound from "./routes/not-found";
-/* One bundle for the seven global layers — see app.css for the cascade order. */
+/* Only the shared foundations and the homepage introduction. */
 import styles from "./app.css?url";
 /* The two faces that render the first screen. Fontsource reaches them through an
    @import nested inside the stylesheet, which is a three-hop discovery chain;
@@ -104,11 +90,9 @@ const perfProbe = `(function(){try{var n=navigator,c=n.connection||{},m=n.device
 
 function structuredData({
   siteUrl,
-  canonical,
   pathname,
 }: {
   siteUrl: string;
-  canonical: string;
   pathname: string;
 }) {
   const organization = {
@@ -167,24 +151,8 @@ function structuredData({
 export function Layout({ children }: { children: ReactNode }) {
   const data = useRouteLoaderData<typeof loader>("root");
   const location = useLocation();
-  const matches = useMatches();
-  // Routes whose own meta already carries a description flag it in their
-  // handle, so the page never ships two competing descriptions.
-  const describedByRoute = matches.some(
-    (match) => (match.handle as { describes?: boolean } | undefined)?.describes,
-  );
   const canonical = `${data?.siteUrl || ""}${location.pathname}`;
-  const collection = collections.find(
-    (c) => location.pathname === `/collections/${c.slug}`,
-  );
-  const article = articles.find(
-    (a) => location.pathname === `/journal/${a.slug}`,
-  );
-  const description =
-    article?.excerpt ||
-    (collection
-      ? `Explore Aurelio’s ${collection.name.toLowerCase()} collection. Metal and wood, made by hand in Moradabad, for trade and bulk orders.`
-      : brand.story);
+  const description = brand.story;
   return (
     <html
       lang="en"
@@ -206,11 +174,10 @@ export function Layout({ children }: { children: ReactNode }) {
           <meta name="robots" content="noindex,nofollow" />
         )}
         <Links nonce={data?.nonce} />
-        {!describedByRoute && <meta name="description" content={description} />}
+        <meta name="description" content={description} />
         {data &&
           structuredData({
             siteUrl: data.siteUrl,
-            canonical,
             pathname: location.pathname,
           }).map((entry, i) => (
             <script
@@ -235,15 +202,12 @@ export function Layout({ children }: { children: ReactNode }) {
             <meta property="og:description" content={description} />
             <meta
               property="og:image"
-              content={absoluteImage(data.siteUrl, "hero")}
+              content={absoluteImage(data.siteUrl, "hero-film")}
             />
             <meta name="twitter:card" content="summary_large_image" />
           </>
         )}
-        {(location.search ||
-          /^\/(admin|cms|preferences|quotes)(\/|$)/.test(
-            location.pathname,
-          )) && <meta name="robots" content="noindex,follow" />}
+        {location.search && <meta name="robots" content="noindex,follow" />}
       </head>
       <body>
         {children}
@@ -254,89 +218,37 @@ export function Layout({ children }: { children: ReactNode }) {
   );
 }
 export default function App() {
-  const { frontendPreview: preview } = useLoaderData<typeof loader>();
-  const location = useLocation();
-  const unavailable =
-    preview &&
-    /^\/(admin|cms|quotes)(\/|$)/.test(
-      location.pathname,
-    );
   return (
-    <StoreProvider>
+    <>
       <a href="#main" className="skip-link">
         Skip to content
       </a>
-      {/* RouteEffects writes here after each client-side navigation. */}
-      <p
-        id="route-announcer"
-        className="sr-only"
-        role="status"
-        aria-live="polite"
-      />
-      <NavigationProgress />
       <PageIntro />
-      <Header />
       <main id="main" tabIndex={-1}>
-        {unavailable ? (
-          <section className="container section">
-            <p className="eyebrow">AURELIO / CLIENT PREVIEW</p>
-            <h1>This chapter is still taking shape.</h1>
-            <p>
-              Quotations and the studio portal will open when the site
-              launches.
-            </p>
-            <Link className="button" to="/">
-              Explore Aurelio ↗
-            </Link>
-          </section>
-        ) : (
-          <Outlet />
-        )}
+        <Outlet />
       </main>
-      {location.pathname !== "/" && <Footer />}
-      <GlobalPanels />
-      <RouteEffects />
-      <AtelierMotion />
-    </StoreProvider>
+    </>
   );
 }
+
 export function ErrorBoundary() {
   const error = useRouteError();
-  const data = useRouteLoaderData<typeof loader>("root");
-  // A missing page is not a broken site: when the root data loaded, keep the
-  // header, search and footer around the 404 so it is never a dead end. The
-  // bare page below is kept for real failures, including the root loader's.
-  if (data && isRouteErrorResponse(error) && error.status === 404)
-    return (
-      <StoreProvider>
-        <title>Page not found — Aurelio</title>
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
-        <Header />
-        <main id="main" tabIndex={-1}>
-          <NotFound />
-        </main>
-        <Footer />
-        <GlobalPanels />
-        <AtelierMotion />
-      </StoreProvider>
-    );
+  const missing = isRouteErrorResponse(error) && error.status === 404;
   return (
-    <div className="error-page">
-      <Link to="/" className="wordmark">
+    <main className="error-page">
+      <title>
+        {missing ? "Page not found — Aurelio" : "Aurelio — A moment to reset"}
+      </title>
+      <Link to="/" className="error-wordmark">
         AURELIO
       </Link>
-      <p className="eyebrow">A MOMENT TO RESET</p>
       <h1>
-        {isRouteErrorResponse(error) && error.status === 404
-          ? "A little off the beaten path."
-          : "Something interrupted the journey."}
+        {missing ? "A little off the beaten path." : "A moment to reset."}
       </h1>
       <p>Please return to Aurelio and try again.</p>
-      <a className="button" href="/">
-        Back to Aurelio <span>↗</span>
+      <a className="error-return" href="/">
+        Back to Aurelio <span aria-hidden="true">↗</span>
       </a>
-    </div>
+    </main>
   );
 }

@@ -93,10 +93,12 @@ router.post("/api/enquiries", async (req, res, next) => {
       });
     // The enquiry now owns its pictures, so they no longer expire.
     if (data.attachments.length)
-      await db.collection("briefFiles").updateMany(
-        { id: { $in: data.attachments }, enquiry: { $exists: false } },
-        { $set: { enquiry: saved!.reference }, $unset: { expiresAt: "" } },
-      );
+      await db
+        .collection("briefFiles")
+        .updateMany(
+          { id: { $in: data.attachments }, enquiry: { $exists: false } },
+          { $set: { enquiry: saved!.reference }, $unset: { expiresAt: "" } },
+        );
     if (!previous)
       void notifyStudio(
         `New enquiry ${saved!.reference}: ${data.product}`,
@@ -124,7 +126,7 @@ router.post("/api/contact", async (req, res, next) => {
       .insertOne({ ...data, reference, createdAt: new Date(), status: "new" });
     void notifyStudio(
       `New message ${reference}: ${data.topic}`,
-      `${data.name} <${data.email}>\nTopic: ${data.topic}\n\n${data.message}\n\nOpen the studio: ${process.env.SITE_URL || "http://localhost:3000"}/admin`,
+      `${data.name} <${data.email}>\nTopic: ${data.topic}\n\n${data.message}`,
     );
     res.status(201).json({ reference });
   } catch (e) {
@@ -309,9 +311,7 @@ router.use(
       });
     const businessError =
       error instanceof Error &&
-      /quantity|available|Quote|quote|Enquiry not found/.test(
-        error.message,
-      );
+      /quantity|available|Quote|quote|Enquiry not found/.test(error.message);
     if (!businessError)
       console.error(
         JSON.stringify({

@@ -1,66 +1,60 @@
 # Aurelio
 
-React + Express + MongoDB site for Aurelio by AF International, with server rendering, TypeScript and GSAP: the atelier, the trade catalogue, export and bulk enquiries, quotations and a studio dashboard. **Retail sales run on a separate Shopify store**; every "Visit the shop" button goes there (set `brand.shopUrl` in `app/lib/brand.ts`). See `docs/BRAND_CONTENT.md` for image provenance.
+A homepage for Aurelio by AF International, built with React Router, TypeScript, and Express. The responsive background film, liquid-glass contact popup, and introductory wordmark are the only visitor-facing experience in this repository.
 
-Read `docs/IMPLEMENTATION_STATUS.md` for the plan audit and `docs/STUDIO_GUIDE.md` for operating the studio.
+- **Visit the shop** links to `https://shop.aurelio.in`, with a **Coming soon** label on the homepage.
+- **Explore bulk export** links to `https://exports.aurelio.in`.
+- Contact opens the existing name, email, and message form, with WhatsApp, email, and Instagram cards. The film keeps playing while the popup is open.
 
-## Start locally
+The former shop, export/catalogue, editorial, policy, and studio pages and their unused frontend components have been removed. `/shop` forwards to the shop subdomain; `/bulk-orders` and `/exports` forward to the exports subdomain. Other retired page URLs return visitors to `/`. Unknown URLs return a small 404 with a link home. The sitemap lists only `/`.
 
-Requires Node.js 22.12+ (tested with 24.15).
+The external domains are links; this change does not deploy or configure either subdomain. The Coming soon presentation is on this homepage.
+
+## Local preview
+
+Requires Node.js 22.12+.
 
 ```sh
 npm install
-npm run dev
+npm run build
 ```
 
-Open http://localhost:3000. Without MONGODB_URI, development starts a real local MongoDB replica set, stores its database under `.data/mongodb`, and downloads the official MongoDB binary on first run. The initial download can be large. An existing MongoDB replica-set connection can be supplied instead.
+For a frontend preview without MongoDB or live submissions, run in PowerShell:
 
-For a faster local review of the optimized frontend, stop the dev server, then run `npm run build` followed by `npm run preview`. This binds only to 127.0.0.1. It is not a deployment command.
+```powershell
+$env:NODE_ENV = "production"
+$env:FRONTEND_PREVIEW = "true"
+$env:HOST = "127.0.0.1"
+$env:PORT = "4173"
+node --import tsx server.js
+```
 
-## The studio
+Open `http://127.0.0.1:4173/`. The popup explicitly reports that messages cannot be sent in this preview; direct contact links remain available.
 
-1. Copy `.env.example` to `.env` if a local `.env` has not already been prepared.
-2. Set a long random `ADMIN_TOKEN` in `.env`, and restart the server after changing configuration.
-3. Open http://localhost:3000/admin and enter that token. Admin tokens remain in browser memory only.
-
-The studio manages enquiries (with the pictures visitors attach), versioned quotations, contact messages and the help/policy pages. Never commit `.env`.
-
-## Included
-
-- Landing film, collection pages and the trade catalogue of made-to-order pieces.
-- Export and bulk page with the enquiry form; "Your form, your finish" lets visitors drop a photo, drawing or sketch to start an enquiry.
-- Persisted enquiries, contact messages and newsletter consent, with idempotent retries.
-- Assigned enquiries and follow-up dates, versioned private quotations and idempotent unpaid order drafts.
-- Help/policy content editor with private drafts, publishing, saved versions and edit-conflict protection.
-- About, materials, care, journal, FAQ, privacy, terms and accessibility pages.
-- Reduced-motion support, keyboard-accessible dialogs, route-based code splitting, responsive WebP assets and self-hosted fonts.
-
-## Verification
+## Verify
 
 ```sh
 npm run typecheck
 npm test
 npm run build
+npm run test:frontend
 ```
 
-`npm run test:integration` (enquiries) and `npm run test:operations` (studio, quotations, content) each start their own throwaway MongoDB. With the local server running, `npm run test:smoke` verifies APIs and server-rendered routes, and `npm run test:backup` performs a restore drill. The local MongoDB port defaults to 63938 and must remain stable for persisted replica-set data.
+The frontend check verifies the built homepage, external destinations, retired URL redirects, unknown-page response, preview API, and homepage-only sitemap without MongoDB or sending messages. It supports both the standard and Vercel server build layouts.
 
-`npm run assets` regenerates editorial WebP sizes from local source PNGs. Exact generation prompts are recorded in `docs/ASSET_PROMPTS.md`.
+## Contact service and existing data
 
-## Production
+The existing Express contact endpoint remains available in connected deployments. MongoDB records, backend APIs, backup tooling, and media source files have been retained. There is no longer a browser-based studio or catalogue in this app. Older documents under `docs/` describe the former multi-page application; the scope above is current.
 
-```sh
-npm run build
-npm start
-```
+`npm run dev` starts the connected development server. Without `MONGODB_URI`, it uses the existing local MongoDB replica set. Production contact submissions still require the existing database and email configuration. Never commit `.env`.
 
-Production requires `MONGODB_URI` (a replica set, such as MongoDB Atlas), `SITE_URL`, a secure `ADMIN_TOKEN`, email through SES, and HTTPS in front. Follow [docs/LAUNCH_SETUP.md](docs/LAUNCH_SETUP.md). `npm run check:production` reports blockers without printing secrets. `npm run backup:export` writes a private EJSON snapshot; `npm run backup:restore -- <file> aurelio_restore_<new-name>` only restores into a new empty database.
+See [docs/HOMEPAGE_VIDEO.md](docs/HOMEPAGE_VIDEO.md) for the optimized video formats and loading behavior.
 
 ## Structure
 
-- `app/`: React Router SSR site, visual components and route modules.
-- `server/`: Express APIs, MongoDB connection, enquiries, quotations, content and email.
-- `public/images/`: optimized editorial assets and source artwork.
-- `tests/`: validation and isolated integration tests.
-
-No website has been deployed.
+- `app/routes/home.tsx`: the single homepage.
+- `app/components/home-contact.tsx`: lazy-loaded contact popup.
+- `app/lib/brand.ts`: contact details and the two external destinations.
+- `app/routes/legacy-redirect.ts`: compatibility redirects; no page content.
+- `server/`: contact and retained backend services.
+- `public/videos/` and `public/images/hero-film-*`: optimized film and posters.

@@ -30,14 +30,25 @@ try {
   const documentResponse = await fetch(base + "/");
   const documentHtml = await documentResponse.text();
   const csp = documentResponse.headers.get("content-security-policy");
-  if(csp) {
+  if (csp) {
     const nonce = csp.match(/nonce-([^']+)/)?.[1];
     check(Boolean(nonce), "Nonce CSP configured");
-    check([...documentHtml.matchAll(/<script\b([^>]*)>/g)].every(match => match[1].includes(`nonce="${nonce}"`)), "SSR scripts carry the response nonce");
+    check(
+      [...documentHtml.matchAll(/<script\b([^>]*)>/g)].every((match) =>
+        match[1].includes(`nonce="${nonce}"`),
+      ),
+      "SSR scripts carry the response nonce",
+    );
   }
   check(documentHtml.includes('rel="canonical"'), "Canonical link rendered");
-  check((await fetch(base + "/sitemap.xml")).status === 200, "Sitemap available");
-  check((await fetch(base + "/robots.txt")).status === 200, "Robots policy available");
+  check(
+    (await fetch(base + "/sitemap.xml")).status === 200,
+    "Sitemap available",
+  );
+  check(
+    (await fetch(base + "/robots.txt")).status === 200,
+    "Robots policy available",
+  );
   const brief = {
     idempotencyKey: marker,
     name: "Disposable QA",
@@ -103,49 +114,42 @@ try {
     ).status === 403,
     "Cross-origin mutation rejected",
   );
-  for (const path of [
-    "/",
-    "/collections",
-    "/collections/urns",
-    "/collections/lighting",
-    "/collections/furniture",
-    "/collections/kitchenware",
-    "/collections/decor",
-    "/collections/accessories",
-    "/collections/bespoke",
-    "/materials",
-    "/about",
-    "/bulk-orders",
-    "/contact",
-    "/preferences",
-    "/journal",
-    "/journal/the-beauty-of-brass",
-    "/care",
-    "/faq",
-    "/privacy",
-    "/terms",
-    "/accessibility",
-    "/admin",
-    "/cms",
-  ]) {
-    const r = await fetch(base + path);
-    check(r.status === 200, `${path} renders`);
-    check((await r.text()).includes("<h1"), `${path} server-rendered heading`);
+  check(documentResponse.status === 200, "Homepage renders");
+  check(documentHtml.includes("Coming soon"), "Shop launch label renders");
+  const redirects = [
+    ["/shop", "https://shop.aurelio.in"],
+    ["/bulk-orders", "https://exports.aurelio.in"],
+    ["/exports", "https://exports.aurelio.in"],
+    ...[
+      "collections",
+      "materials",
+      "about",
+      "contact",
+      "preferences",
+      "journal",
+      "care",
+      "privacy",
+      "terms",
+      "admin",
+      "cms",
+    ].map((path) => [`/${path}`, "/"]),
+  ];
+  for (const [path, destination] of redirects) {
+    const response = await fetch(base + path, { redirect: "manual" });
+    check(
+      response.status === 302 &&
+        response.headers.get("location") === destination,
+      `${path} redirects`,
+    );
   }
-  for (const path of [
-    "/not-a-page",
-    "/pieces/not-a-piece",
-    "/journal/not-an-article",
-  ])
-    check((await fetch(base + path)).status === 404, `${path} returns 404`);
-  // The shop lives on Shopify: /shop forwards there (or to Contact until set).
-  check((await fetch(base + "/shop", { redirect: "manual" })).status === 302, "/shop forwards to the online shop");
+  check(
+    (await fetch(base + "/not-a-page")).status === 404,
+    "Unknown paths return 404",
+  );
   console.log(`${assertions} smoke assertions passed.`);
 } finally {
   for (const collection of ["enquiries", "messages", "newsletter"])
     await db.collection(collection).deleteMany({ email });
   await client.close();
-  console.log(
-    "Removed only this test run’s form records.",
-  );
+  console.log("Removed only this test run’s form records.");
 }

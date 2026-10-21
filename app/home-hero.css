@@ -1,10 +1,33 @@
+.immersive-home {
+  --gold: #c6b18b;
+  --ease: cubic-bezier(0.22, 0.75, 0.2, 1);
+  overflow: clip;
+}
+.atelier-hero {
+  height: calc(100svh - 125px);
+  min-height: 660px;
+  max-height: 1100px;
+  position: relative;
+  isolation: isolate;
+  color: #f2f2f2;
+  background: #072319;
+  overflow: clip;
+}
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' opacity='.45' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
 /* Landing — the film hero and the two service doors.
    The footage is the subject: copy sits low and small, the veil only darkens
    the edges it needs for legibility, and every flourish yields to the video. */
 
 /* ---------- Film hero ---------- */
-/* Nothing but the film, the header and two ways in. The header floats over
-   the footage and turns solid the moment the page is scrolled. */
+/* The film, wordmark and two external destinations. */
 .atelier-hero.film-hero {
   height: 100svh;
   height: 100dvh;
@@ -12,7 +35,7 @@
   max-height: none;
   display: grid;
   place-items: end center;
-  padding: 0 var(--gutter) clamp(44px, 9vh, 96px);
+  padding: 0 var(--gutter) max(48px, calc(32px + env(safe-area-inset-bottom)));
 }
 /* The still is the hero until the film is rolling, and the hero for good when
    there is no film, motion is reduced or data is being saved. It settles from
@@ -21,6 +44,12 @@
 .film-video {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.film-poster img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -65,7 +94,9 @@
 
 .film-actions {
   display: flex;
-  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .landing-name {
@@ -95,209 +126,200 @@
   line-height: 1.6;
   color: #f5f0e5cc;
 }
+/* Small glass surfaces keep the moving image in view. The opaque base is
+   the fallback for browsers without backdrop filtering. */
+.film-button,
 .landing-contact {
-  position: absolute;
-  right: clamp(22px, 3vw, 52px);
-  top: 50%;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 0 15px;
-  border: 1px solid #f5f0e53d;
-  background: #07231935;
-  backdrop-filter: blur(10px);
-  color: #f5f0e5;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-}
-.landing-contact:hover {
-  background: #07231980;
-  border-color: #f5f0e599;
-}
-@media (max-width: 680px) {
-  .landing-contact {
-    top: auto;
-    bottom: max(22px, env(safe-area-inset-bottom));
-  }
-}
-@media (max-height: 500px) and (max-width: 680px) {
-  .landing-name {
-    top: 22px;
-  }
-  .landing-contact {
-    top: 100px;
-    bottom: auto;
-  }
-}
-.film-button {
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  min-width: 250px;
-  min-height: 58px;
-  padding: 0 28px;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  overflow: clip;
-  isolation: isolate;
+  border: 1px solid #ffffff40;
+  border-radius: 999px;
+  background:
+    linear-gradient(160deg, #ffffff24, #ffffff05 48%, #ffffff0d), #173428;
+  color: #fffdf8;
+  box-shadow:
+    inset 0 1px 0 #ffffff30,
+    inset 0 -1px 0 #ffffff0a,
+    0 4px 16px #03180f1a;
+  text-shadow: 0 1px 6px #03180f66;
+  -webkit-tap-highlight-color: transparent;
   transition:
-    color var(--dur-3) var(--ease-out),
-    border-color var(--dur-3) var(--ease-out),
-    transform var(--dur-3) var(--ease-out);
-  animation: film-rise 1.1s var(--ease-out) both;
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
-.film-button:nth-child(1) {
-  animation-delay: 0.5s;
+@supports (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  .film-button,
+  .landing-contact {
+    background-color: #0c1c163d;
+    backdrop-filter: blur(14px) saturate(1.35);
+    -webkit-backdrop-filter: blur(14px) saturate(1.35);
+  }
 }
-.film-button:nth-child(2) {
-  animation-delay: 0.65s;
-}
-.film-button svg {
-  transition: transform var(--dur-3) var(--ease-out);
-}
-.film-button:hover,
-.film-button:focus-visible {
-  transform: translateY(-3px);
-}
-.film-button:hover svg,
-.film-button:focus-visible svg {
-  transform: rotate(45deg);
-}
-/* The fill rises from the base of each button on approach. */
-.film-button::before {
+.film-button::before,
+.landing-contact::before {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform var(--dur-4) var(--ease-out);
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(115deg, #ffffff12, transparent 42%);
+  pointer-events: none;
 }
-.film-button:hover::before,
-.film-button:focus-visible::before {
-  transform: scaleY(1);
+.film-button {
+  position: relative;
+  gap: 12px;
+  min-height: 54px;
+  min-width: 176px;
+  border-radius: 14px;
+  padding: 0 25px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  line-height: 1.3;
+  white-space: nowrap;
+  text-transform: none;
 }
-.film-button-solid {
-  color: var(--ink);
-  background: #f2efe6;
-  border: 1px solid #f2efe6;
+.film-button-copy {
+  display: grid;
+  gap: 5px;
+  text-align: left;
 }
-.film-button-solid::before {
-  background: #d8c39d;
+.film-button-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #e8dbb9;
 }
-.film-button-glass {
-  color: #f5f3ec;
-  border: 1px solid #f2f2f259;
-  background: #0723192e;
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
-}
-.film-button-glass::before {
-  background: #f2efe6;
-}
-.film-button-glass:hover,
-.film-button-glass:focus-visible {
-  color: var(--ink);
-  border-color: #f2efe6;
+.film-button-status::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e8dbb9;
+  box-shadow: 0 0 8px #e8dbb966;
 }
 
-@keyframes film-rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
+.film-button > svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+  transition:
+    transform 220ms ease,
+    opacity 220ms ease;
+}
+.landing-contact {
+  position: absolute;
+  right: max(24px, calc(16px + env(safe-area-inset-right)));
+  bottom: max(24px, calc(16px + env(safe-area-inset-bottom)));
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  z-index: 2;
+}
+.contact-caption {
+  position: absolute;
+  right: calc(100% + 12px);
+  padding: 8px 12px;
+  border: 1px solid #ffffff29;
+  border-radius: 999px;
+  background: #173428e6;
+  color: #fffdf8;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    visibility 180ms ease;
+}
+@media (hover: hover) {
+  .film-button:hover,
+  .landing-contact:hover {
+    background-color: #29473b73;
+    border-color: #ffffff73;
+    box-shadow:
+      inset 0 1px 0 #ffffff52,
+      0 5px 20px #03180f24;
   }
-  to {
+  .film-button:hover > svg {
+    transform: translate(1px, -1px);
     opacity: 1;
-    transform: none;
+  }
+  .landing-contact:hover .contact-caption {
+    opacity: 1;
+    visibility: visible;
   }
 }
-
+.film-button:focus-visible,
+.landing-contact:focus-visible {
+  outline: 2px solid #fffdf8;
+  outline-offset: 4px;
+  border-color: #ffffff8c;
+}
+.landing-contact:focus-visible .contact-caption {
+  opacity: 1;
+  visibility: visible;
+}
+.film-button:active,
+.landing-contact:active {
+  background-color: #29473ba6;
+}
 @media (max-width: 680px) {
   .atelier-hero.film-hero {
-    padding-inline: 22px;
-    padding-bottom: 96px;
+    padding-inline: 20px;
+    padding-bottom: max(108px, calc(96px + env(safe-area-inset-bottom)));
   }
   .film-actions {
-    flex-direction: column;
-    width: 100%;
+    flex-wrap: wrap;
     gap: 10px;
   }
   .film-button {
     min-width: 0;
-    width: 100%;
-    min-height: 54px;
+    padding-inline: 18px;
+  }
+  .landing-contact {
+    right: max(20px, calc(16px + env(safe-area-inset-right)));
+    bottom: max(20px, calc(16px + env(safe-area-inset-bottom)));
+    width: 54px;
+    height: 54px;
   }
 }
-
-/* ---------- Transparent header over the landing film ---------- */
-/* The header leaves the flow and floats on the footage; the existing
-   data-scrolled rules in interaction-v2.css make it opaque again on scroll. */
-/* Just the mark: no tagline under it and no reading-progress line. */
-body:has(.film-hero) .wordmark span,
-body:has(.film-hero) .site-header::after {
-  display: none;
+@media (max-width: 400px) {
+  .film-actions {
+    flex-direction: column;
+  }
+  .film-button {
+    min-width: 224px;
+  }
 }
-body:has(.film-hero) .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-body:has(.film-hero):not([data-scrolled="true"]) .site-header {
-  background: transparent;
-  border-color: transparent;
-  box-shadow: none;
-}
-
-/* ---------- Two doors, in full ---------- */
-/* Details stay folded until the panel is approached, so the image leads. */
 
 @media (prefers-reduced-motion: reduce) {
   .film-video {
     transform: none;
   }
 }
-body:has(.film-hero):not([data-scrolled="true"]) .site-header a,
-body:has(.film-hero):not([data-scrolled="true"]) .site-header select,
-body:has(.film-hero):not([data-scrolled="true"]) .site-header .icon-button {
-  text-shadow: 0 1px 12px #03180f99;
-}
 
-/* Closing: two ways out, matching the two doors at the top of the page. */
-.commission-links {
-  display: flex;
-  gap: clamp(24px, 4vw, 64px);
-}
-.commission-links .commission-link {
-  min-width: clamp(200px, 18vw, 280px);
-  justify-content: space-between;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-}
-@media (max-width: 640px) {
-  .commission-links {
-    display: grid;
-    gap: 0;
-  }
-  .commission-links .commission-link {
-    min-width: 0;
-  }
-}
-
-/* The landing page is a single screen; inner pages retain normal scrolling. */
+/* The homepage is a single screen. The contact dialog scrolls independently. */
 html:has(.film-hero),
 body:has(.film-hero) {
   height: 100%;
   overflow: hidden;
 }
 
-@media (max-height: 500px) {
+@media (max-height: 500px) and (min-width: 681px) {
   .atelier-hero.film-hero {
-    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    padding-bottom: max(24px, calc(16px + env(safe-area-inset-bottom)));
+  }
+  .landing-name {
+    top: 22px;
   }
 }
